@@ -1,0 +1,52 @@
+{
+  "index.html": {
+    "title": "Tour a Cusco e Machu Picchu | Pacchetti in Perù | My Cusco Trip",
+    "description": "Prenota tour a Cusco, Machu Picchu, Valle Sacra e pacchetti in Perù con esperti locali, assistenza personalizzata e pagamenti flessibili.",
+    "canonical": "https://mycuscotrip.com/it/"
+  },
+  "machu-picchu-tours.html": {
+    "title": "Tour a Machu Picchu in treno, full day e 2 giorni | My Cusco Trip",
+    "description": "Scopri Machu Picchu con tour in treno, opzioni full day e 2 giorni con biglietti ufficiali, trasferimenti e guida professionale.",
+    "canonical": "https://mycuscotrip.com/it/machu-picchu-tours.html"
+  },
+  "cusco-tours.html": {
+    "title": "Tour a Cusco: Valle Sacra, Humantay e Montagna Arcobaleno | My Cusco Trip",
+    "description": "Prenota i migliori tour a Cusco: Valle Sacra, Lago Humantay, Montagna Arcobaleno, Maras Moray ed esperienze culturali.",
+    "canonical": "https://mycuscotrip.com/it/cusco-tours.html"
+  },
+  "paquetes-cusco.html": {
+    "title": "Pacchetti Cusco e Machu Picchu | 3 a 8 giorni | My Cusco Trip",
+    "description": "Pacchetti flessibili per Cusco e Machu Picchu con tour, hotel, treni, trasferimenti e assistenza personalizzata.",
+    "canonical": "https://mycuscotrip.com/it/paquetes-cusco.html"
+  },
+  "trekkings.html": {
+    "title": "Cammino Inca, Salkantay Trek e itinerari verso Machu Picchu | My Cusco Trip",
+    "description": "Organizza Cammino Inca, Salkantay Trek, Inca Jungle e trekking verso Machu Picchu con supporto locale.",
+    "canonical": "https://mycuscotrip.com/it/trekkings.html"
+  },
+  "explora-peru.html": {
+    "title": "Esplora il Perù: Lima, Paracas, Ica, Puno, Arequipa e Cusco | My Cusco Trip",
+    "description": "Scopri il Perù oltre Cusco con esperienze a Lima, Paracas, Ica, Puno, Arequipa, Amazzonia e Machu Picchu.",
+    "canonical": "https://mycuscotrip.com/it/explora-peru.html"
+  },
+  "all-experiences.html": {
+    "title": "Tutti i tour e le esperienze in Perù | My Cusco Trip",
+    "description": "Esplora tutti i tour, trekking e pacchetti a Cusco, Machu Picchu e Perù con filtri per destinazione, durata e stile di viaggio.",
+    "canonical": "https://mycuscotrip.com/it/all-experiences.html"
+  },
+  "product.html": {
+    "title": "Dettagli del tour e prenotazione sicura | My Cusco Trip",
+    "description": "Consulta itinerario, inclusioni, hotel, treni, prezzi e opzioni di prenotazione per la tua esperienza in Perù.",
+    "canonical": "https://mycuscotrip.com/it/product.html"
+  },
+  "quote-packages.html": {
+    "title": "Preventivo pacchetto personalizzato in Perù | My Cusco Trip",
+    "description": "Crea un preventivo stimato per il tuo viaggio in Perù con pacchetti, hotel, treni e servizi opzionali.",
+    "canonical": "https://mycuscotrip.com/it/quote-packages.html"
+  },
+  "private-package.html": {
+    "title": "Pacchetti privati e su misura in Perù | My Cusco Trip",
+    "description": "Crea un itinerario privato in Perù con specialisti locali per coppie, famiglie, gruppi e viaggi personalizzati.",
+    "canonical": "https://mycuscotrip.com/it/private-package.html"
+  }
+}

@@ -1,0 +1,4613 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "currency": "USD",
+  "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+  "pricingNotes": {
+    "trainPricesAreSupplierFares": true,
+    "applyPaymentFeesInTourOrCheckout": true,
+    "adultFieldUsedForBaseCalculation": true,
+    "childFieldAvailableWhenProvided": true,
+    "guideFieldFromIncaRailTariffIsStoredWhenVisible": true
+  },
+  "routeCodes": {
+    "CUSCO_MAPI": "クスコ / San Pedro / Wanchaq / Poroy hacia マチュピチュ",
+    "OLLA_MAPI": "Ollantaytambo hacia マチュピチュ",
+    "MAPI_CUSCO": "マチュピチュ hacia クスコ / San Pedro / Wanchaq / Poroy",
+    "MAPI_OLLA": "マチュピチュ hacia Ollantaytambo"
+  },
+  "stations": {
+    "cusco": [
+      "San Pedro",
+      "Wanchaq",
+      "Poroy"
+    ],
+    "ollantaytambo": [
+      "Ollantaytambo"
+    ],
+    "machuPicchu": [
+      "マチュピチュ"
+    ]
+  },
+  "companies": {
+    "incarail": {
+      "name": "Inca Rail",
+      "categories": [
+        "voyager",
+        "360",
+        "prime",
+        "first_class"
+      ],
+      "benefitsSource": "BENEFICIOS CATEGORIAS INCA RAIL"
+    },
+    "perurail": {
+      "name": "PeruRail",
+      "categories": [
+        "expedition",
+        "vistadome",
+        "vistadome_observatory",
+        "hiram_bingham"
+      ],
+      "benefitsSource": "BENEFICIOS EXPEDITION / VISTADOME / VISTADOME OBSERVATORY / HIRAM BINGHAM"
+    },
+    "local": {
+      "name": "Tren Local",
+      "categories": [
+        "local"
+      ],
+      "benefitsSource": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+    }
+  },
+  "categoryBenefits": {
+    "incarail": {
+      "voyager": [
+        "Asientos cómodos",
+        "Ventanas amplias",
+        "Música ambiental",
+        "Venta de alimentos y bebidas"
+      ],
+      "360": [
+        "Coche observatorio con balcón abierto",
+        "Ventanas panorámicas",
+        "Coche bar con bebidas y show",
+        "Asientos amplios con mesas",
+        "Snacks y bebida de cortesía"
+      ],
+      "prime": [
+        "Ventanas panorámicas",
+        "Asientos cómodos con mesas",
+        "Snacks y bebida de cortesía",
+        "Representación cultural en vivo",
+        "Desfile de baby alpaca"
+      ],
+      "first_class": [
+        "体験 premium",
+        "Gastronomía gourmet",
+        "Bebidas de bienvenida",
+        "Música en vivo",
+        "Ambiente de mayor exclusividad"
+      ]
+    },
+    "perurail": {
+      "expedition": [
+        "Asientos cómodos",
+        "Música ambiental",
+        "Venta de alimentos y bebidas",
+        "Equipaje de mano permitido"
+      ],
+      "vistadome": [
+        "Ventanas panorámicas",
+        "Audio turístico y música ambiental",
+        "Asientos cómodos con mesas",
+        "Servicio turístico panorámico"
+      ],
+      "vistadome_observatory": [
+        "Coche observatorio con balcón abierto",
+        "Ventanas panorámicas",
+        "Coche bar con bebidas y show",
+        "Snacks y bebida de cortesía",
+        "Danza y música típica en vivo"
+      ],
+      "hiram_bingham": [
+        "Sala VIP con show en vivo antes del viaje",
+        "Coche observatorio con balcón abierto",
+        "Coche bar con selección de bebidas y cócteles",
+        "Coche restaurante con servicio exclusivo",
+        "Almuerzo y cena gourmet a bordo",
+        "Show musical en vivo",
+        "Boleto de ingreso a マチュピチュ incluido según condiciones del operador",
+        "Bus de subida y bajada a マチュピチュ incluido según condiciones del operador",
+        "Guía turístico en español e inglés según condiciones del operador",
+        "Cóctel en hotel Sanctuary Lodge"
+      ]
+    }
+  },
+  "selectionRules": {
+    "sameCompanyRoundTripDefault": true,
+    "avoidPeruRailPoroyAsDefault": true,
+    "avoidIncaRailDoorToDoorAsDefault": true,
+    "preferredCuscoStations": [
+      "San Pedro",
+      "Wanchaq"
+    ],
+    "preferredOvernightOutboundRoute": "OLLA_MAPI",
+    "preferredFullDayRoute": "CUSCO_MAPI",
+    "preferredReturnRoute": "MAPI_CUSCO",
+    "localTrainNationalitiesOnly": [
+      "PE"
+    ],
+    "localTrainCanMixCompanies": true,
+    "fullDayMinimumReturnBufferMinutes": 360,
+    "overnightMinimumReturnDepartureTime": "12:00",
+    "sacredValleyConnectionRecommendedAfter": "15:37",
+    "sacredValleyConnectionIdealAfter": "16:36",
+    "touristRoundTripMustUseSameCompanyExceptLocal": true,
+    "warnings": {
+      "localTrain": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "sacredValleyEarlyConnection": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "overnightEarlyReturn": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+    }
+  },
+  "trains": [
+    {
+      "code": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "04:10",
+      "arrivalTime": "08:01",
+      "frequency": "41",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 74,
+        "child": 56,
+        "guide": 59
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "fixed",
+        "full-day-classic-base",
+        "full-day-express-outbound"
+      ],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_61",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "04:30",
+      "arrivalTime": "08:48",
+      "frequency": "61",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 74,
+        "child": 56,
+        "guide": 59
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_VOYAGER_41",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "06:40",
+      "arrivalTime": "08:01",
+      "frequency": "41",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 58,
+        "child": 44,
+        "guide": 46
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_VOYAGER_61",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "07:22",
+      "arrivalTime": "08:48",
+      "frequency": "61",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 58,
+        "child": 44,
+        "guide": 46
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_43",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "08:00",
+      "arrivalTime": "12:41",
+      "frequency": "43",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 68,
+        "child": 52,
+        "guide": 54
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_VOYAGER_43",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "11:15",
+      "arrivalTime": "12:41",
+      "frequency": "43",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 52,
+        "child": 39,
+        "guide": 41
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_45",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "13:00",
+      "arrivalTime": "18:09",
+      "frequency": "45",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 91,
+        "child": 68,
+        "guide": 73
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_67",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "15:45",
+      "arrivalTime": "21:09",
+      "frequency": "67",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 81,
+        "child": 60,
+        "guide": 65
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_VOYAGER_45",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "16:36",
+      "arrivalTime": "18:09",
+      "frequency": "45",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 74,
+        "child": 56,
+        "guide": 59
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "overnight-classic-base",
+        "overnight-express-outbound",
+        "sacred-valley-connection",
+        "sacred-valley-connection-ideal"
+      ],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": true,
+        "sacredValleyConnectionIdeal": true,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_VOYAGER_67",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "19:27",
+      "arrivalTime": "21:09",
+      "frequency": "67",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 55,
+        "child": 41,
+        "guide": 44
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "sacred-valley-connection",
+        "sacred-valley-connection-ideal"
+      ],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": true,
+        "sacredValleyConnectionIdeal": true,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_360_BIMODAL_61",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360° Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "04:30",
+      "arrivalTime": "08:48",
+      "frequency": "61",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 100,
+        "child": 75,
+        "guide": 80
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_360_61",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360°",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "07:22",
+      "arrivalTime": "08:48",
+      "frequency": "61",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 83,
+        "child": 62,
+        "guide": 67
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_360_BIMODAL_65",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360° Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "09:25",
+      "arrivalTime": "14:00",
+      "frequency": "65",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 97,
+        "child": 73,
+        "guide": 78
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_360_65",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360°",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "12:36",
+      "arrivalTime": "14:00",
+      "frequency": "65",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 72,
+        "child": 54,
+        "guide": 58
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_PRIME_BIMODAL_41",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "04:10",
+      "arrivalTime": "08:01",
+      "frequency": "41",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 100,
+        "child": 75,
+        "guide": 80
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "prime-base-outbound"
+      ],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_PRIME_41",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "06:40",
+      "arrivalTime": "08:01",
+      "frequency": "41",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 83,
+        "child": 62,
+        "guide": 66
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_PRIME_BIMODAL_43",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "08:00",
+      "arrivalTime": "12:41",
+      "frequency": "43",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 128,
+        "child": 96,
+        "guide": 102
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_PRIME_43",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "11:15",
+      "arrivalTime": "12:41",
+      "frequency": "43",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 102,
+        "child": 77,
+        "guide": 82
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_PRIME_BIMODAL_45",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "13:00",
+      "arrivalTime": "18:09",
+      "frequency": "45",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 142,
+        "child": 107,
+        "guide": 114
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_PRIME_45",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "16:36",
+      "arrivalTime": "18:09",
+      "frequency": "45",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 116,
+        "child": 87,
+        "guide": 93
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "sacred-valley-connection",
+        "sacred-valley-connection-ideal"
+      ],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": true,
+        "sacredValleyConnectionIdeal": true,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_CUSCO_MAPI_FIRST_CLASS_BIMODAL_43",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "first_class",
+      "serviceName": "The First Class Bimodal",
+      "route": "CUSCO_MAPI",
+      "departureStation": "クスコ",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "08:00",
+      "arrivalTime": "12:41",
+      "frequency": "43",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 311,
+        "child": 233,
+        "guide": 249
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_OLLA_MAPI_FIRST_CLASS_43",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "first_class",
+      "serviceName": "The First Class",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "11:15",
+      "arrivalTime": "12:41",
+      "frequency": "43",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 292,
+        "child": 219,
+        "guide": 234
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_VOYAGER_42",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "08:30",
+      "arrivalTime": "10:10",
+      "frequency": "42",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 58,
+        "child": 44,
+        "guide": 46
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_42",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "08:30",
+      "arrivalTime": "12:10",
+      "frequency": "42",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 74,
+        "child": 56,
+        "guide": 59
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_62",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "10:32",
+      "arrivalTime": "14:30",
+      "frequency": "62",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 74,
+        "child": 56,
+        "guide": 59
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_OLLA_VOYAGER_62",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "10:32",
+      "arrivalTime": "12:12",
+      "frequency": "62",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 58,
+        "child": 44,
+        "guide": 46
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_OLLA_VOYAGER_44",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "14:30",
+      "arrivalTime": "15:56",
+      "frequency": "44",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 82,
+        "child": 62,
+        "guide": 66
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "fixed",
+        "full-day-express-return",
+        "overnight-express-return"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "14:30",
+      "arrivalTime": "18:20",
+      "frequency": "44",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 99,
+        "child": 74,
+        "guide": 79
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_64",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "16:12",
+      "arrivalTime": "20:20",
+      "frequency": "64",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 99,
+        "child": 74,
+        "guide": 79
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_VOYAGER_64",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "16:12",
+      "arrivalTime": "17:50",
+      "frequency": "64",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 82,
+        "child": 62,
+        "guide": 66
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_VOYAGER_46",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "19:00",
+      "arrivalTime": "20:41",
+      "frequency": "46",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 81,
+        "child": 60,
+        "guide": 65
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_46",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "19:00",
+      "arrivalTime": "23:00",
+      "frequency": "46",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 97,
+        "child": 73,
+        "guide": 78
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_66",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "20:20",
+      "arrivalTime": "00:10",
+      "frequency": "66",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 99,
+        "child": 74,
+        "guide": 79
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_VOYAGER_66",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "20:20",
+      "arrivalTime": "21:59",
+      "frequency": "66",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 82,
+        "child": 62,
+        "guide": 66
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_VOYAGER_68",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "21:30",
+      "arrivalTime": "22:54",
+      "frequency": "68",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 52,
+        "child": 39,
+        "guide": 42
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "voyager",
+      "serviceName": "The Voyager Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "21:30",
+      "arrivalTime": "01:15",
+      "frequency": "68",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 68,
+        "child": 51,
+        "guide": 54
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "full-day-classic-base-return",
+        "overnight-classic-base-return"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_360_BIMODAL_62",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360° Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "10:32",
+      "arrivalTime": "14:30",
+      "frequency": "62",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 86,
+        "child": 65,
+        "guide": 69
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_OLLA_360_62",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360°",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "10:32",
+      "arrivalTime": "12:12",
+      "frequency": "62",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 69,
+        "child": 52,
+        "guide": 55
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_OLLA_360_64",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360°",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "16:12",
+      "arrivalTime": "17:50",
+      "frequency": "64",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 103,
+        "child": 77,
+        "guide": 82
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_360_BIMODAL_64",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "360",
+      "serviceName": "The 360° Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "16:12",
+      "arrivalTime": "20:20",
+      "frequency": "64",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 129,
+        "child": 97,
+        "guide": 103
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_PRIME_42",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "08:30",
+      "arrivalTime": "10:10",
+      "frequency": "42",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 81,
+        "child": 61,
+        "guide": 65
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_PRIME_BIMODAL_42",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "08:30",
+      "arrivalTime": "12:10",
+      "frequency": "42",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 103,
+        "child": 77,
+        "guide": 82
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_PRIME_BIMODAL_44",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "14:30",
+      "arrivalTime": "18:20",
+      "frequency": "44",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 142,
+        "child": 107,
+        "guide": 114
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_PRIME_44",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "14:30",
+      "arrivalTime": "15:56",
+      "frequency": "44",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 116,
+        "child": 87,
+        "guide": 93
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_PRIME_46",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "19:00",
+      "arrivalTime": "20:41",
+      "frequency": "46",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 92,
+        "child": 69,
+        "guide": 74
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_PRIME_BIMODAL_46",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "prime",
+      "serviceName": "The Prime Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "19:00",
+      "arrivalTime": "23:00",
+      "frequency": "46",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 109,
+        "child": 82,
+        "guide": 87
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "prime-base-return"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_OLLA_FIRST_CLASS_46",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "first_class",
+      "serviceName": "The First Class",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "19:00",
+      "arrivalTime": "20:41",
+      "frequency": "46",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 257,
+        "child": 193,
+        "guide": 206
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46",
+      "company": "incarail",
+      "companyName": "Inca Rail",
+      "category": "first_class",
+      "serviceName": "The First Class Bimodal",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "クスコ",
+      "departureTime": "19:00",
+      "arrivalTime": "23:00",
+      "frequency": "46",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 276,
+        "child": 207,
+        "guide": 221
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "incarail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_WANCHAQ_MAPI_EXPEDITION_81",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 81",
+      "route": "CUSCO_MAPI",
+      "departureStation": "Wanchaq",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "03:20",
+      "arrivalTime": "07:40",
+      "frequency": "81",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 84.55,
+        "child": 84.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_WANCHAQ_MAPI_VISTADOME_OBS_83",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 83",
+      "route": "CUSCO_MAPI",
+      "departureStation": "Wanchaq",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "04:00",
+      "arrivalTime": "09:15",
+      "frequency": "83",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 161.5,
+        "child": 161.5,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_WANCHAQ_MAPI_EXPEDITION_83P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 83P",
+      "route": "CUSCO_MAPI",
+      "departureStation": "Wanchaq",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "05:10",
+      "arrivalTime": "09:15",
+      "frequency": "83P",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 84.55,
+        "child": 84.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_WANCHAQ_MAPI_EXPEDITION_33",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 33",
+      "route": "CUSCO_MAPI",
+      "departureStation": "Wanchaq",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "05:40",
+      "arrivalTime": "09:54",
+      "frequency": "33",
+      "modality": "bus_train",
+      "currency": "USD",
+      "price": {
+        "adult": 103.55,
+        "child": 103.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_SANPEDRO_MAPI_EXPEDITION_31",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 31",
+      "route": "CUSCO_MAPI",
+      "departureStation": "San Pedro",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "06:40",
+      "arrivalTime": "10:52",
+      "frequency": "31",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 103.55,
+        "child": 103.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_SANPEDRO_MAPI_VISTADOME_31",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 31",
+      "route": "CUSCO_MAPI",
+      "departureStation": "San Pedro",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "06:40",
+      "arrivalTime": "10:52",
+      "frequency": "31",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 114.0,
+        "child": 114.0,
+        "guide": null
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "observatory-base-outbound"
+      ],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_SANPEDRO_MAPI_EXPEDITION_203",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 203",
+      "route": "CUSCO_MAPI",
+      "departureStation": "San Pedro",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "07:30",
+      "arrivalTime": "12:11",
+      "frequency": "203",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 103.55,
+        "child": 103.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_SANPEDRO_MAPI_VISTADOME_OBS_203",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 203",
+      "route": "CUSCO_MAPI",
+      "departureStation": "San Pedro",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "07:30",
+      "arrivalTime": "12:11",
+      "frequency": "203",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 161.5,
+        "child": 161.5,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_POROY_MAPI_HIRAM_BINGHAM_11",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "hiram_bingham",
+      "serviceName": "Hiram Bingham 11",
+      "route": "CUSCO_MAPI",
+      "departureStation": "Poroy",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "09:05",
+      "arrivalTime": "12:24",
+      "frequency": "11",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 598.5,
+        "child": 598.5,
+        "guide": null
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "luxury-base-outbound"
+      ],
+      "notes": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_EXPEDITION_71",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 71",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "05:05",
+      "arrivalTime": "06:37",
+      "frequency": "71",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 65.55,
+        "child": 65.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_EXPEDITION_81",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 81",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "06:10",
+      "arrivalTime": "07:40",
+      "frequency": "81",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 65.55,
+        "child": 65.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_VISTADOME_301",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 301",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "07:05",
+      "arrivalTime": "08:27",
+      "frequency": "301",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 95.0,
+        "child": 95.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_EXPEDITION_83P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 83P",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "07:45",
+      "arrivalTime": "09:15",
+      "frequency": "83P",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 65.55,
+        "child": 65.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_VISTADOME_OBS_83",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 83",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "07:45",
+      "arrivalTime": "09:15",
+      "frequency": "83",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 133.0,
+        "child": 133.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_VISTADOME_601",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 601",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "08:00",
+      "arrivalTime": "09:25",
+      "frequency": "601",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 95.0,
+        "child": 95.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_EXPEDITION_33",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 33",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "08:29",
+      "arrivalTime": "09:54",
+      "frequency": "33",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 84.55,
+        "child": 84.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_VISTADOME_OBS_33",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 33",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "08:29",
+      "arrivalTime": "09:54",
+      "frequency": "33",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 133.0,
+        "child": 133.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_VISTADOME_501",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 501",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "08:53",
+      "arrivalTime": "10:29",
+      "frequency": "501",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 65.55,
+        "child": 65.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_EXPEDITION_31",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 31",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "09:15",
+      "arrivalTime": "10:52",
+      "frequency": "31",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 84.55,
+        "child": 84.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_VISTADOME_31",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 31",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "09:15",
+      "arrivalTime": "10:52",
+      "frequency": "31",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 95.0,
+        "child": 95.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_50",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 50",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "05:35",
+      "arrivalTime": "07:44",
+      "frequency": "50",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 58.9,
+        "child": 58.9,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_72P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 72P",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "08:53",
+      "arrivalTime": "10:52",
+      "frequency": "72P",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 65.55,
+        "child": 65.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "PERU_MAPI_OLLA_VISTADOME_OBS_302",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 302",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "10:55",
+      "arrivalTime": "12:32",
+      "frequency": "302",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 94.05,
+        "child": 94.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_204",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 204",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "13:37",
+      "arrivalTime": "15:04",
+      "frequency": "204",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 94.05,
+        "child": 94.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_VISTADOME_OBS_204",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 204",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "13:37",
+      "departureTime": "15:04",
+      "arrivalTime": 133.0,
+      "frequency": "train",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": null,
+        "child": null,
+        "guide": 204
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_74P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 74P",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "14:55",
+      "arrivalTime": "16:31",
+      "frequency": "74P",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 94.05,
+        "child": 94.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_34",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 34",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "15:20",
+      "arrivalTime": "17:08",
+      "frequency": "34",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 94.05,
+        "child": 94.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_VISTADOME_304",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 304",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "15:48",
+      "arrivalTime": "17:29",
+      "frequency": "304",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 95.0,
+        "child": 95.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_504",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 504",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "16:22",
+      "arrivalTime": "18:10",
+      "frequency": "504",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 94.05,
+        "child": 94.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_VISTADOME_OBS_504",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 504",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "16:22",
+      "arrivalTime": "18:10",
+      "frequency": "504",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 133.0,
+        "child": 133.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_32",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 32",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "16:43",
+      "arrivalTime": "18:31",
+      "frequency": "32",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 94.05,
+        "child": 94.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_VISTADOME_32",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 32",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "16:43",
+      "arrivalTime": "18:31",
+      "frequency": "32",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 114.0,
+        "child": 114.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_HIRAM_BINGHAM_12",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "hiram_bingham",
+      "serviceName": "Hiram Bingham 12",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "17:50",
+      "arrivalTime": "19:25",
+      "frequency": "12",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 598.5,
+        "child": 598.5,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_86P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 86P",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "20:50",
+      "arrivalTime": "22:20",
+      "frequency": "86P",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 61.75,
+        "child": 61.75,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_OLLA_EXPEDITION_76",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 76",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "21:50",
+      "arrivalTime": "23:37",
+      "frequency": "76",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 58.9,
+        "child": 58.9,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_EXPEDITION_72P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 72P",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "08:53",
+      "arrivalTime": "13:35",
+      "frequency": "72P",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 84.55,
+        "child": 84.55,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-early-return-warning"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": false,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      },
+      "warnings": [
+        "overnight-return-before-noon"
+      ]
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_EXPEDITION_204",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 204",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "13:37",
+      "arrivalTime": "17:30",
+      "frequency": "204",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 113.05,
+        "child": 113.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_VISTADOME_OBS_204",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 204",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "13:37",
+      "arrivalTime": "17:30",
+      "frequency": "204",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 161.5,
+        "child": 161.5,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_EXPEDITION_74P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 74P",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "14:55",
+      "arrivalTime": "19:00",
+      "frequency": "74P",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 113.05,
+        "child": 113.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_EXPEDITION_34",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 34",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "15:20",
+      "arrivalTime": "19:45",
+      "frequency": "34",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 113.05,
+        "child": 113.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_POROY_EXPEDITION_34",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 34",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Poroy",
+      "departureTime": "15:20",
+      "arrivalTime": "19:05",
+      "frequency": "34",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 113.05,
+        "child": 113.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_EXPEDITION_504",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 504",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "16:22",
+      "departureTime": "20:30",
+      "arrivalTime": 113.05,
+      "frequency": "train_bus",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": null,
+        "child": null,
+        "guide": 504
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_VISTADOME_OBS_504",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome_observatory",
+      "serviceName": "Vistadome Observatory 504",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "16:22",
+      "departureTime": "21:20",
+      "arrivalTime": 161.5,
+      "frequency": "train_bus",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": null,
+        "child": null,
+        "guide": 504
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_SANPEDRO_EXPEDITION_32",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 32",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "San Pedro",
+      "departureTime": "16:43",
+      "arrivalTime": "21:23",
+      "frequency": "32",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 113.05,
+        "child": 113.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_SANPEDRO_VISTADOME_32",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 32",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "San Pedro",
+      "departureTime": "16:43",
+      "arrivalTime": "21:23",
+      "frequency": "32",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 133.0,
+        "child": 133.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_POROY_HIRAM_BINGHAM_12",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "hiram_bingham",
+      "serviceName": "Hiram Bingham 12",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Poroy",
+      "departureTime": "17:50",
+      "arrivalTime": "21:16",
+      "frequency": "12",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 598.5,
+        "child": 598.5,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_VISTADOME_606",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 606",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "18:10",
+      "arrivalTime": "22:15",
+      "frequency": "606",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 114.0,
+        "child": 114.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_EXPEDITION_84P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 84P",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "18:20",
+      "arrivalTime": "22:30",
+      "frequency": "84P",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 113.05,
+        "child": 113.05,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_VISTADOME_84P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "vistadome",
+      "serviceName": "Vistadome 84P",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "18:20",
+      "arrivalTime": "22:30",
+      "frequency": "84P",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 114.0,
+        "child": 114.0,
+        "guide": null
+      },
+      "recommendedDefault": false,
+      "tags": [],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_MAPI_WANCHAQ_EXPEDITION_86P",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition 86P",
+      "route": "MAPI_CUSCO",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Wanchaq",
+      "departureTime": "20:50",
+      "arrivalTime": "00:45",
+      "frequency": "86P",
+      "modality": "train_bus",
+      "currency": "USD",
+      "price": {
+        "adult": 75.05,
+        "child": 75.05,
+        "guide": null
+      },
+      "recommendedDefault": true,
+      "tags": [
+        "perurail-economic-night-return"
+      ],
+      "notes": "",
+      "direction": "inbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": false
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "LOCAL_OLLA_MAPI_NACIONAL_AM",
+      "company": "local",
+      "companyName": "Tren Local",
+      "category": "local",
+      "serviceName": "Tren Local Nacional",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "06:00",
+      "arrivalTime": "07:45",
+      "frequency": "nacional-referencial",
+      "modality": "train",
+      "currency": "PEN",
+      "priceMode": "consult",
+      "price": {
+        "adult": 0,
+        "child": 0,
+        "guide": 0
+      },
+      "recommendedDefault": false,
+      "direction": "outbound",
+      "isLocalTrain": true,
+      "operatorKey": "local",
+      "tags": [
+        "local-train",
+        "national-passengers-only"
+      ],
+      "warnings": [
+        "local-train-national-passengers-only"
+      ],
+      "notes": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": true,
+        "nationalitiesOnly": [
+          "PE"
+        ],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": false,
+        "canMixWithAnyOperator": true,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "LOCAL_OLLA_MAPI_NACIONAL_PM",
+      "company": "local",
+      "companyName": "Tren Local",
+      "category": "local",
+      "serviceName": "Tren Local Nacional",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "16:36",
+      "arrivalTime": "18:10",
+      "frequency": "nacional-referencial",
+      "modality": "train",
+      "currency": "PEN",
+      "priceMode": "consult",
+      "price": {
+        "adult": 0,
+        "child": 0,
+        "guide": 0
+      },
+      "recommendedDefault": false,
+      "direction": "outbound",
+      "isLocalTrain": true,
+      "operatorKey": "local",
+      "tags": [
+        "local-train",
+        "national-passengers-only",
+        "sacred-valley-connection",
+        "sacred-valley-connection-ideal"
+      ],
+      "warnings": [
+        "local-train-national-passengers-only"
+      ],
+      "notes": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": true,
+        "nationalitiesOnly": [
+          "PE"
+        ],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": true,
+        "sacredValleyConnectionIdeal": true,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": false,
+        "canMixWithAnyOperator": true,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "LOCAL_MAPI_OLLA_NACIONAL_MD",
+      "company": "local",
+      "companyName": "Tren Local",
+      "category": "local",
+      "serviceName": "Tren Local Nacional",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "12:35",
+      "arrivalTime": "14:15",
+      "frequency": "nacional-referencial",
+      "modality": "train",
+      "currency": "PEN",
+      "priceMode": "consult",
+      "price": {
+        "adult": 0,
+        "child": 0,
+        "guide": 0
+      },
+      "recommendedDefault": false,
+      "direction": "inbound",
+      "isLocalTrain": true,
+      "operatorKey": "local",
+      "tags": [
+        "local-train",
+        "national-passengers-only"
+      ],
+      "warnings": [
+        "local-train-national-passengers-only"
+      ],
+      "notes": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": true,
+        "nationalitiesOnly": [
+          "PE"
+        ],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": false,
+        "canMixWithAnyOperator": true,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "LOCAL_MAPI_OLLA_NACIONAL_PM",
+      "company": "local",
+      "companyName": "Tren Local",
+      "category": "local",
+      "serviceName": "Tren Local Nacional",
+      "route": "MAPI_OLLA",
+      "departureStation": "マチュピチュ",
+      "arrivalStation": "Ollantaytambo",
+      "departureTime": "18:20",
+      "arrivalTime": "20:00",
+      "frequency": "nacional-referencial",
+      "modality": "train",
+      "currency": "PEN",
+      "priceMode": "consult",
+      "price": {
+        "adult": 0,
+        "child": 0,
+        "guide": 0
+      },
+      "recommendedDefault": false,
+      "direction": "inbound",
+      "isLocalTrain": true,
+      "operatorKey": "local",
+      "tags": [
+        "local-train",
+        "national-passengers-only"
+      ],
+      "warnings": [
+        "local-train-national-passengers-only"
+      ],
+      "notes": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "operationalUse": {
+        "direction": "inbound",
+        "isLocalTrain": true,
+        "nationalitiesOnly": [
+          "PE"
+        ],
+        "appliesToFullDay": true,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": false,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": false,
+        "canMixWithAnyOperator": true,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    },
+    {
+      "code": "PERU_OLLA_MAPI_EXPEDITION_15_27",
+      "company": "perurail",
+      "companyName": "PeruRail",
+      "category": "expedition",
+      "serviceName": "Expedition referencial 15:27",
+      "route": "OLLA_MAPI",
+      "departureStation": "Ollantaytambo",
+      "arrivalStation": "マチュピチュ",
+      "departureTime": "15:27",
+      "arrivalTime": "17:02",
+      "frequency": "15:27",
+      "modality": "train",
+      "currency": "USD",
+      "price": {
+        "adult": 0,
+        "child": 0,
+        "guide": 0
+      },
+      "priceMode": "consult",
+      "recommendedDefault": false,
+      "tags": [
+        "overnight-express-outbound",
+        "pending-price-sync"
+      ],
+      "notes": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "direction": "outbound",
+      "isLocalTrain": false,
+      "operatorKey": "perurail",
+      "operationalUse": {
+        "direction": "outbound",
+        "isLocalTrain": false,
+        "nationalitiesOnly": [],
+        "appliesToFullDay": false,
+        "appliesToOvernight": true,
+        "sacredValleyConnectionRecommended": true,
+        "sacredValleyConnectionIdeal": false,
+        "requiresWarning": true
+      },
+      "compatibility": {
+        "sameOperatorRoundTripRequired": true,
+        "canMixWithAnyOperator": false,
+        "fullDayMinimumReturnBufferMinutes": 360,
+        "overnightMinimumReturnDepartureTime": "12:00"
+      }
+    }
+  ]
+}

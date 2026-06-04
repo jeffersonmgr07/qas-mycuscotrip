@@ -1,0 +1,52 @@
+{
+  "index.html": {
+    "title": "Circuits à Cusco et au Machu Picchu | Voyages au Pérou | My Cusco Trip",
+    "description": "Réservez des circuits à Cusco, au Machu Picchu, dans la Vallée Sacrée et des forfaits au Pérou avec une équipe locale spécialisée.",
+    "canonical": "https://mycuscotrip.com/fr/"
+  },
+  "machu-picchu-tours.html": {
+    "title": "Tours au Machu Picchu en train, journée complète et 2 jours | My Cusco Trip",
+    "description": "Découvrez le Machu Picchu avec des circuits en train, journée complète ou 2 jours incluant billets officiels, transferts et guide professionnel.",
+    "canonical": "https://mycuscotrip.com/fr/machu-picchu-tours.html"
+  },
+  "cusco-tours.html": {
+    "title": "Tours à Cusco : Vallée Sacrée, Humantay et Montagne Arc-en-ciel | My Cusco Trip",
+    "description": "Réservez les meilleurs circuits à Cusco : Vallée Sacrée, lac Humantay, montagne arc-en-ciel, Maras Moray et expériences culturelles.",
+    "canonical": "https://mycuscotrip.com/fr/cusco-tours.html"
+  },
+  "paquetes-cusco.html": {
+    "title": "Forfaits Cusco et Machu Picchu | 3 à 8 jours | My Cusco Trip",
+    "description": "Forfaits flexibles à Cusco et au Machu Picchu avec circuits, hôtels, trains, transferts et assistance personnalisée.",
+    "canonical": "https://mycuscotrip.com/fr/paquetes-cusco.html"
+  },
+  "trekkings.html": {
+    "title": "Chemin Inca, trek du Salkantay et routes vers le Machu Picchu | My Cusco Trip",
+    "description": "Organisez le Chemin Inca, le trek du Salkantay, Inca Jungle et les routes vers le Machu Picchu avec assistance locale.",
+    "canonical": "https://mycuscotrip.com/fr/trekkings.html"
+  },
+  "explora-peru.html": {
+    "title": "Explorer le Pérou : Lima, Paracas, Ica, Puno, Arequipa et Cusco | My Cusco Trip",
+    "description": "Découvrez le Pérou au-delà de Cusco avec Lima, Paracas, Ica, Puno, Arequipa, l’Amazonie et le Machu Picchu.",
+    "canonical": "https://mycuscotrip.com/fr/explora-peru.html"
+  },
+  "all-experiences.html": {
+    "title": "Toutes les expériences et circuits au Pérou | My Cusco Trip",
+    "description": "Parcourez tous les circuits, treks et forfaits à Cusco, au Machu Picchu et au Pérou avec filtres par destination et durée.",
+    "canonical": "https://mycuscotrip.com/fr/all-experiences.html"
+  },
+  "product.html": {
+    "title": "Détails du circuit et réservation sécurisée | My Cusco Trip",
+    "description": "Consultez itinéraire, inclusions, hôtels, trains, tarifs et options de réservation pour votre expérience au Pérou.",
+    "canonical": "https://mycuscotrip.com/fr/product.html"
+  },
+  "quote-packages.html": {
+    "title": "Devis de voyage personnalisé au Pérou | My Cusco Trip",
+    "description": "Créez un devis estimatif pour votre voyage au Pérou avec forfaits, hôtels, trains et services optionnels.",
+    "canonical": "https://mycuscotrip.com/fr/quote-packages.html"
+  },
+  "private-package.html": {
+    "title": "Voyages privés et sur mesure au Pérou | My Cusco Trip",
+    "description": "Concevez un itinéraire privé au Pérou avec des spécialistes locaux pour couples, familles et groupes.",
+    "canonical": "https://mycuscotrip.com/fr/private-package.html"
+  }
+}

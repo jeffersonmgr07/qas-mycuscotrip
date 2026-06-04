@@ -1,0 +1,780 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "sourceFile": "assets/data/trekkings-cusco.json",
+  "scope": "cusco-trekkings",
+  "description": "Catálogo futuro separado de trekkings en Cusco. Preparado para All Experiences, fichas de producto y filtros, sin mezclarse con paquetes dinámicos.",
+  "currency": "USD",
+  "status": "draft-ready",
+  "productKind": "trekking",
+  "productFamily": "cusco-trekking",
+  "defaults": {
+    "priceMode": "consult",
+    "bookingMode": "request_quote",
+    "requiresAvailabilityCheck": true,
+    "requiresPassengerData": true,
+    "allowedNationalities": [
+      "PE",
+      "FOREIGN"
+    ],
+    "imagesFallback": "./assets/img/placeholder/experience.jpg"
+  },
+  "filters": {
+    "types": [
+      "trekking",
+      "aventura",
+      "naturaleza",
+      "machu-picchu"
+    ],
+    "destinations": [
+      "cusco",
+      "machu-picchu",
+      "salkantay",
+      "ausangate",
+      "vinicunca"
+    ],
+    "difficulty": [
+      "moderada",
+      "moderada-alta",
+      "alta"
+    ],
+    "durationKeys": [
+      "2d1n",
+      "3d2n",
+      "4d3n",
+      "5d4n"
+    ]
+  },
+  "products": [
+    {
+      "id": "trk_cusco_001",
+      "internalCode": "TRK001",
+      "slug": "camino-inca-2d-1n",
+      "title": "Camino Inca 2D/1N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "2 giorni / 1 notte",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 2,
+      "nights": 1,
+      "shortDescription": "Versión corta del Camino Inca para conectar trekking, historia y Machu Picchu en una ruta compacta.",
+      "description": "Versión corta del Camino Inca para conectar trekking, historia y Machu Picchu en una ruta compacta.",
+      "duration": {
+        "label": "2D/1N",
+        "days": 2,
+        "nights": 1
+      },
+      "difficulty": "moderada",
+      "maxAltitudeMeters": 2700,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "camino-inca"
+      ],
+      "highlights": [
+        "Camino Inca corto",
+        "Ingreso a Machu Picchu",
+        "Ruta histórica"
+      ],
+      "permits": {
+        "required": true,
+        "type": "Camino Inca / Red de Caminos Inca",
+        "notes": "Sujeto a disponibilidad oficial y datos completos de pasajeros."
+      },
+      "accommodationType": [
+        "campamento o alojamiento según operación"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "camino-inca"
+        ],
+        "durationKeys": [
+          "2d1n",
+          "2-dias",
+          "1-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "camino inca 2d/1n",
+          "camino inca 2 dias 1 notte",
+          "Camino Inca corto",
+          "Ingreso a Machu Picchu",
+          "Ruta histórica"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Camino Inca 2D/1N | My Cusco Trip",
+        "description": "Versión corta del Camino Inca para conectar trekking, historia y Machu Picchu en una ruta compacta."
+      }
+    },
+    {
+      "id": "trk_cusco_002",
+      "internalCode": "TRK002",
+      "slug": "camino-inca-classico-4d-3n",
+      "title": "Camino Inca Classico 4D/3N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 giorni / 3 notti",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "Ruta clásica hacia Machu Picchu por antiguos caminos incas, campamentos y sitios arqueológicos.",
+      "description": "Ruta clásica hacia Machu Picchu por antiguos caminos incas, campamentos y sitios arqueológicos.",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "moderada-alta",
+      "maxAltitudeMeters": 4200,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "camino-inca"
+      ],
+      "highlights": [
+        "Camino Inca clásico",
+        "Wiñay Wayna",
+        "Inti Punku",
+        "Machu Picchu"
+      ],
+      "permits": {
+        "required": true,
+        "type": "Camino Inca / Red de Caminos Inca",
+        "notes": "Sujeto a disponibilidad oficial y datos completos de pasajeros."
+      },
+      "accommodationType": [
+        "campamento"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "camino-inca"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "camino inca clásico 4d/3n",
+          "camino inca 4 dias 3 notti",
+          "Camino Inca clásico",
+          "Wiñay Wayna",
+          "Inti Punku",
+          "Machu Picchu"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Camino Inca Classico 4D/3N | My Cusco Trip",
+        "description": "Ruta clásica hacia Machu Picchu por antiguos caminos incas, campamentos y sitios arqueológicos."
+      }
+    },
+    {
+      "id": "trk_cusco_003",
+      "internalCode": "TRK003",
+      "slug": "salkantay-trek-4d-3n",
+      "title": "Salkantay Trek 4D/3N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 giorni / 3 notti",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "Ruta de aventura hacia Machu Picchu con paisajes de montaña, cambios de ecosistema y caminatas exigentes.",
+      "description": "Ruta de aventura hacia Machu Picchu con paisajes de montaña, cambios de ecosistema y caminatas exigentes.",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 4600,
+      "destinations": [
+        "cusco",
+        "salkantay",
+        "machu-picchu"
+      ],
+      "highlights": [
+        "Nevado Salkantay",
+        "Paisajes altoandinos",
+        "Machu Picchu"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento",
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "salkantay",
+          "machu-picchu"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "salkantay trek 4d/3n",
+          "salkantay trek 4 dias 3 notti",
+          "Nevado Salkantay",
+          "Paisajes altoandinos",
+          "Machu Picchu"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Salkantay Trek 4D/3N | My Cusco Trip",
+        "description": "Ruta de aventura hacia Machu Picchu con paisajes de montaña, cambios de ecosistema y caminatas exigentes."
+      }
+    },
+    {
+      "id": "trk_cusco_004",
+      "internalCode": "TRK004",
+      "slug": "salkantay-trek-5d-4n",
+      "title": "Salkantay Trek 5D/4N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "5 giorni / 4 notti",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 5,
+      "nights": 4,
+      "shortDescription": "Versión más completa del Salkantay Trek con mejor ritmo para aclimatación y conexión con Machu Picchu.",
+      "description": "Versión más completa del Salkantay Trek con mejor ritmo para aclimatación y conexión con Machu Picchu.",
+      "duration": {
+        "label": "5D/4N",
+        "days": 5,
+        "nights": 4
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 4600,
+      "destinations": [
+        "cusco",
+        "salkantay",
+        "machu-picchu"
+      ],
+      "highlights": [
+        "Ruta Salkantay completa",
+        "Lago Humantay opcional",
+        "Machu Picchu"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento",
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "salkantay",
+          "machu-picchu"
+        ],
+        "durationKeys": [
+          "5d4n",
+          "5-dias",
+          "4-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "salkantay trek 5d/4n",
+          "salkantay trek 5 dias 4 notti",
+          "Ruta Salkantay completa",
+          "Lago Humantay opcional",
+          "Machu Picchu"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Salkantay Trek 5D/4N | My Cusco Trip",
+        "description": "Versión más completa del Salkantay Trek con mejor ritmo para aclimatación y conexión con Machu Picchu."
+      }
+    },
+    {
+      "id": "trk_cusco_005",
+      "internalCode": "TRK005",
+      "slug": "ausangate-trek",
+      "title": "Ausangate Trek",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "5 giorni / 4 notti",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 5,
+      "nights": 4,
+      "shortDescription": "Trekking de alta montaña alrededor del Ausangate, ideale per viajeros con experiencia y buena aclimatación.",
+      "description": "Trekking de alta montaña alrededor del Ausangate, ideale per viajeros con experiencia y buena aclimatación.",
+      "duration": {
+        "label": "5D/4N",
+        "days": 5,
+        "nights": 4
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 5200,
+      "destinations": [
+        "cusco",
+        "ausangate"
+      ],
+      "highlights": [
+        "Nevado Ausangate",
+        "Lagunas altoandinas",
+        "Comunidades andinas"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "5d4n",
+          "5-dias",
+          "4-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "ausangate trek",
+          "ausangate trek",
+          "Nevado Ausangate",
+          "Lagunas altoandinas",
+          "Comunidades andinas"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Ausangate Trek | My Cusco Trip",
+        "description": "Trekking de alta montaña alrededor del Ausangate, ideale per viajeros con experiencia y buena aclimatación."
+      }
+    },
+    {
+      "id": "trk_cusco_006",
+      "internalCode": "TRK006",
+      "slug": "ausangate-vinicunca",
+      "title": "Ausangate + Vinicunca",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 giorni / 3 notti",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "Ruta de aventura que combina paisajes del Ausangate con la Montagna Arcobaleno.",
+      "description": "Ruta de aventura que combina paisajes del Ausangate con la Montagna Arcobaleno.",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 5200,
+      "destinations": [
+        "cusco",
+        "ausangate",
+        "vinicunca"
+      ],
+      "highlights": [
+        "Ausangate",
+        "Montagna Arcobaleno",
+        "Paisajes altoandinos"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "ausangate",
+          "vinicunca"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "ausangate + vinicunca",
+          "ausangate vinicunca",
+          "Ausangate",
+          "Montagna Arcobaleno",
+          "Paisajes altoandinos"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Ausangate + Vinicunca | My Cusco Trip",
+        "description": "Ruta de aventura que combina paisajes del Ausangate con la Montagna Arcobaleno."
+      }
+    },
+    {
+      "id": "trk_cusco_007",
+      "internalCode": "TRK007",
+      "slug": "inca-jungle-3d-2n",
+      "title": "Inca Jungle 3D/2N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "3 giorni / 2 notti",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 3,
+      "nights": 2,
+      "shortDescription": "Ruta activa hacia Machu Picchu con combinación de aventura, naturaleza y tramos de caminata.",
+      "description": "Ruta activa hacia Machu Picchu con combinación de aventura, naturaleza y tramos de caminata.",
+      "duration": {
+        "label": "3D/2N",
+        "days": 3,
+        "nights": 2
+      },
+      "difficulty": "moderada",
+      "maxAltitudeMeters": 4300,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "inca-jungle"
+      ],
+      "highlights": [
+        "Aventura",
+        "Selva alta",
+        "Machu Picchu"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "inca-jungle"
+        ],
+        "durationKeys": [
+          "3d2n",
+          "3-dias",
+          "2-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "inca jungle 3d/2n",
+          "inca jungle 3 dias 2 notti",
+          "Aventura",
+          "Selva alta",
+          "Machu Picchu"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Inca Jungle 3D/2N | My Cusco Trip",
+        "description": "Ruta activa hacia Machu Picchu con combinación de aventura, naturaleza y tramos de caminata."
+      }
+    },
+    {
+      "id": "trk_cusco_008",
+      "internalCode": "TRK008",
+      "slug": "inca-jungle-4d-3n",
+      "title": "Inca Jungle 4D/3N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 giorni / 3 notti",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "Cusco / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "Versión más completa del Inca Jungle con más tiempo para actividades de aventura y conexión con Machu Picchu.",
+      "description": "Versión más completa del Inca Jungle con más tiempo para actividades de aventura y conexión con Machu Picchu.",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "moderada",
+      "maxAltitudeMeters": 4300,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "inca-jungle"
+      ],
+      "highlights": [
+        "Aventura completa",
+        "Selva alta",
+        "Machu Picchu"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "Precios finales se confirmarán según fecha, tamaño de grupo y servicios incluidos."
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "inca-jungle"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-notti"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "inca jungle 4d/3n",
+          "inca jungle 4 dias 3 notti",
+          "Aventura completa",
+          "Selva alta",
+          "Machu Picchu"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Inca Jungle 4D/3N | My Cusco Trip",
+        "description": "Versión más completa del Inca Jungle con más tiempo para actividades de aventura y conexión con Machu Picchu."
+      }
+    }
+  ]
+}

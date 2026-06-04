@@ -1,0 +1,193 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-10",
+  "scope": "private-commercial-quotes",
+  "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+  "securityNote": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+  "packages": [
+    {
+      "id": "PRV001",
+      "quoteCode": "CUSFAM001",
+      "accessToken": "familia5-mapi-amazonas-demo",
+      "slug": "machu-picchu-tambopata-familia-privado-6d5n-ja",
+      "status": "private",
+      "visibility": "hidden",
+      "showInCatalog": false,
+      "expiresAt": "2026-12-31",
+      "title": "Paquete privado マチュピチュ y Amazonas para familia",
+      "subtitle": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "badge": "Propuesta privada",
+      "serviceType": "private",
+      "language": [
+        "es",
+        "en"
+      ],
+      "currency": "USD",
+      "days": 6,
+      "nights": 5,
+      "heroImage": "./assets/img/tours/machu-picchu-full-day/cover.jpg",
+      "gallery": [
+        "./assets/img/tours/valle-sagrado/cover.jpg",
+        "./assets/img/tours/machu-picchu-full-day/cover.jpg",
+        "./assets/img/quote/fallbacks/cusco.jpg"
+      ],
+      "client": {
+        "displayName": "Familia privada",
+        "market": "anglo-american",
+        "contactChannel": "whatsapp",
+        "whatsapp": "447462068419",
+        "notes": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      },
+      "passengers": {
+        "adults": 2,
+        "teens": 3,
+        "children": 0,
+        "total": 5
+      },
+      "destinations": [
+        "cusco",
+        "valle-sagrado",
+        "aguas-calientes",
+        "machu-picchu",
+        "tambopata",
+        "puerto-maldonado"
+      ],
+      "sourceTours": [
+        "valle-sagrado-vip-conexion-machu-picchu",
+        "machu-picchu-overnight-clasico",
+        "tambopata-lodge-3d-2n-privado"
+      ],
+      "pricing": {
+        "mode": "base_services_plus_selected_hotels",
+        "baseServicesPerPerson": 980,
+        "currency": "USD",
+        "domesticFlightsIncluded": false,
+        "flightsNote": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      },
+      "lodging": [
+        {
+          "destination": "cusco",
+          "label": "クスコ",
+          "nights": 2,
+          "required": true,
+          "defaultHotelCode": "cusco-boutique-3s"
+        },
+        {
+          "destination": "aguas-calientes",
+          "label": "Aguas Calientes",
+          "nights": 1,
+          "required": true,
+          "defaultHotelCode": "luz-garden-3s"
+        },
+        {
+          "destination": "tambopata",
+          "label": "Tambopata / Puerto Maldonado",
+          "nights": 2,
+          "required": true,
+          "defaultHotelCode": "tambopata-comfort-lodge-3s"
+        }
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Llegada a クスコ",
+          "overnight": "クスコ",
+          "image": "./assets/img/quote/fallbacks/recojo-aeropuerto-cusco.jpg",
+          "items": [
+            "Recepción privada en aeropuerto de クスコ.",
+            "Traslado privado al hotel.",
+            "Tiempo de aclimatación y briefing por WhatsApp o presencial."
+          ]
+        },
+        {
+          "day": 2,
+          "title": "聖なる谷 privado y tren a マチュピチュ Pueblo",
+          "overnight": "Aguas Calientes",
+          "image": "./assets/img/tours/valle-sagrado/cover.jpg",
+          "items": [
+            "Recojo privado en hotel.",
+            "Ruta sugerida: Chinchero, Maras, Moray y Ollantaytambo según horarios.",
+            "Guía privado bilingüe español/inglés.",
+            "Tren turístico hacia マチュピチュ Pueblo."
+          ]
+        },
+        {
+          "day": 3,
+          "title": "マチュピチュ privado y retorno a クスコ",
+          "overnight": "クスコ",
+          "image": "./assets/img/tours/machu-picchu-full-day/cover.jpg",
+          "items": [
+            "Bus Consettur ida y vuelta.",
+            "Ingreso a マチュピチュ según disponibilidad.",
+            "Guía privado bilingüe.",
+            "Tren de retorno y traslado privado a hotel en クスコ."
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Vuelo a Puerto Maldonado y traslado al lodge",
+          "overnight": "Tambopata",
+          "image": "./assets/img/quote/fallbacks/cusco.jpg",
+          "items": [
+            "Traslado privado hotel クスコ - aeropuerto.",
+            "Vuelo クスコ - Puerto Maldonado no incluido en tarifa base.",
+            "Recepción en Puerto Maldonado y traslado al lodge.",
+            "Almuerzo/cena y actividad amazónica según programa."
+          ]
+        },
+        {
+          "day": 5,
+          "title": "体験 amazónica en Tambopata",
+          "overnight": "Tambopata",
+          "image": "./assets/img/quote/fallbacks/cusco.jpg",
+          "items": [
+            "Caminata interpretativa o actividad de naturaleza.",
+            "Observación de flora y fauna.",
+            "Alimentación incluida según programa del lodge.",
+            "Actividad nocturna sujeta a operación y clima."
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Retorno desde Puerto Maldonado",
+          "overnight": "Fin de servicios",
+          "image": "./assets/img/quote/fallbacks/recojo-aeropuerto-cusco.jpg",
+          "items": [
+            "Desayuno.",
+            "Traslado al aeropuerto de Puerto Maldonado.",
+            "Vuelo de salida no incluido en tarifa base."
+          ]
+        }
+      ],
+      "includes": [
+        "Servicios privados en クスコ, 聖なる谷 y マチュピチュ.",
+        "Guía privado bilingüe español/inglés en クスコ y マチュピチュ.",
+        "Traslados privados indicados en itinerario.",
+        "Tren turístico estándar Ollantaytambo - マチュピチュ Pueblo - Ollantaytambo.",
+        "Ingreso a マチュピチュ sujeto a disponibilidad.",
+        "Bus Consettur ida y vuelta.",
+        "Alojamiento según selección del cliente.",
+        "Programa amazónico en lodge según selección.",
+        "Asistencia personalizada por WhatsApp."
+      ],
+      "excludes": [
+        "Vuelos internacionales.",
+        "Vuelos internos, salvo cotización adicional.",
+        "Almuerzos y cenas no mencionados fuera del lodge.",
+        "Seguro de viaje.",
+        "Propinas.",
+        "Gastos personales.",
+        "Upgrade de tren o habitación no seleccionado."
+      ],
+      "notes": [
+        "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+        "El enlace privado no debe compartirse en vitrinas públicas.",
+        "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      ],
+      "seo": {
+        "title": "Paquete privado マチュピチュ y Amazonas para familia | My Cusco Trip",
+        "description": "Book Paquete privado マチュピチュ y Amazonas para familia with My Cusco Trip."
+      }
+    }
+  ]
+}

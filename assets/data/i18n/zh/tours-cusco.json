@@ -1,0 +1,3856 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "sourceFile": "assets/data/tours.json",
+  "targetFile": "assets/data/tours-cusco.json",
+  "scope": "cusco-simple-tours",
+  "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+  "pricingEngine": {
+    "baseCurrency": "PEN",
+    "displayCurrency": "USD",
+    "exchangeRate": {
+      "mode": "manual_fallback",
+      "usdToPen": 3.75,
+      "source": "manual",
+      "sourcePriority": [
+        "manual",
+        "sbs_or_sunat_api",
+        "payment_provider_rate"
+      ],
+      "updatedAt": "2026-05-01",
+      "notes": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+    },
+    "tourMarkup": {
+      "mode": "target_net",
+      "targetNetFormula": "internalCostPEN * 2",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+    },
+    "extrasMarkup": {
+      "mode": "net_cost_only_plus_payment_fees",
+      "targetNetFormula": "internalCost",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+    },
+    "fees": {
+      "paypalPercent": 0.054,
+      "paypalFixedUSD": 0.3,
+      "bankWithdrawalPercent": 0.015,
+      "peruIgvPercent": 0.18,
+      "bankWithdrawalEffectivePercent": 0.0177
+    },
+    "formula": {
+      "grossUsd": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "rounding": "round up to commercial USD ending .90"
+    },
+    "roundingRules": {
+      "USD": {
+        "mode": "ceil_to_ending",
+        "ending": 0.9
+      },
+      "PEN": {
+        "mode": "ceil_to_step",
+        "step": 5
+      }
+    }
+  },
+  "products": [
+    {
+      "id": "exp_001",
+      "internalCode": "CUZ001",
+      "slug": "bienvenida-ancestral-cusco-zh",
+      "title": "Bienvenida Ancestral 库斯科",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "2 h 30 min",
+      "badge": "Nuevo",
+      "featured": true,
+      "location": "库斯科",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "2 h 30 min",
+        "maxGroupSize": 28,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 11.9,
+        "child": 11.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 28,
+      "images": {
+        "cover": "./assets/img/tours/bienvenida-ancestral-cusco/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/bienvenida-ancestral-cusco/1.jpg",
+          "./assets/img/tours/bienvenida-ancestral-cusco/2.jpg",
+          "./assets/img/tours/bienvenida-ancestral-cusco/3.jpg"
+        ]
+      },
+      "includes": [
+        "Bus 观景",
+        "Guía bilingüe",
+        "Ceremonia andina",
+        "Visita textil",
+        "Mirador"
+      ],
+      "excludes": [
+        "Gastos personales",
+        "Servicios no mencionados"
+      ],
+      "itinerary": [
+        {
+          "title": "Encuentro y salida en bus 观景",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+          ]
+        },
+        {
+          "title": "Recorrido 观景 por 库斯科",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ceremonia andina de bienvenida",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Centro textil y cultura andina",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mirador del Cristo Blanco",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuánto dura el tour?",
+          "a": "La duración aproximada es de 2 horas y 30 minutos."
+        },
+        {
+          "q": "¿Dónde es el punto de encuentro?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Qué horarios tiene?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        }
+      ],
+      "extras": [],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10.00 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 20,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 40,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 11.9,
+        "publishedChildUSD": 11.9,
+        "publishedAdultPENApprox": 45,
+        "publishedChildPENApprox": 45,
+        "grossBeforeRoundingUSD": 11.7958,
+        "targetNetPEN": 40,
+        "targetNetUSD": 10.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 11.9,
+          "child": 11.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 11.9,
+          "child": 11.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 11.9,
+          "child": 11.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00"
+        ],
+        "durationLabel": "2 h 30 min",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "2h30m",
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ001"
+        ],
+        "includedTags": [
+          "bienvenida-ancestral",
+          "tour-panoramico",
+          "cristo-blanco",
+          "centro-textil",
+          "ceremonia-andina"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "bienvenida ancestral cusco",
+          "bienvenida-ancestral-cusco",
+          "cusco",
+          "bienvenida-ancestral",
+          "tour-panoramico",
+          "cristo-blanco",
+          "centro-textil",
+          "ceremonia-andina"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "Bienvenida Ancestral 库斯科 | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_002",
+      "internalCode": "CUZ002",
+      "slug": "city-tour-cusco-zh",
+      "title": "城市游 库斯科 + Centros Arqueológicos",
+      "category": "cusco",
+      "type": "half-day-tour",
+      "typeLabel": "Medio 天",
+      "badge": "Imperdible",
+      "featured": true,
+      "location": "库斯科",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "Medio 天",
+        "maxGroupSize": 20,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 9.9,
+        "child": 9.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 20,
+      "images": {
+        "cover": "./assets/img/tours/city-tour/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/city-tour/1.jpg",
+          "./assets/img/tours/city-tour/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico",
+        "专业导游"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Ingreso a Catedral o Koricancha",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Centro histórico de 库斯科",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Sacsayhuamán",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Qenqo, Puka Pukara y Tambomachay",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Es un tour largo?",
+          "a": "No, es un tour de medio 天 ideal para comenzar tu viaje."
+        },
+        {
+          "q": "¿Incluye boleto turístico?",
+          "a": "No, se paga aparte."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-1-nationality",
+          "label": "Boleto Turístico Parcial Circuito 1",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-1",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "qoricancha-ticket",
+          "label": "Ingreso al Templo Qoricancha",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 12.9,
+        "partialPaymentLabel": "Reserva con USD 12.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "CTY"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 15,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 30,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 9.9,
+        "publishedChildUSD": 9.9,
+        "publishedAdultPENApprox": 40,
+        "publishedChildPENApprox": 40,
+        "grossBeforeRoundingUSD": 8.9262,
+        "targetNetPEN": 30,
+        "targetNetUSD": 8.0,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 9.9,
+          "child": 9.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 9.9,
+          "child": 9.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 9.9,
+          "child": 9.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [
+          "09:00",
+          "10:00",
+          "13:00",
+          "14:00"
+        ],
+        "durationLabel": "Medio 天",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-1-nationality",
+          "label": "Boleto Turístico Parcial Circuito 1",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-1",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "qoricancha-ticket",
+          "label": "Ingreso al Templo Qoricancha",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ002"
+        ],
+        "includedTags": [
+          "city-tour",
+          "sacsayhuaman",
+          "qenqo",
+          "puka-pukara",
+          "tambomachay",
+          "qoricancha"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "city tour cusco + centros arqueológicos",
+          "city-tour-cusco",
+          "cusco",
+          "city-tour",
+          "sacsayhuaman",
+          "qenqo",
+          "puka-pukara",
+          "tambomachay",
+          "qoricancha"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "城市游 库斯科 + Centros Arqueológicos | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_003_fd",
+      "internalCode": "CUZ003FD",
+      "slug": "valle-sagrado-full-day-zh",
+      "title": "圣谷 de los Incas - 一日游",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "一日游",
+      "variantType": "full-day",
+      "badge": "Cultural",
+      "featured": true,
+      "location": "库斯科 / 圣谷",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico",
+        "专业导游",
+        "Retorno a 库斯科 al finalizar el tour"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Almuerzo buffet",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Pisac arqueológico",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mercado artesanal de Pisac",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Chinchero",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Incluye almuerzo?",
+          "a": "No. Puedes añadir el almuerzo buffet como extra cuando esté disponible."
+        },
+        {
+          "q": "¿Incluye boleto turístico?",
+          "a": "No. El boleto turístico se paga aparte."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Almuerzo buffet 圣谷",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "VAL"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "20:00",
+        "durationLabel": "一日游",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ003FD"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "pisac",
+          "ollantaytambo",
+          "chinchero",
+          "urubamba",
+          "full-day"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "valle sagrado de los incas",
+          "valle sagrado full day",
+          "pisac",
+          "ollantaytambo",
+          "chinchero",
+          "urubamba"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "圣谷 de los Incas - 一日游 | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_003_con",
+      "internalCode": "CUZ003CON",
+      "slug": "valle-sagrado-conexion-machu-picchu-zh",
+      "title": "圣谷 de los Incas con conexión a 马丘比丘",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "一日游 con conexión",
+      "variantType": "connection",
+      "badge": "Conexión 马丘比丘",
+      "featured": true,
+      "location": "库斯科 / 圣谷 / Ollantaytambo",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游 con conexión",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico por el 圣谷",
+        "专业导游",
+        "Finalización en Ollantaytambo para conexión hacia 马丘比丘"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Almuerzo buffet",
+        "Tren a Aguas Calientes, salvo que esté incluido dentro del paquete seleccionado",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Pisac arqueológico",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mercado artesanal de Pisac",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo y conexión a 马丘比丘",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Esta versión retorna a 库斯科?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Incluye tren a Aguas Calientes?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Almuerzo buffet 圣谷",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "VALCON"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "15:30",
+        "durationLabel": "一日游 con conexión",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado",
+          "ollantaytambo"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia",
+          "conexion"
+        ],
+        "includedTourCodes": [
+          "CUZ003CON"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "pisac",
+          "ollantaytambo",
+          "urubamba",
+          "conexion-machu-picchu"
+        ],
+        "themes": [
+          "cultural",
+          "conexion"
+        ],
+        "keywords": [
+          "valle sagrado conexion",
+          "valle sagrado con conexion a machu picchu",
+          "ollantaytambo conexion",
+          "aguas calientes",
+          "machu picchu overnight"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "圣谷 de los Incas con conexión a 马丘比丘 | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_003_vip",
+      "internalCode": "CUZ003VIP",
+      "slug": "valle-sagrado-vip-full-day-zh",
+      "title": "圣谷 de los Incas VIP - 一日游",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "一日游 VIP",
+      "variantType": "vip-full-day",
+      "badge": "Ruta VIP",
+      "featured": true,
+      "location": "库斯科 / 圣谷 / Maras / Moray",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游 VIP",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico",
+        "专业导游",
+        "Ruta ampliada por Chinchero, Maras, Moray, Ollantaytambo y Pisac",
+        "Retorno a 库斯科 al finalizar el tour"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Ingreso a Salineras de Maras",
+        "Almuerzo buffet",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Chinchero",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Salineras de Maras",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Moray",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Pisac arqueológico",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mercado artesanal de Pisac",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué diferencia tiene la ruta VIP?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Incluye ingreso a Maras?",
+          "a": "No. El ingreso a las Salineras de Maras se maneja como extra."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Ingreso Salineras de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "Aplicar para ruta 圣谷 VIP."
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Almuerzo buffet 圣谷",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "VALVIP"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "20:00",
+        "durationLabel": "一日游 VIP",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Ingreso Salineras de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "Aplicar para ruta 圣谷 VIP."
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado",
+          "maras",
+          "moray",
+          "chinchero"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia",
+          "vip"
+        ],
+        "includedTourCodes": [
+          "CUZ003VIP"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "vip",
+          "chinchero",
+          "maras",
+          "moray",
+          "ollantaytambo",
+          "pisac"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "valle sagrado vip",
+          "valle sagrado vip full day",
+          "chinchero",
+          "maras",
+          "moray",
+          "ollantaytambo",
+          "pisac"
+        ]
+      },
+      "pricingNotes": [
+        "Ruta VIP con 马拉斯和莫赖.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "圣谷 de los Incas VIP - 一日游 | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_003_vip_con",
+      "internalCode": "CUZ003VIPCON",
+      "slug": "valle-sagrado-vip-conexion-machu-picchu-zh",
+      "title": "圣谷 de los Incas VIP con conexión a 马丘比丘",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "一日游 VIP con conexión",
+      "variantType": "vip-connection",
+      "badge": "VIP + Conexión",
+      "featured": true,
+      "location": "库斯科 / 圣谷 / Ollantaytambo",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游 VIP con conexión",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico por ruta VIP del 圣谷",
+        "专业导游",
+        "Finalización en Ollantaytambo para conexión hacia 马丘比丘"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Ingreso a Salineras de Maras",
+        "Almuerzo buffet",
+        "Tren a Aguas Calientes, salvo que esté incluido dentro del paquete seleccionado",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Chinchero",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Salineras de Maras",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Moray",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo y conexión a 马丘比丘",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Esta versión visita Pisac?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Incluye tren a Aguas Calientes?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Ingreso Salineras de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "Aplicar para ruta 圣谷 VIP con conexión."
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Almuerzo buffet 圣谷",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "VALVIPCON"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "15:30",
+        "durationLabel": "一日游 VIP con conexión",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Ingreso Salineras de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "Aplicar para ruta 圣谷 VIP con conexión."
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado",
+          "ollantaytambo",
+          "maras",
+          "moray"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia",
+          "vip",
+          "conexion"
+        ],
+        "includedTourCodes": [
+          "CUZ003VIPCON"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "vip",
+          "conexion-machu-picchu",
+          "chinchero",
+          "maras",
+          "moray",
+          "ollantaytambo"
+        ],
+        "themes": [
+          "cultural",
+          "conexion"
+        ],
+        "keywords": [
+          "valle sagrado vip conexion",
+          "valle sagrado vip con conexion a machu picchu",
+          "ollantaytambo conexion",
+          "aguas calientes",
+          "machu picchu overnight"
+        ]
+      },
+      "pricingNotes": [
+        "Esta variante está pensada como ruta preferida para paquetes con 马丘比丘 Overnight.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "圣谷 de los Incas VIP con conexión a 马丘比丘 | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_004",
+      "internalCode": "CUZ004",
+      "slug": "maras-y-moray-zh",
+      "title": "马拉斯和莫赖",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Medio 天",
+      "badge": "Imperdible",
+      "featured": true,
+      "location": "库斯科 / Maras / Moray",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "Medio 天",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 20.9,
+        "child": 20.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/maras-moray/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/maras-moray/1.jpg",
+          "./assets/img/tours/maras-moray/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico",
+        "专业导游"
+      ],
+      "excludes": [
+        "Boleto turístico parcial",
+        "Ingreso a Salineras",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo en hotel",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Centro textil de Chinchero",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Moray",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Maras y Salineras",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Incluye entradas?",
+          "a": "No. El boleto turístico parcial y el ingreso a Salineras se pagan aparte."
+        },
+        {
+          "q": "¿Se puede hacer en cuatrimoto?",
+          "a": "Sí, puedes elegir la opción ATV como extra cuando esté disponible."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": "No cobrar si el pasajero ya compró el Circuito 2 para 圣谷 en el mismo viaje."
+        },
+        {
+          "code": "maras-salt-mines-ticket",
+          "label": "Ingreso a Salineras de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "atv-maras-moray",
+          "label": "Cuatrimoto ATV 马拉斯和莫赖",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 65
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 70.9,
+            "penApprox": 270
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10.00 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 35,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 70,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 20.9,
+        "publishedChildUSD": 20.9,
+        "publishedAdultPENApprox": 80,
+        "publishedChildPENApprox": 80,
+        "grossBeforeRoundingUSD": 20.4049,
+        "targetNetPEN": 70,
+        "targetNetUSD": 18.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "15:00",
+        "durationLabel": "Medio 天",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Boleto Turístico Parcial Circuito 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": "No cobrar si el pasajero ya compró el Circuito 2 para 圣谷 en el mismo viaje."
+        },
+        {
+          "code": "maras-salt-mines-ticket",
+          "label": "Ingreso a Salineras de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ004"
+        ],
+        "includedTags": [
+          "maras-moray",
+          "salineras",
+          "moray",
+          "chinchero",
+          "atv"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "maras y moray",
+          "maras-y-moray",
+          "cusco / maras / moray",
+          "maras-moray",
+          "salineras",
+          "moray",
+          "chinchero",
+          "atv"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "马拉斯和莫赖 | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_005",
+      "internalCode": "CUZ005",
+      "slug": "valle-sur-zh",
+      "title": "Valle Sur",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Medio 天",
+      "badge": "Cultural",
+      "featured": true,
+      "location": "库斯科 / Tipón / Pikillacta / Andahuaylillas",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "Medio 天",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 20.9,
+        "child": 20.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sur/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sur/1.jpg",
+          "./assets/img/tours/valle-sur/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico",
+        "专业导游"
+      ],
+      "excludes": [
+        "Boleto turístico parcial",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida desde 库斯科",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Tipón",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Pikillacta",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Andahuaylillas",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuánto dura el tour?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Incluye boleto turístico?",
+          "a": "No, el boleto turístico parcial se paga aparte."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-3-nationality",
+          "label": "Boleto Turístico Parcial Circuito 3",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-3",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "andahuaylillas-church-ticket",
+          "label": "Ingreso Iglesia de Andahuaylillas",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10.00 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 35,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 70,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 20.9,
+        "publishedChildUSD": 20.9,
+        "publishedAdultPENApprox": 80,
+        "publishedChildPENApprox": 80,
+        "grossBeforeRoundingUSD": 20.4049,
+        "targetNetPEN": 70,
+        "targetNetUSD": 18.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "14:30",
+        "durationLabel": "Medio 天",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-3-nationality",
+          "label": "Boleto Turístico Parcial Circuito 3",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-3",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "andahuaylillas-church-ticket",
+          "label": "Ingreso Iglesia de Andahuaylillas",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ005"
+        ],
+        "includedTags": [
+          "valle-sur",
+          "tipon",
+          "pikillacta",
+          "andahuaylillas"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "valle sur",
+          "valle-sur",
+          "cusco / tipón / pikillacta / andahuaylillas",
+          "tipon",
+          "pikillacta",
+          "andahuaylillas"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "Valle Sur | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_006",
+      "internalCode": "CUZ006",
+      "slug": "laguna-humantay-zh",
+      "title": "胡曼泰湖",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "一日游",
+      "badge": "Top ventas",
+      "featured": true,
+      "location": "库斯科 / Humantay",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 31.9,
+        "child": 31.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/laguna-humantay/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/laguna-humantay/1.jpg",
+          "./assets/img/tours/laguna-humantay/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico",
+        "专业导游",
+        "Desayuno",
+        "Almuerzo"
+      ],
+      "excludes": [
+        "Ingreso",
+        "Caballo opcional",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida desde 库斯科",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno e inicio de caminata",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Llegada a 胡曼泰湖",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Retorno y almuerzo",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Se necesita buena condición física?",
+          "a": "Sí, porque la caminata es en altura y con pendiente."
+        },
+        {
+          "q": "¿Hay opción de caballo?",
+          "a": "Sí, en la mayoría de salidas puedes contratar caballo por un pago adicional."
+        }
+      ],
+      "extras": [
+        {
+          "code": "humantay-entrance-ticket",
+          "label": "Ingreso 胡曼泰湖",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Desayuno básico + almuerzo básico",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "HUM"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 55,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 110,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 31.9,
+        "publishedChildUSD": 31.9,
+        "publishedAdultPENApprox": 120,
+        "publishedChildPENApprox": 120,
+        "grossBeforeRoundingUSD": 31.8836,
+        "targetNetPEN": 110,
+        "targetNetUSD": 29.33,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 31.9,
+          "child": 31.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 31.9,
+          "child": 31.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 31.9,
+          "child": 31.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "17:00",
+        "durationLabel": "一日游",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "humantay-entrance-ticket",
+          "label": "Ingreso 胡曼泰湖",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ006"
+        ],
+        "includedTags": [
+          "laguna-humantay",
+          "humantay",
+          "trekking",
+          "naturaleza"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "laguna humantay",
+          "laguna-humantay",
+          "cusco / humantay",
+          "humantay",
+          "trekking",
+          "naturaleza"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "胡曼泰湖 | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_007",
+      "internalCode": "CUZ007",
+      "slug": "montana-de-colores-zh",
+      "title": "彩虹山 (Vinicunca)",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "一日游",
+      "badge": "Aventura",
+      "featured": true,
+      "location": "库斯科 / Vinicunca",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/montana-colores/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/montana-colores/1.jpg",
+          "./assets/img/tours/montana-colores/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico",
+        "专业导游"
+      ],
+      "excludes": [
+        "Ingreso",
+        "Caballo opcional",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida de madrugada",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno y caminata",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Llegada a la 彩虹山",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Retorno y almuerzo",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿La caminata es exigente?",
+          "a": "Sí, se recomienda buena condición física y aclimatación previa."
+        },
+        {
+          "q": "¿Puedo alquilar caballo o ATV?",
+          "a": "Sí, puedes añadir opciones disponibles como extra según la temporada."
+        }
+      ],
+      "extras": [
+        {
+          "code": "vinicunca-entrance-ticket",
+          "label": "Ingreso 彩虹山 Vinicunca",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Desayuno básico + almuerzo básico",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        },
+        {
+          "code": "atv-vinicunca",
+          "label": "Cuatrimoto ATV Vinicunca",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 65
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 70.9,
+            "penApprox": 270
+          }
+        },
+        {
+          "code": "horse-vinicunca",
+          "label": "Caballo opcional Vinicunca",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 25
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 27.9,
+            "penApprox": 105
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "VIN"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "17:00",
+        "durationLabel": "一日游",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "vinicunca-entrance-ticket",
+          "label": "Ingreso 彩虹山 Vinicunca",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ007"
+        ],
+        "includedTags": [
+          "montana-de-colores",
+          "vinicunca",
+          "rainbow-mountain",
+          "trekking",
+          "atv",
+          "caballo"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "montaña de colores (vinicunca)",
+          "montana-de-colores",
+          "cusco / vinicunca",
+          "vinicunca",
+          "rainbow-mountain",
+          "trekking",
+          "atv",
+          "caballo"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "彩虹山 (Vinicunca) | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_008",
+      "internalCode": "CUZ008",
+      "slug": "montana-palcoyo-zh",
+      "title": "Montaña Palcoyo",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "一日游",
+      "badge": "Aventura",
+      "featured": true,
+      "location": "库斯科 / Palcoyo",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 46.9,
+        "child": 46.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/montana-palcoyo/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/montana-palcoyo/1.jpg",
+          "./assets/img/tours/montana-palcoyo/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo de su hotel en 库斯科",
+        "Transporte turístico",
+        "1 desayuno",
+        "1 almuerzo buffet",
+        "Ingreso a la Cordillera Palcoyo",
+        "专业导游 Inglés – Español",
+        "Botiquín de primeros auxilios",
+        "Balón de oxígeno"
+      ],
+      "excludes": [
+        "Cena",
+        "Gastos personales",
+        "Servicios no mencionados"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo y salida",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno en Cusipata",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Llegada a Palcoyo",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Caminata y bosque de piedras",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Almuerzo y retorno",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Es más fácil que Vinicunca?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Qué atractivos incluye?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "palcoyo-entrance-ticket",
+          "label": "Ingreso Montaña Palcoyo",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Desayuno básico + almuerzo básico",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        },
+        {
+          "code": "atv-palcoyo",
+          "label": "Cuatrimoto ATV Palcoyo",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 65
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 70.9,
+            "penApprox": 270
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 80,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 160,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 46.9,
+        "publishedChildUSD": 46.9,
+        "publishedAdultPENApprox": 180,
+        "publishedChildPENApprox": 180,
+        "grossBeforeRoundingUSD": 46.232,
+        "targetNetPEN": 160,
+        "targetNetUSD": 42.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 46.9,
+          "child": 46.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 46.9,
+          "child": 46.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 46.9,
+          "child": 46.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "17:00",
+        "durationLabel": "一日游",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "palcoyo-entrance-ticket",
+          "label": "Ingreso Montaña Palcoyo",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ008"
+        ],
+        "includedTags": [
+          "palcoyo",
+          "montana-palcoyo",
+          "valle-rojo",
+          "bosque-de-piedras",
+          "trekking",
+          "atv"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "montaña palcoyo",
+          "montana-palcoyo",
+          "cusco / palcoyo",
+          "palcoyo",
+          "valle-rojo",
+          "bosque-de-piedras",
+          "trekking",
+          "atv"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "Montaña Palcoyo | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "exp_009",
+      "internalCode": "CUZ009",
+      "slug": "siete-lagunas-ausangate-zh",
+      "title": "Siete Lagunas del Ausangate",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "一日游",
+      "badge": "Aventura",
+      "featured": true,
+      "location": "库斯科 / Pacchanta / Ausangate",
+      "currency": "USD",
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "一日游",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 86.9,
+        "child": 86.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "旅游 en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "旅游 privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/siete-lagunas-ausangate/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/siete-lagunas-ausangate/1.jpg",
+          "./assets/img/tours/siete-lagunas-ausangate/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en 库斯科",
+        "Transporte turístico ida y vuelta",
+        "专业导游",
+        "Desayuno",
+        "Almuerzo",
+        "Botiquín de primeros auxilios",
+        "Balón de oxígeno"
+      ],
+      "excludes": [
+        "Ingreso a las lagunas si aplica pago local",
+        "Baños termales de Pacchanta si aplican pago adicional",
+        "Caballo opcional",
+        "Gastos personales",
+        "Servicios no mencionados"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo y salida desde 库斯科",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno en Pacchanta",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Inicio de la caminata",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Recorrido por las 7 lagunas",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Retorno a Pacchanta",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Almuerzo y regreso a 库斯科",
+          "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué tan difícil es la caminata?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Cuál es la altitud máxima?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Incluye aguas termales?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        },
+        {
+          "q": "¿Qué debo llevar?",
+          "a": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "seven-lagoons-entrance-ticket",
+          "label": "Ingreso Siete Lagunas Ausangate",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Desayuno básico + almuerzo básico",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        },
+        {
+          "code": "pacchanta-hot-springs",
+          "label": "Ingreso a termas de Pacchanta",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 8
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 9.9,
+            "penApprox": 40
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en 库斯科"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 150,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 300,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 86.9,
+        "publishedChildUSD": 86.9,
+        "publishedAdultPENApprox": 330,
+        "publishedChildPENApprox": 330,
+        "grossBeforeRoundingUSD": 86.4075,
+        "targetNetPEN": 300,
+        "targetNetUSD": 80.0,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 86.9,
+          "child": 86.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 86.9,
+          "child": 86.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 86.9,
+          "child": 86.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "18:00",
+        "durationLabel": "一日游",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "seven-lagoons-entrance-ticket",
+          "label": "Ingreso Siete Lagunas Ausangate",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "pacchanta-hot-springs",
+          "label": "Ingreso a termas de Pacchanta",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 8
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 9.9,
+            "penApprox": 40
+          }
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ009"
+        ],
+        "includedTags": [
+          "siete-lagunas",
+          "ausangate",
+          "pacchanta",
+          "termas",
+          "trekking"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "siete lagunas del ausangate",
+          "siete-lagunas-ausangate",
+          "cusco / pacchanta / ausangate",
+          "siete-lagunas",
+          "ausangate",
+          "pacchanta",
+          "termas",
+          "trekking"
+        ]
+      },
+      "pricingNotes": [
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "places": [],
+      "seo": {
+        "title": "Siete Lagunas del Ausangate | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3997 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "sourceFile": "assets/data/tours.json",
+  "targetFile": "assets/data/tours-cusco.json",
+  "scope": "cusco-simple-tours",
+  "description": "Circuits simples de Cusco separados del catálogo principal. El precio publicado se calcula para que el neto final estimado después de PayPal y retiro bancario sea igual al doble del costo interno del tour. Los extras no se duplican; solo cubren comisiones de cobro y retiro.",
+  "pricingEngine": {
+    "baseCurrency": "PEN",
+    "displayCurrency": "USD",
+    "exchangeRate": {
+      "mode": "manual_fallback",
+      "usdToPen": 3.75,
+      "source": "manual",
+      "sourcePriority": [
+        "manual",
+        "sbs_or_sunat_api",
+        "payment_provider_rate"
+      ],
+      "updatedAt": "2026-05-01",
+      "notes": "Usar 3.75 como tipo de cambio operativo hasta integrar una fuente automática. El tipo de cambio no debe quedar hardcodeado dentro del JS ni dentro de cada tour."
+    },
+    "tourMarkup": {
+      "mode": "target_net",
+      "targetNetFormula": "internalCostPEN * 2",
+      "description": "La agencia debe recibir neto en cuenta bancaria el doble del costo interno del tour."
+    },
+    "extrasMarkup": {
+      "mode": "net_cost_only_plus_payment_fees",
+      "targetNetFormula": "internalCost",
+      "description": "Los extras, tickets y alimentación no se duplican. Solo se publica el valor necesario para cubrir comisiones y recibir el costo neto indicado."
+    },
+    "fees": {
+      "paypalPercent": 0.054,
+      "paypalFixedUSD": 0.3,
+      "bankWithdrawalPercent": 0.015,
+      "peruIgvPercent": 0.18,
+      "bankWithdrawalEffectivePercent": 0.0177
+    },
+    "formula": {
+      "grossUsd": "((targetNetPEN / usdToPen) / (1 - bankWithdrawalPercent * (1 + peruIgvPercent)) + paypalFixedUSD) / (1 - paypalPercent)",
+      "rounding": "round up to commercial USD ending .90"
+    },
+    "roundingRules": {
+      "USD": {
+        "mode": "ceil_to_ending",
+        "ending": 0.9
+      },
+      "PEN": {
+        "mode": "ceil_to_step",
+        "step": 5
+      }
+    }
+  },
+  "products": [
+    {
+      "id": "exp_001",
+      "internalCode": "CUZ001",
+      "slug": "bienvenida-ancestral-cusco",
+      "title": "Accueil ancestral à Cusco",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "2 h 30 min",
+      "badge": "Nuevo",
+      "featured": true,
+      "location": "Cusco",
+      "currency": "USD",
+      "shortDescription": "Profitez d'une introduction panoramique à Cusco avec cérémonie andine, visite d'un centre textile et vues depuis le Cristo Blanco.",
+      "description": "Une expérience courte et culturelle pour commencer votre voyage à Cusco avec contexte, paysages et cérémonie symbolique de bienvenue andine.",
+      "duration": {
+        "label": "2 h 30 min",
+        "maxGroupSize": 28,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 11.9,
+        "child": 11.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 28,
+      "images": {
+        "cover": "./assets/img/tours/bienvenida-ancestral-cusco/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/bienvenida-ancestral-cusco/1.jpg",
+          "./assets/img/tours/bienvenida-ancestral-cusco/2.jpg",
+          "./assets/img/tours/bienvenida-ancestral-cusco/3.jpg"
+        ]
+      },
+      "includes": [
+        "Bus panoramique",
+        "Guía bilingüe",
+        "Ceremonia andina",
+        "Visita textil",
+        "Mirador"
+      ],
+      "excludes": [
+        "Dépenses personnelles",
+        "Servicios no mencionados"
+      ],
+      "itinerary": [
+        {
+          "title": "Encuentro y salida en bus panoramique",
+          "description": "Nos reuniremos en Plaza Regocijo o en el punto previamente coordinado. Desde allí iniciaremos el recorrido en bus panoramique de dos pisos, idéal pour tener una primera conexión visual con la ciudad del Cusco y sus alrededores.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Recorrido panoramique por Cusco",
+          "description": "Durante el trayecto, el guía compartirá datos históricos y culturales mientras observas sectores representativos de la ciudad, vistas hacia Sacsayhuamán y paisajes urbanos ideales para fotografías.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ceremonia andina de bienvenida",
+          "description": "Participaremos en una ceremonia simbólica de Pago a la Tierra guiada por un sacerdote andino. Esta experiencia está pensada como un ritual de armonía, gratitud y buen augurio para iniciar tu viaje por Cusco y Machu Picchu.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Centro textil y cultura andina",
+          "description": "Visitaremos un centro textil especializado en fibra de alpaca y baby alpaca, donde conocerás técnicas tradicionales de tejido, tintes naturales y detalles de la vestimenta andina.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mirador del Cristo Blanco",
+          "description": "Finalizaremos en el mirador del Cristo Blanco, uno de los puntos panoramiques más fotografiados de Cusco, con tiempo para contemplar la ciudad y capturar imágenes memorables.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est 2 h 30 min. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Si un billet spécial s'applique à votre date, l'équipe de réservation le vérifiera avec vous avant le paiement."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10.00 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 20,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 40,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 11.9,
+        "publishedChildUSD": 11.9,
+        "publishedAdultPENApprox": 45,
+        "publishedChildPENApprox": 45,
+        "grossBeforeRoundingUSD": 11.7958,
+        "targetNetPEN": 40,
+        "targetNetUSD": 10.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 11.9,
+          "child": 11.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 11.9,
+          "child": 11.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 11.9,
+          "child": 11.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00"
+        ],
+        "durationLabel": "2 h 30 min",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "2h30m",
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ001"
+        ],
+        "includedTags": [
+          "bienvenida-ancestral",
+          "tour-panoramico",
+          "cristo-blanco",
+          "centro-textil",
+          "ceremonia-andina"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "bienvenida ancestral cusco",
+          "bienvenida-ancestral-cusco",
+          "cusco",
+          "bienvenida-ancestral",
+          "tour-panoramico",
+          "cristo-blanco",
+          "centro-textil",
+          "ceremonia-andina"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Accueil ancestral à Cusco | My Cusco Trip",
+        "description": "Profitez d'une introduction panoramique à Cusco avec cérémonie andine, visite d'un centre textile et vues depuis le Cristo Blanco."
+      }
+    },
+    {
+      "id": "exp_002",
+      "internalCode": "CUZ002",
+      "slug": "city-circuit-cusco-centros-arqueologicos",
+      "title": "City Tour Cusco + Sites archéologiques",
+      "category": "cusco",
+      "type": "half-day-tour",
+      "typeLabel": "Medio jour",
+      "badge": "Imperdible",
+      "featured": true,
+      "location": "Cusco",
+      "currency": "USD",
+      "shortDescription": "Parcourez Cusco, Sacsayhuamán, Qenqo, Puka Pukara et Tambomachay lors d'un après-midi culturel.",
+      "description": "Tour classique d'une demi-journée des principaux sites archéologiques proches de Cusco, idéal pour comprendre l'histoire inca avant le Vallée Sacrée et Machu Picchu.",
+      "duration": {
+        "label": "Medio jour",
+        "maxGroupSize": 20,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 9.9,
+        "child": 9.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 20,
+      "images": {
+        "cover": "./assets/img/tours/city-tour/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/city-tour/1.jpg",
+          "./assets/img/tours/city-tour/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique",
+        "Guide professionnel en espagnol et en anglais"
+      ],
+      "excludes": [
+        "Billet touristique",
+        "Ingreso a Catedral o Koricancha",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Centro histórico de Cusco",
+          "description": "Iniciaremos el recorrido con una introducción a la ciudad imperial, sus calles coloniales, templos y espacios históricos que muestran la fusión entre la arquitectura inca y española.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Sacsayhuamán",
+          "description": "Visitaremos el imponente complejo arqueológico de Sacsayhuamán, reconocido por sus enormes bloques de piedra perfectamente ensamblados y su importancia ceremonial para el antiguo Cusco.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Qenqo, Puka Pukara y Tambomachay",
+          "description": "Continuaremos hacia los centros arqueológicos cercanos a la ciudad. Découvrezrás espacios ceremoniales, antiguos puntos de control y estructuras vinculadas al culto al agua.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Medio jour. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-1-nationality",
+          "label": "Billet touristique partiel Circuit 1",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-1",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "qoricancha-ticket",
+          "label": "Entrée au Temple Qoricancha",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 12.9,
+        "partialPaymentLabel": "Reserva con USD 12.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "CTY"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 15,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 30,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 9.9,
+        "publishedChildUSD": 9.9,
+        "publishedAdultPENApprox": 40,
+        "publishedChildPENApprox": 40,
+        "grossBeforeRoundingUSD": 8.9262,
+        "targetNetPEN": 30,
+        "targetNetUSD": 8,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 9.9,
+          "child": 9.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 9.9,
+          "child": 9.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 9.9,
+          "child": 9.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [
+          "09:00",
+          "10:00",
+          "13:00",
+          "14:00"
+        ],
+        "durationLabel": "Medio jour",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-1-nationality",
+          "label": "Billet touristique partiel Circuit 1",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-1",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "qoricancha-ticket",
+          "label": "Entrée au Temple Qoricancha",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ002"
+        ],
+        "includedTags": [
+          "city-tour",
+          "sacsayhuaman",
+          "qenqo",
+          "puka-pukara",
+          "tambomachay",
+          "qoricancha"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "city tour cusco + centros arqueológicos",
+          "city-tour-cusco",
+          "cusco",
+          "city-tour",
+          "sacsayhuaman",
+          "qenqo",
+          "puka-pukara",
+          "tambomachay",
+          "qoricancha"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "City Tour Cusco + Sites archéologiques | My Cusco Trip",
+        "description": "Parcourez Cusco, Sacsayhuamán, Qenqo, Puka Pukara et Tambomachay lors d'un après-midi culturel."
+      }
+    },
+    {
+      "id": "exp_003_fd",
+      "internalCode": "CUZ003FD",
+      "slug": "vallee-sacree-de-los-incas-journee-complete",
+      "title": "Vallée Sacrée des Incas - Journée complète",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Journée complète",
+      "variantType": "full-day",
+      "badge": "Cultural",
+      "featured": true,
+      "location": "Cusco / Vallée Sacrée",
+      "currency": "USD",
+      "shortDescription": "Découvrez Pisac, Urubamba, Ollantaytambo et Chinchero sur un itinéraire culturel complet dans la Vallée Sacrée.",
+      "description": "Route full day dans la Vallée Sacrée des Incas, combinant sites archéologiques, paysages andins, marché artisanal, traditions textiles et déjeuner optionnel à Urubamba.",
+      "duration": {
+        "label": "Journée complète",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique",
+        "Guide professionnel en espagnol et en anglais",
+        "Retorno a Cusco al finalizar el tour"
+      ],
+      "excludes": [
+        "Billet touristique",
+        "Almuerzo buffet",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Pisac arqueológico",
+          "description": "Salida desde Cusco hacia el Vallée Sacrée para visitar el centro arqueológico de Pisac, famoso por sus terrazas agrícolas, vistas panorámicas y legado inca.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mercado artesanal de Pisac",
+          "description": "Tiempo para recorrer el mercado artesanal, conocer productos locales, textiles, cerámica y piezas inspiradas en la iconografía andina.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "Llegaremos a Urubamba, corazón del Vallée Sacrée, donde tendrás espacio para tomar un almuerzo buffet opcional antes de continuar la ruta.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo",
+          "description": "Visitaremos el centro arqueológico de Ollantaytambo, antigua ciudad inca viva y punto estratégico del valle por su arquitectura, terrazas y templos.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Chinchero",
+          "description": "Cerraremos la ruta con una visita cultural en Chinchero, reconocido por sus tradiciones textiles, paisaje andino y herencia histórica.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Déjeuner buffet dans la Vallée Sacrée",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "VAL"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "20:00",
+        "durationLabel": "Journée complète",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ003FD"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "pisac",
+          "ollantaytambo",
+          "chinchero",
+          "urubamba",
+          "full-day"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "valle sagrado de los incas",
+          "valle sagrado full day",
+          "pisac",
+          "ollantaytambo",
+          "chinchero",
+          "urubamba"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Vallée Sacrée des Incas - Journée complète | My Cusco Trip",
+        "description": "Découvrez Pisac, Urubamba, Ollantaytambo et Chinchero sur un itinéraire culturel complet dans la Vallée Sacrée."
+      }
+    },
+    {
+      "id": "exp_003_con",
+      "internalCode": "CUZ003CON",
+      "slug": "vallee-sacree-de-los-incas-con-conexion-a-machu-picchu",
+      "title": "Vallée Sacrée avec connexion à Machu Picchu",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Journée complète con conexión",
+      "variantType": "connection",
+      "badge": "Conexión Machu Picchu",
+      "featured": true,
+      "location": "Cusco / Vallée Sacrée / Ollantaytambo",
+      "currency": "USD",
+      "shortDescription": "Itinéraire classique dans la Vallée Sacrée se terminant à Ollantaytambo pour prendre le train vers Aguas Calientes.",
+      "description": "Version de la Vallée Sacrée conçue pour continuer vers Machu Picchu, en évitant le retour à Cusco et en optimisant la logistique du voyage.",
+      "duration": {
+        "label": "Journée complète con conexión",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique por el Vallée Sacrée",
+        "Guide professionnel en espagnol et en anglais",
+        "Finalización en Ollantaytambo para conexión hacia Machu Picchu"
+      ],
+      "excludes": [
+        "Billet touristique",
+        "Almuerzo buffet",
+        "Tren a Aguas Calientes, salvo que esté incluido dentro del paquete seleccionado",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Pisac arqueológico",
+          "description": "Iniciaremos la ruta por el Vallée Sacrée visitando Pisac arqueológico, con terrazas incas, miradores naturales y una introducción al legado agrícola del valle.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mercado artesanal de Pisac",
+          "description": "Tendrás tiempo para recorrer el mercado artesanal y conocer productos locales antes de continuar hacia el corazón del Vallée Sacrée.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "Realizaremos una parada en Urubamba para almuerzo opcional y descanso antes de continuar hacia Ollantaytambo.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo y conexión a Machu Picchu",
+          "description": "Visitaremos Ollantaytambo y finalizaremos en este punto para facilitar la conexión hacia Aguas Calientes según el tren o servicio coordinado para Machu Picchu.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète con conexión. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        },
+        {
+          "q": "Les billets pour Machu Picchu sont-ils garantis ?",
+          "a": "Les billets sont gérés selon la disponibilité officielle pour votre date et le circuit sélectionné. Nous vérifions la meilleure option disponible avant de confirmer la réservation."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Déjeuner buffet dans la Vallée Sacrée",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "VALCON"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "15:30",
+        "durationLabel": "Journée complète con conexión",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado",
+          "ollantaytambo"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia",
+          "conexion"
+        ],
+        "includedTourCodes": [
+          "CUZ003CON"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "pisac",
+          "ollantaytambo",
+          "urubamba",
+          "conexion-machu-picchu"
+        ],
+        "themes": [
+          "cultural",
+          "conexion"
+        ],
+        "keywords": [
+          "valle sagrado conexion",
+          "valle sagrado con conexion a machu picchu",
+          "ollantaytambo conexion",
+          "aguas calientes",
+          "machu picchu overnight"
+        ]
+      },
+      "pricingNotes": [
+        "Esta variante finaliza en Ollantaytambo y está pensada para paquetes con Machu Picchu Overnight.",
+        "El tren a Aguas Calientes se gestiona desde trains.json cuando forma parte de un paquete."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Vallée Sacrée avec connexion à Machu Picchu | My Cusco Trip",
+        "description": "Itinéraire classique dans la Vallée Sacrée se terminant à Ollantaytambo pour prendre le train vers Aguas Calientes."
+      }
+    },
+    {
+      "id": "exp_003_vip",
+      "internalCode": "CUZ003VIP",
+      "slug": "vallee-sacree-de-los-incas-vip-journee-complete",
+      "title": "Vallée Sacrée VIP - Journée complète",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Journée complète VIP",
+      "variantType": "vip-full-day",
+      "badge": "Ruta VIP",
+      "featured": true,
+      "location": "Cusco / Vallée Sacrée / Maras / Moray",
+      "currency": "USD",
+      "shortDescription": "Itinéraire élargi par Chinchero, Maras, Moray, Urubamba, Ollantaytambo et Pisac.",
+      "description": "Expérience plus complète dans la Vallée Sacrée, incluant les salines de Maras et Moray avec les principaux sites culturels de la vallée.",
+      "duration": {
+        "label": "Journée complète VIP",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique",
+        "Guide professionnel en espagnol et en anglais",
+        "Ruta ampliada por Chinchero, Maras, Moray, Ollantaytambo y Pisac",
+        "Retorno a Cusco al finalizar el tour"
+      ],
+      "excludes": [
+        "Billet touristique",
+        "Ingreso a Salineras de Maras",
+        "Almuerzo buffet",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Chinchero",
+          "description": "Comenzaremos con Chinchero, donde conocerás su tradición textil, paisajes andinos y expresiones culturales vivas del Vallée Sacrée.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Salineras de Maras",
+          "description": "Visitaremos las Salineras de Maras, un paisaje único formado por miles de pozas de sal utilizadas desde tiempos antiguos.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Moray",
+          "description": "Exploraremos Moray, conocido por sus terrazas circulares y su posible uso como laboratorio agrícola inca.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "Parada para almuerzo buffet opcional en Urubamba, rodeado por el paisaje fértil del Vallée Sacrée.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo",
+          "description": "Recorrido por Ollantaytambo, una antigua ciudad inca viva con terrazas monumentales y calles históricas.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Pisac arqueológico",
+          "description": "Visita a Pisac arqueológico para apreciar terrazas, caminos y vistas panorámicas del valle.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Mercado artesanal de Pisac",
+          "description": "Tiempo para recorrer el mercado artesanal antes del retorno final a Cusco.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète VIP. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Entrée aux salines de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "S'applique à l'itinéraire Vallée Sacrée VIP."
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Déjeuner buffet dans la Vallée Sacrée",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "VALVIP"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "20:00",
+        "durationLabel": "Journée complète VIP",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Entrée aux salines de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "S'applique à l'itinéraire Vallée Sacrée VIP."
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado",
+          "maras",
+          "moray",
+          "chinchero"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia",
+          "vip"
+        ],
+        "includedTourCodes": [
+          "CUZ003VIP"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "vip",
+          "chinchero",
+          "maras",
+          "moray",
+          "ollantaytambo",
+          "pisac"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "valle sagrado vip",
+          "valle sagrado vip full day",
+          "chinchero",
+          "maras",
+          "moray",
+          "ollantaytambo",
+          "pisac"
+        ]
+      },
+      "pricingNotes": [
+        "Ruta VIP con Maras et Moray.",
+        "El ingreso a Salineras de Maras se maneja como extra obligatorio de esta variante."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Vallée Sacrée VIP - Journée complète | My Cusco Trip",
+        "description": "Itinéraire élargi par Chinchero, Maras, Moray, Urubamba, Ollantaytambo et Pisac."
+      }
+    },
+    {
+      "id": "exp_003_vip_con",
+      "internalCode": "CUZ003VIPCON",
+      "slug": "vallee-sacree-de-los-incas-vip-con-conexion-a-machu-picchu",
+      "title": "Vallée Sacrée VIP avec connexion à Machu Picchu",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Journée complète VIP con conexión",
+      "variantType": "vip-connection",
+      "badge": "VIP + Conexión",
+      "featured": true,
+      "location": "Cusco / Vallée Sacrée / Ollantaytambo",
+      "currency": "USD",
+      "shortDescription": "Route VIP par Chinchero, Maras, Moray, Urubamba et Ollantaytambo, avec connexion vers Machu Picchu.",
+      "description": "Option efficace pour combiner la route VIP de la Vallée Sacrée avec la continuation vers Aguas Calientes ou Machu Picchu.",
+      "duration": {
+        "label": "Journée complète VIP con conexión",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sagrado/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sagrado/1.jpg",
+          "./assets/img/tours/valle-sagrado/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique por ruta VIP del Vallée Sacrée",
+        "Guide professionnel en espagnol et en anglais",
+        "Finalización en Ollantaytambo para conexión hacia Machu Picchu"
+      ],
+      "excludes": [
+        "Billet touristique",
+        "Ingreso a Salineras de Maras",
+        "Almuerzo buffet",
+        "Tren a Aguas Calientes, salvo que esté incluido dentro del paquete seleccionado",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Chinchero",
+          "description": "Iniciaremos la ruta VIP con una visita cultural a Chinchero y una demostración textil tradicional.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Salineras de Maras",
+          "description": "Continuaremos hacia las Salineras de Maras, con tiempo para observar las pozas de sal y el paisaje del valle.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Moray",
+          "description": "Visitaremos Moray, centro arqueológico famoso por sus terrazas circulares y microclimas agrícolas.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Urubamba",
+          "description": "Parada en Urubamba para almuerzo opcional y descanso antes de continuar hacia Ollantaytambo.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Ollantaytambo y conexión a Machu Picchu",
+          "description": "Finalizaremos en Ollantaytambo para conectar con el programa hacia Machu Picchu o Aguas Calientes, según la opción seleccionada.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète VIP con conexión. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        },
+        {
+          "q": "Les billets pour Machu Picchu sont-ils garantis ?",
+          "a": "Les billets sont gérés selon la disponibilité officielle pour votre date et le circuit sélectionné. Nous vérifions la meilleure option disponible avant de confirmer la réservation."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Entrée aux salines de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "S'applique à l'itinéraire Vallée Sacrée VIP con conexión."
+        },
+        {
+          "code": "sacred-valley-buffet-basic",
+          "label": "Déjeuner buffet dans la Vallée Sacrée",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 50
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 14.9,
+            "penApprox": 60
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 19.9,
+        "partialPaymentLabel": "Reserva con USD 19.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "VALVIPCON"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "15:30",
+        "durationLabel": "Journée complète VIP con conexión",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "maras-salt-mines-ticket-vip-only",
+          "label": "Entrée aux salines de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": "S'applique à l'itinéraire Vallée Sacrée VIP con conexión."
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco",
+          "valle-sagrado",
+          "ollantaytambo",
+          "maras",
+          "moray"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia",
+          "vip",
+          "conexion"
+        ],
+        "includedTourCodes": [
+          "CUZ003VIPCON"
+        ],
+        "includedTags": [
+          "valle-sagrado",
+          "vip",
+          "conexion-machu-picchu",
+          "chinchero",
+          "maras",
+          "moray",
+          "ollantaytambo"
+        ],
+        "themes": [
+          "cultural",
+          "conexion"
+        ],
+        "keywords": [
+          "valle sagrado vip conexion",
+          "valle sagrado vip con conexion a machu picchu",
+          "ollantaytambo conexion",
+          "aguas calientes",
+          "machu picchu overnight"
+        ]
+      },
+      "pricingNotes": [
+        "Esta variante está pensada como ruta preferida para paquetes con Machu Picchu Overnight.",
+        "El tren a Aguas Calientes se gestiona desde trains.json cuando forma parte de un paquete."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Vallée Sacrée VIP avec connexion à Machu Picchu | My Cusco Trip",
+        "description": "Route VIP par Chinchero, Maras, Moray, Urubamba et Ollantaytambo, avec connexion vers Machu Picchu."
+      }
+    },
+    {
+      "id": "exp_004",
+      "internalCode": "CUZ004",
+      "slug": "maras-et-moray",
+      "title": "Maras et Moray",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Medio jour",
+      "badge": "Imperdible",
+      "featured": true,
+      "location": "Cusco / Maras / Moray",
+      "currency": "USD",
+      "shortDescription": "Découvrez le laboratoire agricole inca de Moray et les célèbres salines de Maras.",
+      "description": "Tour d'une demi-journée idéal pour découvrir les paysages agricoles, les terrasses circulaires incas et les bassins de sel traditionnels de Maras.",
+      "duration": {
+        "label": "Medio jour",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 20.9,
+        "child": 20.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/maras-moray/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/maras-moray/1.jpg",
+          "./assets/img/tours/maras-moray/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique",
+        "Guide professionnel en espagnol et en anglais"
+      ],
+      "excludes": [
+        "Billet touristique parcial",
+        "Ingreso a Salineras",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo en hotel",
+          "description": "Recojo desde tu hotel o punto coordinado en Cusco para iniciar la ruta hacia Chinchero, Maras et Moray.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Centro textil de Chinchero",
+          "description": "Visita cultural para conocer técnicas tradicionales de tejido, tintes naturales y productos elaborados con fibra de alpaca.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Moray",
+          "description": "Recorrido por las terrazas circulares de Moray, consideradas uno de los espacios agrícolas experimentales más interesantes del mundo andino.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Maras y Salineras",
+          "description": "Visita al pueblo de Maras y a las famosas salineras, con miles de pozas que forman uno de los paisajes más fotogénicos del Vallée Sacrée.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Medio jour. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": "No cobrar si el pasajero ya compró el Circuito 2 para Vallée Sacrée en el mismo viaje."
+        },
+        {
+          "code": "maras-salt-mines-ticket",
+          "label": "Entrée aux salines de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "atv-maras-moray",
+          "label": "Quad ATV Maras et Moray",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 65
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 70.9,
+            "penApprox": 270
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10.00 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 35,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 70,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 20.9,
+        "publishedChildUSD": 20.9,
+        "publishedAdultPENApprox": 80,
+        "publishedChildPENApprox": 80,
+        "grossBeforeRoundingUSD": 20.4049,
+        "targetNetPEN": 70,
+        "targetNetUSD": 18.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "15:00",
+        "durationLabel": "Medio jour",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-2-nationality",
+          "label": "Billet touristique partiel Circuit 2",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-2",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": "No cobrar si el pasajero ya compró el Circuito 2 para Vallée Sacrée en el mismo viaje."
+        },
+        {
+          "code": "maras-salt-mines-ticket",
+          "label": "Entrée aux salines de Maras",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 15,
+              "publishedUSD": 4.9,
+              "publishedPENApprox": 20
+            },
+            "foreign": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ004"
+        ],
+        "includedTags": [
+          "maras-moray",
+          "salineras",
+          "moray",
+          "chinchero",
+          "atv"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "maras y moray",
+          "maras-y-moray",
+          "cusco / maras / moray",
+          "maras-moray",
+          "salineras",
+          "moray",
+          "chinchero",
+          "atv"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Maras et Moray | My Cusco Trip",
+        "description": "Découvrez le laboratoire agricole inca de Moray et les célèbres salines de Maras."
+      }
+    },
+    {
+      "id": "exp_005",
+      "internalCode": "CUZ005",
+      "slug": "valle-sur",
+      "title": "Vallée Sud de Cusco",
+      "category": "cusco",
+      "type": "cultural-tour",
+      "typeLabel": "Medio jour",
+      "badge": "Cultural",
+      "featured": true,
+      "location": "Cusco / Tipón / Pikillacta / Andahuaylillas",
+      "currency": "USD",
+      "shortDescription": "Explorez Tipón, Pikillacta et Andahuaylillas lors d'un itinéraire culturel d'une demi-journée au sud de Cusco.",
+      "description": "Ce tour d'une demi-journée commence par la prise en charge à votre hôtel à Cusco entre 8h00 et 8h30. Nous partons vers le sud pour visiter Tipón, reconnu pour son ingénierie hydraulique inca ; Pikillacta, ancienne citadelle wari ; et l'église d'Andahuaylillas, célèbre pour ses fresques et retables baroques. Le retour à Cusco se fait généralement vers 14h30.",
+      "duration": {
+        "label": "Demi-journée",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 20.9,
+        "child": 20.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/valle-sur/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/valle-sur/1.jpg",
+          "./assets/img/tours/valle-sur/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique",
+        "Guide professionnel en espagnol et en anglais"
+      ],
+      "excludes": [
+        "Billet touristique partiel Circuit 3",
+        "Entrée à l'église d'Andahuaylillas",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Départ de Cusco",
+          "description": "Prise en charge à votre hôtel entre 8h00 et 8h30 pour commencer l'itinéraire vers le sud de Cusco.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Tipón",
+          "description": "Visite du site archéologique de Tipón, célèbre pour ses canaux d'eau et son système hydraulique inca encore fonctionnel.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Pikillacta",
+          "description": "Parcours dans l'ancienne citadelle wari de Pikillacta, exemple important d'urbanisme pré-inca.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Andahuaylillas",
+          "description": "Visite de l'église d'Andahuaylillas, connue comme la Chapelle Sixtine d'Amérique pour ses fresques, toiles et retables baroques.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Demi-journée. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "btc-circuit-3-nationality",
+          "label": "Billet touristique partiel Circuit 3",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-3",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "andahuaylillas-church-ticket",
+          "label": "Entrée à l'église d'Andahuaylillas",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10.00 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 0,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 35,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 70,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 20.9,
+        "publishedChildUSD": 20.9,
+        "publishedAdultPENApprox": 80,
+        "publishedChildPENApprox": 80,
+        "grossBeforeRoundingUSD": 20.4049,
+        "targetNetPEN": 70,
+        "targetNetUSD": 18.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 20.9,
+          "child": 20.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "14:30",
+        "durationLabel": "Medio jour",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "btc-circuit-3-nationality",
+          "label": "Billet touristique partiel Circuit 3",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": "circuito-3",
+          "costByNationality": {
+            "national": {
+              "costPEN": 40,
+              "publishedUSD": 11.9,
+              "publishedPENApprox": 45
+            },
+            "foreign": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            },
+            "andean_community": {
+              "costPEN": 70,
+              "publishedUSD": 20.9,
+              "publishedPENApprox": 80
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "andahuaylillas-church-ticket",
+          "label": "Entrée à l'église d'Andahuaylillas",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day"
+        ],
+        "includedTourCodes": [
+          "CUZ005"
+        ],
+        "includedTags": [
+          "valle-sur",
+          "tipon",
+          "pikillacta",
+          "andahuaylillas"
+        ],
+        "themes": [
+          "cultural"
+        ],
+        "keywords": [
+          "valle sur",
+          "valle-sur",
+          "cusco / tipón / pikillacta / andahuaylillas",
+          "tipon",
+          "pikillacta",
+          "andahuaylillas"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Valle Sur | My Cusco Trip",
+        "description": "Parcourez Tipón, Pikillacta y Andahuaylillas en una ruta cultural al sur de Cusco."
+      }
+    },
+    {
+      "id": "exp_006",
+      "internalCode": "CUZ006",
+      "slug": "lac-humantay",
+      "title": "Lac Humantay",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "Journée complète",
+      "badge": "Top ventas",
+      "featured": true,
+      "location": "Cusco / Humantay",
+      "currency": "USD",
+      "shortDescription": "Marchez jusqu'au lac turquoise au pied du glacier Humantay.",
+      "description": "Journée complète de nature et randonnée en altitude vers l'un des paysages les plus impressionnants de la région de Cusco.",
+      "duration": {
+        "label": "Journée complète",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 31.9,
+        "child": 31.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/laguna-humantay/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/laguna-humantay/1.jpg",
+          "./assets/img/tours/laguna-humantay/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique",
+        "Guide professionnel en espagnol et en anglais",
+        "Desayuno",
+        "Almuerzo"
+      ],
+      "excludes": [
+        "Ingreso",
+        "Caballo opcional",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida desde Cusco",
+          "description": "Recojo temprano y viaje hacia Mollepata, atravesando paisajes andinos hasta llegar a la zona de inicio de la excursión.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno e inicio de caminata",
+          "description": "Parada para desayuno y preparación antes de iniciar la caminata hacia la Lac Humantay.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Llegada a Lac Humantay",
+          "description": "Arribo a la laguna turquesa ubicada a los pies del nevado Humantay, con tiempo para fotos, descanso y explicación del guía.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Retorno y almuerzo",
+          "description": "Descenso por la misma ruta, almuerzo en la zona y retorno en transporte turístico hacia Cusco.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "humantay-entrance-ticket",
+          "label": "Entrée au lac Humantay",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Petit-déjeuner et déjeuner basiques",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "HUM"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 55,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 110,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 31.9,
+        "publishedChildUSD": 31.9,
+        "publishedAdultPENApprox": 120,
+        "publishedChildPENApprox": 120,
+        "grossBeforeRoundingUSD": 31.8836,
+        "targetNetPEN": 110,
+        "targetNetUSD": 29.33,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 31.9,
+          "child": 31.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 31.9,
+          "child": 31.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 31.9,
+          "child": 31.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "17:00",
+        "durationLabel": "Journée complète",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "humantay-entrance-ticket",
+          "label": "Entrée au lac Humantay",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ006"
+        ],
+        "includedTags": [
+          "laguna-humantay",
+          "humantay",
+          "trekking",
+          "naturaleza"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "laguna humantay",
+          "laguna-humantay",
+          "cusco / humantay",
+          "humantay",
+          "trekking",
+          "naturaleza"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Lac Humantay | My Cusco Trip",
+        "description": "Marchez jusqu'au lac turquoise au pied du glacier Humantay."
+      }
+    },
+    {
+      "id": "exp_007",
+      "internalCode": "CUZ007",
+      "slug": "montagne-arc-en-ciel-vinicunca",
+      "title": "Montagne Arc-en-ciel Vinicunca",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "Journée complète",
+      "badge": "Aventura",
+      "featured": true,
+      "location": "Cusco / Vinicunca",
+      "currency": "USD",
+      "shortDescription": "Vivez une aventure jusqu'à la célèbre montagne arc-en-ciel des Andes.",
+      "description": "Randonnée d'une journée en haute montagne pour visiter Vinicunca, avec paysages andins, communautés locales et vues panoramiques.",
+      "duration": {
+        "label": "Journée complète",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 29.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/montana-colores/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/montana-colores/1.jpg",
+          "./assets/img/tours/montana-colores/2.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique",
+        "Guide professionnel en espagnol et en anglais"
+      ],
+      "excludes": [
+        "Ingreso",
+        "Caballo opcional",
+        "Dépenses personnelles"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida de madrugada",
+          "description": "Recojo temprano en Cusco y viaje hacia el punto de inicio de la ruta a Vinicunca.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno y caminata",
+          "description": "Parada para desayuno antes de iniciar la caminata hacia la Montagne Arc-en-ciel, atravesando paisajes altoandinos.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Llegada a la Montagne Arc-en-ciel",
+          "description": "Tiempo para fotografías, explicación del guía y contemplación del paisaje de la montaña arcoíris.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Retorno y almuerzo",
+          "description": "Descenso, almuerzo y retorno a Cusco al finalizar la experiencia.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "vinicunca-entrance-ticket",
+          "label": "Entrée à la Montagne Arc-en-ciel Vinicunca",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Petit-déjeuner et déjeuner basiques",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        },
+        {
+          "code": "atv-vinicunca",
+          "label": "Quad ATV Vinicunca",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 65
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 70.9,
+            "penApprox": 270
+          }
+        },
+        {
+          "code": "horse-vinicunca",
+          "label": "Cheval optionnel à Vinicunca",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 25
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 27.9,
+            "penApprox": 105
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "VIN"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 50,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 100,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 29.9,
+        "publishedChildUSD": 29.9,
+        "publishedAdultPENApprox": 115,
+        "publishedChildPENApprox": 115,
+        "grossBeforeRoundingUSD": 29.0139,
+        "targetNetPEN": 100,
+        "targetNetUSD": 26.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 29.9,
+          "child": 29.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "17:00",
+        "durationLabel": "Journée complète",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "vinicunca-entrance-ticket",
+          "label": "Entrée à la Montagne Arc-en-ciel Vinicunca",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ007"
+        ],
+        "includedTags": [
+          "montana-de-colores",
+          "vinicunca",
+          "rainbow-mountain",
+          "trekking",
+          "atv",
+          "caballo"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "montaña de colores (vinicunca)",
+          "montana-de-colores",
+          "cusco / vinicunca",
+          "vinicunca",
+          "rainbow-mountain",
+          "trekking",
+          "atv",
+          "caballo"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Montagne Arc-en-ciel Vinicunca | My Cusco Trip",
+        "description": "Vivez une aventure jusqu'à la célèbre montagne arc-en-ciel des Andes."
+      }
+    },
+    {
+      "id": "exp_008",
+      "internalCode": "CUZ008",
+      "slug": "montana-palcoyo",
+      "title": "Montagne Palcoyo",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "Journée complète",
+      "badge": "Aventura",
+      "featured": true,
+      "location": "Cusco / Palcoyo",
+      "currency": "USD",
+      "shortDescription": "Explorez la cordillère colorée de Palcoyo et sa forêt de pierres lors d'une marche plus accessible.",
+      "description": "Alternative panoramique à la Montagne Arc-en-ciel traditionnelle, avec randonnée plus douce et plusieurs montagnes colorées sur le parcours.",
+      "duration": {
+        "label": "Journée complète",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 46.9,
+        "child": 46.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/montana-palcoyo/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/montana-palcoyo/1.jpg",
+          "./assets/img/tours/montana-palcoyo/2.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo de su hotel en Cusco",
+        "Transport touristique",
+        "1 desayuno",
+        "1 almuerzo buffet",
+        "Ingreso a la Cordillera Palcoyo",
+        "Guide professionnel en espagnol et en anglais",
+        "Botiquín de primeros auxilios",
+        "Balón de oxígeno"
+      ],
+      "excludes": [
+        "Cena",
+        "Dépenses personnelles",
+        "Servicios no mencionados"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo y salida",
+          "description": "Recojo entre 4:30 y 5:00 a. m. desde tu hotel en Cusco para iniciar el viaje hacia el sur de la región.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno en Cusipata",
+          "description": "Parada en Cusipata para desayuno antes de continuar hacia la comunidad de Palcoyo.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Llegada a Palcoyo",
+          "description": "Arribo a la zona de Palcoyo, desde donde se aprecian montañas de colores y paisajes altoandinos.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Caminata y bosque de piedras",
+          "description": "Caminata accesible para recorrer la cordillera de colores y el bosque de piedras.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Almuerzo y retorno",
+          "description": "Almuerzo en ruta y retorno a Cusco durante la tarde.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "palcoyo-entrance-ticket",
+          "label": "Entrée à la montagne Palcoyo",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Petit-déjeuner et déjeuner basiques",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        },
+        {
+          "code": "atv-palcoyo",
+          "label": "Quad ATV Palcoyo",
+          "type": "activity-upgrade",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 65
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 70.9,
+            "penApprox": 270
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 80,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 160,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 46.9,
+        "publishedChildUSD": 46.9,
+        "publishedAdultPENApprox": 180,
+        "publishedChildPENApprox": 180,
+        "grossBeforeRoundingUSD": 46.232,
+        "targetNetPEN": 160,
+        "targetNetUSD": 42.67,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 46.9,
+          "child": 46.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 46.9,
+          "child": 46.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 46.9,
+          "child": 46.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "17:00",
+        "durationLabel": "Journée complète",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "palcoyo-entrance-ticket",
+          "label": "Entrée à la montagne Palcoyo",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ008"
+        ],
+        "includedTags": [
+          "palcoyo",
+          "montana-palcoyo",
+          "valle-rojo",
+          "bosque-de-piedras",
+          "trekking",
+          "atv"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "montaña palcoyo",
+          "montana-palcoyo",
+          "cusco / palcoyo",
+          "palcoyo",
+          "valle-rojo",
+          "bosque-de-piedras",
+          "trekking",
+          "atv"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Montagne Palcoyo | My Cusco Trip",
+        "description": "Explorez la cordillère colorée de Palcoyo et sa forêt de pierres lors d'une marche plus accessible."
+      }
+    },
+    {
+      "id": "exp_009",
+      "internalCode": "CUZ009",
+      "slug": "siete-lagunas-del-ausangate",
+      "title": "Sept Lacs de l'Ausangate",
+      "category": "cusco",
+      "type": "adventure-tour",
+      "typeLabel": "Journée complète",
+      "badge": "Aventura",
+      "featured": true,
+      "location": "Cusco / Pacchanta / Ausangate",
+      "currency": "USD",
+      "shortDescription": "Explorez les Sept Lacs de l'Ausangate lors d'une journée complète entre montagnes, glaciers et paysages de haute altitude.",
+      "description": "Itinéraire nature au pied de l'Ausangate, combinant randonnée, lacs d'altitude et possibilité de visiter les sources thermales de Pacchanta.",
+      "duration": {
+        "label": "Journée complète",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 86.9,
+        "child": 86.9
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Circuit en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Circuit privado"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/tours/siete-lagunas-ausangate/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/siete-lagunas-ausangate/1.jpg",
+          "./assets/img/tours/siete-lagunas-ausangate/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Prise en charge à Cusco",
+        "Transport touristique ida y vuelta",
+        "Guide professionnel en espagnol et en anglais",
+        "Desayuno",
+        "Almuerzo",
+        "Botiquín de primeros auxilios",
+        "Balón de oxígeno"
+      ],
+      "excludes": [
+        "Ingreso a las lagunas si aplica pago local",
+        "Baños termales de Pacchanta si aplican pago adicional",
+        "Caballo opcional",
+        "Dépenses personnelles",
+        "Servicios no mencionados"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo y salida desde Cusco",
+          "description": "Recojo entre 4:00 y 4:30 a. m. desde tu hotel y viaje hacia Pacchanta, en la zona del Ausangate.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Desayuno en Pacchanta",
+          "description": "Llegada a Pacchanta, desayuno y explicación del guía sobre la ruta, altitud y recomendaciones para la caminata.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Inicio de la caminata",
+          "description": "Inicio del trekking por senderos altoandinos con vistas del nevado Ausangate y la cordillera del Vilcanota.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Recorrido por las 7 lagunas",
+          "description": "Visita a las lagunas del circuito, reconocidas por sus tonos turquesa, verde esmeralda y azul profundo.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Retorno a Pacchanta",
+          "description": "Descenso hacia Pacchanta. Según la operación del jour, opción de disfrutar las aguas termales de la zona.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Almuerzo y regreso a Cusco",
+          "description": "Almuerzo en la zona y retorno en transporte turístico hacia Cusco, llegando al atardecer.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien de temps dure l'expérience ?",
+          "a": "La durée indicative est Journée complète. L'horaire final est coordonné avant le départ afin que vous connaissiez clairement la prise en charge, les visites et le retour."
+        },
+        {
+          "q": "Le tour inclut-il un guide ?",
+          "a": "Oui. Tous nos tours incluent un guide professionnel en espagnol et en anglais. Le français est disponible sur demande/coordination préalable et peut entraîner un coût supplémentaire."
+        },
+        {
+          "q": "Quels billets ou extras dois-je prévoir ?",
+          "a": "Les billets d'entrée, billets touristiques, déjeuners ou autres extras sont affichés dans la section extras afin que vous puissiez les ajouter ou les vérifier avant de réserver."
+        },
+        {
+          "q": "Où commence le service ?",
+          "a": "La prise en charge ou le point de rendez-vous est coordonné selon le tour, votre hôtel et l'opération du jour. Nous envoyons les détails finaux par WhatsApp ou e-mail avant l'expérience."
+        },
+        {
+          "q": "Que dois-je apporter ?",
+          "a": "Nous recommandons d'apporter passeport ou pièce d'identité, eau, protection solaire, vêtements confortables, veste légère et espèces pour les dépenses personnelles ou billets non inclus."
+        }
+      ],
+      "extras": [
+        {
+          "code": "seven-lagoons-entrance-ticket",
+          "label": "Entrée aux Sept Lacs de l'Ausangate",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "trekking-food-pack",
+          "label": "Petit-déjeuner et déjeuner basiques",
+          "type": "meal",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "PEN",
+            "amount": 35
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 10.9,
+            "penApprox": 45
+          }
+        },
+        {
+          "code": "pacchanta-hot-springs",
+          "label": "Entrée aux sources thermales de Pacchanta",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 8
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 9.9,
+            "penApprox": 40
+          }
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 5,
+        "partialPaymentPerPerson": 14.9,
+        "partialPaymentLabel": "Reserva con USD 14.90 por persona y paga el saldo en Cusco"
+      },
+      "booking": {
+        "reservationCodePrefix": "CUZ"
+      },
+      "status": "published",
+      "productKind": "tour",
+      "productFamily": "cusco-tour",
+      "days": 1,
+      "nights": 0,
+      "baseCurrency": "PEN",
+      "allowedCurrencies": [
+        "PEN",
+        "USD",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "internalPricing": {
+        "currency": "PEN",
+        "costPEN": 150,
+        "targetNetMultiplier": 2,
+        "targetNetPEN": 300,
+        "pricingRule": "published price must produce targetNetPEN after PayPal and bank withdrawal fees"
+      },
+      "pricing": {
+        "displayCurrency": "USD",
+        "publishedAdultUSD": 86.9,
+        "publishedChildUSD": 86.9,
+        "publishedAdultPENApprox": 330,
+        "publishedChildPENApprox": 330,
+        "grossBeforeRoundingUSD": 86.4075,
+        "targetNetPEN": 300,
+        "targetNetUSD": 80,
+        "calculationProfile": "paypal_usd_plus_bank_withdrawal_pe"
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 86.9,
+          "child": 86.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 86.9,
+          "child": 86.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 86.9,
+          "child": 86.9,
+          "currency": "USD"
+        }
+      },
+      "operationalSchedule": {
+        "startTimes": [],
+        "endTime": "18:00",
+        "durationLabel": "Journée complète",
+        "frequency": "Diario"
+      },
+      "ticketPricingByNationality": [
+        {
+          "code": "seven-lagoons-entrance-ticket",
+          "label": "Entrée aux Sept Lacs de l'Ausangate",
+          "type": "ticket",
+          "required": true,
+          "optional": false,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "circuit": null,
+          "costByNationality": {
+            "national": {
+              "costPEN": 20,
+              "publishedUSD": 6.9,
+              "publishedPENApprox": 30
+            },
+            "foreign": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            },
+            "andean_community": {
+              "costPEN": 25,
+              "publishedUSD": 7.9,
+              "publishedPENApprox": 30
+            }
+          },
+          "availabilityNote": null
+        },
+        {
+          "code": "pacchanta-hot-springs",
+          "label": "Entrée aux sources thermales de Pacchanta",
+          "type": "ticket",
+          "required": false,
+          "optional": true,
+          "perPerson": true,
+          "pricingModel": "net_cost_only_plus_payment_fees",
+          "internalCost": {
+            "currency": "USD",
+            "amount": 8
+          },
+          "publishedPricing": {
+            "currency": "USD",
+            "amount": 9.9,
+            "penApprox": 40
+          }
+        }
+      ],
+      "search": {
+        "kind": "tour",
+        "productFamily": "cusco-tour",
+        "destinations": [
+          "cusco"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "CUZ009"
+        ],
+        "includedTags": [
+          "siete-lagunas",
+          "ausangate",
+          "pacchanta",
+          "termas",
+          "trekking"
+        ],
+        "themes": [
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "siete lagunas del ausangate",
+          "siete-lagunas-ausangate",
+          "cusco / pacchanta / ausangate",
+          "siete-lagunas",
+          "ausangate",
+          "pacchanta",
+          "termas",
+          "trekking"
+        ]
+      },
+      "pricingNotes": [
+        "El precio base publicado está calculado para recibir neto el doble del costo interno del tour.",
+        "Los extras no se duplican; se calculan para recuperar el costo indicado después de comisiones.",
+        "Actualizar el tipo de cambio operativo desde currency-config.json antes de publicar precios finales."
+      ],
+      "places": [],
+      "seo": {
+        "title": "Sept Lacs de l'Ausangate | My Cusco Trip",
+        "description": "Explorez les Sept Lacs de l'Ausangate lors d'une journée complète entre montagnes, glaciers et paysages de haute altitude."
+      }
+    }
+  ]
+}

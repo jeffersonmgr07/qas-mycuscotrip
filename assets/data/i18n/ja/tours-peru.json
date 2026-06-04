@@ -1,0 +1,1992 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-10",
+  "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+  "sourceNotes": [
+    "Estructura creada para All Experience y product.html.",
+    "No usar precios referenciales como tarifa final sin validación comercial.",
+    "No buscar en includes/excludes para filtros; usar search."
+  ],
+  "products": [
+    {
+      "id": "peru_001",
+      "internalCode": "PER001",
+      "slug": "city-tour-lima-colonial-moderna-ja",
+      "title": "市内観光 Lima Colonial y Moderna",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "lima",
+      "type": "cultural-tour",
+      "typeLabel": "Medio 日",
+      "badge": "Cultural",
+      "featured": true,
+      "location": "Lima",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "3 a 4 horas",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "09:00",
+          "14:00"
+        ],
+        "pickupWindow": "Coordinar según hotel",
+        "endTimeReference": "13:00 / 18:00"
+      },
+      "basePricing": {
+        "adult": 39.9,
+        "child": 34.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Tarifa referencial hasta recibir costos reales del operador."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "ツアー privado bajo solicitud"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en zonas seleccionadas",
+        "Transporte turístico",
+        "プロガイド",
+        "Recorrido パノラマ"
+      ],
+      "excludes": [
+        "Entradas no especificadas",
+        "Alimentos y bebidas",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo y salida",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Lima moderna",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Centro histórico",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10 por persona y confirma el saldo según operación"
+      },
+      "booking": {
+        "reservationCodePrefix": "LIM"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "lima"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "city-tour-lima",
+          "centro-historico",
+          "lima-colonial"
+        ],
+        "themes": [
+          "cultural",
+          "historia",
+          "urbano"
+        ],
+        "keywords": [
+          "lima",
+          "city tour lima",
+          "lima colonial",
+          "lima moderna"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "市内観光 Lima Colonial y Moderna | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_002",
+      "internalCode": "PER002",
+      "slug": "paracas-islas-ballestas-ja",
+      "title": "ツアー Islas Ballestas",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "paracas",
+      "type": "nature-tour",
+      "typeLabel": "Medio 日",
+      "badge": "Naturaleza",
+      "featured": true,
+      "location": "Paracas",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "2 horas aprox.",
+        "maxGroupSize": 35,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily_weather_permitting",
+        "startTimes": [
+          "08:00",
+          "10:00"
+        ],
+        "pickupWindow": "Coordinar en Paracas",
+        "endTimeReference": "Según horario elegido"
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 24.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Pendiente tarifa neta de operador y tasas portuarias."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 35,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Asistencia en muelle",
+        "Paseo en lancha",
+        "Guía durante la navegación"
+      ],
+      "excludes": [
+        "Impuestos o tasas portuarias si aplican",
+        "Traslados desde Lima",
+        "Alimentos",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Embarque en Paracas",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Candelabro de Paracas",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Islas Ballestas",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno al muelle",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "PAR"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "paracas"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "islas-ballestas",
+          "paracas",
+          "candelabro"
+        ],
+        "themes": [
+          "naturaleza",
+          "fauna-marina"
+        ],
+        "keywords": [
+          "islas ballestas",
+          "paracas",
+          "lobos marinos",
+          "candelabro"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "ツアー Islas Ballestas | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_003",
+      "internalCode": "PER003",
+      "slug": "paracas-ica-huacachina-full-day-desde-lima-ja",
+      "title": "日帰り Paracas, Ica y Huacachina desde Lima",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "ica-paracas",
+      "type": "full-day-tour",
+      "typeLabel": "日帰り",
+      "badge": "Top ventas",
+      "featured": true,
+      "location": "Lima / Paracas / Ica / Huacachina",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "日帰り / 16 a 18 horas",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "05:00"
+        ],
+        "pickupWindow": "04:30 - 05:30 desde zonas seleccionadas de Lima",
+        "endTimeReference": "22:30 aprox."
+      },
+      "basePricing": {
+        "adult": 89.9,
+        "child": 84.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar tarifa neta según operador, temporada y punto de recojo."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en zonas seleccionadas de Lima",
+        "Transporte turístico",
+        "ツアー Islas Ballestas",
+        "Visita a bodega",
+        "Huacachina",
+        "Buggies y sandboarding según operación",
+        "Guía o coordinador"
+      ],
+      "excludes": [
+        "Alimentación no especificada",
+        "Tasas turísticas si aplican",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida desde Lima",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Islas Ballestas",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Ica y bodega",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Huacachina",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno a Lima",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 20,
+        "partialPaymentLabel": "Reserva con USD 20 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "PIC"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "lima",
+          "paracas",
+          "ica",
+          "huacachina"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "islas-ballestas",
+          "huacachina",
+          "ica",
+          "paracas",
+          "sandboarding",
+          "buggies"
+        ],
+        "themes": [
+          "naturaleza",
+          "aventura",
+          "desierto"
+        ],
+        "keywords": [
+          "paracas ica huacachina",
+          "full day desde lima",
+          "buggies",
+          "sandboarding"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "日帰り Paracas, Ica y Huacachina desde Lima | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_004",
+      "internalCode": "PER004",
+      "slug": "sobrevuelo-lineas-de-nazca-ja",
+      "title": "Sobrevuelo Líneas de Nazca",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "nazca",
+      "type": "scenic-flight",
+      "typeLabel": "Medio 日",
+      "badge": "Icónico",
+      "featured": false,
+      "location": "Nazca",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "35 min de vuelo aprox.",
+        "maxGroupSize": 12,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily_weather_permitting",
+        "startTimes": [
+          "08:00",
+          "10:00",
+          "12:00"
+        ],
+        "pickupWindow": "Coordinar en Nazca",
+        "endTimeReference": "Según horario confirmado"
+      },
+      "basePricing": {
+        "adult": 119.9,
+        "child": 119.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_air_operator_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar tarifa aérea, tasas y condiciones por peso."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Vuelo compartido"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 12,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Asistencia en aeródromo",
+        "Sobrevuelo compartido",
+        "Briefing referencial"
+      ],
+      "excludes": [
+        "Tasas aeroportuarias si aplican",
+        "Traslados desde otra ciudad",
+        "Alimentos",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Presentación en aeródromo",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Sobrevuelo",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Fin del servicio",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 30,
+        "partialPaymentLabel": "Reserva con USD 30 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "NAZ"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "nazca",
+          "ica"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "lineas-de-nazca",
+          "sobrevuelo"
+        ],
+        "themes": [
+          "cultural",
+          "arqueologia",
+          "escenico"
+        ],
+        "keywords": [
+          "nazca",
+          "lineas de nazca",
+          "sobrevuelo"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "Sobrevuelo Líneas de Nazca | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_005",
+      "internalCode": "PER005",
+      "slug": "city-tour-arequipa-santa-catalina-ja",
+      "title": "市内観光 Arequipa y Monasterio de Santa Catalina",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "arequipa",
+      "type": "cultural-tour",
+      "typeLabel": "Medio 日",
+      "badge": "Cultural",
+      "featured": true,
+      "location": "Arequipa",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "3 a 4 horas",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "09:00",
+          "14:00"
+        ],
+        "pickupWindow": "Coordinar según hotel",
+        "endTimeReference": "13:00 / 18:00"
+      },
+      "basePricing": {
+        "adult": 39.9,
+        "child": 34.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar ingreso a Santa Catalina y transporte."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en zonas seleccionadas",
+        "Transporte turístico",
+        "プロガイド"
+      ],
+      "excludes": [
+        "Ingreso a Santa Catalina si aplica",
+        "Alimentos",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Centro histórico",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Santa Catalina",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Miradores",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "santa-catalina-ticket",
+          "label": "Ingreso Monasterio de Santa Catalina",
+          "price": 15,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "AQP"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "arequipa"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "city-tour-arequipa",
+          "santa-catalina",
+          "ciudad-blanca"
+        ],
+        "themes": [
+          "cultural",
+          "historia",
+          "arquitectura"
+        ],
+        "keywords": [
+          "arequipa",
+          "city tour arequipa",
+          "santa catalina",
+          "ciudad blanca"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "市内観光 Arequipa y Monasterio de Santa Catalina | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_006",
+      "internalCode": "PER006",
+      "slug": "colca-full-day-desde-arequipa-ja",
+      "title": "日帰り Cañón del Colca desde Arequipa",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "colca",
+      "type": "nature-tour",
+      "typeLabel": "日帰り",
+      "badge": "Naturaleza",
+      "featured": true,
+      "location": "Arequipa / Chivay / Colca",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "日帰り / 14 a 16 horas",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "03:00"
+        ],
+        "pickupWindow": "02:30 - 03:30",
+        "endTimeReference": "17:00 - 18:00"
+      },
+      "basePricing": {
+        "adult": 69.9,
+        "child": 64.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar boleto turístico del Colca y termales si aplican."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en Arequipa",
+        "Transporte turístico",
+        "プロガイド"
+      ],
+      "excludes": [
+        "Boleto turístico Colca",
+        "Desayuno/almuerzo si no se especifica",
+        "Termales opcionales",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida de madrugada",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Chivay y ruta al Colca",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Cruz del Cóndor",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "colca-tourist-ticket",
+          "label": "Boleto turístico Colca",
+          "price": 20,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 20,
+        "partialPaymentLabel": "Reserva con USD 20 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "COL"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "arequipa",
+          "colca"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "canon-del-colca",
+          "cruz-del-condor",
+          "chivay"
+        ],
+        "themes": [
+          "naturaleza",
+          "paisaje",
+          "fauna"
+        ],
+        "keywords": [
+          "colca",
+          "cañon del colca",
+          "cruz del condor",
+          "arequipa"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "日帰り Cañón del Colca desde Arequipa | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_007",
+      "internalCode": "PER007",
+      "slug": "lago-titicaca-uros-taquile-full-day-ja",
+      "title": "Lago Titicaca: Uros y Taquile 日帰り",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "puno",
+      "type": "cultural-nature-tour",
+      "typeLabel": "日帰り",
+      "badge": "Cultural",
+      "featured": true,
+      "location": "Puno / Lago Titicaca",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "日帰り / 8 a 10 horas",
+        "maxGroupSize": 25,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "07:00"
+        ],
+        "pickupWindow": "06:30 - 07:00",
+        "endTimeReference": "16:00 - 17:00"
+      },
+      "basePricing": {
+        "adult": 49.9,
+        "child": 44.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar embarcación, ingresos y almuerzo comunitario."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 25,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en Puno",
+        "Traslado al puerto",
+        "Lancha turística",
+        "プロガイド",
+        "Visita a Uros y Taquile"
+      ],
+      "excludes": [
+        "Almuerzo si no se especifica",
+        "Ingresos locales si aplican",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Puerto de Puno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Islas Uros",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Taquile",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno a Puno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "titicaca-lunch",
+          "label": "Almuerzo local en Taquile",
+          "price": 15,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 15,
+        "partialPaymentLabel": "Reserva con USD 15 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "PUN"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "puno",
+          "titicaca"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "lago-titicaca",
+          "uros",
+          "taquile"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "comunidad"
+        ],
+        "keywords": [
+          "titicaca",
+          "puno",
+          "uros",
+          "taquile",
+          "lago titicaca"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "Lago Titicaca: Uros y Taquile 日帰り | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_008",
+      "internalCode": "PER008",
+      "slug": "sillustani-chullpas-puno-ja",
+      "title": "Chullpas de Sillustani",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "puno",
+      "type": "cultural-tour",
+      "typeLabel": "Medio 日",
+      "badge": "Arqueología",
+      "featured": false,
+      "location": "Puno / Sillustani",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "3 a 4 horas",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "14:00"
+        ],
+        "pickupWindow": "13:30 - 14:00",
+        "endTimeReference": "17:30 - 18:00"
+      },
+      "basePricing": {
+        "adult": 29.9,
+        "child": 24.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar ingreso a Sillustani."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en Puno",
+        "Transporte turístico",
+        "プロガイド"
+      ],
+      "excludes": [
+        "Ingreso a Sillustani",
+        "Alimentos",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida desde Puno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Complejo arqueológico",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "sillustani-ticket",
+          "label": "Ingreso a Sillustani",
+          "price": 5,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "PUN"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "puno",
+          "sillustani"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "sillustani",
+          "chullpas",
+          "laguna-umayo"
+        ],
+        "themes": [
+          "cultural",
+          "arqueologia"
+        ],
+        "keywords": [
+          "sillustani",
+          "chullpas",
+          "puno"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "Chullpas de Sillustani | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_009",
+      "internalCode": "PER009",
+      "slug": "tarapoto-laguna-azul-full-day-ja",
+      "title": "Laguna Azul 日帰り desde Tarapoto",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "tarapoto",
+      "type": "nature-tour",
+      "typeLabel": "日帰り",
+      "badge": "Selva",
+      "featured": true,
+      "location": "Tarapoto / Sauce",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "日帰り / 8 a 10 horas",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "08:00"
+        ],
+        "pickupWindow": "07:30 - 08:00",
+        "endTimeReference": "17:00 - 18:00"
+      },
+      "basePricing": {
+        "adult": 49.9,
+        "child": 44.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar navegación y almuerzo según operador."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en Tarapoto",
+        "Transporte turístico",
+        "Cruce en balsa si aplica",
+        "Paseo en bote referencial",
+        "Guía o coordinador"
+      ],
+      "excludes": [
+        "Almuerzo si no se especifica",
+        "Actividades acuáticas opcionales",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida desde Tarapoto",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Laguna Azul",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Tiempo libre",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "laguna-azul-lunch",
+          "label": "Almuerzo regional",
+          "price": 12,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 15,
+        "partialPaymentLabel": "Reserva con USD 15 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "TPP"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "tarapoto",
+          "sauce"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "laguna-azul",
+          "selva",
+          "sauce"
+        ],
+        "themes": [
+          "naturaleza",
+          "selva",
+          "relax"
+        ],
+        "keywords": [
+          "tarapoto",
+          "laguna azul",
+          "sauce"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "Laguna Azul 日帰り desde Tarapoto | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_010",
+      "internalCode": "PER010",
+      "slug": "tarapoto-catarata-ahuashiyacu-ja",
+      "title": "Catarata de Ahuashiyacu",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "tarapoto",
+      "type": "nature-tour",
+      "typeLabel": "Medio 日",
+      "badge": "Selva",
+      "featured": false,
+      "location": "Tarapoto / Ahuashiyacu",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "3 a 4 horas",
+        "maxGroupSize": 18,
+        "guideLanguages": [
+          "es"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "09:00",
+          "14:00"
+        ],
+        "pickupWindow": "Coordinar según hotel",
+        "endTimeReference": "Según horario elegido"
+      },
+      "basePricing": {
+        "adult": 24.9,
+        "child": 19.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar ingreso a catarata."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 18,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en Tarapoto",
+        "Transporte turístico",
+        "Guía o coordinador"
+      ],
+      "excludes": [
+        "Ingreso si aplica",
+        "Alimentos",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Caminata corta",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Tiempo libre",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "ahuashiyacu-ticket",
+          "label": "Ingreso a Ahuashiyacu",
+          "price": 3,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 10,
+        "partialPaymentLabel": "Reserva con USD 10 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "TPP"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "tarapoto"
+        ],
+        "durationKeys": [
+          "medio-dia",
+          "half-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "ahuashiyacu",
+          "catarata",
+          "selva"
+        ],
+        "themes": [
+          "naturaleza",
+          "selva"
+        ],
+        "keywords": [
+          "tarapoto",
+          "ahuashiyacu",
+          "catarata"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "Catarata de Ahuashiyacu | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_011",
+      "internalCode": "PER011",
+      "slug": "iquitos-amazonas-full-day-ja",
+      "title": "日帰り Amazonas desde Iquitos",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "iquitos",
+      "type": "nature-tour",
+      "typeLabel": "日帰り",
+      "badge": "Amazonía",
+      "featured": true,
+      "location": "Iquitos / Río Amazonas",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "日帰り / 7 a 9 horas",
+        "maxGroupSize": 16,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily",
+        "startTimes": [
+          "09:00"
+        ],
+        "pickupWindow": "08:30 - 09:00",
+        "endTimeReference": "16:00 - 17:00"
+      },
+      "basePricing": {
+        "adult": 79.9,
+        "child": 69.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar lancha, actividades incluidas y permisos."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 16,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en Iquitos",
+        "Traslado fluvial",
+        "Guía o coordinador",
+        "Visitas según operación"
+      ],
+      "excludes": [
+        "Almuerzo si no se especifica",
+        "Ingresos si aplican",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Recojo y traslado al embarcadero",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Navegación amazónica",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Visitas referenciales",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "amazonas-lunch",
+          "label": "Almuerzo amazónico",
+          "price": 15,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 20,
+        "partialPaymentLabel": "Reserva con USD 20 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "IQT"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "iquitos",
+          "amazonas"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "amazonas",
+          "iquitos",
+          "rio-amazonas",
+          "selva"
+        ],
+        "themes": [
+          "naturaleza",
+          "selva",
+          "amazonía"
+        ],
+        "keywords": [
+          "iquitos",
+          "amazonas",
+          "rio amazonas",
+          "selva peruana"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "日帰り Amazonas desde Iquitos | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_012",
+      "internalCode": "PER012",
+      "slug": "puerto-maldonado-reserva-tambopata-full-day-ja",
+      "title": "日帰り Tambopata desde Puerto Maldonado",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "puerto-maldonado",
+      "type": "nature-tour",
+      "typeLabel": "日帰り",
+      "badge": "Amazonía",
+      "featured": false,
+      "location": "Puerto Maldonado / Tambopata",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR",
+        "CLP",
+        "MXN"
+      ],
+      "defaultCurrency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "日帰り / 8 a 10 horas",
+        "maxGroupSize": 16,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily_weather_permitting",
+        "startTimes": [
+          "08:00"
+        ],
+        "pickupWindow": "07:30 - 08:00",
+        "endTimeReference": "17:00 - 18:00"
+      },
+      "basePricing": {
+        "adult": 89.9,
+        "child": 79.9,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "internalPricing": {
+        "costSource": "pending_supplier_rate",
+        "costCurrency": "USD",
+        "notes": "Confirmar ingreso a reserva, lancha y almuerzo."
+      },
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "ツアー en grupo"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Privado bajo solicitud"
+        }
+      },
+      "capacity": 16,
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Recojo en Puerto Maldonado",
+        "Transporte terrestre/fluvial según operación",
+        "Guía naturalista referencial"
+      ],
+      "excludes": [
+        "Ingreso a reserva si aplica",
+        "Almuerzo si no se especifica",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "title": "Salida",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Actividad natural",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "title": "Retorno",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "extras": [
+        {
+          "code": "tambopata-lunch",
+          "label": "Almuerzo regional",
+          "price": 15,
+          "currency": "USD",
+          "perPerson": true,
+          "pricingStatus": "reference_pending_confirmation"
+        }
+      ],
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 20,
+        "partialPaymentLabel": "Reserva con USD 20 por persona"
+      },
+      "booking": {
+        "reservationCodePrefix": "PEM"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "peru",
+          "puerto-maldonado",
+          "tambopata"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1d0n"
+        ],
+        "includedTags": [
+          "tambopata",
+          "selva",
+          "amazonía"
+        ],
+        "themes": [
+          "naturaleza",
+          "selva",
+          "fauna"
+        ],
+        "keywords": [
+          "puerto maldonado",
+          "tambopata",
+          "selva",
+          "amazonas"
+        ]
+      },
+      "status": "published",
+      "seo": {
+        "title": "日帰り Tambopata desde Puerto Maldonado | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "peru_010_private",
+      "internalCode": "PER010",
+      "slug": "tambopata-lodge-3d-2n-privado-ja",
+      "title": "Tambopata Lodge 3D/2N - Servicio privado",
+      "category": "peru",
+      "productKind": "tour",
+      "productFamily": "peru-tour",
+      "destination": "tambopata",
+      "type": "amazon-lodge",
+      "typeLabel": "3 日間 / 2 泊",
+      "badge": "Amazonía",
+      "featured": false,
+      "status": "draft",
+      "visibility": "private-source",
+      "showInCatalog": false,
+      "location": "Puerto Maldonado / Tambopata",
+      "currency": "USD",
+      "allowedCurrencies": [
+        "USD",
+        "PEN",
+        "EUR"
+      ],
+      "defaultCurrency": "USD",
+      "days": 3,
+      "nights": 2,
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "duration": {
+        "label": "3 日間 / 2 泊",
+        "maxGroupSize": 8,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "operation": {
+        "frequency": "daily_on_request",
+        "pickupWindow": "Según vuelo de llegada a Puerto Maldonado",
+        "endTimeReference": "Según vuelo de salida"
+      },
+      "basePricing": {
+        "adult": 390,
+        "teen": 390,
+        "child": 350,
+        "currency": "USD",
+        "pricingStatus": "reference_pending_confirmation"
+      },
+      "serviceModes": {
+        "private": {
+          "enabled": true,
+          "label": "Servicio privado bajo solicitud"
+        }
+      },
+      "capacity": 8,
+      "images": {
+        "cover": "./assets/img/quote/fallbacks/cusco.jpg",
+        "gallery": [
+          "./assets/img/quote/fallbacks/cusco.jpg"
+        ]
+      },
+      "includes": [
+        "Recepción en aeropuerto de Puerto Maldonado",
+        "Traslados terrestres y/o fluviales según lodge",
+        "02 泊 de alojamiento en lodge",
+        "Alimentación según programa",
+        "Actividades amazónicas programadas",
+        "Guía local"
+      ],
+      "excludes": [
+        "Vuelos internos",
+        "Bebidas alcohólicas",
+        "Propinas",
+        "Gastos personales"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Llegada a Puerto Maldonado y traslado al lodge",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "day": 2,
+          "title": "体験 amazónica en Tambopata",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        },
+        {
+          "day": 3,
+          "title": "Retorno a Puerto Maldonado",
+          "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+        }
+      ],
+      "search": {
+        "destinations": [
+          "tambopata",
+          "puerto-maldonado"
+        ],
+        "durationKeys": [
+          "3d2n"
+        ],
+        "includedTags": [
+          "amazonas",
+          "tambopata",
+          "lodge"
+        ],
+        "themes": [
+          "naturaleza",
+          "familias"
+        ],
+        "keywords": [
+          "tambopata",
+          "amazonas",
+          "puerto maldonado",
+          "lodge"
+        ]
+      },
+      "seo": {
+        "title": "Tambopata Lodge 3D/2N - Servicio privado | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    }
+  ]
+}

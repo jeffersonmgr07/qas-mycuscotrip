@@ -1,0 +1,52 @@
+{
+  "index.html": {
+    "title": "クスコとマチュピチュツアー | ペルー旅行パッケージ | My Cusco Trip",
+    "description": "クスコ、マチュピチュ、聖なる谷、ペルー周遊パッケージを現地専門チームのサポートで予約できます。",
+    "canonical": "https://mycuscotrip.com/ja/"
+  },
+  "machu-picchu-tours.html": {
+    "title": "マチュピチュ列車ツアー・日帰り・1泊2日 | My Cusco Trip",
+    "description": "公式チケット、送迎、現地ガイド付きでマチュピチュを訪れる列車ツアー、日帰り、1泊2日プラン。",
+    "canonical": "https://mycuscotrip.com/ja/machu-picchu-tours.html"
+  },
+  "cusco-tours.html": {
+    "title": "クスコツアー：聖なる谷・ヒューマンタイ湖・レインボーマウンテン | My Cusco Trip",
+    "description": "聖なる谷、ヒューマンタイ湖、レインボーマウンテン、マラス・モライなどクスコ発人気ツアーを予約。",
+    "canonical": "https://mycuscotrip.com/ja/cusco-tours.html"
+  },
+  "paquetes-cusco.html": {
+    "title": "クスコ・マチュピチュ旅行パッケージ | 3〜8日間 | My Cusco Trip",
+    "description": "ツアー、ホテル、列車、送迎、個別サポートを組み合わせたクスコとマチュピチュ旅行パッケージ。",
+    "canonical": "https://mycuscotrip.com/ja/paquetes-cusco.html"
+  },
+  "trekkings.html": {
+    "title": "インカトレイル、サルカンタイ・トレック、マチュピチュへの冒険ルート | My Cusco Trip",
+    "description": "インカトレイル、サルカンタイ、インカジャングルなどマチュピチュへのトレッキングを現地サポートで計画。",
+    "canonical": "https://mycuscotrip.com/ja/trekkings.html"
+  },
+  "explora-peru.html": {
+    "title": "ペルーを巡る：リマ、パラカス、イカ、プーノ、アレキパ、クスコ | My Cusco Trip",
+    "description": "クスコだけでなく、リマ、パラカス、イカ、プーノ、アマゾン、マチュピチュまでペルーを体験。",
+    "canonical": "https://mycuscotrip.com/ja/explora-peru.html"
+  },
+  "all-experiences.html": {
+    "title": "すべてのペルーツアーと旅行体験 | My Cusco Trip",
+    "description": "クスコ、マチュピチュ、ペルー各地のツアー、トレッキング、旅行パッケージを一覧で確認。",
+    "canonical": "https://mycuscotrip.com/ja/all-experiences.html"
+  },
+  "product.html": {
+    "title": "ツアー詳細と安全な予約 | My Cusco Trip",
+    "description": "選択したペルー旅行体験の行程、含まれる内容、ホテル、列車、料金、予約オプションを確認。",
+    "canonical": "https://mycuscotrip.com/ja/product.html"
+  },
+  "quote-packages.html": {
+    "title": "ペルー旅行カスタム見積もり | My Cusco Trip",
+    "description": "パッケージ、ホテル、列車、オプションを組み合わせてペルー旅行の概算見積もりを作成。",
+    "canonical": "https://mycuscotrip.com/ja/quote-packages.html"
+  },
+  "private-package.html": {
+    "title": "ペルーのプライベート・オーダーメイド旅行 | My Cusco Trip",
+    "description": "カップル、家族、グループ向けに現地専門チームがペルーのプライベート旅行を設計。",
+    "canonical": "https://mycuscotrip.com/ja/private-package.html"
+  }
+}

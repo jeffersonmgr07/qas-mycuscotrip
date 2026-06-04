@@ -1,0 +1,52 @@
+{
+  "index.html": {
+    "title": "库斯科与马丘比丘旅游 | 秘鲁旅行套餐 | My Cusco Trip",
+    "description": "预订库斯科、马丘比丘、圣谷和秘鲁旅行套餐，享受当地专家支持、灵活付款和个性化旅行协助。",
+    "canonical": "https://mycuscotrip.com/zh/"
+  },
+  "machu-picchu-tours.html": {
+    "title": "马丘比丘火车游、一日游与两日游 | My Cusco Trip",
+    "description": "选择马丘比丘火车游、一日游或过夜行程，包含官方门票、接送和专业当地导游。",
+    "canonical": "https://mycuscotrip.com/zh/machu-picchu-tours.html"
+  },
+  "cusco-tours.html": {
+    "title": "库斯科旅游：圣谷、彩虹山与胡曼泰湖 | My Cusco Trip",
+    "description": "预订库斯科热门行程：圣谷、胡曼泰湖、彩虹山、马拉斯莫赖和安第斯文化体验。",
+    "canonical": "https://mycuscotrip.com/zh/cusco-tours.html"
+  },
+  "paquetes-cusco.html": {
+    "title": "库斯科与马丘比丘旅行套餐 | 3至8天 | My Cusco Trip",
+    "description": "灵活安排库斯科与马丘比丘旅行套餐，包含行程、酒店、火车、接送和个性化协助。",
+    "canonical": "https://mycuscotrip.com/zh/paquetes-cusco.html"
+  },
+  "trekkings.html": {
+    "title": "印加古道、萨尔坎泰徒步与马丘比丘探险路线 | My Cusco Trip",
+    "description": "规划印加古道、萨尔坎泰徒步、印加丛林和通往马丘比丘的徒步路线。",
+    "canonical": "https://mycuscotrip.com/zh/trekkings.html"
+  },
+  "explora-peru.html": {
+    "title": "探索秘鲁：利马、帕拉卡斯、伊卡、普诺、阿雷基帕与库斯科 | My Cusco Trip",
+    "description": "从库斯科到利马、帕拉卡斯、伊卡、普诺、亚马逊和马丘比丘，探索完整秘鲁体验。",
+    "canonical": "https://mycuscotrip.com/zh/explora-peru.html"
+  },
+  "all-experiences.html": {
+    "title": "全部秘鲁旅游与旅行体验 | My Cusco Trip",
+    "description": "浏览库斯科、马丘比丘和秘鲁全部旅游、徒步和旅行套餐，可按目的地和行程筛选。",
+    "canonical": "https://mycuscotrip.com/zh/all-experiences.html"
+  },
+  "product.html": {
+    "title": "行程详情与安全预订 | My Cusco Trip",
+    "description": "查看所选秘鲁旅行体验的行程、包含项目、酒店、火车、价格和预订选项。",
+    "canonical": "https://mycuscotrip.com/zh/product.html"
+  },
+  "quote-packages.html": {
+    "title": "秘鲁定制旅行报价 | My Cusco Trip",
+    "description": "使用套餐、酒店、火车和可选服务创建秘鲁旅行预估报价。",
+    "canonical": "https://mycuscotrip.com/zh/quote-packages.html"
+  },
+  "private-package.html": {
+    "title": "秘鲁私人定制旅行套餐 | My Cusco Trip",
+    "description": "为情侣、家庭和团体设计秘鲁私人定制行程，由当地专家协助规划。",
+    "canonical": "https://mycuscotrip.com/zh/private-package.html"
+  }
+}

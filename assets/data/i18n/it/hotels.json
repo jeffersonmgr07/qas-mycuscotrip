@@ -1,0 +1,2479 @@
+{
+  "version": "2.0.0",
+  "updatedAt": "2026-05-10",
+  "sourceFile": "assets/data/hotels.json",
+  "scope": "hotel-catalog-for-dynamic-packages",
+  "description": "Catálogo centralizado de hoteles por destino para paquetes dinámicos My Cusco Trip. Guarda tarifas netas confidenciales, margen hotelero del 25%, precio publicado estimado con comisiones de cobro/retiro y metadatos para futura vista privada de utilidad y descuento.",
+  "pricingEngine": {
+    "baseCostCurrency": "PEN",
+    "displayCurrency": "USD",
+    "exchangeRate": {
+      "mode": "manual_fallback",
+      "usdToPen": 3.75,
+      "source": "manual",
+      "updatedAt": "2026-05-02",
+      "notes": "Debe migrarse a currency-config.json cuando el sistema multi moneda esté implementado."
+    },
+    "hotelMarkup": {
+      "mode": "target_net_margin",
+      "marginPercent": 25,
+      "formula": "targetNetPEN = netCostPEN * 1.25",
+      "description": "El margen del hotel se calcula antes de comisiones. El precio publicado debe permitir recibir el costo neto más 25% de utilidad."
+    },
+    "fees": {
+      "paypalPercent": 0.054,
+      "paypalFixedUSD": 0.3,
+      "paypalFixedUSDIncludedInHotelRoomPricing": false,
+      "bankWithdrawalPercent": 0.015,
+      "peruIgvPercent": 0.18,
+      "bankWithdrawalEffectivePercent": 0.017699999999999997
+    },
+    "formula": {
+      "grossUsd": "((targetNetPEN / usdToPen) / (1 - bankWithdrawalPercent * (1 + peruIgvPercent))) / (1 - paypalPercent)",
+      "rounding": "round up to commercial USD ending .90"
+    },
+    "roundingRules": {
+      "USD": {
+        "mode": "ceil_to_ending",
+        "ending": 0.9
+      },
+      "PEN": {
+        "mode": "ceil_to_step",
+        "step": 5
+      }
+    }
+  },
+  "businessRules": {
+    "hotelDestinationMatching": {
+      "enabled": true,
+      "description": "Los hoteles se seleccionan por destino real de pernocte del paquete.",
+      "mapping": {
+        "cusco": "Usar hoteles del destino cusco para notti en Cusco.",
+        "machu-picchu": "Para alojamiento, Machu Picchu se resuelve como aguas-calientes.",
+        "aguas-calientes": "Usar hoteles de Aguas Calientes para la notte previa o posterior a Machu Picchu.",
+        "arequipa": "Usar hoteles de Arequipa si el paquete incluye pernocte en Arequipa.",
+        "puno": "Usar hoteles de Puno si el paquete incluye Titicaca o pernocte en Puno.",
+        "lima": "Usar hoteles de Lima si el paquete incluye pernocte en Lima.",
+        "paracas": "Usar hoteles de Paracas si el paquete incluye pernocte en Paracas.",
+        "ica": "Usar hoteles de Ica si el paquete incluye pernocte en Ica."
+      }
+    },
+    "privateDashboardReadiness": {
+      "enabled": true,
+      "internalFields": [
+        "netCost",
+        "targetNet",
+        "pricingBreakdown",
+        "internalAnalytics"
+      ],
+      "customerHiddenFields": [
+        "netCost",
+        "targetNet",
+        "pricingBreakdown",
+        "internalAnalytics"
+      ],
+      "futureCalculations": [
+        "real_package_cost",
+        "target_net_package_revenue",
+        "estimated_profit_amount",
+        "estimated_profit_percent",
+        "minimum_accepted_profit",
+        "maximum_discount_amount",
+        "maximum_discount_percent"
+      ]
+    },
+    "packageCalculation": {
+      "customerPriceFormula": "sum published prices from tours + machu picchu + hotels + trains + extras + hidden package service fee",
+      "internalProfitFormula": "sum target net revenue - sum real net costs",
+      "discountGuardrail": "Los descuentos deben calcularse desde la utilidad total del paquete y la utilidad mínima aceptada, no desde el precio bruto del paquete."
+    }
+  },
+  "roomTypeDefinitions": {
+    "single": {
+      "label": "Habitación simple",
+      "capacity": 1
+    },
+    "double-twin": {
+      "label": "Habitación doble twin",
+      "capacity": 2
+    },
+    "double-matrimonial": {
+      "label": "Habitación matrimonial",
+      "capacity": 2
+    },
+    "triple": {
+      "label": "Habitación triple",
+      "capacity": 3
+    },
+    "matrimonial-extra-bed": {
+      "label": "Matrimonial + cama adicional",
+      "capacity": 3
+    },
+    "family-4": {
+      "label": "Habitación familiar",
+      "capacity": 4
+    },
+    "super-family-5": {
+      "label": "Habitación súper familiar",
+      "capacity": 5
+    }
+  },
+  "destinations": {
+    "cusco": {
+      "label": "Cusco",
+      "destinationAliases": [
+        "cusco",
+        "cuzco"
+      ],
+      "hotels": [
+        {
+          "hotelCode": "cusco-boutique-3s",
+          "hotelName": "Hotel Cusco Boutique",
+          "stars": 3,
+          "destination": "cusco",
+          "destinationLabel": "Cusco",
+          "location": "Cusco",
+          "address": "Calle Teqsecocha 566",
+          "summary": "Hotel boutique de 3 estrellas ubicado en zona céntrica de Cusco. Recomendado para paquetes con notti en Cusco por su ubicación operativa para tours y trasferimenti.",
+          "status": "published",
+          "pricingStatus": "confirmed_net_rates",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Agua caliente",
+            "Toallas",
+            "Baño privado",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Desde 11:00",
+            "checkout": "Hasta 10:00",
+            "breakfast": "Desayuno semi buffet"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/cusco-boutique/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/cusco-boutique/1.jpg",
+              "./assets/img/hotels/cusco-boutique/2.jpg",
+              "./assets/img/hotels/cusco-boutique/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 100,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 125.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 25.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 35.9,
+                "penApprox": 135,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 35.9,
+                "estimatedTargetNetPEN": 125.0,
+                "estimatedNetProfitPEN": 25.0,
+                "estimatedNetProfitUSD": 6.67,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 12.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": ""
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 150,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 187.5,
+                "marginPercent": 25,
+                "marginAmountPEN": 37.5
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 53.9,
+                "penApprox": 205,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 53.9,
+                "estimatedTargetNetPEN": 187.5,
+                "estimatedNetProfitPEN": 37.5,
+                "estimatedNetProfitUSD": 10.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 18.75,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": ""
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 140,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 175.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 35.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 50.9,
+                "penApprox": 195,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 50.9,
+                "estimatedTargetNetPEN": 175.0,
+                "estimatedNetProfitPEN": 35.0,
+                "estimatedNetProfitUSD": 9.33,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 17.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": ""
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas individuales o distribución similar",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 2,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 180,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 225.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 45.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.9,
+                "penApprox": 245,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 64.9,
+                "estimatedTargetNetPEN": 225.0,
+                "estimatedNetProfitPEN": 45.0,
+                "estimatedNetProfitUSD": 12.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 22.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": ""
+            },
+            {
+              "roomType": "matrimonial-extra-bed",
+              "label": "Habitación matrimonial + cama adicional",
+              "bedType": "1 cama matrimonial + 1 cama adicional",
+              "capacity": 3,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 180,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 225.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 45.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.9,
+                "penApprox": 245,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 64.9,
+                "estimatedTargetNetPEN": 225.0,
+                "estimatedNetProfitPEN": 45.0,
+                "estimatedNetProfitUSD": 12.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 22.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Recomendada para pareja con un hijo."
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar",
+              "bedType": "1 cama matrimonial + 2 camas adicionales",
+              "capacity": 4,
+              "maxAdults": 2,
+              "maxChildren": 2,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 220,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 275.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 55.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 79.9,
+                "penApprox": 300,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 79.9,
+                "estimatedTargetNetPEN": 275.0,
+                "estimatedNetProfitPEN": 55.0,
+                "estimatedNetProfitUSD": 14.67,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 27.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Recomendada para dos adultos y dos niños."
+            },
+            {
+              "roomType": "super-family-5",
+              "label": "Habitación súper familiar",
+              "bedType": "1 cama matrimonial + 3 camas adicionales",
+              "capacity": 5,
+              "maxAdults": 2,
+              "maxChildren": 3,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 260,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 325.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 65.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 93.9,
+                "penApprox": 355,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 93.9,
+                "estimatedTargetNetPEN": 325.0,
+                "estimatedNetProfitPEN": 65.0,
+                "estimatedNetProfitUSD": 17.33,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 32.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Recomendada para dos adultos y tres niños."
+            }
+          ],
+          "search": {
+            "kind": "hotel",
+            "destinations": [
+              "cusco"
+            ],
+            "stars": [
+              3
+            ],
+            "roomTypes": [
+              "single",
+              "double-twin",
+              "double-matrimonial",
+              "triple",
+              "matrimonial-extra-bed",
+              "family-4",
+              "super-family-5"
+            ],
+            "keywords": [
+              "hotel cusco boutique",
+              "cusco",
+              "cusco-boutique-3s",
+              "hotel",
+              "alojamiento"
+            ]
+          }
+        },
+        {
+          "hotelCode": "royal-qosqo-3s",
+          "hotelName": "Hotel Royal Qosqo",
+          "stars": 3,
+          "destination": "cusco",
+          "destinationLabel": "Cusco",
+          "location": "Cusco",
+          "address": "Calle Teqsecocha 002",
+          "summary": "Hotel céntrico de 3 estrellas en Cusco, ideale per pasajeros que priorizan cercanía a la Plaza de Armas y puntos de encuentro de excursiones.",
+          "status": "published",
+          "pricingStatus": "reference_from_previous_catalog_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Agua caliente",
+            "Toallas",
+            "Baño privado",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Desde 11:00",
+            "checkout": "Hasta 10:00",
+            "breakfast": "Desayuno incluido"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/royal-qosqo/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/royal-qosqo/1.jpg",
+              "./assets/img/hotels/royal-qosqo/2.jpg",
+              "./assets/img/hotels/royal-qosqo/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 180,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 225.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 45.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.9,
+                "penApprox": 245,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 64.9,
+                "estimatedTargetNetPEN": 225.0,
+                "estimatedNetProfitPEN": 45.0,
+                "estimatedNetProfitUSD": 12.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 22.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 260,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 325.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 65.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 93.9,
+                "penApprox": 355,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 93.9,
+                "estimatedTargetNetPEN": 325.0,
+                "estimatedNetProfitPEN": 65.0,
+                "estimatedNetProfitUSD": 17.33,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 32.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 260,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 325.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 65.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 93.9,
+                "penApprox": 355,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 93.9,
+                "estimatedTargetNetPEN": 325.0,
+                "estimatedNetProfitPEN": 65.0,
+                "estimatedNetProfitUSD": 17.33,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 32.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 2,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 310,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 387.5,
+                "marginPercent": 25,
+                "marginAmountPEN": 77.5
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 111.9,
+                "penApprox": 420,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 111.9,
+                "estimatedTargetNetPEN": 387.5,
+                "estimatedNetProfitPEN": 77.5,
+                "estimatedNetProfitUSD": 20.67,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 38.75,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            }
+          ],
+          "search": {
+            "kind": "hotel",
+            "destinations": [
+              "cusco"
+            ],
+            "stars": [
+              3
+            ],
+            "roomTypes": [
+              "single",
+              "double-twin",
+              "double-matrimonial",
+              "triple"
+            ],
+            "keywords": [
+              "hotel royal qosqo",
+              "cusco",
+              "royal-qosqo-3s",
+              "hotel",
+              "alojamiento"
+            ]
+          }
+        }
+      ]
+    },
+    "aguas-calientes": {
+      "label": "Aguas Calientes",
+      "destinationAliases": [
+        "aguas-calientes",
+        "machu-picchu",
+        "machu-picchu-pueblo"
+      ],
+      "hotelUseRule": "Todo paquete que indique notte en Machu Picchu debe resolver el alojamiento como Aguas Calientes.",
+      "hotels": [
+        {
+          "hotelCode": "luz-garden-3s",
+          "hotelName": "Hotel Luz Garden",
+          "stars": 3,
+          "destination": "aguas-calientes",
+          "destinationLabel": "Aguas Calientes",
+          "location": "Aguas Calientes",
+          "address": "",
+          "summary": "Hotel de 3 estrellas en Machu Picchu Pueblo, recomendado para pasar la notte previa a la visita a Machu Picchu.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Agua caliente",
+            "Toallas",
+            "Baño privado",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Desde 12:00",
+            "checkout": "Hasta 09:00",
+            "breakfast": "Desayuno incluido"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/luz-garden/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/luz-garden/1.jpg",
+              "./assets/img/hotels/luz-garden/2.jpg",
+              "./assets/img/hotels/luz-garden/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 120,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 150.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 30.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 43.9,
+                "penApprox": 165,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 43.9,
+                "estimatedTargetNetPEN": 150.0,
+                "estimatedNetProfitPEN": 30.0,
+                "estimatedNetProfitUSD": 8.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 15.0,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial pendiente de confirmación final del proveedor."
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 180,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 225.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 45.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.9,
+                "penApprox": 245,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 64.9,
+                "estimatedTargetNetPEN": 225.0,
+                "estimatedNetProfitPEN": 45.0,
+                "estimatedNetProfitUSD": 12.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 22.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial pendiente de confirmación final del proveedor."
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 180,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 225.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 45.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.9,
+                "penApprox": 245,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 64.9,
+                "estimatedTargetNetPEN": 225.0,
+                "estimatedNetProfitPEN": 45.0,
+                "estimatedNetProfitUSD": 12.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 22.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial pendiente de confirmación final del proveedor."
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 2,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 240,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 300.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 60.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 86.9,
+                "penApprox": 330,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 86.9,
+                "estimatedTargetNetPEN": 300.0,
+                "estimatedNetProfitPEN": 60.0,
+                "estimatedNetProfitUSD": 16.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 30.0,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial pendiente de confirmación final del proveedor."
+            }
+          ],
+          "search": {
+            "kind": "hotel",
+            "destinations": [
+              "aguas-calientes",
+              "machu-picchu"
+            ],
+            "stars": [
+              3
+            ],
+            "roomTypes": [
+              "single",
+              "double-twin",
+              "double-matrimonial",
+              "triple"
+            ],
+            "keywords": [
+              "hotel luz garden",
+              "aguas calientes",
+              "luz-garden-3s",
+              "hotel",
+              "alojamiento"
+            ]
+          }
+        },
+        {
+          "hotelCode": "vista-machu-picchu-3s",
+          "hotelName": "Hotel Vista Machu Picchu",
+          "stars": 3,
+          "destination": "aguas-calientes",
+          "destinationLabel": "Aguas Calientes",
+          "location": "Aguas Calientes",
+          "address": "",
+          "summary": "Hotel de 3 estrellas en Aguas Calientes, recomendado para paquetes overnight o conexión con Machu Picchu.",
+          "status": "published",
+          "pricingStatus": "reference_from_previous_catalog_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Agua caliente",
+            "Toallas",
+            "Baño privado",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Desde 12:00",
+            "checkout": "Hasta 09:00",
+            "breakfast": "Desayuno incluido"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/vista-machu-picchu/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/vista-machu-picchu/1.jpg",
+              "./assets/img/hotels/vista-machu-picchu/2.jpg",
+              "./assets/img/hotels/vista-machu-picchu/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 180,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 225.0,
+                "marginPercent": 25,
+                "marginAmountPEN": 45.0
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.9,
+                "penApprox": 245,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 64.9,
+                "estimatedTargetNetPEN": 225.0,
+                "estimatedNetProfitPEN": 45.0,
+                "estimatedNetProfitUSD": 12.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 22.5,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 270,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 337.5,
+                "marginPercent": 25,
+                "marginAmountPEN": 67.5
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 96.9,
+                "penApprox": 365,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 96.9,
+                "estimatedTargetNetPEN": 337.5,
+                "estimatedNetProfitPEN": 67.5,
+                "estimatedNetProfitUSD": 18.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 33.75,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 270,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 337.5,
+                "marginPercent": 25,
+                "marginAmountPEN": 67.5
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 96.9,
+                "penApprox": 365,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 96.9,
+                "estimatedTargetNetPEN": 337.5,
+                "estimatedNetProfitPEN": 67.5,
+                "estimatedNetProfitUSD": 18.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 33.75,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 2,
+              "netCost": {
+                "currency": "PEN",
+                "amount": 330,
+                "confidential": true
+              },
+              "targetNet": {
+                "currency": "PEN",
+                "amount": 412.5,
+                "marginPercent": 25,
+                "marginAmountPEN": 82.5
+              },
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 118.9,
+                "penApprox": 450,
+                "pricingIncludesPaymentFees": true
+              },
+              "pricingBreakdown": {
+                "exchangeRateUSDToPEN": 3.75,
+                "paypalPercent": 0.054,
+                "paypalFixedUSDIncluded": false,
+                "bankWithdrawalPercent": 0.015,
+                "peruIgvPercentOnBankWithdrawal": 0.18,
+                "bankWithdrawalEffectivePercent": 0.0177,
+                "roundingRule": "ceil_to_usd_ending_0.90"
+              },
+              "internalAnalytics": {
+                "estimatedGrossRevenueUSD": 118.9,
+                "estimatedTargetNetPEN": 412.5,
+                "estimatedNetProfitPEN": 82.5,
+                "estimatedNetProfitUSD": 22.0,
+                "minimumAcceptedMarginPercent": 12.5,
+                "minimumAcceptedNetProfitPEN": 41.25,
+                "discountGuardrail": "Calcular el descuento máximo desde la utilidad total del paquete, no desde la habitación aislada."
+              },
+              "notes": "Tarifa referencial basada en el JSON anterior; confirmar tarifa neta real del proveedor."
+            }
+          ],
+          "search": {
+            "kind": "hotel",
+            "destinations": [
+              "aguas-calientes",
+              "machu-picchu"
+            ],
+            "stars": [
+              3
+            ],
+            "roomTypes": [
+              "single",
+              "double-twin",
+              "double-matrimonial",
+              "triple"
+            ],
+            "keywords": [
+              "hotel vista machu picchu",
+              "aguas calientes",
+              "vista-machu-picchu-3s",
+              "hotel",
+              "alojamiento"
+            ]
+          }
+        }
+      ]
+    },
+    "lima": {
+      "label": "Lima",
+      "destinationAliases": [
+        "lima"
+      ],
+      "hotels": [
+        {
+          "hotelCode": "arawi-miraflores-3s",
+          "hotelName": "Arawi Miraflores Express",
+          "stars": 3,
+          "destination": "lima",
+          "destinationLabel": "Lima / Miraflores",
+          "location": "Lima / Miraflores",
+          "address": "Miraflores, Lima",
+          "summary": "Opción estándar en Miraflores, práctica para grupos que desean estar cerca de Larcomar, restaurantes y zonas turísticas.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/arawi-miraflores/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/arawi-miraflores/1.jpg",
+              "./assets/img/hotels/arawi-miraflores/2.jpg",
+              "./assets/img/hotels/arawi-miraflores/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.8
+              },
+              "pricePerNight": 64.8,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 79.2
+              },
+              "pricePerNight": 79.2,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 79.2
+              },
+              "pricePerNight": 79.2,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 105.6
+              },
+              "pricePerNight": 105.6,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 134.4
+              },
+              "pricePerNight": 134.4,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "hotelCode": "tierra-viva-miraflores-3s",
+          "hotelName": "Tierra Viva Miraflores",
+          "stars": 3,
+          "destination": "lima",
+          "destinationLabel": "Lima / Miraflores",
+          "location": "Lima / Miraflores",
+          "address": "Miraflores, Lima",
+          "summary": "Hotel de estilo moderno y cómodo en Miraflores, recomendado para una operación ordenada en Lima.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/cusco-boutique/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 74.25
+              },
+              "pricePerNight": 74.25,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 90.75
+              },
+              "pricePerNight": 90.75,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 90.75
+              },
+              "pricePerNight": 90.75,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 121.0
+              },
+              "pricePerNight": 121.0,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 154.0
+              },
+              "pricePerNight": 154.0,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "hotelCode": "casa-andina-select-miraflores-3s",
+          "hotelName": "Casa Andina Select Miraflores",
+          "stars": 3,
+          "destination": "lima",
+          "destinationLabel": "Lima / Miraflores",
+          "location": "Lima / Miraflores",
+          "address": "Miraflores, Lima",
+          "summary": "Alternativa superior estándar en Miraflores, ideale per pasajeros que buscan más confort y excelente ubicación.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/casa-andina-select-miraflores/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/casa-andina-select-miraflores/1.jpg",
+              "./assets/img/hotels/casa-andina-select-miraflores/2.jpg",
+              "./assets/img/hotels/casa-andina-select-miraflores/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 91.8
+              },
+              "pricePerNight": 91.8,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 112.2
+              },
+              "pricePerNight": 112.2,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 112.2
+              },
+              "pricePerNight": 112.2,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 149.6
+              },
+              "pricePerNight": 149.6,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 190.4
+              },
+              "pricePerNight": 190.4,
+              "currency": "USD"
+            }
+          ]
+        }
+      ],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    },
+    "paracas": {
+      "label": "Paracas",
+      "destinationAliases": [
+        "paracas"
+      ],
+      "hotels": [],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    },
+    "ica": {
+      "label": "Ica",
+      "destinationAliases": [
+        "ica"
+      ],
+      "hotels": [],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    },
+    "arequipa": {
+      "label": "Arequipa",
+      "destinationAliases": [
+        "arequipa"
+      ],
+      "hotels": [
+        {
+          "hotelCode": "catedral-boutique-arequipa-3s",
+          "hotelName": "Catedral Boutique Arequipa",
+          "stars": 3,
+          "destination": "arequipa",
+          "destinationLabel": "Arequipa",
+          "location": "Arequipa",
+          "address": "Centro histórico de Arequipa",
+          "summary": "Opción boutique céntrica para disfrutar la Ciudad Blanca caminando desde el centro histórico.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/cusco-boutique/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 64.8
+              },
+              "pricePerNight": 64.8,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 79.2
+              },
+              "pricePerNight": 79.2,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 79.2
+              },
+              "pricePerNight": 79.2,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 105.6
+              },
+              "pricePerNight": 105.6,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 134.4
+              },
+              "pricePerNight": 134.4,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "hotelCode": "casablanca-arequipa-3s",
+          "hotelName": "Casablanca Hostal Arequipa",
+          "stars": 3,
+          "destination": "arequipa",
+          "destinationLabel": "Arequipa",
+          "location": "Arequipa",
+          "address": "Centro histórico de Arequipa",
+          "summary": "Alojamiento de estilo colonial y ubicación práctica para city tours y excursiones.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/casablanca-arequipa/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/casablanca-arequipa/1.jpg",
+              "./assets/img/hotels/casablanca-arequipa/2.jpg",
+              "./assets/img/hotels/casablanca-arequipa/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 56.7
+              },
+              "pricePerNight": 56.7,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 69.3
+              },
+              "pricePerNight": 69.3,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 69.3
+              },
+              "pricePerNight": 69.3,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 92.4
+              },
+              "pricePerNight": 92.4,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 117.6
+              },
+              "pricePerNight": 117.6,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "hotelCode": "riviera-arequipa-3s",
+          "hotelName": "Hotel Riviera Arequipa",
+          "stars": 3,
+          "destination": "arequipa",
+          "destinationLabel": "Arequipa",
+          "location": "Arequipa",
+          "address": "Arequipa centro",
+          "summary": "Opción estándar funcional para grupos, con acceso conveniente a zonas turísticas y trasferimenti.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/cusco-boutique/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 59.4
+              },
+              "pricePerNight": 59.4,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 72.6
+              },
+              "pricePerNight": 72.6,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 72.6
+              },
+              "pricePerNight": 72.6,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 96.8
+              },
+              "pricePerNight": 96.8,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 123.2
+              },
+              "pricePerNight": 123.2,
+              "currency": "USD"
+            }
+          ]
+        }
+      ],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    },
+    "puno": {
+      "label": "Puno",
+      "destinationAliases": [
+        "puno"
+      ],
+      "hotels": [
+        {
+          "hotelCode": "sol-plaza-puno-3s",
+          "hotelName": "Sol Plaza Hotel Puno",
+          "stars": 3,
+          "destination": "puno",
+          "destinationLabel": "Puno",
+          "location": "Puno",
+          "address": "Centro de Puno",
+          "summary": "Hotel céntrico y práctico para grupos, ideale per operar excursiones al Lago Titicaca.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/sol-plaza-puno/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/sol-plaza-puno/1.jpg",
+              "./assets/img/hotels/sol-plaza-puno/2.jpg",
+              "./assets/img/hotels/sol-plaza-puno/3.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 54.0
+              },
+              "pricePerNight": 54.0,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 66.0
+              },
+              "pricePerNight": 66.0,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 66.0
+              },
+              "pricePerNight": 66.0,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 88.0
+              },
+              "pricePerNight": 88.0,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 112.0
+              },
+              "pricePerNight": 112.0,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "hotelCode": "conde-de-lemos-puno-3s",
+          "hotelName": "Hotel Conde de Lemos",
+          "stars": 3,
+          "destination": "puno",
+          "destinationLabel": "Puno",
+          "location": "Puno",
+          "address": "Centro histórico de Puno",
+          "summary": "Opción estándar cerca de la Plaza de Armas, conveniente para estagiorni cortas y salidas al lago.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/cusco-boutique/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 56.7
+              },
+              "pricePerNight": 56.7,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 69.3
+              },
+              "pricePerNight": 69.3,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 69.3
+              },
+              "pricePerNight": 69.3,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 92.4
+              },
+              "pricePerNight": 92.4,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 117.6
+              },
+              "pricePerNight": 117.6,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "hotelCode": "qalasaya-puno-3s",
+          "hotelName": "Hotel Qalasaya",
+          "stars": 3,
+          "destination": "puno",
+          "destinationLabel": "Puno",
+          "location": "Puno",
+          "address": "Centro de Puno",
+          "summary": "Hotel céntrico de categoría estándar, recomendado para una notte antes o después del Lago Titicaca.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Wifi",
+            "Baño privado",
+            "Agua caliente",
+            "Desayuno",
+            "Recepción",
+            "Buena ubicación para tours"
+          ],
+          "amenities": {
+            "checkin": "Según política del hotel",
+            "checkout": "Según política del hotel",
+            "breakfast": "Desayuno incluido o sujeto a tarifa confirmada"
+          },
+          "images": {
+            "cover": "./assets/img/hotels/cusco-boutique/cover.jpg",
+            "gallery": [
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg",
+              "./assets/img/hotels/cusco-boutique/cover.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "single",
+              "label": "Habitación simple",
+              "bedType": "1 cama individual",
+              "capacity": 1,
+              "maxAdults": 1,
+              "maxChildren": 0,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 60.75
+              },
+              "pricePerNight": 60.75,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Habitación doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 74.25
+              },
+              "pricePerNight": 74.25,
+              "currency": "USD"
+            },
+            {
+              "roomType": "double-matrimonial",
+              "label": "Habitación matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 74.25
+              },
+              "pricePerNight": 74.25,
+              "currency": "USD"
+            },
+            {
+              "roomType": "triple",
+              "label": "Habitación triple",
+              "bedType": "3 camas o configuración triple",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 99.0
+              },
+              "pricePerNight": 99.0,
+              "currency": "USD"
+            },
+            {
+              "roomType": "family-4",
+              "label": "Habitación familiar cuádruple",
+              "bedType": "Configuración familiar",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "currency": "USD",
+                "amount": 126.0
+              },
+              "pricePerNight": 126.0,
+              "currency": "USD"
+            }
+          ]
+        }
+      ],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    },
+    "tarapoto": {
+      "label": "Tarapoto",
+      "destinationAliases": [
+        "tarapoto"
+      ],
+      "hotels": [],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    },
+    "iquitos": {
+      "label": "Iquitos",
+      "destinationAliases": [
+        "iquitos"
+      ],
+      "hotels": [],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    },
+    "tambopata": {
+      "label": "Tambopata",
+      "destinationAliases": [
+        "tambopata"
+      ],
+      "hotels": [
+        {
+          "hotelCode": "tambopata-comfort-lodge-3s",
+          "hotelName": "Tambopata Comfort Lodge",
+          "stars": 3,
+          "destination": "tambopata",
+          "destinationLabel": "Tambopata / Puerto Maldonado",
+          "location": "Zona lodge Tambopata",
+          "address": "Puerto Maldonado / corredor Tambopata",
+          "summary": "Lodge amazónico cómodo para familias, con operación práctica para programas de 3 giorni y 2 notti.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Pensión completa según programa",
+            "Traslados fluviales o terrestres según operación",
+            "Habitaciones con baño privado",
+            "Mosquiteros",
+            "Áreas comunes",
+            "Actividades guiadas",
+            "Toallas incluidas"
+          ],
+          "amenities": {
+            "breakfast": "Desayuno incluido",
+            "meals": "Alimentación según programa",
+            "checkin": "Según llegada de vuelo",
+            "checkout": "Según salida de vuelo"
+          },
+          "images": {
+            "cover": "./assets/img/quote/fallbacks/cusco.jpg",
+            "gallery": [
+              "./assets/img/quote/fallbacks/cusco.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "double-matrimonial",
+              "label": "Cabaña matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "amount": 160,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Cabaña doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "amount": 170,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            },
+            {
+              "roomType": "triple",
+              "label": "Cabaña triple",
+              "bedType": "3 camas o distribución similar",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "amount": 230,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            },
+            {
+              "roomType": "family-4",
+              "label": "Cabaña familiar",
+              "bedType": "Distribución familiar hasta 4 pasajeros",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 3,
+              "publishedPricing": {
+                "amount": 285,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            }
+          ],
+          "search": {
+            "kind": "hotel",
+            "destinations": [
+              "tambopata",
+              "puerto-maldonado"
+            ],
+            "keywords": [
+              "tambopata lodge",
+              "puerto maldonado",
+              "amazonas",
+              "lodge"
+            ],
+            "stars": [
+              3
+            ],
+            "roomTypes": [
+              "double-matrimonial",
+              "double-twin",
+              "triple",
+              "family-4"
+            ]
+          }
+        },
+        {
+          "hotelCode": "tambopata-premium-eco-lodge-4s",
+          "hotelName": "Tambopata Premium Eco Lodge",
+          "stars": 4,
+          "destination": "tambopata",
+          "destinationLabel": "Tambopata / Puerto Maldonado",
+          "location": "Reserva / zona Tambopata",
+          "address": "Puerto Maldonado / Tambopata",
+          "summary": "Opción superior de lodge para familias que buscan mayor comodidad, mejor experiencia gastronómica y espacios más cuidados.",
+          "status": "published",
+          "pricingStatus": "reference_pending_confirmation",
+          "recommendedForPackages": true,
+          "features": [
+            "Pensión completa según programa",
+            "Guía local especializado",
+            "Habitaciones con baño privado",
+            "Mosquiteros",
+            "Áreas comunes panorámicas",
+            "Amenities básicos",
+            "Toallas incluidas",
+            "Actividades de naturaleza"
+          ],
+          "amenities": {
+            "breakfast": "Desayuno incluido",
+            "meals": "Pensión completa según programa",
+            "checkin": "Según llegada de vuelo",
+            "checkout": "Según salida de vuelo"
+          },
+          "images": {
+            "cover": "./assets/img/quote/fallbacks/cusco.jpg",
+            "gallery": [
+              "./assets/img/quote/fallbacks/cusco.jpg"
+            ]
+          },
+          "rooms": [
+            {
+              "roomType": "double-matrimonial",
+              "label": "Cabaña superior matrimonial",
+              "bedType": "1 cama matrimonial",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "amount": 230,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            },
+            {
+              "roomType": "double-twin",
+              "label": "Cabaña superior doble twin",
+              "bedType": "2 camas individuales",
+              "capacity": 2,
+              "maxAdults": 2,
+              "maxChildren": 1,
+              "publishedPricing": {
+                "amount": 240,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            },
+            {
+              "roomType": "triple",
+              "label": "Cabaña superior triple",
+              "bedType": "3 camas o distribución similar",
+              "capacity": 3,
+              "maxAdults": 3,
+              "maxChildren": 2,
+              "publishedPricing": {
+                "amount": 330,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            },
+            {
+              "roomType": "family-4",
+              "label": "Cabaña superior familiar",
+              "bedType": "Distribución familiar hasta 4 pasajeros",
+              "capacity": 4,
+              "maxAdults": 4,
+              "maxChildren": 3,
+              "publishedPricing": {
+                "amount": 430,
+                "currency": "USD",
+                "pricingIncludesPaymentFees": true
+              },
+              "notes": "Tarifa referencial para propuesta privada, sujeta a disponibilidad del lodge."
+            }
+          ],
+          "search": {
+            "kind": "hotel",
+            "destinations": [
+              "tambopata",
+              "puerto-maldonado"
+            ],
+            "keywords": [
+              "tambopata premium lodge",
+              "eco lodge",
+              "amazonas",
+              "puerto maldonado"
+            ],
+            "stars": [
+              4
+            ],
+            "roomTypes": [
+              "double-matrimonial",
+              "double-twin",
+              "triple",
+              "family-4"
+            ]
+          }
+        }
+      ],
+      "status": "prepared_without_hotels",
+      "notes": "Destino preparado para paquetes Perù. Agregar hoteles cuando existan tarifas netas confirmadas."
+    }
+  }
+}

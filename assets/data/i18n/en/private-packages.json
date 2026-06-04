@@ -1,0 +1,193 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-10",
+  "scope": "private-commercial-quotes",
+  "description": "Private proposals that should not appear in public listings. On static hosting they work as unlisted links; for true privacy, migrate to a backend/serverless setup.",
+  "securityNote": "Do not store sensitive documents or complete personal data in this public JSON. Use quoteCode + token only as a basic commercial access control.",
+  "packages": [
+    {
+      "id": "PRV001",
+      "quoteCode": "CUSFAM001",
+      "accessToken": "familia5-mapi-amazonas-demo",
+      "slug": "package-privado-machu-picchu-y-amazonas-para-familia",
+      "status": "private",
+      "visibility": "hidden",
+      "showInCatalog": false,
+      "expiresAt": "2026-12-31",
+      "title": "Package privado Machu Picchu and Amazonas para familia",
+      "subtitle": "Servicio privado para 2 adultos and 3 adolescentes, con bilingual guide and asistencia por WhatsApp.",
+      "badge": "Propuesta privada",
+      "serviceType": "private",
+      "language": [
+        "es",
+        "en"
+      ],
+      "currency": "USD",
+      "days": 6,
+      "nights": 5,
+      "heroImage": "./assets/img/tours/machu-picchu-full-day/cover.jpg",
+      "gallery": [
+        "./assets/img/tours/valle-sagrado/cover.jpg",
+        "./assets/img/tours/machu-picchu-full-day/cover.jpg",
+        "./assets/img/quote/fallbacks/cusco.jpg"
+      ],
+      "client": {
+        "displayName": "Familia privada",
+        "market": "anglo-american",
+        "contactChannel": "whatsapp",
+        "whatsapp": "447462068419",
+        "notes": "Anglo-American family. They speak Spanish and English. They request private services only."
+      },
+      "passengers": {
+        "adults": 2,
+        "teens": 3,
+        "children": 0,
+        "total": 5
+      },
+      "destinations": [
+        "cusco",
+        "valle-sagrado",
+        "aguas-calientes",
+        "machu-picchu",
+        "tambopata",
+        "puerto-maldonado"
+      ],
+      "sourceTours": [
+        "valle-sagrado-vip-conexion-machu-picchu",
+        "machu-picchu-overnight-clasico",
+        "tambopata-lodge-3d-2n-privado"
+      ],
+      "pricing": {
+        "mode": "base_services_plus_selected_hotels",
+        "baseServicesPerPerson": 980,
+        "currency": "USD",
+        "domesticFlightsIncluded": false,
+        "flightsNote": "Domestic flights Cusco - Puerto Maldonado and Puerto Maldonado - Lima/Cusco are not included; they are quoted according to date and availability."
+      },
+      "lodging": [
+        {
+          "destination": "cusco",
+          "label": "Cusco",
+          "nights": 2,
+          "required": true,
+          "defaultHotelCode": "cusco-boutique-3s"
+        },
+        {
+          "destination": "aguas-calientes",
+          "label": "Aguas Calientes",
+          "nights": 1,
+          "required": true,
+          "defaultHotelCode": "luz-garden-3s"
+        },
+        {
+          "destination": "tambopata",
+          "label": "Tambopata / Puerto Maldonado",
+          "nights": 2,
+          "required": true,
+          "defaultHotelCode": "tambopata-comfort-lodge-3s"
+        }
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Cusco",
+          "overnight": "Cusco",
+          "image": "./assets/img/quote/fallbacks/recojo-aeropuerto-cusco.jpg",
+          "items": [
+            "Private reception at Cusco airport.",
+            "Private transfer to the hotel.",
+            "Acclimatization time and briefing by WhatsApp or in person."
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Private Sacred Valley and train to Machu Picchu Pueblo",
+          "overnight": "Aguas Calientes",
+          "image": "./assets/img/tours/valle-sagrado/cover.jpg",
+          "items": [
+            "Pickup privado en hotel.",
+            "Suggested route: Chinchero, Maras, Moray and Ollantaytambo according to schedules.",
+            "Private Spanish/English bilingual guide.",
+            "Tourist train to Machu Picchu Pueblo."
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Private Machu Picchu and return to Cusco",
+          "overnight": "Cusco",
+          "image": "./assets/img/tours/machu-picchu-full-day/cover.jpg",
+          "items": [
+            "Bus Consettur ida and vuelta.",
+            "Machu Picchu entrance according to availability.",
+            "Private bilingual guide.",
+            "Return train and private transfer to your hotel in Cusco."
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Flight to Puerto Maldonado and transfer to the lodge",
+          "overnight": "Tambopata",
+          "image": "./assets/img/quote/fallbacks/cusco.jpg",
+          "items": [
+            "Private transfer from Cusco hotel to airport.",
+            "Cusco - Puerto Maldonado flight not included in the base rate.",
+            "Reception in Puerto Maldonado and transfer to the lodge.",
+            "Lunch/dinner and Amazon activity according to program."
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Amazon experience in Tambopata",
+          "overnight": "Tambopata",
+          "image": "./assets/img/quote/fallbacks/cusco.jpg",
+          "items": [
+            "Interpretive hike or nature activity.",
+            "Flora and fauna observation.",
+            "Meals included according to the lodge program.",
+            "Night activity subject to operation and weather."
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Return from Puerto Maldonado",
+          "overnight": "End of services",
+          "image": "./assets/img/quote/fallbacks/recojo-aeropuerto-cusco.jpg",
+          "items": [
+            "Breakfast.",
+            "Transfer to Puerto Maldonado airport.",
+            "Departure flight not included in the base rate."
+          ]
+        }
+      ],
+      "includes": [
+        "Private services in Cusco, the Sacred Valley and Machu Picchu.",
+        "Private Spanish/English bilingual guide in Cusco and Machu Picchu.",
+        "Private transfers indicated in the itinerary.",
+        "Standard tourist train Ollantaytambo - Machu Picchu Pueblo - Ollantaytambo.",
+        "Machu Picchu entrance subject to availability.",
+        "Bus Consettur ida and vuelta.",
+        "Accommodation according to the customer’s selection.",
+        "Amazon lodge program according to selection.",
+        "Asistencia personalizada por WhatsApp."
+      ],
+      "excludes": [
+        "International flights.",
+        "Domestic flights, unless quoted separately.",
+        "Lunches and dinners not mentioned outside the lodge.",
+        "Travel insurance.",
+        "Propinas.",
+        "Personal expenses.",
+        "Train or room upgrade not selected."
+      ],
+      "notes": [
+        "Reference quote subject to ticket, train, hotel/lodge and flight availability.",
+        "The private link should not be shared in public listings.",
+        "Para privacidad real, migrar las propuestas a una base de datos con backend o serverless."
+      ],
+      "seo": {
+        "title": "Package privado Machu Picchu and Amazonas para familia | My Cusco Trip",
+        "description": "Book Package privado Machu Picchu and Amazonas para familia with My Cusco Trip."
+      }
+    }
+  ]
+}

@@ -1,0 +1,1554 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "sourceFile": "assets/data/packages-cusco.json",
+  "scope": "cusco-dynamic-packages",
+  "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+  "status": "published",
+  "dataSources": {
+    "cuscoTours": "assets/data/tours-cusco.json",
+    "machuPicchuTours": "assets/data/tours-machu-picchu.json",
+    "trains": "assets/data/trains.json",
+    "hotels": "assets/data/hotels.json",
+    "currencyConfig": "assets/data/currency-config.json",
+    "paymentConfig": "assets/data/payment-config.json"
+  },
+  "productKind": "package-config",
+  "productFamily": "cusco-package",
+  "defaultDestination": "cusco",
+  "defaultCurrency": "USD",
+  "baseCurrency": "USD",
+  "allowedCurrencies": [
+    "PEN",
+    "USD",
+    "EUR",
+    "CLP",
+    "MXN"
+  ],
+  "allowedNationalities": [
+    "national",
+    "foreign",
+    "andean_community",
+    "latin_america",
+    "student"
+  ],
+  "durationRange": {
+    "minDays": 3,
+    "maxDays": 10,
+    "minNights": 2,
+    "maxNights": 9
+  },
+  "arrivalDepartureProfiles": {
+    "early-arrival__late-departure": {
+      "id": "early-arrival__late-departure",
+      "label": "Llegada temprano / salida tarde",
+      "arrivalProfile": "early-arrival",
+      "departureProfile": "late-departure",
+      "arrivalAvailableFrom": "12:00",
+      "departureAvailableUntil": "18:00",
+      "firstDayModes": [
+        "welcome",
+        "half-day",
+        "city-tour"
+      ],
+      "lastDayModes": [
+        "free-time",
+        "walking-tour",
+        "short-experience",
+        "transfer-out"
+      ],
+      "priority": 1
+    },
+    "early-arrival__early-departure": {
+      "id": "early-arrival__early-departure",
+      "label": "Llegada temprano / salida temprano",
+      "arrivalProfile": "early-arrival",
+      "departureProfile": "early-departure",
+      "arrivalAvailableFrom": "12:00",
+      "departureAvailableUntil": "10:00",
+      "firstDayModes": [
+        "welcome",
+        "half-day",
+        "city-tour"
+      ],
+      "lastDayModes": [
+        "transfer-out"
+      ],
+      "priority": 2
+    },
+    "late-arrival__late-departure": {
+      "id": "late-arrival__late-departure",
+      "label": "Llegada tarde / salida tarde",
+      "arrivalProfile": "late-arrival",
+      "departureProfile": "late-departure",
+      "arrivalAvailableFrom": "16:00",
+      "departureAvailableUntil": "18:00",
+      "firstDayModes": [
+        "welcome",
+        "briefing",
+        "free-time"
+      ],
+      "lastDayModes": [
+        "free-time",
+        "walking-tour",
+        "short-experience",
+        "transfer-out"
+      ],
+      "priority": 3
+    },
+    "late-arrival__early-departure": {
+      "id": "late-arrival__early-departure",
+      "label": "Llegada tarde / salida temprano",
+      "arrivalProfile": "late-arrival",
+      "departureProfile": "early-departure",
+      "arrivalAvailableFrom": "16:00",
+      "departureAvailableUntil": "10:00",
+      "firstDayModes": [
+        "welcome",
+        "briefing",
+        "free-time"
+      ],
+      "lastDayModes": [
+        "transfer-out"
+      ],
+      "priority": 4
+    }
+  },
+  "tourReferences": {
+    "cusco": {
+      "welcome": [
+        "CUZ001"
+      ],
+      "cityTour": [
+        "CUZ002"
+      ],
+      "sacredValley": [
+        "CUZ003FD",
+        "CUZ003VIP"
+      ],
+      "sacredValleyFullDay": [
+        "CUZ003FD",
+        "CUZ003VIP"
+      ],
+      "sacredValleyConnection": [
+        "CUZ003CON",
+        "CUZ003VIPCON"
+      ],
+      "sacredValleyClassic": [
+        "CUZ003FD",
+        "CUZ003CON"
+      ],
+      "sacredValleyVip": [
+        "CUZ003VIP",
+        "CUZ003VIPCON"
+      ],
+      "marasMoray": [
+        "CUZ004"
+      ],
+      "southValley": [
+        "CUZ005"
+      ],
+      "trekkings": [
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ],
+      "natureSoft": [
+        "CUZ006"
+      ],
+      "natureHighAltitude": [
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ],
+      "cultural": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005"
+      ],
+      "halfDay": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ004",
+        "CUZ005"
+      ],
+      "fullDay": [
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ]
+    },
+    "machuPicchu": {
+      "fullDay": [
+        "MAPI001",
+        "MAPI002",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI009"
+      ],
+      "fullDayClassic": [
+        "MAPI001"
+      ],
+      "fullDayExpress": [
+        "MAPI002"
+      ],
+      "overnight": [
+        "MAPI003",
+        "MAPI004",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "overnightClassic": [
+        "MAPI003"
+      ],
+      "overnightExpress": [
+        "MAPI004"
+      ],
+      "premium": [
+        "MAPI005",
+        "MAPI006",
+        "MAPI007"
+      ],
+      "luxury": [
+        "MAPI009",
+        "MAPI010"
+      ]
+    }
+  },
+  "defaultLogisticsServices": {
+    "arrival": {
+      "code": "TRANSFER_IN",
+      "title": "Recojo desde aeropuerto o terminal terrestre",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "dayPosition": "first_day",
+      "required": true,
+      "includedByDefault": true,
+      "renderAs": "logistics-service"
+    },
+    "departure": {
+      "code": "TRANSFER_OUT",
+      "title": "Traslado al aeropuerto o terminal terrestre",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "dayPosition": "last_day",
+      "required": true,
+      "includedByDefault": true,
+      "renderAs": "logistics-service"
+    }
+  },
+  "globalRules": {
+    "doNotHardcodeItineraries": true,
+    "generateCombinationsDynamically": true,
+    "deduplicateByContent": true,
+    "deduplicateIgnoresOrder": true,
+    "sortItineraryAfterGeneration": true,
+    "respectArrivalDepartureProfiles": true,
+    "respectTourOperationalSchedule": true,
+    "firstDayBufferHoursAfterArrival": 1.5,
+    "lastDayBufferHoursBeforeDeparture": 2,
+    "minimumRestHoursBeforeTrekkings": 8,
+    "maximumOneMachuPicchuExperiencePerPackage": true,
+    "valleVipIncludesMaras": true,
+    "doNotDuplicateMarasWhenVipValleyIsSelected": true,
+    "sacredValleyConnectionRequiresOvernightMachuPicchu": true,
+    "trekkingAfterMachuPicchuRequiresOvernightExpress": true,
+    "threeDaysTwoNightsRequiresFullDayMachuPicchu": true,
+    "trainRules": {
+      "sourceOfTruth": "assets/data/trains.json",
+      "sameCompanyRoundTripDefault": true,
+      "allowMixedCompaniesDefault": false,
+      "doNotMixPeruRailAndIncaRail": true,
+      "fixedTrainVersionsMustNotExposeTrainSelector": true,
+      "flexibleTrainVersionsFilterReturnByOutboundCompany": true
+    }
+  },
+  "generationEngine": {
+    "combinationStrategy": "choose_required_then_optional_until_service_days_are_filled",
+    "availableServiceDaysFormula": "days - arrivalBufferDayImpact - departureBufferDayImpact",
+    "contentSignatureFields": [
+      "includedツアーCodes",
+      "machuPicchuMode",
+      "connectionMode",
+      "trekkingCodes",
+      "vipMode"
+    ],
+    "dedupeSignatureStrategy": "sort_codes_and_flags_before_hash",
+    "orderingStrategy": [
+      "arrival_or_welcome_first",
+      "soft_cultural_before_high_altitude",
+      "city_tour_before_full_day_trekking_when_possible",
+      "sacred_valley_before_machu_picchu_when_connection",
+      "machu_picchu_full_day_or_overnight_by_rule",
+      "avoid_trekking_immediately_after_late_return_except_overnight_express",
+      "last_day_only_short_or_transfer_compatible"
+    ],
+    "rankingStrategy": [
+      "profile_compatibility",
+      "required_tours_satisfied",
+      "operational_feasibility",
+      "sales_value",
+      "variety_of_experiences",
+      "lower_duplicate_similarity"
+    ],
+    "maxGeneratedOptionsPerDuration": 36,
+    "maxRenderedOptionsPerPage": 12
+  },
+  "packageCards": [
+    {
+      "id": "pkg_cusco_3d2n",
+      "slug": "paquetes-cusco-3-dias-2-noches-ja",
+      "title": "Paquetes クスコ 3 日間 / 2 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 3,
+      "nights": 2,
+      "typeLabel": "3 日間 / 2 泊",
+      "badge": "Escapada esencial",
+      "featured": true,
+      "location": "クスコ / マチュピチュ",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/3d2n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu"
+        ],
+        "durationKeys": [
+          "3d2n",
+          "3-dias",
+          "2-泊",
+          "tres-dias",
+          "dos-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "MAPI001",
+          "MAPI002"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "city-tour",
+          "paquete-cusco"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "classic"
+        ],
+        "keywords": [
+          "paquete cusco 3 dias",
+          "cusco machu picchu 3 dias",
+          "3 dias 2 泊"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 3 日間 / 2 泊",
+      "recommendedTitle": "Escapada esencial a クスコ y マチュピチュ",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "クスコ",
+        "マチュピチュ",
+        "体験 cultural"
+      ],
+      "highlights": [
+        "Ideal para viajes cortos",
+        "Opciones 日帰り u Overnight según horario",
+        "Ruta compacta y flexible"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 3 日間 / 2 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "pkg_cusco_4d3n",
+      "slug": "paquetes-cusco-4-dias-3-noches-ja",
+      "title": "Paquetes クスコ 4 日間 / 3 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 4,
+      "nights": 3,
+      "typeLabel": "4 日間 / 3 泊",
+      "badge": "Más vendido",
+      "featured": true,
+      "location": "クスコ / マチュピチュ",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/4d3n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-泊",
+          "cuatro-dias",
+          "tres-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ006",
+          "CUZ007",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "city-tour",
+          "valle-sagrado",
+          "humantay",
+          "vinicunca",
+          "siete-lagunas"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura"
+        ],
+        "keywords": [
+          "paquete cusco 4 dias",
+          "machu picchu humantay",
+          "machu picchu montaña de colores"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 4 日間 / 3 泊",
+      "recommendedTitle": "Ruta recomendada クスコ, 聖なる谷 y マチュピチュ",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "市内観光",
+        "聖なる谷",
+        "マチュピチュ",
+        "Humantay o Vinicunca"
+      ],
+      "highlights": [
+        "Más vendido",
+        "Permite naturaleza o aventura",
+        "Buen equilibrio de tiempo y experiencias"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 4 日間 / 3 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "pkg_cusco_5d4n",
+      "slug": "paquetes-cusco-5-dias-4-noches-ja",
+      "title": "Paquetes クスコ 5 日間 / 4 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 5,
+      "nights": 4,
+      "typeLabel": "5 日間 / 4 泊",
+      "badge": "Recomendado",
+      "featured": true,
+      "location": "クスコ / 聖なる谷 / マチュピチュ",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/5d4n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "5d4n",
+          "5-dias",
+          "4-泊",
+          "cinco-dias",
+          "cuatro-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "maras-moray",
+          "humantay",
+          "vinicunca",
+          "palcoyo",
+          "siete-lagunas"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura"
+        ],
+        "keywords": [
+          "paquete cusco 5 dias",
+          "paquete cusco machu picchu",
+          "5 dias 4 泊"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 5 日間 / 4 泊",
+      "recommendedTitle": "クスコ completo con aventura opcional",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "クスコ",
+        "聖なる谷",
+        "マチュピチュ",
+        "Montaña o Laguna"
+      ],
+      "highlights": [
+        "Ritmo cómodo",
+        "Más opciones de excursiones",
+        "Recomendado para primera visita"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 5 日間 / 4 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "pkg_cusco_6d5n",
+      "slug": "paquetes-cusco-6-dias-5-noches-ja",
+      "title": "Paquetes クスコ 6 日間 / 5 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 6,
+      "nights": 5,
+      "typeLabel": "6 日間 / 5 泊",
+      "badge": "Completo",
+      "featured": true,
+      "location": "クスコ / 聖なる谷 / マチュピチュ",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/6d5n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "6d5n",
+          "6-dias",
+          "5-泊",
+          "seis-dias",
+          "cinco-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "valle-sur",
+          "maras-moray",
+          "trekking"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura"
+        ],
+        "keywords": [
+          "paquete cusco 6 dias",
+          "cusco completo",
+          "6 dias 5 泊"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 6 日間 / 5 泊",
+      "recommendedTitle": "Ruta completa クスコ y マチュピチュ 6 日間 / 5 泊",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "クスコ",
+        "聖なる谷",
+        "マチュピチュ",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más 日間 para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 6 日間 / 5 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "pkg_cusco_7d6n",
+      "slug": "paquetes-cusco-7-dias-6-noches-ja",
+      "title": "Paquetes クスコ 7 日間 / 6 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 7,
+      "nights": 6,
+      "typeLabel": "7 日間 / 6 泊",
+      "badge": "体験 amplia",
+      "featured": false,
+      "location": "クスコ / 聖なる谷 / マチュピチュ",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/7d6n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "7d6n",
+          "7-dias",
+          "6-泊",
+          "siete-dias",
+          "seis-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "humantay",
+          "vinicunca",
+          "palcoyo",
+          "siete-lagunas",
+          "ausangate"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "fotografia"
+        ],
+        "keywords": [
+          "paquete cusco 7 dias",
+          "cusco machu picchu ausangate",
+          "7 dias 6 泊"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 7 日間 / 6 泊",
+      "recommendedTitle": "Ruta completa クスコ y マチュピチュ 7 日間 / 6 泊",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "クスコ",
+        "聖なる谷",
+        "マチュピチュ",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más 日間 para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 7 日間 / 6 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "pkg_cusco_8d7n",
+      "slug": "paquetes-cusco-8-dias-7-noches-ja",
+      "title": "Paquetes クスコ 8 日間 / 7 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 8,
+      "nights": 7,
+      "typeLabel": "8 日間 / 7 泊",
+      "badge": "Profundo",
+      "featured": false,
+      "location": "クスコ / 聖なる谷 / マチュピチュ / Ausangate",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/8d7n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "8d7n",
+          "8-dias",
+          "7-泊",
+          "ocho-dias",
+          "siete-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ001",
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "valle-sur",
+          "maras-moray",
+          "trekking",
+          "ausangate"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "fotografia"
+        ],
+        "keywords": [
+          "paquete cusco 8 dias",
+          "cusco profundo",
+          "8 dias 7 泊"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 8 日間 / 7 泊",
+      "recommendedTitle": "Ruta completa クスコ y マチュピチュ 8 日間 / 7 泊",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "クスコ",
+        "聖なる谷",
+        "マチュピチュ",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más 日間 para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 8 日間 / 7 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "pkg_cusco_9d8n",
+      "slug": "paquetes-cusco-9-dias-8-noches-ja",
+      "title": "Paquetes クスコ 9 日間 / 8 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 9,
+      "nights": 8,
+      "typeLabel": "9 日間 / 8 泊",
+      "badge": "Flexible",
+      "featured": false,
+      "location": "クスコ / 聖なる谷 / マチュピチュ / Ausangate",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/9d8n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "9d8n",
+          "9-dias",
+          "8-泊",
+          "nueve-dias",
+          "ocho-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ001",
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "trekking",
+          "cultural",
+          "naturaleza"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "slow-travel"
+        ],
+        "keywords": [
+          "paquete cusco 9 dias",
+          "cusco lento",
+          "9 dias 8 泊"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 9 日間 / 8 泊",
+      "recommendedTitle": "Ruta completa クスコ y マチュピチュ 9 日間 / 8 泊",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "クスコ",
+        "聖なる谷",
+        "マチュピチュ",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más 日間 para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 9 日間 / 8 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    },
+    {
+      "id": "pkg_cusco_10d9n",
+      "slug": "paquetes-cusco-10-dias-9-noches-ja",
+      "title": "Paquetes クスコ 10 日間 / 9 泊",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 10,
+      "nights": 9,
+      "typeLabel": "10 日間 / 9 泊",
+      "badge": "Gran viaje",
+      "featured": false,
+      "location": "クスコ / 聖なる谷 / マチュピチュ / Ausangate",
+      "shortDescription": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "image": "./assets/img/packages/cusco/10d9n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "10d9n",
+          "10-dias",
+          "9-泊",
+          "diez-dias",
+          "nueve-泊"
+        ],
+        "includedTourCodes": [
+          "CUZ001",
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "valle-sur",
+          "maras-moray",
+          "humantay",
+          "vinicunca",
+          "palcoyo",
+          "siete-lagunas"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "slow-travel"
+        ],
+        "keywords": [
+          "paquete cusco 10 dias",
+          "gran viaje cusco",
+          "10 dias 9 泊"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 10 日間 / 9 泊",
+      "recommendedTitle": "Ruta completa クスコ y マチュピチュ 10 日間 / 9 泊",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "クスコ",
+        "聖なる谷",
+        "マチュピチュ",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más 日間 para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Paquetes クスコ 10 日間 / 9 泊 | My Cusco Trip",
+        "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      }
+    }
+  ],
+  "durationConfigs": [
+    {
+      "key": "3d2n",
+      "days": 3,
+      "nights": 2,
+      "minDays": 3,
+      "maxDays": 3,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003CON",
+        "CUZ003VIPCON",
+        "CUZ006",
+        "CUZ007",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "CUZ003FD",
+        "CUZ004",
+        "CUZ005"
+      ],
+      "requiredTours": [],
+      "optionalTourGroups": [
+        "welcome",
+        "cityツアー"
+      ],
+      "maxTrekkings": 1,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "full-day",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Ideal para viajes cortos.",
+        "Debe priorizar マチュピチュ 日帰り y solo agregar medio 日 si los horarios lo permiten."
+      ]
+    },
+    {
+      "key": "4d3n",
+      "days": 4,
+      "nights": 3,
+      "minDays": 4,
+      "maxDays": 4,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004"
+      ],
+      "requiredTours": [],
+      "optionalTourGroups": [
+        "welcome",
+        "cityツアー",
+        "sacredValley",
+        "trekkings"
+      ],
+      "maxTrekkings": 1,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Permite una excursión adicional como Humantay, Vinicunca o Siete Lagunas.",
+        "Si se usa 聖なる谷 conexión, cambiar マチュピチュ a overnight."
+      ]
+    },
+    {
+      "key": "5d4n",
+      "days": 5,
+      "nights": 4,
+      "minDays": 5,
+      "maxDays": 5,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "sacredValley",
+        "marasMoray",
+        "southValley",
+        "trekkings"
+      ],
+      "maxTrekkings": 1,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Duración ideal para 市内観光, 聖なる谷, マチュピチュ y un trekking.",
+        "Valle VIP puede reemplazar 聖なる谷 + Maras para evitar duplicidad."
+      ]
+    },
+    {
+      "key": "6d5n",
+      "days": 6,
+      "nights": 5,
+      "minDays": 6,
+      "maxDays": 6,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings"
+      ],
+      "maxTrekkings": 2,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Permite dos rutas de naturaleza si los horarios y descanso son compatibles.",
+        "Si hay trekking después de マチュピチュ, usar Overnight Express."
+      ]
+    },
+    {
+      "key": "7d6n",
+      "days": 7,
+      "nights": 6,
+      "minDays": 7,
+      "maxDays": 7,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu"
+      ],
+      "maxTrekkings": 2,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Duración suficiente para combinar clásicos y rutas alternativas.",
+        "Mantener máximo dos trekkings para evitar fatiga."
+      ]
+    },
+    {
+      "key": "8d7n",
+      "days": 8,
+      "nights": 7,
+      "minDays": 8,
+      "maxDays": 8,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu",
+        "luxuryMachuPicchu"
+      ],
+      "maxTrekkings": 4,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Permite paquetes más completos con descanso intercalado.",
+        "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      ]
+    },
+    {
+      "key": "9d8n",
+      "days": 9,
+      "nights": 8,
+      "minDays": 9,
+      "maxDays": 9,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu",
+        "luxuryMachuPicchu",
+        "restDays"
+      ],
+      "maxTrekkings": 4,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Usar 日間 libres o experiencias cortas para mejorar UX y no saturar el viaje.",
+        "Ideal para upsells de tren, hotel y experiencias privadas."
+      ]
+    },
+    {
+      "key": "10d9n",
+      "days": 10,
+      "nights": 9,
+      "minDays": 10,
+      "maxDays": 10,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu",
+        "luxuryMachuPicchu",
+        "restDays"
+      ],
+      "maxTrekkings": 4,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Máxima duración クスコ antes de pasar a packages-peru.json.",
+        "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+      ]
+    }
+  ],
+  "specialVariants": {
+    "sacredValleyConnection": {
+      "enabled": true,
+      "requiresMachuPicchuMode": "overnight",
+      "allowedMachuPicchuCodes": [
+        "MAPI003",
+        "MAPI004",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "triggerTourCodes": [
+        "CUZ003VIPCON",
+        "CUZ003CON"
+      ]
+    },
+    "trekkingAfterMachuPicchu": {
+      "enabled": true,
+      "trekkingCodes": [
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ],
+      "requiresMachuPicchuCode": "MAPI004",
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。"
+    },
+    "valleVip": {
+      "enabled": true,
+      "includedTourCodes": [
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004"
+      ],
+      "dedupeAgainst": [
+        "CUZ004"
+      ],
+      "description": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+      "baseTourCodes": [
+        "CUZ003VIP",
+        "CUZ003VIPCON"
+      ]
+    }
+  },
+  "detailPageBehavior": {
+    "targetPage": "product.html",
+    "urlPattern": "product.html?slug=SLUG",
+    "productDetailMode": "dynamic-package-detail",
+    "showPackageConfigurator": true,
+    "showGeneratedItineraryOptions": true,
+    "showTrainSelectorWhenFlexible": true,
+    "hideTrainSelectorWhenFixed": true,
+    "showHotelSelectorWhenNightsGreaterThanZero": true,
+    "priceCalculationMode": "海外旅行者向けの旅行体験です。明確な行程、現地サポート、安心の予約手配を提供します。",
+    "optionDisplayMode": "commercial-cards",
+    "optionUi": {
+      "title": "Elige tu ruta sugerida",
+      "maxVisibleOptions": 4,
+      "showMoreLabel": "Ver más opciones",
+      "hideTechnicalCodes": true,
+      "labels": [
+        "Ruta recomendada",
+        "Ruta clásica",
+        "Ruta con aventura",
+        "Ruta con naturaleza"
+      ]
+    }
+  },
+  "compatibility": {
+    "allExperiencesJs": {
+      "loadPackageCardsFrom": "packageCards",
+      "filterByDaysAndNights": true,
+      "useSearchObjectOnly": true,
+      "doNotSearchInIncludesExcludesFaq": true
+    },
+    "productJs": {
+      "loadConfigBySlugFromPackageCards": true,
+      "resolveDurationConfigByDaysNights": true,
+      "generateItinerariesOnDetailPage": true,
+      "resolveToursByInternalCode": true
+    },
+    "futurePaquetesHtml": {
+      "loadDurationCardsFrom": "packageCards",
+      "groupByDuration": true,
+      "openDetailWithQueryParams": true
+    }
+  }
+}

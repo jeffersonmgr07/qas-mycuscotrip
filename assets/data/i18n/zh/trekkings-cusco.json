@@ -1,0 +1,780 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "sourceFile": "assets/data/trekkings-cusco.json",
+  "scope": "cusco-trekkings",
+  "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+  "currency": "USD",
+  "status": "draft-ready",
+  "productKind": "trekking",
+  "productFamily": "cusco-trekking",
+  "defaults": {
+    "priceMode": "consult",
+    "bookingMode": "request_quote",
+    "requiresAvailabilityCheck": true,
+    "requiresPassengerData": true,
+    "allowedNationalities": [
+      "PE",
+      "FOREIGN"
+    ],
+    "imagesFallback": "./assets/img/placeholder/experience.jpg"
+  },
+  "filters": {
+    "types": [
+      "trekking",
+      "aventura",
+      "naturaleza",
+      "machu-picchu"
+    ],
+    "destinations": [
+      "cusco",
+      "machu-picchu",
+      "salkantay",
+      "ausangate",
+      "vinicunca"
+    ],
+    "difficulty": [
+      "moderada",
+      "moderada-alta",
+      "alta"
+    ],
+    "durationKeys": [
+      "2d1n",
+      "3d2n",
+      "4d3n",
+      "5d4n"
+    ]
+  },
+  "products": [
+    {
+      "id": "trk_cusco_001",
+      "internalCode": "TRK001",
+      "slug": "camino-inca-2-dias-1-noche-zh",
+      "title": "Camino Inca 2D/1N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "2 天 / 1 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 2,
+      "nights": 1,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "2D/1N",
+        "days": 2,
+        "nights": 1
+      },
+      "difficulty": "moderada",
+      "maxAltitudeMeters": 2700,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "camino-inca"
+      ],
+      "highlights": [
+        "Camino Inca corto",
+        "Ingreso a 马丘比丘",
+        "Ruta histórica"
+      ],
+      "permits": {
+        "required": true,
+        "type": "Camino Inca / Red de Caminos Inca",
+        "notes": "Sujeto a disponibilidad oficial y datos completos de pasajeros."
+      },
+      "accommodationType": [
+        "campamento o alojamiento según operación"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "camino-inca"
+        ],
+        "durationKeys": [
+          "2d1n",
+          "2-dias",
+          "1-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "camino inca 2d/1n",
+          "camino inca 2 dias 1 晚",
+          "Camino Inca corto",
+          "Ingreso a 马丘比丘",
+          "Ruta histórica"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Camino Inca 2D/1N | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "trk_cusco_002",
+      "internalCode": "TRK002",
+      "slug": "camino-inca-4-dias-3-noches-zh",
+      "title": "Camino Inca 经典 4D/3N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 天 / 3 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "moderada-alta",
+      "maxAltitudeMeters": 4200,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "camino-inca"
+      ],
+      "highlights": [
+        "Camino Inca clásico",
+        "Wiñay Wayna",
+        "Inti Punku",
+        "马丘比丘"
+      ],
+      "permits": {
+        "required": true,
+        "type": "Camino Inca / Red de Caminos Inca",
+        "notes": "Sujeto a disponibilidad oficial y datos completos de pasajeros."
+      },
+      "accommodationType": [
+        "campamento"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "camino-inca"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "camino inca clásico 4d/3n",
+          "camino inca 4 dias 3 晚",
+          "Camino Inca clásico",
+          "Wiñay Wayna",
+          "Inti Punku",
+          "马丘比丘"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Camino Inca 经典 4D/3N | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "trk_cusco_003",
+      "internalCode": "TRK003",
+      "slug": "salkantay-trek-4-dias-3-noches-zh",
+      "title": "Salkantay Trek 4D/3N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 天 / 3 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 4600,
+      "destinations": [
+        "cusco",
+        "salkantay",
+        "machu-picchu"
+      ],
+      "highlights": [
+        "Nevado Salkantay",
+        "Paisajes altoandinos",
+        "马丘比丘"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento",
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "salkantay",
+          "machu-picchu"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "salkantay trek 4d/3n",
+          "salkantay trek 4 dias 3 晚",
+          "Nevado Salkantay",
+          "Paisajes altoandinos",
+          "马丘比丘"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Salkantay Trek 4D/3N | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "trk_cusco_004",
+      "internalCode": "TRK004",
+      "slug": "salkantay-trek-5-dias-4-noches-zh",
+      "title": "Salkantay Trek 5D/4N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "5 天 / 4 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 5,
+      "nights": 4,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "5D/4N",
+        "days": 5,
+        "nights": 4
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 4600,
+      "destinations": [
+        "cusco",
+        "salkantay",
+        "machu-picchu"
+      ],
+      "highlights": [
+        "Ruta Salkantay completa",
+        "胡曼泰湖 opcional",
+        "马丘比丘"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento",
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "salkantay",
+          "machu-picchu"
+        ],
+        "durationKeys": [
+          "5d4n",
+          "5-dias",
+          "4-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "salkantay trek 5d/4n",
+          "salkantay trek 5 dias 4 晚",
+          "Ruta Salkantay completa",
+          "胡曼泰湖 opcional",
+          "马丘比丘"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Salkantay Trek 5D/4N | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "trk_cusco_005",
+      "internalCode": "TRK005",
+      "slug": "ausangate-trek-zh",
+      "title": "Ausangate Trek",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "5 天 / 4 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 5,
+      "nights": 4,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "5D/4N",
+        "days": 5,
+        "nights": 4
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 5200,
+      "destinations": [
+        "cusco",
+        "ausangate"
+      ],
+      "highlights": [
+        "Nevado Ausangate",
+        "Lagunas altoandinas",
+        "Comunidades andinas"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "5d4n",
+          "5-dias",
+          "4-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "ausangate trek",
+          "ausangate trek",
+          "Nevado Ausangate",
+          "Lagunas altoandinas",
+          "Comunidades andinas"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Ausangate Trek | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "trk_cusco_006",
+      "internalCode": "TRK006",
+      "slug": "ausangate-vinicunca-zh",
+      "title": "Ausangate + Vinicunca",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 天 / 3 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "alta",
+      "maxAltitudeMeters": 5200,
+      "destinations": [
+        "cusco",
+        "ausangate",
+        "vinicunca"
+      ],
+      "highlights": [
+        "Ausangate",
+        "彩虹山",
+        "Paisajes altoandinos"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "campamento"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "ausangate",
+          "vinicunca"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "ausangate + vinicunca",
+          "ausangate vinicunca",
+          "Ausangate",
+          "彩虹山",
+          "Paisajes altoandinos"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Ausangate + Vinicunca | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "trk_cusco_007",
+      "internalCode": "TRK007",
+      "slug": "inca-jungle-3-dias-2-noches-zh",
+      "title": "Inca Jungle 3D/2N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "3 天 / 2 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 3,
+      "nights": 2,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "3D/2N",
+        "days": 3,
+        "nights": 2
+      },
+      "difficulty": "moderada",
+      "maxAltitudeMeters": 4300,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "inca-jungle"
+      ],
+      "highlights": [
+        "Aventura",
+        "Selva alta",
+        "马丘比丘"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "inca-jungle"
+        ],
+        "durationKeys": [
+          "3d2n",
+          "3-dias",
+          "2-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "inca jungle 3d/2n",
+          "inca jungle 3 dias 2 晚",
+          "Aventura",
+          "Selva alta",
+          "马丘比丘"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Inca Jungle 3D/2N | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    },
+    {
+      "id": "trk_cusco_008",
+      "internalCode": "TRK008",
+      "slug": "inca-jungle-4-dias-3-noches-zh",
+      "title": "Inca Jungle 4D/3N",
+      "category": "trekking",
+      "productKind": "trekking",
+      "productFamily": "cusco-trekking",
+      "type": "trekking",
+      "typeLabel": "4 天 / 3 晚",
+      "badge": "Próximamente",
+      "featured": false,
+      "location": "库斯科 / Andes",
+      "currency": "USD",
+      "priceMode": "consult",
+      "priceFrom": null,
+      "days": 4,
+      "nights": 3,
+      "shortDescription": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。",
+      "duration": {
+        "label": "4D/3N",
+        "days": 4,
+        "nights": 3
+      },
+      "difficulty": "moderada",
+      "maxAltitudeMeters": 4300,
+      "destinations": [
+        "cusco",
+        "machu-picchu",
+        "inca-jungle"
+      ],
+      "highlights": [
+        "Aventura completa",
+        "Selva alta",
+        "马丘比丘"
+      ],
+      "permits": {
+        "required": false,
+        "type": "No definido",
+        "notes": "Sujeto a operación, clima y disponibilidad."
+      },
+      "accommodationType": [
+        "alojamiento básico"
+      ],
+      "season": "Todo el año sujeto a clima y disponibilidad",
+      "availability": {
+        "mode": "on_request",
+        "requiresManualConfirmation": true,
+        "notes": "Confirmar disponibilidad antes de cobrar reserva."
+      },
+      "operationalNotes": [
+        "Requiere evaluación básica de condición física.",
+        "Itinerario y campamentos pueden variar por clima, permisos o regulación local.",
+        "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      ],
+      "images": {
+        "cover": "./assets/img/placeholder/experience.jpg",
+        "gallery": []
+      },
+      "search": {
+        "kind": "trekking",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "inca-jungle"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-晚"
+        ],
+        "themes": [
+          "trekking",
+          "aventura",
+          "naturaleza"
+        ],
+        "keywords": [
+          "inca jungle 4d/3n",
+          "inca jungle 4 dias 3 晚",
+          "Aventura completa",
+          "Selva alta",
+          "马丘比丘"
+        ]
+      },
+      "status": "draft",
+      "seo": {
+        "title": "Inca Jungle 4D/3N | My Cusco Trip",
+        "description": "面向国际旅客的专业旅行体验，包含清晰行程、当地协助和可靠的预订支持。"
+      }
+    }
+  ]
+}

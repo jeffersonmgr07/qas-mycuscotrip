@@ -1,0 +1,3598 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "description": "Separate Machu Picchu tour catalog from tours-cusco.json. This version no longer contains an embedded train catalog; it uses references to assets/data/trains.json to resolve schedules, routes, companies, categories and rail fares.",
+  "currencyConfigReference": "assets/data/currency-config.json",
+  "pricingAssumptions": {
+    "exchangeRateUSDToPEN": 3.75,
+    "paypalFeePercent": 5.4,
+    "paypalFixedUSD": 0.3,
+    "bankWithdrawPercent": 1.5,
+    "igvPercent": 18,
+    "targetNetProfitUSDPerPassenger": 50,
+    "basePriceIncludesHotel": false,
+    "basePriceIncludesTrain": true,
+    "basePriceIncludesEntrance": true,
+    "basePriceIncludesBus": true,
+    "basePriceIncludesGuide": true
+  },
+  "nationalityOptions": [
+    {
+      "code": "national",
+      "label": "Peruvian"
+    },
+    {
+      "code": "foreign",
+      "label": "Extranjero"
+    },
+    {
+      "code": "andean_community",
+      "label": "Comunidad Andina"
+    }
+  ],
+  "trainRules": {
+    "sameCompanyRoundTripDefault": true,
+    "allowMixedCompaniesDefault": false,
+    "trainPricesSource": "assets/data/trains.json",
+    "priceResolution": "The tour base price is calculated with the default trains referenced by code. Train changes are calculated by comparing the cost of the new train against the default train cost.",
+    "notes": [
+      "For flexible tours, choosing an outbound train locks the railway company for the return trip.",
+      "For express versions, train selection remains fixed and should not show alternatives to the customer.",
+      "For premium/luxury versions, allowed categories are restricted by product version.",
+      "Actual prices must be synchronized from trains.json before publishing or selling."
+    ]
+  },
+  "tours": [
+    {
+      "id": "mapi_001",
+      "internalCode": "MAPI001",
+      "slug": "machu-picchu-full-day-classic",
+      "title": "Machu Picchu Full Day Classic",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "full-day-clasico",
+      "type": "machu-picchu-tour",
+      "typeLabel": "Full Day",
+      "badge": "Classic",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "Full-day Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Classic Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "Full Day",
+        "maxGroupSize": 15,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 287.9,
+        "child": 269.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 252.9,
+          "child": 243.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 262.9,
+          "child": 253.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 287.9,
+          "child": 269.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 10,
+        "defaultTrainCostUSD": 142,
+        "defaultOutboundTrainCostUSD": 74,
+        "defaultReturnTrainCostUSD": 68,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 15,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-full-day-clasico/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-full-day-clasico/1.jpg",
+          "./assets/img/tours/machu-picchu-full-day-clasico/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Hotel pickup and transfer to the station",
+          "description": "We will begin with pickup from your hotel or previously coordinated point in Cusco. According to the selected train schedule, we will transfer to the corresponding station to begin the route to Machu Picchu.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Train journey to Machu Picchu Pueblo",
+          "description": "You will board the included tourist train or the train you choose during booking. Along the way, you will enjoy Sacred Valley landscapes, Andean mountains and the gradual entrance into the cloud forest around Machu Picchu Pueblo.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Consettur bus and official Machu Picchu entrance ticket",
+          "description": "Upon arrival in Machu Picchu Pueblo, we will coordinate the Consettur bus up to the entrance gate. Access will be with an official ticket and a confirmed circuit according to Ministry of Culture availability.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Guided tour in Machu Picchu",
+          "description": "You will take a guided visit through the main sectors of the citadel. The guide will explain Machu Picchu’s history, architecture, urban organization and ceremonial meaning during the authorized route.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Return to Cusco",
+          "description": "After the visit, you will descend to Machu Picchu Pueblo to take the selected return train. Upon arrival at the final station, we will provide the corresponding ground transfer to Cusco or the coordinated point.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "flexible_same_company",
+        "sameCompanyRoundTrip": true,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+          "return": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68"
+        },
+        "allowedCompanies": [
+          "incarail",
+          "perurail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "CUSCO_MAPI",
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": "all_available",
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "same_company_as_outbound",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "timeWindows": {
+          "outbound": {
+            "min": "05:00",
+            "max": "07:30"
+          },
+          "return": {
+            "min": "16:00",
+            "max": "22:00"
+          }
+        },
+        "maxOptions": {
+          "return": 3
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 74,
+          "returnAdultCost": 68,
+          "totalAdultTrainCost": 142,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+          "company": "incarail",
+          "serviceName": "The Voyager Bimodal",
+          "route": "CUSCO_MAPI",
+          "departureStation": "Cusco",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "04:10",
+          "arrivalTime": "08:01",
+          "currency": "USD",
+          "adultCostUSD": 74
+        },
+        "resolvedReturn": {
+          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+          "company": "incarail",
+          "serviceName": "The Voyager Bimodal",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Cusco",
+          "departureTime": "21:30",
+          "arrivalTime": "01:15",
+          "currency": "USD",
+          "adultCostUSD": 68
+        }
+      },
+      "accommodationSelection": {
+        "required": false,
+        "includedInBasePrice": false,
+        "allowedDestinations": [],
+        "recommendedHotelTags": []
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "MAPI001"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "classic"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "classic"
+        ],
+        "keywords": [
+          "machu picchu full day classic",
+          "machu-picchu-full-day-clasico",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "full-day-classic",
+      "tripMode": "full-day",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-full-day-clasico/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Full Day",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu Full Day Classic | My Cusco Trip",
+        "description": "Full-day Machu Picchu experience with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is Full Day. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_002",
+      "internalCode": "MAPI002",
+      "slug": "machu-picchu-full-day-express",
+      "title": "Machu Picchu Full Day Express",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "full-day-express",
+      "type": "machu-picchu-tour",
+      "typeLabel": "Full Day Express",
+      "badge": "Express",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "Express full-day Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Express Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "Full Day Express",
+        "maxGroupSize": 15,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 320.9,
+        "child": 302.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 285.9,
+          "child": 276.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 295.9,
+          "child": 286.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 320.9,
+          "child": 302.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 10,
+        "defaultTrainCostUSD": 173,
+        "defaultOutboundTrainCostUSD": 74,
+        "defaultReturnTrainCostUSD": 99,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 15,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-full-day-express/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-full-day-express/1.jpg",
+          "./assets/img/tours/machu-picchu-full-day-express/2.jpg",
+          "./assets/img/tours/machu-picchu-full-day-express/3.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Pickup and transfer to the station",
+          "description": "Pickup from your hotel or coordinated meeting point according to the selected station and train schedule."
+        },
+        {
+          "title": "Train journey to Machu Picchu Pueblo",
+          "description": "Board the tourist train to Aguas Calientes according to the selected category."
+        },
+        {
+          "title": "Bus and entrance to Machu Picchu",
+          "description": "Consettur bus ride up and official entrance ticket to the sanctuary according to the confirmed circuit."
+        },
+        {
+          "title": "Guided tour in Machu Picchu",
+          "description": "Guided route through the main sectors of the citadel."
+        },
+        {
+          "title": "Return to Cusco",
+          "description": "Descent to Aguas Calientes, return train and final transfer to Cusco."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "fixed",
+        "sameCompanyRoundTrip": false,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+          "return": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44"
+        },
+        "allowedCompanies": [
+          "incarail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "CUSCO_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO"
+          ]
+        },
+        "allowedCategories": {
+          "outbound": [
+            "voyager"
+          ],
+          "return": [
+            "voyager"
+          ]
+        },
+        "fixedSelection": true,
+        "customerCanChangeTrain": false,
+        "returnOptionsRule": "fixed_default_only",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation."
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 74,
+          "returnAdultCost": 99,
+          "totalAdultTrainCost": 173,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+          "company": "incarail",
+          "serviceName": "The Voyager Bimodal",
+          "route": "CUSCO_MAPI",
+          "departureStation": "Cusco",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "04:10",
+          "arrivalTime": "08:01",
+          "currency": "USD",
+          "adultCostUSD": 74
+        },
+        "resolvedReturn": {
+          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+          "company": "incarail",
+          "serviceName": "The Voyager Bimodal",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Cusco",
+          "departureTime": "14:30",
+          "arrivalTime": "18:20",
+          "currency": "USD",
+          "adultCostUSD": 99
+        }
+      },
+      "accommodationSelection": {
+        "required": false,
+        "includedInBasePrice": false,
+        "allowedDestinations": [],
+        "recommendedHotelTags": []
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "MAPI002"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "express"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "classic"
+        ],
+        "keywords": [
+          "machu picchu full day express",
+          "machu-picchu-full-day-express",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "full-day-express",
+      "tripMode": "full-day",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-full-day-express/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Full Day",
+        "speedLabel": "Express",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu Full Day Express | My Cusco Trip",
+        "description": "Experience full day express a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is Full Day Express. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_003",
+      "internalCode": "MAPI003",
+      "slug": "machu-picchu-overnight-classic",
+      "title": "Machu Picchu Overnight Classic",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "overnight-clasico",
+      "type": "machu-picchu-tour",
+      "typeLabel": "2 days / 1 night",
+      "badge": "Overnight",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 2,
+      "nights": 1,
+      "shortDescription": "2-day / 1-night Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Overnight Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "2 days / 1 night",
+        "maxGroupSize": 15,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 287.9,
+        "child": 269.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 252.9,
+          "child": 243.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 262.9,
+          "child": 253.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 287.9,
+          "child": 269.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 10,
+        "defaultTrainCostUSD": 142,
+        "defaultOutboundTrainCostUSD": 74,
+        "defaultReturnTrainCostUSD": 68,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_45",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 15,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-overnight-clasico/cover.jpg",
+        "gallery": [
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Day 1: Journey to Aguas Calientes",
+          "description": "We will begin with the transfer from Cusco or the coordinated point to the corresponding station. You will board the tourist train to Machu Picchu Pueblo, enjoying the Sacred Valley landscape and the railway route toward the cloud forest. Upon arrival, you will receive assistance getting settled in Aguas Calientes and coordinating the details of the next day’s visit. The night will be in Aguas Calientes according to the selected hotel.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg",
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        },
+        {
+          "title": "Day 2: Machu Picchu and return",
+          "description": "After breakfast or at the coordinated time, you will take the Consettur bus up to the Machu Picchu citadel. You will take the guided visit along the confirmed circuit, with explanations of the main sectors, history and Inca architecture. At the end, you will return to Machu Picchu Pueblo to take the selected return train and continue with the final transfer to Cusco or the coordinated point.",
+          "images": [
+            "./assets/img/placeholder/experience.jpg",
+            "./assets/img/placeholder/experience.jpg"
+          ]
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "flexible_any_company",
+        "sameCompanyRoundTrip": false,
+        "allowMixedCompanies": true,
+        "defaultTrainCodes": {
+          "outbound": "INCA_OLLA_MAPI_VOYAGER_45",
+          "return": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68"
+        },
+        "allowedCompanies": [
+          "incarail",
+          "perurail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": "all_available",
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "any_company_afternoon_return",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "timeWindows": {
+          "outbound": {
+            "min": "15:00",
+            "max": "22:00"
+          },
+          "return": {
+            "min": "12:00",
+            "max": "22:00"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_45",
+        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 74,
+          "returnAdultCost": 68,
+          "totalAdultTrainCost": 142,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "INCA_OLLA_MAPI_VOYAGER_45",
+          "company": "incarail",
+          "serviceName": "The Voyager",
+          "route": "OLLA_MAPI",
+          "departureStation": "Ollantaytambo",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "16:36",
+          "arrivalTime": "18:09",
+          "currency": "USD",
+          "adultCostUSD": 74
+        },
+        "resolvedReturn": {
+          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+          "company": "incarail",
+          "serviceName": "The Voyager Bimodal",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Cusco",
+          "departureTime": "21:30",
+          "arrivalTime": "01:15",
+          "currency": "USD",
+          "adultCostUSD": 68
+        }
+      },
+      "accommodationSelection": {
+        "required": true,
+        "includedInBasePrice": false,
+        "allowedDestinations": [
+          "aguas-calientes"
+        ],
+        "recommendedHotelTags": [
+          "standard"
+        ]
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "2d1n",
+          "2-dias",
+          "1-night"
+        ],
+        "includedTourCodes": [
+          "MAPI003"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "overnight"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "classic"
+        ],
+        "keywords": [
+          "machu picchu overnight classic",
+          "machu-picchu-overnight-clasico",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "overnight-classic",
+      "tripMode": "overnight",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-overnight-clasico/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Overnight",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu Overnight Classic | My Cusco Trip",
+        "description": "2-day / 1-night Machu Picchu experience with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is 2 days / 1 night. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_004",
+      "internalCode": "MAPI004",
+      "slug": "machu-picchu-overnight-express",
+      "title": "Machu Picchu Overnight Express",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "overnight-express",
+      "type": "machu-picchu-tour",
+      "typeLabel": "2 days / 1 night Express",
+      "badge": "Overnight Express",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 2,
+      "nights": 1,
+      "shortDescription": "Express 2-day / 1-night Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Overnight express Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "2 days / 1 night Express",
+        "maxGroupSize": 15,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 320.9,
+        "child": 302.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 285.9,
+          "child": 276.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 295.9,
+          "child": 286.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 320.9,
+          "child": 302.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 10,
+        "defaultTrainCostUSD": 173,
+        "defaultOutboundTrainCostUSD": 74,
+        "defaultReturnTrainCostUSD": 99,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_45",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": false,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 15,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-overnight-express/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-overnight-express/1.jpg",
+          "./assets/img/placeholder/experience.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Day 1: Journey to Aguas Calientes",
+          "description": "Transfer to the station and train journey to Machu Picchu Pueblo. Overnight in Aguas Calientes according to the selected hotel."
+        },
+        {
+          "title": "Day 2: Machu Picchu and return",
+          "description": "Bus ride up, official entrance ticket, guided visit and return by train according to the selected schedule."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "fixed_alternatives",
+        "sameCompanyRoundTrip": false,
+        "allowMixedCompanies": true,
+        "defaultTrainCodes": {
+          "outbound": "INCA_OLLA_MAPI_VOYAGER_45",
+          "return": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44"
+        },
+        "allowedCompanies": [
+          "incarail",
+          "perurail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": "all_available",
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "fixed_shortlist",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "allowedTrainCodes": {
+          "outbound": [
+            "INCA_OLLA_MAPI_VOYAGER_45",
+            "PERU_OLLA_MAPI_EXPEDITION_15_27"
+          ],
+          "return": [
+            "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+            "PERU_MAPI_OLLA_EXPEDITION_74P",
+            "PERU_MAPI_WANCHAQ_EXPEDITION_74P"
+          ]
+        },
+        "timeWindows": {
+          "outbound": {
+            "min": "15:00",
+            "max": "17:00"
+          },
+          "return": {
+            "min": "14:00",
+            "max": "15:10"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_45",
+        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 74,
+          "returnAdultCost": 99,
+          "totalAdultTrainCost": 173,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "INCA_OLLA_MAPI_VOYAGER_45",
+          "company": "incarail",
+          "serviceName": "The Voyager",
+          "route": "OLLA_MAPI",
+          "departureStation": "Ollantaytambo",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "16:36",
+          "arrivalTime": "18:09",
+          "currency": "USD",
+          "adultCostUSD": 74
+        },
+        "resolvedReturn": {
+          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_44",
+          "company": "incarail",
+          "serviceName": "The Voyager Bimodal",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Cusco",
+          "departureTime": "14:30",
+          "arrivalTime": "18:20",
+          "currency": "USD",
+          "adultCostUSD": 99
+        }
+      },
+      "accommodationSelection": {
+        "required": true,
+        "includedInBasePrice": false,
+        "allowedDestinations": [
+          "aguas-calientes"
+        ],
+        "recommendedHotelTags": [
+          "standard"
+        ]
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "2d1n",
+          "2-dias",
+          "1-night"
+        ],
+        "includedTourCodes": [
+          "MAPI004"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "overnight-express"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "classic"
+        ],
+        "keywords": [
+          "machu picchu overnight express",
+          "machu-picchu-overnight-express",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "overnight-express",
+      "tripMode": "overnight",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-overnight-express/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Overnight",
+        "speedLabel": "Express",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu Overnight Express | My Cusco Trip",
+        "description": "Experience 2 days / 1 night express a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is 2 days / 1 night Express. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_005",
+      "internalCode": "MAPI005",
+      "slug": "machu-picchu-panoramico-vistadome",
+      "title": "Machu Picchu Scenic Vistadome",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "panoramico-vistadome",
+      "type": "machu-picchu-tour",
+      "typeLabel": "Full-Day Scenic Tour",
+      "badge": "Scenic",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "Scenic full-day Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Scenic Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "Full-Day Scenic Tour",
+        "maxGroupSize": 15,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 395.9,
+        "child": 376.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 360.9,
+          "child": 351.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 370.9,
+          "child": 360.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 395.9,
+          "child": 376.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 25,
+        "defaultTrainCostUSD": 227.05,
+        "defaultOutboundTrainCostUSD": 114,
+        "defaultReturnTrainCostUSD": 113.05,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "PERU_SANPEDRO_MAPI_VISTADOME_31",
+        "defaultReturnTrainCode": "PERU_MAPI_SANPEDRO_EXPEDITION_32",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 15,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-panoramico-vistadome/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-panoramico-vistadome/1.jpg",
+          "./assets/img/tours/machu-picchu-panoramico-vistadome/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Pickup and transfer to the station",
+          "description": "Pickup from your hotel or coordinated meeting point according to the selected station and train schedule."
+        },
+        {
+          "title": "Train journey to Machu Picchu Pueblo",
+          "description": "Board the tourist train to Aguas Calientes according to the selected category."
+        },
+        {
+          "title": "Bus and entrance to Machu Picchu",
+          "description": "Consettur bus ride up and official entrance ticket to the sanctuary according to the confirmed circuit."
+        },
+        {
+          "title": "Guided tour in Machu Picchu",
+          "description": "Guided route through the main sectors of the citadel."
+        },
+        {
+          "title": "Return to Cusco",
+          "description": "Descent to Aguas Calientes, return train and final transfer to Cusco."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "restricted_category",
+        "sameCompanyRoundTrip": true,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "PERU_SANPEDRO_MAPI_VISTADOME_31",
+          "return": "PERU_MAPI_SANPEDRO_EXPEDITION_32"
+        },
+        "allowedCompanies": [
+          "perurail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "CUSCO_MAPI",
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": {
+          "outbound": [
+            "vistadome",
+            "vistadome_observatory"
+          ],
+          "return": [
+            "vistadome",
+            "vistadome_observatory"
+          ]
+        },
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "same_category_family",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "timeWindows": {
+          "outbound": {
+            "min": "05:00",
+            "max": "09:30"
+          },
+          "return": {
+            "min": "16:00",
+            "max": "22:00"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "PERU_SANPEDRO_MAPI_VISTADOME_31",
+        "returnTrainCode": "PERU_MAPI_SANPEDRO_EXPEDITION_32",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 114,
+          "returnAdultCost": 113.05,
+          "totalAdultTrainCost": 227.05,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "PERU_SANPEDRO_MAPI_VISTADOME_31",
+          "company": "perurail",
+          "serviceName": "Vistadome 31",
+          "route": "CUSCO_MAPI",
+          "departureStation": "San Pedro",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "06:40",
+          "arrivalTime": "10:52",
+          "currency": "USD",
+          "adultCostUSD": 114
+        },
+        "resolvedReturn": {
+          "trainCode": "PERU_MAPI_SANPEDRO_EXPEDITION_32",
+          "company": "perurail",
+          "serviceName": "Expedition 32",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "San Pedro",
+          "departureTime": "16:43",
+          "arrivalTime": "21:23",
+          "currency": "USD",
+          "adultCostUSD": 113.05
+        }
+      },
+      "accommodationSelection": {
+        "required": false,
+        "includedInBasePrice": false,
+        "allowedDestinations": [],
+        "recommendedHotelTags": []
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "MAPI005"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "scenic"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "premium"
+        ],
+        "keywords": [
+          "machu picchu scenic vistadome",
+          "machu-picchu-panoramico-vistadome",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "full-day-classic",
+      "tripMode": "full-day",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-panoramico-vistadome/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Full Day",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu Scenic Vistadome | My Cusco Trip",
+        "description": "Experience full day scenic a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is Full-Day Scenic Tour. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_006",
+      "internalCode": "MAPI006",
+      "slug": "machu-picchu-the-prime",
+      "title": "Machu Picchu The Prime",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "the-prime",
+      "type": "machu-picchu-tour",
+      "typeLabel": "Full Day Premium",
+      "badge": "Premium",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "Premium full-day Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Premium Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "Full Day Premium",
+        "maxGroupSize": 15,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 365.9,
+        "child": 346.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 330.9,
+          "child": 320.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 339.9,
+          "child": 330.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 365.9,
+          "child": 346.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 25,
+        "defaultTrainCostUSD": 199,
+        "defaultOutboundTrainCostUSD": 100,
+        "defaultReturnTrainCostUSD": 99,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "INCA_CUSCO_MAPI_PRIME_BIMODAL_41",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_66",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": true,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 15,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-the-prime/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-the-prime/1.jpg",
+          "./assets/img/tours/machu-picchu-the-prime/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Pickup and transfer to the station",
+          "description": "Pickup from your hotel or coordinated meeting point according to the selected station and train schedule."
+        },
+        {
+          "title": "Train journey to Machu Picchu Pueblo",
+          "description": "Board the tourist train to Aguas Calientes according to the selected category."
+        },
+        {
+          "title": "Bus and entrance to Machu Picchu",
+          "description": "Consettur bus ride up and official entrance ticket to the sanctuary according to the confirmed circuit."
+        },
+        {
+          "title": "Guided tour in Machu Picchu",
+          "description": "Guided route through the main sectors of the citadel."
+        },
+        {
+          "title": "Return to Cusco",
+          "description": "Descent to Aguas Calientes, return train and final transfer to Cusco."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "restricted_category",
+        "sameCompanyRoundTrip": true,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "INCA_CUSCO_MAPI_PRIME_BIMODAL_41",
+          "return": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_66"
+        },
+        "allowedCompanies": [
+          "incarail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "CUSCO_MAPI",
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": {
+          "outbound": [
+            "prime"
+          ],
+          "return": [
+            "prime"
+          ]
+        },
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "prime_only",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "timeWindows": {
+          "outbound": {
+            "min": "04:00",
+            "max": "08:30"
+          },
+          "return": {
+            "min": "16:00",
+            "max": "22:00"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "INCA_CUSCO_MAPI_PRIME_BIMODAL_41",
+        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_66",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 100,
+          "returnAdultCost": 99,
+          "totalAdultTrainCost": 199,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "INCA_CUSCO_MAPI_PRIME_BIMODAL_41",
+          "company": "incarail",
+          "serviceName": "The Prime Bimodal",
+          "route": "CUSCO_MAPI",
+          "departureStation": "Cusco",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "04:10",
+          "arrivalTime": "08:01",
+          "currency": "USD",
+          "adultCostUSD": 100
+        },
+        "resolvedReturn": {
+          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_66",
+          "company": "incarail",
+          "serviceName": "The Voyager Bimodal",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Cusco",
+          "departureTime": "20:20",
+          "arrivalTime": "00:10",
+          "currency": "USD",
+          "adultCostUSD": 99
+        }
+      },
+      "accommodationSelection": {
+        "required": false,
+        "includedInBasePrice": false,
+        "allowedDestinations": [],
+        "recommendedHotelTags": []
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "MAPI006"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "premium"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "premium"
+        ],
+        "keywords": [
+          "machu picchu the prime",
+          "machu-picchu-the-prime",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "full-day-premium",
+      "tripMode": "full-day",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-the-prime/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Full Day",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu The Prime | My Cusco Trip",
+        "description": "Experience full day premium a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is Full Day Premium. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_007",
+      "internalCode": "MAPI007",
+      "slug": "machu-picchu-first-class",
+      "title": "Machu Picchu First Class",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "first-class",
+      "type": "machu-picchu-tour",
+      "typeLabel": "Full Day First Class",
+      "badge": "First Class",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "First Class full-day Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "First Class Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "Full Day First Class",
+        "maxGroupSize": 8,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 810.9,
+        "child": 791.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 775.9,
+          "child": 765.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 784.9,
+          "child": 775.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 810.9,
+          "child": 791.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 50,
+        "defaultTrainCostUSD": 587,
+        "defaultOutboundTrainCostUSD": 311,
+        "defaultReturnTrainCostUSD": 276,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "INCA_CUSCO_MAPI_FIRST_CLASS_BIMODAL_43",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": false,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 8,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-first-class/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-first-class/1.jpg",
+          "./assets/img/tours/machu-picchu-first-class/2.jpg",
+          "./assets/img/tours/machu-picchu-first-class/3.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Pickup and transfer to the station",
+          "description": "Pickup from your hotel or coordinated meeting point according to the selected station and train schedule."
+        },
+        {
+          "title": "Train journey to Machu Picchu Pueblo",
+          "description": "Board the tourist train to Aguas Calientes according to the selected category."
+        },
+        {
+          "title": "Bus and entrance to Machu Picchu",
+          "description": "Consettur bus ride up and official entrance ticket to the sanctuary according to the confirmed circuit."
+        },
+        {
+          "title": "Guided tour in Machu Picchu",
+          "description": "Guided route through the main sectors of the citadel."
+        },
+        {
+          "title": "Return to Cusco",
+          "description": "Descent to Aguas Calientes, return train and final transfer to Cusco."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "restricted_category",
+        "sameCompanyRoundTrip": false,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "INCA_CUSCO_MAPI_FIRST_CLASS_BIMODAL_43",
+          "return": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46"
+        },
+        "allowedCompanies": [
+          "incarail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "CUSCO_MAPI",
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": {
+          "outbound": [
+            "first_class"
+          ],
+          "return": [
+            "voyager",
+            "360",
+            "prime",
+            "first_class"
+          ]
+        },
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "incarail_evening_return",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "timeWindows": {
+          "outbound": {
+            "min": "08:00",
+            "max": "12:00"
+          },
+          "return": {
+            "min": "16:00",
+            "max": "22:00"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "INCA_CUSCO_MAPI_FIRST_CLASS_BIMODAL_43",
+        "returnTrainCode": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 311,
+          "returnAdultCost": 276,
+          "totalAdultTrainCost": 587,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "INCA_CUSCO_MAPI_FIRST_CLASS_BIMODAL_43",
+          "company": "incarail",
+          "serviceName": "The First Class Bimodal",
+          "route": "CUSCO_MAPI",
+          "departureStation": "Cusco",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "08:00",
+          "arrivalTime": "12:41",
+          "currency": "USD",
+          "adultCostUSD": 311
+        },
+        "resolvedReturn": {
+          "trainCode": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46",
+          "company": "incarail",
+          "serviceName": "The First Class Bimodal",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Cusco",
+          "departureTime": "19:00",
+          "arrivalTime": "23:00",
+          "currency": "USD",
+          "adultCostUSD": 276
+        }
+      },
+      "accommodationSelection": {
+        "required": false,
+        "includedInBasePrice": false,
+        "allowedDestinations": [],
+        "recommendedHotelTags": []
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "MAPI007"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "first-class"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "premium"
+        ],
+        "keywords": [
+          "machu picchu first class",
+          "machu-picchu-first-class",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "full-day-premium",
+      "tripMode": "full-day",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-first-class/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Full Day",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu First Class | My Cusco Trip",
+        "description": "Experience full day first class a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is Full Day First Class. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_008",
+      "internalCode": "MAPI008",
+      "slug": "machu-picchu-first-class-overnight",
+      "title": "Machu Picchu First Class Overnight",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "first-class-overnight",
+      "type": "machu-picchu-tour",
+      "typeLabel": "2 days / 1 night First Class",
+      "badge": "First Class Overnight",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 2,
+      "nights": 1,
+      "shortDescription": "First Class 2-day / 1-night Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "First Class overnight Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "2 days / 1 night First Class",
+        "maxGroupSize": 8,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 789.9,
+        "child": 771.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 754.9,
+          "child": 745.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 764.9,
+          "child": 755.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 789.9,
+          "child": 771.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 50,
+        "defaultTrainCostUSD": 568,
+        "defaultOutboundTrainCostUSD": 292,
+        "defaultReturnTrainCostUSD": 276,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "INCA_OLLA_MAPI_FIRST_CLASS_43",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": false,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 8,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-first-class-overnight/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-first-class-overnight/1.jpg",
+          "./assets/img/tours/machu-picchu-first-class-overnight/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Day 1: Journey to Aguas Calientes",
+          "description": "Transfer to the station and train journey to Machu Picchu Pueblo. Overnight in Aguas Calientes according to the selected hotel."
+        },
+        {
+          "title": "Day 2: Machu Picchu and return",
+          "description": "Bus ride up, official entrance ticket, guided visit and return by train according to the selected schedule."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "restricted_category",
+        "sameCompanyRoundTrip": false,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "INCA_OLLA_MAPI_FIRST_CLASS_43",
+          "return": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46"
+        },
+        "allowedCompanies": [
+          "incarail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": {
+          "outbound": [
+            "first_class"
+          ],
+          "return": [
+            "voyager",
+            "360",
+            "prime",
+            "first_class"
+          ]
+        },
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "incarail_afternoon_return",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "timeWindows": {
+          "outbound": {
+            "min": "10:00",
+            "max": "12:00"
+          },
+          "return": {
+            "min": "14:00",
+            "max": "22:00"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "INCA_OLLA_MAPI_FIRST_CLASS_43",
+        "returnTrainCode": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 292,
+          "returnAdultCost": 276,
+          "totalAdultTrainCost": 568,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "INCA_OLLA_MAPI_FIRST_CLASS_43",
+          "company": "incarail",
+          "serviceName": "The First Class",
+          "route": "OLLA_MAPI",
+          "departureStation": "Ollantaytambo",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "11:15",
+          "arrivalTime": "12:41",
+          "currency": "USD",
+          "adultCostUSD": 292
+        },
+        "resolvedReturn": {
+          "trainCode": "INCA_MAPI_CUSCO_FIRST_CLASS_BIMODAL_46",
+          "company": "incarail",
+          "serviceName": "The First Class Bimodal",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Cusco",
+          "departureTime": "19:00",
+          "arrivalTime": "23:00",
+          "currency": "USD",
+          "adultCostUSD": 276
+        }
+      },
+      "accommodationSelection": {
+        "required": true,
+        "includedInBasePrice": false,
+        "allowedDestinations": [
+          "aguas-calientes"
+        ],
+        "recommendedHotelTags": [
+          "standard"
+        ]
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "2d1n",
+          "2-dias",
+          "1-night"
+        ],
+        "includedTourCodes": [
+          "MAPI008"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "first-class-overnight"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "premium"
+        ],
+        "keywords": [
+          "machu picchu first class overnight",
+          "machu-picchu-first-class-overnight",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "overnight-premium",
+      "tripMode": "overnight",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-first-class-overnight/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Overnight",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu First Class Overnight | My Cusco Trip",
+        "description": "Experience 2 days / 1 night first class a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is 2 days / 1 night First Class. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_009",
+      "internalCode": "MAPI009",
+      "slug": "machu-picchu-luxury-hiram-bingham",
+      "title": "Machu Picchu Luxury Hiram Bingham",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "luxury-hiram-bingham",
+      "type": "machu-picchu-tour",
+      "typeLabel": "Full Day Luxury",
+      "badge": "Luxury",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 1,
+      "nights": 0,
+      "shortDescription": "Luxury full-day Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Luxury Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "Full Day Luxury",
+        "maxGroupSize": 8,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 903.9,
+        "child": 884.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 868.9,
+          "child": 859.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 877.9,
+          "child": 868.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 903.9,
+          "child": 884.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 50,
+        "defaultTrainCostUSD": 673.55,
+        "defaultOutboundTrainCostUSD": 598.5,
+        "defaultReturnTrainCostUSD": 75.05,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "PERU_POROY_MAPI_HIRAM_BINGHAM_11",
+        "defaultReturnTrainCode": "PERU_MAPI_WANCHAQ_EXPEDITION_86P",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": false,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 8,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-luxury-hiram-bingham/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-luxury-hiram-bingham/1.jpg",
+          "./assets/img/tours/machu-picchu-luxury-hiram-bingham/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Pickup and transfer to the station",
+          "description": "Pickup from your hotel or coordinated meeting point according to the selected station and train schedule."
+        },
+        {
+          "title": "Train journey to Machu Picchu Pueblo",
+          "description": "Board the tourist train to Aguas Calientes according to the selected category."
+        },
+        {
+          "title": "Bus and entrance to Machu Picchu",
+          "description": "Consettur bus ride up and official entrance ticket to the sanctuary according to the confirmed circuit."
+        },
+        {
+          "title": "Guided tour in Machu Picchu",
+          "description": "Guided route through the main sectors of the citadel."
+        },
+        {
+          "title": "Return to Cusco",
+          "description": "Descent to Aguas Calientes, return train and final transfer to Cusco."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "luxury_flexible",
+        "sameCompanyRoundTrip": false,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "PERU_POROY_MAPI_HIRAM_BINGHAM_11",
+          "return": "PERU_MAPI_WANCHAQ_EXPEDITION_86P"
+        },
+        "allowedCompanies": [
+          "perurail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "CUSCO_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": {
+          "outbound": [
+            "hiram_bingham"
+          ],
+          "return": [
+            "expedition",
+            "vistadome",
+            "vistadome_observatory",
+            "hiram_bingham"
+          ]
+        },
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "perurail_evening_return",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "fixedDirection": "outbound",
+        "timeWindows": {
+          "outbound": {
+            "min": "09:00",
+            "max": "10:00"
+          },
+          "return": {
+            "min": "18:00",
+            "max": "22:00"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "PERU_POROY_MAPI_HIRAM_BINGHAM_11",
+        "returnTrainCode": "PERU_MAPI_WANCHAQ_EXPEDITION_86P",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 598.5,
+          "returnAdultCost": 75.05,
+          "totalAdultTrainCost": 673.55,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "PERU_POROY_MAPI_HIRAM_BINGHAM_11",
+          "company": "perurail",
+          "serviceName": "Hiram Bingham 11",
+          "route": "CUSCO_MAPI",
+          "departureStation": "Poroy",
+          "arrivalStation": "Machu Picchu",
+          "departureTime": "09:05",
+          "arrivalTime": "12:24",
+          "currency": "USD",
+          "adultCostUSD": 598.5
+        },
+        "resolvedReturn": {
+          "trainCode": "PERU_MAPI_WANCHAQ_EXPEDITION_86P",
+          "company": "perurail",
+          "serviceName": "Expedition 86P",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Wanchaq",
+          "departureTime": "20:50",
+          "arrivalTime": "00:45",
+          "currency": "USD",
+          "adultCostUSD": 75.05
+        }
+      },
+      "accommodationSelection": {
+        "required": false,
+        "includedInBasePrice": false,
+        "allowedDestinations": [],
+        "recommendedHotelTags": [
+          "luxury",
+          "sanctuary-lodge"
+        ]
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "full-day",
+          "1-dia"
+        ],
+        "includedTourCodes": [
+          "MAPI009"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "luxury"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "premium"
+        ],
+        "keywords": [
+          "machu picchu luxury hiram bingham",
+          "machu-picchu-luxury-hiram-bingham",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "full-day-premium",
+      "tripMode": "full-day",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-luxury-hiram-bingham/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Full Day",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu Luxury Hiram Bingham | My Cusco Trip",
+        "description": "Experience full day luxury a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is Full Day Luxury. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    },
+    {
+      "id": "mapi_010",
+      "internalCode": "MAPI010",
+      "slug": "machu-picchu-luxury-overnight",
+      "title": "Machu Picchu Luxury Overnight",
+      "category": "machu-picchu",
+      "productKind": "tour",
+      "productFamily": "machu-picchu-tour",
+      "machuPicchuVersion": "luxury-overnight",
+      "type": "machu-picchu-tour",
+      "typeLabel": "2 days / 1 night Luxury",
+      "badge": "Luxury Overnight",
+      "featured": true,
+      "location": "Cusco / Sacred Valley / Machu Picchu",
+      "currency": "USD",
+      "days": 2,
+      "nights": 1,
+      "shortDescription": "Luxury 2-day / 1-night Machu Picchu experience with train, bus, official entrance ticket and a professional guide.",
+      "description": "Luxury overnight Machu Picchu version with train rules, nationality-based fares and a structure prepared for train, hotel and extras upgrades.",
+      "duration": {
+        "label": "2 days / 1 night Luxury",
+        "maxGroupSize": 8,
+        "guideLanguages": [
+          "es",
+          "en"
+        ]
+      },
+      "basePricing": {
+        "adult": 903.9,
+        "child": 884.9
+      },
+      "basePricingByNationality": {
+        "national": {
+          "adult": 868.9,
+          "child": 859.9,
+          "currency": "USD"
+        },
+        "andean_community": {
+          "adult": 877.9,
+          "child": 868.9,
+          "currency": "USD"
+        },
+        "foreign": {
+          "adult": 903.9,
+          "child": 884.9,
+          "currency": "USD"
+        }
+      },
+      "internalPricing": {
+        "pricingModel": "operational_cost_plus_net_margin",
+        "baseCurrency": "USD",
+        "targetNetProfitUSD": 50,
+        "guideCostUSD": 50,
+        "defaultTrainCostUSD": 673.55,
+        "defaultOutboundTrainCostUSD": 598.5,
+        "defaultReturnTrainCostUSD": 75.05,
+        "trainPricingSource": "assets/data/trains.json",
+        "defaultOutboundTrainCode": "PERU_OLLA_MAPI_HIRAM_BINGHAM_11",
+        "defaultReturnTrainCode": "PERU_MAPI_WANCHAQ_EXPEDITION_86P",
+        "trainCostIsSnapshot": true,
+        "trainCostSnapshotDate": "2026-05-01"
+      },
+      "financialRules": {
+        "exchangeRateUsed": 3.75,
+        "paypalFeePercent": 5.4,
+        "paypalFixedUSD": 0.3,
+        "bankWithdrawPercent": 1.5,
+        "igvPercent": 18,
+        "netFactor": 0.9283,
+        "rounding": {
+          "USD": "ceil_to_next_x.90"
+        }
+      },
+      "ticketPricingByNationality": {
+        "machuPicchuEntrance": {
+          "national": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "andean_community": {
+            "adultPEN": 64,
+            "childPEN": 32,
+            "studentPEN": 64,
+            "currency": "PEN"
+          },
+          "foreign": {
+            "adultPEN": 152,
+            "childPEN": 88,
+            "studentPEN": 88,
+            "currency": "PEN"
+          }
+        },
+        "consetturBusRoundTripUSD": {
+          "national": 15,
+          "andean_community": 24,
+          "foreign": 24
+        }
+      },
+      "allowedNationalities": [
+        "national",
+        "foreign",
+        "andean_community"
+      ],
+      "serviceModes": {
+        "group": {
+          "enabled": false,
+          "label": "Group tour"
+        },
+        "private": {
+          "enabled": true,
+          "label": "Private or semi-private tour"
+        }
+      },
+      "capacity": 8,
+      "images": {
+        "cover": "./assets/img/tours/machu-picchu-luxury-overnight/cover.jpg",
+        "gallery": [
+          "./assets/img/tours/machu-picchu-luxury-overnight/1.jpg",
+          "./assets/img/tours/machu-picchu-luxury-overnight/2.jpg",
+          "./assets/img/placeholder/experience.jpg"
+        ]
+      },
+      "includes": [
+        "Travel assistance before and during the experience",
+        "Tourist train ticket according to selection or default train",
+        "Round-trip Consettur bus to Machu Picchu",
+        "Official Machu Picchu entrance ticket according to availability",
+        "Professional guide in Spanish and English",
+        "Required ground transfers according to station and selected service mode"
+      ],
+      "excludes": [
+        "Meals and drinks not specified",
+        "Hotel in Aguas Calientes when the service mode is overnight and no hotel has been selected",
+        "Personal expenses",
+        "Services not mentioned"
+      ],
+      "itinerary": [
+        {
+          "title": "Day 1: Journey to Aguas Calientes",
+          "description": "Transfer to the station and train journey to Machu Picchu Pueblo. Overnight in Aguas Calientes according to the selected hotel."
+        },
+        {
+          "title": "Day 2: Machu Picchu and return",
+          "description": "Bus ride up, official entrance ticket, guided visit and return by train according to the selected schedule."
+        }
+      ],
+      "trainSelection": {
+        "required": true,
+        "source": "assets/data/trains.json",
+        "mode": "luxury_flexible",
+        "sameCompanyRoundTrip": false,
+        "allowMixedCompanies": false,
+        "defaultTrainCodes": {
+          "outbound": "PERU_OLLA_MAPI_HIRAM_BINGHAM_11",
+          "return": "PERU_MAPI_WANCHAQ_EXPEDITION_86P"
+        },
+        "allowedCompanies": [
+          "perurail"
+        ],
+        "allowedRoutes": {
+          "outbound": [
+            "OLLA_MAPI"
+          ],
+          "return": [
+            "MAPI_CUSCO",
+            "MAPI_OLLA"
+          ]
+        },
+        "allowedCategories": {
+          "outbound": [
+            "hiram_bingham"
+          ],
+          "return": [
+            "expedition",
+            "vistadome",
+            "vistadome_observatory",
+            "hiram_bingham"
+          ]
+        },
+        "fixedSelection": false,
+        "customerCanChangeTrain": true,
+        "returnOptionsRule": "perurail_evening_return",
+        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "fallbackBehavior": "If a train code does not exist or does not have a current fare in trains.json, hide the option and show it as pending confirmation.",
+        "fixedDirection": "outbound",
+        "timeWindows": {
+          "outbound": {
+            "min": "10:00",
+            "max": "12:00"
+          },
+          "return": {
+            "min": "18:00",
+            "max": "22:00"
+          }
+        }
+      },
+      "defaultTrainSelection": {
+        "source": "assets/data/trains.json",
+        "outboundTrainCode": "PERU_OLLA_MAPI_HIRAM_BINGHAM_11",
+        "returnTrainCode": "PERU_MAPI_WANCHAQ_EXPEDITION_86P",
+        "pricingSnapshot": {
+          "currency": "USD",
+          "outboundAdultCost": 598.5,
+          "returnAdultCost": 75.05,
+          "totalAdultTrainCost": 673.55,
+          "snapshotDate": "2026-05-01",
+          "note": "Snapshot used to calculate the visible base tour price. The operational source of truth for trains is assets/data/trains.json."
+        },
+        "resolvedOutbound": {
+          "trainCode": "PERU_OLLA_MAPI_HIRAM_BINGHAM_11",
+          "company": "perurail",
+          "serviceName": "Hiram Bingham 11",
+          "route": "OLLA_MAPI",
+          "departureStation": "ollantaytambo",
+          "arrivalStation": "machuPicchu",
+          "departureTime": "10:53",
+          "arrivalTime": "12:24",
+          "currency": "USD",
+          "adultCostUSD": 598.5
+        },
+        "resolvedReturn": {
+          "trainCode": "PERU_MAPI_WANCHAQ_EXPEDITION_86P",
+          "company": "perurail",
+          "serviceName": "Expedition 86P",
+          "route": "MAPI_CUSCO",
+          "departureStation": "Machu Picchu",
+          "arrivalStation": "Wanchaq",
+          "departureTime": "20:50",
+          "arrivalTime": "00:45",
+          "currency": "USD",
+          "adultCostUSD": 75.05
+        }
+      },
+      "accommodationSelection": {
+        "required": true,
+        "includedInBasePrice": false,
+        "allowedDestinations": [
+          "aguas-calientes"
+        ],
+        "recommendedHotelTags": [
+          "luxury",
+          "sanctuary-lodge"
+        ]
+      },
+      "extras": [
+        {
+          "code": "lunch-tinkuy-belmond",
+          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "currency": "USD",
+          "costUSD": 45,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 48.9
+        },
+        {
+          "code": "lunch-alpaquito",
+          "label": "Tourist lunch at Alpaquito restaurant",
+          "currency": "USD",
+          "costUSD": 25,
+          "priceModel": "cost_plus_payment_fees",
+          "perPerson": true,
+          "publishedPriceUSD": 27.9
+        }
+      ],
+      "paymentOptions": {
+        "fullPaymentDiscountPercent": 0,
+        "partialPaymentPerPerson": 149,
+        "partialPaymentLabel": "Reserve with a deposit and complete the balance before the trip"
+      },
+      "booking": {
+        "reservationCodePrefix": "MAPI"
+      },
+      "search": {
+        "kind": "tour",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "durationKeys": [
+          "2d1n",
+          "2-dias",
+          "1-night"
+        ],
+        "includedTourCodes": [
+          "MAPI010"
+        ],
+        "includedTags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu",
+          "luxury-overnight"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "premium"
+        ],
+        "keywords": [
+          "machu picchu luxury overnight",
+          "machu-picchu-luxury-overnight",
+          "machu picchu",
+          "tour machu picchu"
+        ]
+      },
+      "status": "published",
+      "machuPicchuMode": "overnight-premium",
+      "tripMode": "overnight",
+      "priceIncludesTrain": true,
+      "publicPriceIncludesTrain": true,
+      "quotePackageBaseExcludesTrain": true,
+      "quoteTrainSelectionRequired": true,
+      "fallbackImage": "./assets/img/tours/machu-picchu-luxury-overnight/cover.jpg",
+      "displayMeta": {
+        "commercialModeLabel": "Overnight",
+        "speedLabel": "Classic",
+        "trainPricingBehavior": "The public price of the individual product includes the train. In the package quote builder, the train is calculated separately."
+      },
+      "seo": {
+        "title": "Machu Picchu Luxury Overnight | My Cusco Trip",
+        "description": "Experience 2 days / 1 night luxury a Machu Picchu with train, bus, official entrance ticket and professional guide."
+      },
+      "faq": [
+        {
+          "q": "How long does the experience last?",
+          "a": "The reference duration is 2 days / 1 night Luxury. The final schedule is coordinated before departure so you clearly know the pickup, visits and return time."
+        },
+        {
+          "q": "Does the tour include a guide?",
+          "a": "Yes. All our tours include a professional guide in Spanish and English. Other languages are available upon request/coordination and may have an additional cost."
+        },
+        {
+          "q": "Which tickets or extras should I consider?",
+          "a": "Entrance tickets, tourist tickets, lunches or other extras are shown in the extras section so you can add or review them before booking."
+        },
+        {
+          "q": "Where does the service start?",
+          "a": "Pickup or the meeting point is coordinated according to the tour, your hotel and the operation of the day. We send the final details by WhatsApp or email before the experience."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "We recommend bringing your passport or ID, water, sun protection, comfortable clothes, a light jacket and cash for personal expenses or tickets not included."
+        },
+        {
+          "q": "Are Machu Picchu tickets guaranteed?",
+          "a": "Tickets are managed according to official availability for your travel date and selected circuit. We review the best available option before confirming the reservation."
+        }
+      ]
+    }
+  ],
+  "trainCatalogReference": "assets/data/trains.json",
+  "quoteRules": {
+    "publicProductIncludesTrain": true,
+    "quotePackageBaseExcludesTrain": true,
+    "trainCatalog": "assets/data/trains.json",
+    "modeField": "machuPicchuMode"
+  }
+}

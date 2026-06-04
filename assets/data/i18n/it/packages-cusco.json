@@ -1,0 +1,1554 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-06",
+  "sourceFile": "assets/data/packages-cusco.json",
+  "scope": "cusco-dynamic-packages",
+  "description": "Archivo de configuración para generar paquetes dinámicos de Cusco y Machu Picchu. No contiene itinerarios hardcodeados; define reglas, referencias, duraciones, perfiles de llegada/salida, restricciones operativas y metadatos para búsqueda, cards y página de detalle.",
+  "status": "published",
+  "dataSources": {
+    "cuscoTours": "assets/data/tours-cusco.json",
+    "machuPicchuTours": "assets/data/tours-machu-picchu.json",
+    "trains": "assets/data/trains.json",
+    "hotels": "assets/data/hotels.json",
+    "currencyConfig": "assets/data/currency-config.json",
+    "paymentConfig": "assets/data/payment-config.json"
+  },
+  "productKind": "package-config",
+  "productFamily": "cusco-package",
+  "defaultDestination": "cusco",
+  "defaultCurrency": "USD",
+  "baseCurrency": "USD",
+  "allowedCurrencies": [
+    "PEN",
+    "USD",
+    "EUR",
+    "CLP",
+    "MXN"
+  ],
+  "allowedNationalities": [
+    "national",
+    "foreign",
+    "andean_community",
+    "latin_america",
+    "student"
+  ],
+  "durationRange": {
+    "minDays": 3,
+    "maxDays": 10,
+    "minNights": 2,
+    "maxNights": 9
+  },
+  "arrivalDepartureProfiles": {
+    "early-arrival__late-departure": {
+      "id": "early-arrival__late-departure",
+      "label": "Llegada temprano / salida tarde",
+      "arrivalProfile": "early-arrival",
+      "departureProfile": "late-departure",
+      "arrivalAvailableFrom": "12:00",
+      "departureAvailableUntil": "18:00",
+      "firstDayModes": [
+        "welcome",
+        "half-day",
+        "city-tour"
+      ],
+      "lastDayModes": [
+        "free-time",
+        "walking-tour",
+        "short-experience",
+        "transfer-out"
+      ],
+      "priority": 1
+    },
+    "early-arrival__early-departure": {
+      "id": "early-arrival__early-departure",
+      "label": "Llegada temprano / salida temprano",
+      "arrivalProfile": "early-arrival",
+      "departureProfile": "early-departure",
+      "arrivalAvailableFrom": "12:00",
+      "departureAvailableUntil": "10:00",
+      "firstDayModes": [
+        "welcome",
+        "half-day",
+        "city-tour"
+      ],
+      "lastDayModes": [
+        "transfer-out"
+      ],
+      "priority": 2
+    },
+    "late-arrival__late-departure": {
+      "id": "late-arrival__late-departure",
+      "label": "Llegada tarde / salida tarde",
+      "arrivalProfile": "late-arrival",
+      "departureProfile": "late-departure",
+      "arrivalAvailableFrom": "16:00",
+      "departureAvailableUntil": "18:00",
+      "firstDayModes": [
+        "welcome",
+        "briefing",
+        "free-time"
+      ],
+      "lastDayModes": [
+        "free-time",
+        "walking-tour",
+        "short-experience",
+        "transfer-out"
+      ],
+      "priority": 3
+    },
+    "late-arrival__early-departure": {
+      "id": "late-arrival__early-departure",
+      "label": "Llegada tarde / salida temprano",
+      "arrivalProfile": "late-arrival",
+      "departureProfile": "early-departure",
+      "arrivalAvailableFrom": "16:00",
+      "departureAvailableUntil": "10:00",
+      "firstDayModes": [
+        "welcome",
+        "briefing",
+        "free-time"
+      ],
+      "lastDayModes": [
+        "transfer-out"
+      ],
+      "priority": 4
+    }
+  },
+  "tourReferences": {
+    "cusco": {
+      "welcome": [
+        "CUZ001"
+      ],
+      "cityTour": [
+        "CUZ002"
+      ],
+      "sacredValley": [
+        "CUZ003FD",
+        "CUZ003VIP"
+      ],
+      "sacredValleyFullDay": [
+        "CUZ003FD",
+        "CUZ003VIP"
+      ],
+      "sacredValleyConnection": [
+        "CUZ003CON",
+        "CUZ003VIPCON"
+      ],
+      "sacredValleyClassic": [
+        "CUZ003FD",
+        "CUZ003CON"
+      ],
+      "sacredValleyVip": [
+        "CUZ003VIP",
+        "CUZ003VIPCON"
+      ],
+      "marasMoray": [
+        "CUZ004"
+      ],
+      "southValley": [
+        "CUZ005"
+      ],
+      "trekkings": [
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ],
+      "natureSoft": [
+        "CUZ006"
+      ],
+      "natureHighAltitude": [
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ],
+      "cultural": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005"
+      ],
+      "halfDay": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ004",
+        "CUZ005"
+      ],
+      "fullDay": [
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ]
+    },
+    "machuPicchu": {
+      "fullDay": [
+        "MAPI001",
+        "MAPI002",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI009"
+      ],
+      "fullDayClassic": [
+        "MAPI001"
+      ],
+      "fullDayExpress": [
+        "MAPI002"
+      ],
+      "overnight": [
+        "MAPI003",
+        "MAPI004",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "overnightClassic": [
+        "MAPI003"
+      ],
+      "overnightExpress": [
+        "MAPI004"
+      ],
+      "premium": [
+        "MAPI005",
+        "MAPI006",
+        "MAPI007"
+      ],
+      "luxury": [
+        "MAPI009",
+        "MAPI010"
+      ]
+    }
+  },
+  "defaultLogisticsServices": {
+    "arrival": {
+      "code": "TRANSFER_IN",
+      "title": "Recojo desde aeropuerto o terminal terrestre",
+      "description": "Servicio incluido al inicio del paquete, coordinado según la hora real de llegada del pasajero.",
+      "dayPosition": "first_day",
+      "required": true,
+      "includedByDefault": true,
+      "renderAs": "logistics-service"
+    },
+    "departure": {
+      "code": "TRANSFER_OUT",
+      "title": "Traslado al aeropuerto o terminal terrestre",
+      "description": "Servicio incluido al finalizar el paquete, coordinado según la hora real de salida del pasajero.",
+      "dayPosition": "last_day",
+      "required": true,
+      "includedByDefault": true,
+      "renderAs": "logistics-service"
+    }
+  },
+  "globalRules": {
+    "doNotHardcodeItineraries": true,
+    "generateCombinationsDynamically": true,
+    "deduplicateByContent": true,
+    "deduplicateIgnoresOrder": true,
+    "sortItineraryAfterGeneration": true,
+    "respectArrivalDepartureProfiles": true,
+    "respectTourOperationalSchedule": true,
+    "firstDayBufferHoursAfterArrival": 1.5,
+    "lastDayBufferHoursBeforeDeparture": 2,
+    "minimumRestHoursBeforeTrekkings": 8,
+    "maximumOneMachuPicchuExperiencePerPackage": true,
+    "valleVipIncludesMaras": true,
+    "doNotDuplicateMarasWhenVipValleyIsSelected": true,
+    "sacredValleyConnectionRequiresOvernightMachuPicchu": true,
+    "trekkingAfterMachuPicchuRequiresOvernightExpress": true,
+    "threeDaysTwoNightsRequiresFullDayMachuPicchu": true,
+    "trainRules": {
+      "sourceOfTruth": "assets/data/trains.json",
+      "sameCompanyRoundTripDefault": true,
+      "allowMixedCompaniesDefault": false,
+      "doNotMixPeruRailAndIncaRail": true,
+      "fixedTrainVersionsMustNotExposeTrainSelector": true,
+      "flexibleTrainVersionsFilterReturnByOutboundCompany": true
+    }
+  },
+  "generationEngine": {
+    "combinationStrategy": "choose_required_then_optional_until_service_days_are_filled",
+    "availableServiceDaysFormula": "days - arrivalBufferDayImpact - departureBufferDayImpact",
+    "contentSignatureFields": [
+      "includedTourCodes",
+      "machuPicchuMode",
+      "connectionMode",
+      "trekkingCodes",
+      "vipMode"
+    ],
+    "dedupeSignatureStrategy": "sort_codes_and_flags_before_hash",
+    "orderingStrategy": [
+      "arrival_or_welcome_first",
+      "soft_cultural_before_high_altitude",
+      "city_tour_before_full_day_trekking_when_possible",
+      "sacred_valley_before_machu_picchu_when_connection",
+      "machu_picchu_full_day_or_overnight_by_rule",
+      "avoid_trekking_immediately_after_late_return_except_overnight_express",
+      "last_day_only_short_or_transfer_compatible"
+    ],
+    "rankingStrategy": [
+      "profile_compatibility",
+      "required_tours_satisfied",
+      "operational_feasibility",
+      "sales_value",
+      "variety_of_experiences",
+      "lower_duplicate_similarity"
+    ],
+    "maxGeneratedOptionsPerDuration": 36,
+    "maxRenderedOptionsPerPage": 12
+  },
+  "packageCards": [
+    {
+      "id": "pkg_cusco_3d2n",
+      "slug": "pacchetti-cusco-3-giorni-2-notti",
+      "title": "Pacchetti Cusco 3 giorni / 2 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 3,
+      "nights": 2,
+      "typeLabel": "3 giorni / 2 notti",
+      "badge": "Escapada esencial",
+      "featured": true,
+      "location": "Cusco / Machu Picchu",
+      "shortDescription": "Opciones dinámicas para conocer Cusco y Machu Picchu en una escapada corta.",
+      "image": "./assets/img/packages/cusco/3d2n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu"
+        ],
+        "durationKeys": [
+          "3d2n",
+          "3-dias",
+          "2-notti",
+          "tres-dias",
+          "dos-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "MAPI001",
+          "MAPI002"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "city-tour",
+          "paquete-cusco"
+        ],
+        "themes": [
+          "cultural",
+          "historico",
+          "classic"
+        ],
+        "keywords": [
+          "paquete cusco 3 dias",
+          "cusco machu picchu 3 dias",
+          "3 dias 2 notti"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 3 giorni / 2 notti",
+      "recommendedTitle": "Escapada esencial a Cusco y Machu Picchu",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "Cusco",
+        "Machu Picchu",
+        "Esperienza cultural"
+      ],
+      "highlights": [
+        "Ideal para viajes cortos",
+        "Opciones Intera giornata u Overnight según horario",
+        "Ruta compacta y flexible"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 3 giorni / 2 notti | My Cusco Trip",
+        "description": "Opciones dinámicas para conocer Cusco y Machu Picchu en una escapada corta."
+      }
+    },
+    {
+      "id": "pkg_cusco_4d3n",
+      "slug": "pacchetti-cusco-4-giorni-3-notti",
+      "title": "Pacchetti Cusco 4 giorni / 3 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 4,
+      "nights": 3,
+      "typeLabel": "4 giorni / 3 notti",
+      "badge": "Más vendido",
+      "featured": true,
+      "location": "Cusco / Machu Picchu",
+      "shortDescription": "Combinaciones dinámicas con City Tour, Machu Picchu y una excursión adicional.",
+      "image": "./assets/img/packages/cusco/4d3n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "4d3n",
+          "4-dias",
+          "3-notti",
+          "cuatro-dias",
+          "tres-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ006",
+          "CUZ007",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "city-tour",
+          "valle-sagrado",
+          "humantay",
+          "vinicunca",
+          "siete-lagunas"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura"
+        ],
+        "keywords": [
+          "paquete cusco 4 dias",
+          "machu picchu humantay",
+          "machu picchu montaña de colores"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 4 giorni / 3 notti",
+      "recommendedTitle": "Ruta recomendada Cusco, Valle Sacra y Machu Picchu",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "City Tour",
+        "Valle Sacra",
+        "Machu Picchu",
+        "Humantay o Vinicunca"
+      ],
+      "highlights": [
+        "Más vendido",
+        "Permite naturaleza o aventura",
+        "Buen equilibrio de tiempo y experiencias"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 4 giorni / 3 notti | My Cusco Trip",
+        "description": "Combinaciones dinámicas con City Tour, Machu Picchu y una excursión adicional."
+      }
+    },
+    {
+      "id": "pkg_cusco_5d4n",
+      "slug": "pacchetti-cusco-5-giorni-4-notti",
+      "title": "Pacchetti Cusco 5 giorni / 4 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 5,
+      "nights": 4,
+      "typeLabel": "5 giorni / 4 notti",
+      "badge": "Recomendado",
+      "featured": true,
+      "location": "Cusco / Valle Sacra / Machu Picchu",
+      "shortDescription": "Paquetes flexibles con Cusco, Valle Sacra, Machu Picchu y trekking opcional.",
+      "image": "./assets/img/packages/cusco/5d4n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "5d4n",
+          "5-dias",
+          "4-notti",
+          "cinco-dias",
+          "cuatro-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "maras-moray",
+          "humantay",
+          "vinicunca",
+          "palcoyo",
+          "siete-lagunas"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura"
+        ],
+        "keywords": [
+          "paquete cusco 5 dias",
+          "paquete cusco machu picchu",
+          "5 dias 4 notti"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 5 giorni / 4 notti",
+      "recommendedTitle": "Cusco completo con aventura opcional",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "Cusco",
+        "Valle Sacra",
+        "Machu Picchu",
+        "Montaña o Laguna"
+      ],
+      "highlights": [
+        "Ritmo cómodo",
+        "Más opciones de excursiones",
+        "Recomendado para primera visita"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 5 giorni / 4 notti | My Cusco Trip",
+        "description": "Paquetes flexibles con Cusco, Valle Sacra, Machu Picchu y trekking opcional."
+      }
+    },
+    {
+      "id": "pkg_cusco_6d5n",
+      "slug": "pacchetti-cusco-6-giorni-5-notti",
+      "title": "Pacchetti Cusco 6 giorni / 5 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 6,
+      "nights": 5,
+      "typeLabel": "6 giorni / 5 notti",
+      "badge": "Completo",
+      "featured": true,
+      "location": "Cusco / Valle Sacra / Machu Picchu",
+      "shortDescription": "Combinaciones completas con rutas culturales, Machu Picchu y naturaleza andina.",
+      "image": "./assets/img/packages/cusco/6d5n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado"
+        ],
+        "durationKeys": [
+          "6d5n",
+          "6-dias",
+          "5-notti",
+          "seis-dias",
+          "cinco-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "valle-sur",
+          "maras-moray",
+          "trekking"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura"
+        ],
+        "keywords": [
+          "paquete cusco 6 dias",
+          "cusco completo",
+          "6 dias 5 notti"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 6 giorni / 5 notti",
+      "recommendedTitle": "Ruta completa Cusco y Machu Picchu 6 giorni / 5 notti",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "Cusco",
+        "Valle Sacra",
+        "Machu Picchu",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más giorni para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 6 giorni / 5 notti | My Cusco Trip",
+        "description": "Combinaciones completas con rutas culturales, Machu Picchu y naturaleza andina."
+      }
+    },
+    {
+      "id": "pkg_cusco_7d6n",
+      "slug": "pacchetti-cusco-7-giorni-6-notti",
+      "title": "Pacchetti Cusco 7 giorni / 6 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 7,
+      "nights": 6,
+      "typeLabel": "7 giorni / 6 notti",
+      "badge": "Esperienza amplia",
+      "featured": false,
+      "location": "Cusco / Valle Sacra / Machu Picchu",
+      "shortDescription": "Mayor variedad de combinaciones con cultura, Machu Picchu y hasta dos rutas de naturaleza.",
+      "image": "./assets/img/packages/cusco/7d6n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "7d6n",
+          "7-dias",
+          "6-notti",
+          "siete-dias",
+          "seis-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "humantay",
+          "vinicunca",
+          "palcoyo",
+          "siete-lagunas",
+          "ausangate"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "fotografia"
+        ],
+        "keywords": [
+          "paquete cusco 7 dias",
+          "cusco machu picchu ausangate",
+          "7 dias 6 notti"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 7 giorni / 6 notti",
+      "recommendedTitle": "Ruta completa Cusco y Machu Picchu 7 giorni / 6 notti",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "Cusco",
+        "Valle Sacra",
+        "Machu Picchu",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más giorni para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 7 giorni / 6 notti | My Cusco Trip",
+        "description": "Mayor variedad de combinaciones con cultura, Machu Picchu y hasta dos rutas de naturaleza."
+      }
+    },
+    {
+      "id": "pkg_cusco_8d7n",
+      "slug": "pacchetti-cusco-8-giorni-7-notti",
+      "title": "Pacchetti Cusco 8 giorni / 7 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 8,
+      "nights": 7,
+      "typeLabel": "8 giorni / 7 notti",
+      "badge": "Profundo",
+      "featured": false,
+      "location": "Cusco / Valle Sacra / Machu Picchu / Ausangate",
+      "shortDescription": "Diseñado para combinar los principales clásicos con rutas naturales y culturales menos saturadas.",
+      "image": "./assets/img/packages/cusco/8d7n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "8d7n",
+          "8-dias",
+          "7-notti",
+          "ocho-dias",
+          "siete-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ001",
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "valle-sur",
+          "maras-moray",
+          "trekking",
+          "ausangate"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "fotografia"
+        ],
+        "keywords": [
+          "paquete cusco 8 dias",
+          "cusco profundo",
+          "8 dias 7 notti"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 8 giorni / 7 notti",
+      "recommendedTitle": "Ruta completa Cusco y Machu Picchu 8 giorni / 7 notti",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "Cusco",
+        "Valle Sacra",
+        "Machu Picchu",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más giorni para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 8 giorni / 7 notti | My Cusco Trip",
+        "description": "Diseñado para combinar los principales clásicos con rutas naturales y culturales menos saturadas."
+      }
+    },
+    {
+      "id": "pkg_cusco_9d8n",
+      "slug": "pacchetti-cusco-9-giorni-8-notti",
+      "title": "Pacchetti Cusco 9 giorni / 8 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 9,
+      "nights": 8,
+      "typeLabel": "9 giorni / 8 notti",
+      "badge": "Flexible",
+      "featured": false,
+      "location": "Cusco / Valle Sacra / Machu Picchu / Ausangate",
+      "shortDescription": "Configuración amplia para itinerarios con más descanso, rutas alternativas y upgrades.",
+      "image": "./assets/img/packages/cusco/9d8n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "9d8n",
+          "9-dias",
+          "8-notti",
+          "nueve-dias",
+          "ocho-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ001",
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "trekking",
+          "cultural",
+          "naturaleza"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "slow-travel"
+        ],
+        "keywords": [
+          "paquete cusco 9 dias",
+          "cusco lento",
+          "9 dias 8 notti"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 9 giorni / 8 notti",
+      "recommendedTitle": "Ruta completa Cusco y Machu Picchu 9 giorni / 8 notti",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "Cusco",
+        "Valle Sacra",
+        "Machu Picchu",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más giorni para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 9 giorni / 8 notti | My Cusco Trip",
+        "description": "Configuración amplia para itinerarios con más descanso, rutas alternativas y upgrades."
+      }
+    },
+    {
+      "id": "pkg_cusco_10d9n",
+      "slug": "pacchetti-cusco-10-giorni-9-notti",
+      "title": "Pacchetti Cusco 10 giorni / 9 notti",
+      "productKind": "package",
+      "productFamily": "cusco-package",
+      "days": 10,
+      "nights": 9,
+      "typeLabel": "10 giorni / 9 notti",
+      "badge": "Gran viaje",
+      "featured": false,
+      "location": "Cusco / Valle Sacra / Machu Picchu / Ausangate",
+      "shortDescription": "La configuración más completa para combinar clásicos, experiencias culturales y rutas naturales.",
+      "image": "./assets/img/packages/cusco/10d9n/cover.jpg",
+      "priceMode": "dynamic_from_selected_itinerary",
+      "status": "published",
+      "search": {
+        "kind": "package",
+        "destinations": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "ausangate"
+        ],
+        "durationKeys": [
+          "10d9n",
+          "10-dias",
+          "9-notti",
+          "diez-dias",
+          "nueve-notti"
+        ],
+        "includedTourCodes": [
+          "CUZ001",
+          "CUZ002",
+          "CUZ003FD",
+          "CUZ003CON",
+          "CUZ003VIP",
+          "CUZ003VIPCON",
+          "CUZ004",
+          "CUZ005",
+          "CUZ006",
+          "CUZ007",
+          "CUZ008",
+          "CUZ009",
+          "MAPI001",
+          "MAPI003",
+          "MAPI004"
+        ],
+        "includedTags": [
+          "cusco",
+          "machu-picchu",
+          "valle-sagrado",
+          "valle-sur",
+          "maras-moray",
+          "humantay",
+          "vinicunca",
+          "palcoyo",
+          "siete-lagunas"
+        ],
+        "themes": [
+          "cultural",
+          "naturaleza",
+          "aventura",
+          "slow-travel"
+        ],
+        "keywords": [
+          "paquete cusco 10 dias",
+          "gran viaje cusco",
+          "10 dias 9 notti"
+        ]
+      },
+      "commercialLabel": "Paquete flexible 10 giorni / 9 notti",
+      "recommendedTitle": "Ruta completa Cusco y Machu Picchu 10 giorni / 9 notti",
+      "optionDisplayMode": "commercial-cards",
+      "itinerarySummary": [
+        "Cusco",
+        "Valle Sacra",
+        "Machu Picchu",
+        "Naturaleza andina"
+      ],
+      "highlights": [
+        "Más giorni para personalizar",
+        "Compatible con rutas culturales y naturales",
+        "Permite una experiencia menos apresurada"
+      ],
+      "seo": {
+        "title": "Pacchetti Cusco 10 giorni / 9 notti | My Cusco Trip",
+        "description": "La configuración más completa para combinar clásicos, experiencias culturales y rutas naturales."
+      }
+    }
+  ],
+  "durationConfigs": [
+    {
+      "key": "3d2n",
+      "days": 3,
+      "nights": 2,
+      "minDays": 3,
+      "maxDays": 3,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003CON",
+        "CUZ003VIPCON",
+        "CUZ006",
+        "CUZ007",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "CUZ003FD",
+        "CUZ004",
+        "CUZ005"
+      ],
+      "requiredTours": [],
+      "optionalTourGroups": [
+        "welcome",
+        "cityTour"
+      ],
+      "maxTrekkings": 1,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "full-day",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Ideal para viajes cortos.",
+        "Debe priorizar Machu Picchu Intera giornata y solo agregar medio giorno si los horarios lo permiten."
+      ]
+    },
+    {
+      "key": "4d3n",
+      "days": 4,
+      "nights": 3,
+      "minDays": 4,
+      "maxDays": 4,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004"
+      ],
+      "requiredTours": [],
+      "optionalTourGroups": [
+        "welcome",
+        "cityTour",
+        "sacredValley",
+        "trekkings"
+      ],
+      "maxTrekkings": 1,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Permite una excursión adicional como Humantay, Vinicunca o Siete Lagunas.",
+        "Si se usa Valle Sacra conexión, cambiar Machu Picchu a overnight."
+      ]
+    },
+    {
+      "key": "5d4n",
+      "days": 5,
+      "nights": 4,
+      "minDays": 5,
+      "maxDays": 5,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "sacredValley",
+        "marasMoray",
+        "southValley",
+        "trekkings"
+      ],
+      "maxTrekkings": 1,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Duración ideal para City Tour, Valle Sacra, Machu Picchu y un trekking.",
+        "Valle VIP puede reemplazar Valle Sacra + Maras para evitar duplicidad."
+      ]
+    },
+    {
+      "key": "6d5n",
+      "days": 6,
+      "nights": 5,
+      "minDays": 6,
+      "maxDays": 6,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings"
+      ],
+      "maxTrekkings": 2,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Permite dos rutas de naturaleza si los horarios y descanso son compatibles.",
+        "Si hay trekking después de Machu Picchu, usar Overnight Express."
+      ]
+    },
+    {
+      "key": "7d6n",
+      "days": 7,
+      "nights": 6,
+      "minDays": 7,
+      "maxDays": 7,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu"
+      ],
+      "maxTrekkings": 2,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Duración suficiente para combinar clásicos y rutas alternativas.",
+        "Mantener máximo dos trekkings para evitar fatiga."
+      ]
+    },
+    {
+      "key": "8d7n",
+      "days": 8,
+      "nights": 7,
+      "minDays": 8,
+      "maxDays": 8,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu",
+        "luxuryMachuPicchu"
+      ],
+      "maxTrekkings": 4,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Permite paquetes más completos con descanso intercalado.",
+        "No renderizar todas las combinaciones; priorizar las mejores opciones por ranking."
+      ]
+    },
+    {
+      "key": "9d8n",
+      "days": 9,
+      "nights": 8,
+      "minDays": 9,
+      "maxDays": 9,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu",
+        "luxuryMachuPicchu",
+        "restDays"
+      ],
+      "maxTrekkings": 4,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Usar giorni libres o experiencias cortas para mejorar UX y no saturar el viaje.",
+        "Ideal para upsells de tren, hotel y experiencias privadas."
+      ]
+    },
+    {
+      "key": "10d9n",
+      "days": 10,
+      "nights": 9,
+      "minDays": 10,
+      "maxDays": 10,
+      "allowedTours": [
+        "CUZ001",
+        "CUZ002",
+        "CUZ003FD",
+        "CUZ003CON",
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004",
+        "CUZ005",
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009",
+        "MAPI001",
+        "MAPI002",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI007",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "requiredTours": [
+        "CUZ002"
+      ],
+      "optionalTourGroups": [
+        "welcome",
+        "marasMoray",
+        "southValley",
+        "trekkings",
+        "premiumMachuPicchu",
+        "luxuryMachuPicchu",
+        "restDays"
+      ],
+      "maxTrekkings": 4,
+      "allowVip": true,
+      "allowConnection": true,
+      "allowFullDayMachuPicchu": true,
+      "allowOvernightMachuPicchu": true,
+      "defaultMachuPicchuMode": "overnight",
+      "recommendedMachuPicchuCodes": [
+        "MAPI001",
+        "MAPI003",
+        "MAPI004",
+        "MAPI005",
+        "MAPI006",
+        "MAPI008",
+        "MAPI009",
+        "MAPI010"
+      ],
+      "arrivalDepartureProfiles": [
+        "early-arrival__late-departure",
+        "early-arrival__early-departure",
+        "late-arrival__late-departure",
+        "late-arrival__early-departure"
+      ],
+      "salesNotes": [
+        "Máxima duración Cusco antes de pasar a packages-peru.json.",
+        "Mantener escalabilidad para futuras experiencias como rutas privadas o paquetes temáticos."
+      ]
+    }
+  ],
+  "specialVariants": {
+    "sacredValleyConnection": {
+      "enabled": true,
+      "requiresMachuPicchuMode": "overnight",
+      "allowedMachuPicchuCodes": [
+        "MAPI003",
+        "MAPI004",
+        "MAPI008",
+        "MAPI010"
+      ],
+      "description": "Cuando Valle Sacra se usa como conexión hacia Ollantaytambo o Aguas Calientes, el paquete debe convertir Machu Picchu a modalidad overnight.",
+      "triggerTourCodes": [
+        "CUZ003VIPCON",
+        "CUZ003CON"
+      ]
+    },
+    "trekkingAfterMachuPicchu": {
+      "enabled": true,
+      "trekkingCodes": [
+        "CUZ006",
+        "CUZ007",
+        "CUZ008",
+        "CUZ009"
+      ],
+      "requiresMachuPicchuCode": "MAPI004",
+      "description": "Si después de Machu Picchu hay trekking, usar Machu Picchu Overnight Express para volver antes y permitir descanso operativo."
+    },
+    "valleVip": {
+      "enabled": true,
+      "includedTourCodes": [
+        "CUZ003VIP",
+        "CUZ003VIPCON",
+        "CUZ004"
+      ],
+      "dedupeAgainst": [
+        "CUZ004"
+      ],
+      "description": "Valle VIP incluye Maras/Moray; si se selecciona esta variante, no agregar Maras e Moray como giorno independiente.",
+      "baseTourCodes": [
+        "CUZ003VIP",
+        "CUZ003VIPCON"
+      ]
+    }
+  },
+  "detailPageBehavior": {
+    "targetPage": "product.html",
+    "urlPattern": "product.html?slug=SLUG",
+    "productDetailMode": "dynamic-package-detail",
+    "showPackageConfigurator": true,
+    "showGeneratedItineraryOptions": true,
+    "showTrainSelectorWhenFlexible": true,
+    "hideTrainSelectorWhenFixed": true,
+    "showHotelSelectorWhenNightsGreaterThanZero": true,
+    "priceCalculationMode": "sum_selected_tours_plus_required_extras_plus_train_delta_plus_hotel_delta_plus_payment_fees",
+    "optionDisplayMode": "commercial-cards",
+    "optionUi": {
+      "title": "Elige tu ruta sugerida",
+      "maxVisibleOptions": 4,
+      "showMoreLabel": "Ver más opciones",
+      "hideTechnicalCodes": true,
+      "labels": [
+        "Ruta recomendada",
+        "Ruta clásica",
+        "Ruta con aventura",
+        "Ruta con naturaleza"
+      ]
+    }
+  },
+  "compatibility": {
+    "allExperiencesJs": {
+      "loadPackageCardsFrom": "packageCards",
+      "filterByDaysAndNights": true,
+      "useSearchObjectOnly": true,
+      "doNotSearchInIncludesExcludesFaq": true
+    },
+    "productJs": {
+      "loadConfigBySlugFromPackageCards": true,
+      "resolveDurationConfigByDaysNights": true,
+      "generateItinerariesOnDetailPage": true,
+      "resolveToursByInternalCode": true
+    },
+    "futurePaquetesHtml": {
+      "loadDurationCardsFrom": "packageCards",
+      "groupByDuration": true,
+      "openDetailWithQueryParams": true
+    }
+  }
+}
