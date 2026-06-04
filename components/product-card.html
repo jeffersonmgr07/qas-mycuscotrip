@@ -1,0 +1,820 @@
+<!-- ============================================
+   PRODUCT-CARD.HTML
+   Card reutilizable para productos, tours y paquetes
+   ============================================ -->
+
+<div class="product-card" data-product-id="{{id}}" data-category="{{category}}">
+  <!-- Badge destacado -->
+  {{#if tags.includes('popular')}}
+  <div class="product-badge">
+    <span class="badge badge-primary">Popular</span>
+  </div>
+  {{/if}}
+  
+  {{#if tags.includes('nuevo')}}
+  <div class="product-badge">
+    <span class="badge badge-success">Nuevo</span>
+  </div>
+  {{/if}}
+  
+  {{#unless available}}
+  <div class="product-badge">
+    <span class="badge badge-secondary">Agotado</span>
+  </div>
+  {{/unless}}
+  
+  <!-- Imagen del producto -->
+  <div class="product-image">
+    <img src="{{image}}" 
+         alt="{{name}}" 
+         loading="lazy"
+         onerror="this.src='./assets/img/products/default.jpg'">
+    
+    <!-- Overlay con información adicional -->
+    <div class="product-overlay">
+      <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <span>{{rating}}</span>
+        <span>({{reviewCount}})</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contenido del producto -->
+  <div class="product-content">
+    <!-- Categoría -->
+    <span class="product-category">{{categoryLabel}}</span>
+    
+    <!-- Título -->
+    <h3 class="product-title">
+      <a href="./pages/producto/{{id}}" class="product-link">{{name}}</a>
+    </h3>
+    
+    <!-- Descripción -->
+    <p class="product-description">{{description}}</p>
+    
+    <!-- Características -->
+    <div class="product-features">
+      <div class="product-feature">
+        <i class="fas fa-clock"></i>
+        <span>{{duration}} {{durationUnit}}</span>
+      </div>
+      
+      <div class="product-feature">
+        <i class="fas fa-mountain"></i>
+        <span>{{difficultyLabel}}</span>
+      </div>
+      
+      <div class="product-feature">
+        <i class="fas fa-users"></i>
+        <span>{{maxPeople}} personas</span>
+      </div>
+      
+      {{#if features.includes('Guía bilingüe')}}
+      <div class="product-feature">
+        <i class="fas fa-language"></i>
+        <span>Guía bilingüe</span>
+      </div>
+      {{/if}}
+      
+      {{#if features.includes('Transporte incluido')}}
+      <div class="product-feature">
+        <i class="fas fa-bus"></i>
+        <span>Transporte</span>
+      </div>
+      {{/if}}
+      
+      {{#if features.includes('Almuerzo')}}
+      <div class="product-feature">
+        <i class="fas fa-utensils"></i>
+        <span>Almuerzo</span>
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- Footer con precio y acciones -->
+    <div class="product-footer">
+      <!-- Precio -->
+      <div class="product-price">
+        <span class="price-from">Precio desde</span>
+        <div class="price-container">
+          <span class="price-amount">{{currencySymbol}}{{price}}</span>
+          {{#if duration > 1}}
+          <span class="price-period">por {{duration}} días</span>
+          {{else}}
+          <span class="price-period">por persona</span>
+          {{/if}}
+        </div>
+      </div>
+      
+      <!-- Rating -->
+      <div class="product-rating-small">
+        <div class="stars">
+          {{#each stars}}
+          <i class="{{this}}"></i>
+          {{/each}}
+        </div>
+        <span class="rating-count">({{reviewCount}})</span>
+      </div>
+      
+      <!-- Acciones -->
+      <div class="product-actions">
+        <button type="button" class="btn btn-outline view-details" data-product-id="{{id}}">
+          <i class="fas fa-eye"></i>
+          <span>Ver detalles</span>
+        </button>
+        
+        <button type="button" 
+                class="btn btn-primary add-to-cart {{#unless available}}disabled{{/unless}}" 
+                data-product-id="{{id}}"
+                {{#unless available}}disabled{{/unless}}>
+          <i class="fas fa-shopping-cart"></i>
+          <span>Reservar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Quick actions (hover) -->
+  <div class="product-quick-actions">
+    <button type="button" class="quick-action compare-btn" data-product-id="{{id}}" title="Comparar">
+      <i class="fas fa-exchange-alt"></i>
+    </button>
+    
+    <button type="button" class="quick-action favorite-btn" data-product-id="{{id}}" title="Guardar en favoritos">
+      <i class="far fa-heart"></i>
+    </button>
+    
+    <button type="button" class="quick-action share-btn" data-product-id="{{id}}" title="Compartir">
+      <i class="fas fa-share-alt"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Template para datos (no visible) -->
+<script type="application/json" class="product-data">
+{
+  "id": "{{id}}",
+  "name": "{{name}}",
+  "category": "{{category}}",
+  "subcategory": "{{subcategory}}",
+  "description": "{{description}}",
+  "price": {{price}},
+  "currency": "{{currency}}",
+  "duration": {{duration}},
+  "durationUnit": "{{durationUnit}}",
+  "difficulty": "{{difficulty}}",
+  "rating": {{rating}},
+  "reviewCount": {{reviewCount}},
+  "image": "{{image}}",
+  "features": {{JSONstringify features}},
+  "tags": {{JSONstringify tags}},
+  "available": {{available}},
+  "maxPeople": {{maxPeople}},
+  "includes": {{JSONstringify includes}},
+  "excludes": {{JSONstringify excludes}},
+  "meetingPoint": "{{meetingPoint}}",
+  "departureTime": "{{departureTime}}",
+  "returnTime": "{{returnTime}}",
+  "requirements": {{JSONstringify requirements}}
+}
+</script>
+
+<!-- Estilos específicos para product-card -->
+<style>
+.product-card {
+  position: relative;
+  background: var(--mct-surface);
+  border-radius: var(--mct-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--mct-shadow);
+  border: 2px solid transparent;
+  transition: all var(--transition-base);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-accent);
+  box-shadow: var(--mct-shadow-lg);
+}
+
+.product-card:hover .product-quick-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.product-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: var(--mct-surface-tertiary);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7));
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-md);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text-white);
+  font-size: 0.9rem;
+}
+
+.product-rating i {
+  color: #FFD700;
+}
+
+.product-content {
+  padding: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-category {
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-title {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+  line-height: 1.3;
+  flex: 0 0 auto;
+}
+
+.product-title a {
+  color: inherit;
+  transition: color var(--transition-base);
+}
+
+.product-title a:hover {
+  color: var(--color-accent);
+}
+
+.product-description {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.product-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  border-top: 1px solid var(--mct-border-light);
+  padding-top: var(--spacing-md);
+}
+
+.product-feature {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--mct-muted);
+  flex: 1;
+  min-width: 120px;
+}
+
+.product-feature i {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  width: 16px;
+  text-align: center;
+}
+
+.product-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--mct-border-light);
+}
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-from {
+  font-size: 0.85rem;
+  color: var(--mct-muted);
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.price-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 0.85rem;
+  color: var(--mct-muted);
+}
+
+.product-rating-small {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.product-rating-small .stars {
+  display: flex;
+  gap: 2px;
+}
+
+.product-rating-small .stars i {
+  font-size: 0.9rem;
+  color: #FFD700;
+}
+
+.product-rating-small .rating-count {
+  font-size: 0.85rem;
+  color: var(--mct-muted);
+}
+
+.product-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.product-actions .btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.9rem;
+  min-height: 44px;
+}
+
+.product-actions .btn i {
+  margin-right: 6px;
+}
+
+.product-actions .btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.product-actions .btn-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-text-white);
+}
+
+.product-actions .btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.product-quick-actions {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all var(--transition-base);
+  z-index: 2;
+}
+
+.quick-action {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--mct-surface);
+  border: 1px solid var(--mct-border);
+  color: var(--mct-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-size: 0.9rem;
+}
+
+.quick-action:hover {
+  background: var(--color-accent);
+  color: var(--color-text-white);
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.favorite-btn.active i {
+  color: var(--color-accent);
+  font-weight: 900;
+}
+
+/* Estados especiales */
+.product-card.featured {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+.product-card.sold-out .product-image {
+  filter: grayscale(0.5);
+}
+
+.product-card.sold-out .product-image::after {
+  content: 'AGOTADO';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--mct-radius);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Variante compacta */
+.product-card.compact .product-image {
+  height: 150px;
+}
+
+.product-card.compact .product-description {
+  -webkit-line-clamp: 2;
+}
+
+.product-card.compact .product-features {
+  display: none;
+}
+
+/* Variante horizontal */
+.product-card.horizontal {
+  flex-direction: row;
+  max-height: 200px;
+}
+
+.product-card.horizontal .product-image {
+  width: 200px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.product-card.horizontal .product-content {
+  padding: var(--spacing-md);
+}
+
+.product-card.horizontal .product-description {
+  -webkit-line-clamp: 2;
+}
+
+/* Badges especiales */
+.badge-discount {
+  background: var(--color-accent);
+  color: var(--color-text-white);
+  padding: 4px 8px;
+  border-radius: var(--mct-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 2;
+}
+
+.badge-free-cancellation {
+  background: var(--color-accent2);
+  color: var(--color-primary);
+  padding: 4px 8px;
+  border-radius: var(--mct-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 2;
+}
+</style>
+
+<!-- JavaScript para funcionalidad del product-card -->
+<script>
+class ProductCard {
+  constructor(element) {
+    this.card = element;
+    this.data = this.getProductData();
+    this.init();
+  }
+  
+  getProductData() {
+    const dataElement = this.card.querySelector('.product-data');
+    if (dataElement) {
+      try {
+        return JSON.parse(dataElement.textContent);
+      } catch (error) {
+        console.error('Error parsing product data:', error);
+        return this.extractDataFromHTML();
+      }
+    }
+    return this.extractDataFromHTML();
+  }
+  
+  extractDataFromHTML() {
+    return {
+      id: this.card.dataset.productId,
+      name: this.card.querySelector('.product-title').textContent.trim(),
+      price: parseFloat(this.card.querySelector('.price-amount').textContent.replace(/[^0-9.]/g, '')),
+      category: this.card.dataset.category,
+      available: !this.card.querySelector('.add-to-cart').disabled
+    };
+  }
+  
+  init() {
+    this.setupEventListeners();
+    this.updateUI();
+  }
+  
+  setupEventListeners() {
+    // Botón ver detalles
+    const viewBtn = this.card.querySelector('.view-details');
+    if (viewBtn) {
+      viewBtn.addEventListener('click', (e) => this.handleViewDetails(e));
+    }
+    
+    // Botón agregar al carrito
+    const cartBtn = this.card.querySelector('.add-to-cart');
+    if (cartBtn) {
+      cartBtn.addEventListener('click', (e) => this.handleAddToCart(e));
+    }
+    
+    // Botón favorito
+    const favBtn = this.card.querySelector('.favorite-btn');
+    if (favBtn) {
+      favBtn.addEventListener('click', (e) => this.handleFavorite(e));
+    }
+    
+    // Botón comparar
+    const compareBtn = this.card.querySelector('.compare-btn');
+    if (compareBtn) {
+      compareBtn.addEventListener('click', (e) => this.handleCompare(e));
+    }
+    
+    // Botón compartir
+    const shareBtn = this.card.querySelector('.share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', (e) => this.handleShare(e));
+    }
+    
+    // Click en toda la card (excepto botones)
+    this.card.addEventListener('click', (e) => {
+      if (!e.target.closest('button') && !e.target.closest('a')) {
+        this.handleCardClick(e);
+      }
+    });
+  }
+  
+  updateUI() {
+    // Actualizar estado de favorito
+    const favBtn = this.card.querySelector('.favorite-btn');
+    if (favBtn) {
+      const isFavorite = MyCuscoTripUtils?.getStorage(`favorite_${this.data.id}`) || false;
+      favBtn.classList.toggle('active', isFavorite);
+      favBtn.querySelector('i').classList.toggle('fas', isFavorite);
+      favBtn.querySelector('i').classList.toggle('far', !isFavorite);
+    }
+    
+    // Actualizar estado de agotado
+    if (!this.data.available) {
+      this.card.classList.add('sold-out');
+    }
+  }
+  
+  handleViewDetails(e) {
+    e.stopPropagation();
+    
+    // Emitir evento para que otros componentes escuchen
+    const event = new CustomEvent('productViewDetails', {
+      detail: { product: this.data },
+      bubbles: true
+    });
+    this.card.dispatchEvent(event);
+    
+    // Redirigir a página de detalles
+    window.location.href = `/pages/producto/${this.data.id}`;
+  }
+  
+  handleAddToCart(e) {
+    e.stopPropagation();
+    
+    if (!this.data.available) {
+      MyCuscoTripUtils?.showToast('Este producto no está disponible', 'error');
+      return;
+    }
+    
+    // Emitir evento para el carrito
+    const event = new CustomEvent('productAddToCart', {
+      detail: { product: this.data },
+      bubbles: true
+    });
+    this.card.dispatchEvent(event);
+    
+    // Animación de confirmación
+    const cartBtn = e.currentTarget;
+    const originalText = cartBtn.innerHTML;
+    cartBtn.innerHTML = '<i class="fas fa-check"></i><span>Agregado</span>';
+    cartBtn.classList.add('btn-success');
+    
+    setTimeout(() => {
+      cartBtn.innerHTML = originalText;
+      cartBtn.classList.remove('btn-success');
+    }, 2000);
+    
+    // Mostrar notificación
+    if (MyCuscoTripUtils) {
+      MyCuscoTripUtils.showToast(`"${this.data.name}" agregado al carrito`, 'success');
+    }
+  }
+  
+  handleFavorite(e) {
+    e.stopPropagation();
+    
+    const favBtn = e.currentTarget;
+    const isFavorite = favBtn.classList.contains('active');
+    const newState = !isFavorite;
+    
+    // Actualizar UI
+    favBtn.classList.toggle('active', newState);
+    const icon = favBtn.querySelector('i');
+    icon.classList.toggle('fas', newState);
+    icon.classList.toggle('far', !newState);
+    
+    // Guardar en localStorage
+    if (MyCuscoTripUtils) {
+      MyCuscoTripUtils.setStorage(`favorite_${this.data.id}`, newState);
+    }
+    
+    // Emitir evento
+    const event = new CustomEvent('productFavorite', {
+      detail: { product: this.data, isFavorite: newState },
+      bubbles: true
+    });
+    this.card.dispatchEvent(event);
+    
+    // Mostrar notificación
+    const message = newState ? 'Agregado a favoritos' : 'Removido de favoritos';
+    if (MyCuscoTripUtils) {
+      MyCuscoTripUtils.showToast(message, 'info');
+    }
+  }
+  
+  handleCompare(e) {
+    e.stopPropagation();
+    
+    // Emitir evento para comparador
+    const event = new CustomEvent('productCompare', {
+      detail: { product: this.data },
+      bubbles: true
+    });
+    this.card.dispatchEvent(event);
+    
+    // Mostrar notificación
+    if (MyCuscoTripUtils) {
+      MyCuscoTripUtils.showToast('Producto agregado para comparar', 'info');
+    }
+  }
+  
+  handleShare(e) {
+    e.stopPropagation();
+    
+    const shareData = {
+      title: this.data.name,
+      text: this.data.description,
+      url: window.location.origin + `/pages/producto/${this.data.id}`
+    };
+    
+    // Usar Web Share API si está disponible
+    if (navigator.share) {
+      navigator.share(shareData)
+        .then(() => console.log('Compartido exitosamente'))
+        .catch(error => console.log('Error compartiendo:', error));
+    } else {
+      // Fallback: copiar URL al portapapeles
+      if (MyCuscoTripUtils) {
+        MyCuscoTripUtils.copyToClipboard(shareData.url)
+          .then(() => {
+            MyCuscoTripUtils.showToast('URL copiada al portapapeles', 'success');
+          });
+      }
+    }
+  }
+  
+  handleCardClick(e) {
+    // Solo si no se hizo click en un botón
+    if (!e.target.closest('button')) {
+      window.location.href = `/pages/producto/${this.data.id}`;
+    }
+  }
+  
+  // Métodos públicos
+  getData() {
+    return this.data;
+  }
+  
+  markAsFeatured() {
+    this.card.classList.add('featured');
+  }
+  
+  unmarkAsFeatured() {
+    this.card.classList.remove('featured');
+  }
+  
+  updatePrice(newPrice) {
+    const priceElement = this.card.querySelector('.price-amount');
+    if (priceElement) {
+      const currencySymbol = priceElement.textContent.match(/[^\d.,]+/)?.[0] || '';
+      priceElement.textContent = `${currencySymbol}${newPrice}`;
+      this.data.price = newPrice;
+    }
+  }
+  
+  setAvailability(available) {
+    this.data.available = available;
+    const cartBtn = this.card.querySelector('.add-to-cart');
+    
+    if (cartBtn) {
+      cartBtn.disabled = !available;
+      cartBtn.classList.toggle('disabled', !available);
+    }
+    
+    this.card.classList.toggle('sold-out', !available);
+  }
+}
+
+// Inicializar todas las product-cards
+document.addEventListener('DOMContentLoaded', () => {
+  const productCards = document.querySelectorAll('.product-card');
+  productCards.forEach(card => {
+    card.productCardInstance = new ProductCard(card);
+  });
+  
+  console.log(`✅ ${productCards.length} product cards inicializados`);
+});
+
+// Hacer la clase disponible globalmente
+window.ProductCard = ProductCard;
+</script>

@@ -1,0 +1,71 @@
+<div class="search-bar mct-search">
+  <form class="mct-card" id="mctForm" autocomplete="off">
+    <div class="mct-tabs" role="tablist" aria-label="Tipos de búsqueda" data-i18n-label="search.tabsLabel">
+      <button type="button" class="mct-tab is-active" data-tab="tours" data-i18n="search.tours">Tours</button>
+      <button type="button" class="mct-tab" data-tab="paquetes" data-i18n="search.packages">Paquetes completos</button>
+    </div>
+
+    <div class="mct-bar">
+      <div class="mct-field">
+        <span class="mct-label" data-i18n="search.destination">Destino</span>
+        <select id="mctDestino" name="destino" class="mct-select">
+          <option value="machu-picchu" selected>Machu Picchu</option>
+          <option value="cusco">Cusco</option>
+          <option value="peru" data-i18n="search.explorePeru">Explora Perú</option>
+        </select>
+      </div>
+
+      <div class="mct-divider"></div>
+
+      <div class="mct-field mct-fecha-field">
+        <span class="mct-label" data-i18n="search.travelDates">Fechas de viaje</span>
+        <input
+          id="mctFecha"
+          name="fecha"
+          class="mct-input"
+          type="text"
+          readonly
+          placeholder="Selecciona fecha" data-i18n-placeholder="search.selectDate"
+        />
+        <div id="mctDuration" class="mct-hint in-card" aria-live="polite"></div>
+      </div>
+
+      <div class="mct-divider"></div>
+
+      <div class="mct-field mct-cantidad">
+        <span class="mct-label" data-i18n="search.travelers">Viajeros</span>
+        <button type="button" class="mct-qty-toggle" aria-haspopup="dialog" aria-expanded="false">
+          <span id="mctQtyLabel">2 pasajeros</span>
+          <i class="fa-solid fa-chevron-down" style="opacity:.65;"></i>
+        </button>
+
+        <div class="mct-qty-panel" hidden>
+          <div class="mct-qty-row">
+            <span data-i18n="search.adults">Adultos</span>
+            <div class="mct-qty-ctrl" data-type="adultos">
+              <button type="button" class="mct-btn minus" aria-label="Disminuir adultos" data-i18n-label="search.decreaseAdults">−</button>
+              <input type="text" value="2" readonly />
+              <button type="button" class="mct-btn plus" aria-label="Aumentar adultos" data-i18n-label="search.increaseAdults">＋</button>
+            </div>
+          </div>
+
+          <div class="mct-qty-row">
+            <span data-i18n="search.children">Niños</span>
+            <div class="mct-qty-ctrl" data-type="ninos">
+              <button type="button" class="mct-btn minus" aria-label="Disminuir niños" data-i18n-label="search.decreaseChildren">−</button>
+              <input type="text" value="0" readonly />
+              <button type="button" class="mct-btn plus" aria-label="Aumentar niños" data-i18n-label="search.increaseChildren">＋</button>
+            </div>
+          </div>
+
+          <button type="button" class="mct-qty-done" data-i18n="search.done">Listo</button>
+        </div>
+      </div>
+
+      <button type="submit" class="mct-submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span data-i18n="search.submit">Buscar experiencias</span>
+      </button>
+    </div>
+  </form>
+</div>

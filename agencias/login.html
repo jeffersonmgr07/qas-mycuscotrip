@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ingresar | Reservas My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../public/favicon.ico" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <link href="../assets/css/components.css" rel="stylesheet" />
+  <link href="../assets/css/header.css" rel="stylesheet" />
+  <link href="../assets/css/footer.css" rel="stylesheet" />
+  <link href="../assets/css/responsive.css" rel="stylesheet" />
+  <link href="./assets/css/agencias.css" rel="stylesheet" />
+  <link rel="canonical" href="https://mycuscotrip.com/agencias/login.html" />
+</head>
+<body class="agency-page agency-login-page">
+  <div id="header-container"></div>
+  <main class="agency-main agency-main--narrow">
+    <section class="auth-card">
+      <p class="eyebrow">Portal privado</p>
+      <h1>Acceso para agencias afiliadas</h1>
+      <p class="auth-lead">Usa el correo y la contraseña creados durante el registro.</p>
+      <form id="loginForm" class="auth-form">
+        <label class="field"><span>Correo de acceso</span><input id="loginEmail" type="email" autocomplete="email" required placeholder="correo@empresa.com" /></label>
+        <label class="field"><span>Contraseña</span><div class="password-input-wrap"><input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Tu contraseña" /><button type="button" class="password-toggle" data-toggle-login-password>Ver</button></div></label>
+        <p id="loginMessage" class="form-message" role="alert" hidden></p>
+        <div class="dialog-actions">
+          <a href="./registro.html" class="agency-button agency-button--ghost">Registrar mi agencia</a>
+          <button type="submit" class="agency-button agency-button--primary">Ingresar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+  <script src="../assets/js/components/header.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="./assets/js/pages/agencias-i18n.js"></script>
+  <script src="./assets/js/pages/acceso-agencias.js" defer></script>
+  <script>
+    async function loadAgencyComponent(name, targetId) { const target = document.getElementById(targetId); if (!target) return; try { const res = await fetch(`../components/${name}.html`); target.innerHTML = await res.text(); if (name === 'header' && window.MyCuscoTripHeader) new window.MyCuscoTripHeader(); if (name === 'footer' && window.MyCuscoTripFooter) window.MyCuscoTripFooter.initFooterAccordions(); } catch(e) { console.warn(e); } }
+    document.addEventListener('DOMContentLoaded', () => { loadAgencyComponent('header','header-container'); loadAgencyComponent('footer','footer-container'); });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.querySelector('[data-toggle-login-password]');
+      const input = document.getElementById('loginPassword');
+      if (!button || !input) return;
+      button.addEventListener('click', () => {
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        button.textContent = show ? (window.MCTAgenciesI18n?.t ? window.MCTAgenciesI18n.t('login.hide') : 'Ocultar') : (window.MCTAgenciesI18n?.t ? window.MCTAgenciesI18n.t('login.show') : 'Ver');
+      });
+    });
+  </script>
+</body>
+</html>

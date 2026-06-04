@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mis órdenes | Portal de agencias My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../public/favicon.ico" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <link href="../assets/css/components.css" rel="stylesheet" />
+  <link href="../assets/css/header.css" rel="stylesheet" />
+  <link href="../assets/css/footer.css" rel="stylesheet" />
+  <link href="../assets/css/responsive.css" rel="stylesheet" />
+  <link href="./assets/css/agencias.css" rel="stylesheet" />
+  <script src="https://www.mercadopago.com/v2/security.js" view="checkout"></script>
+  <link rel="canonical" href="https://mycuscotrip.com/agencias/ordenes.html" />
+</head>
+<body class="agency-page">
+  <div id="header-container"></div>
+  <main class="agency-main" id="ordenes">
+    <section class="agency-intro-bar" aria-label="Órdenes de agencia">
+      <div>
+        <p class="eyebrow">Portal de agencias</p>
+        <h1>Mis órdenes</h1>
+        <p id="ordersAgencyName">Consulta tus órdenes pendientes, pagadas o vencidas.</p>
+      </div>
+      <div class="agency-controls">
+        <a class="agency-button agency-button--ghost" href="./index.html">Nueva reserva</a>
+        <button type="button" class="agency-button agency-button--primary" id="refreshOrdersButton">Actualizar</button>
+        <button type="button" class="agency-button agency-button--ghost" id="logoutButton">Cerrar sesión</button>
+      </div>
+    </section>
+
+    <div class="info-note"><strong>Importante:</strong> las órdenes pendientes deben pagarse dentro del plazo indicado. Las órdenes pagadas o vencidas pueden actualizarse manualmente desde la hoja de control.</div>
+
+    <div class="requests-toolbar">
+      <label class="field"><span>Filtrar por estado</span><select id="statusFilter"><option value="">Todos</option><option value="pendiente">Pendientes</option><option value="pagado">Pagadas</option><option value="vencido">Vencidas</option></select></label>
+      <span class="toolbar-total"><span id="ordersCount">0</span> órdenes</span>
+    </div>
+
+    <div id="ordersMessage" class="empty-state">Cargando órdenes...</div>
+    <div class="orders-table-wrap" id="ordersTableWrap" hidden>
+      <table class="orders-table">
+        <thead><tr><th>Código</th><th>Fecha</th><th>Estado</th><th>Servicios</th><th>Total</th><th>Acción</th></tr></thead>
+        <tbody id="ordersTableBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+
+  <div class="modal-backdrop order-modal-backdrop" id="orderDetailModal" aria-hidden="true">
+    <div class="modal modal--order" role="dialog" aria-modal="true" aria-labelledby="orderDetailTitle">
+      <div class="modal-header">
+        <h2 id="orderDetailTitle">Detalle de orden</h2>
+        <button type="button" class="close" data-close-order-detail-static aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body" id="orderDetailBody"></div>
+    </div>
+  </div>
+  <div id="footer-container"></div>
+  <script src="../assets/js/components/header.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="./assets/js/pages/agencias-i18n.js"></script>
+  <script src="./assets/js/pages/ordenes-agencias.js" defer></script>
+  <script>
+    async function loadAgencyComponent(name, targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const res = await fetch(`../components/${name}.html`);
+        if (!res.ok) throw new Error(name);
+        target.innerHTML = await res.text();
+        if (name === 'header' && window.MyCuscoTripHeader) new window.MyCuscoTripHeader();
+        if (name === 'footer' && window.MyCuscoTripFooter) window.MyCuscoTripFooter.initFooterAccordions();
+      } catch (error) { console.warn('No se pudo cargar componente', name, error); }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      loadAgencyComponent('header', 'header-container');
+      loadAgencyComponent('footer', 'footer-container');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buy train tickets to Machu Picchu | My Cusco Trip</title>
+  <meta name="description" content="Search and buy PeruRail and Inca Rail trains to Machu Picchu. Add personalized assistance, guided tours and useful extras for your visit." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/public/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="/assets/css/main.css" rel="stylesheet"/>
+  <link href="/assets/css/components.css" rel="stylesheet"/>
+  <link href="/assets/css/header.css" rel="stylesheet"/>
+  <link href="/assets/css/footer.css" rel="stylesheet"/>
+  <link href="/assets/css/responsive.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/trenes/assets/css/trenes.css?v=20260603-trenes-v17" />
+</head>
+<body class="mct-trains-page">
+  <div id="header-container"></div>
+
+  <main>
+    <section class="train-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-train-i18n="hero.title">Compra tu tren a Machu Picchu y obtén los mejores beneficios</h1>
+        <div class="hero-benefits" aria-label="Beneficios incluidos">
+          <span data-train-i18n="hero.badgeGuide">Tour guiado gratuito dentro de Machu Picchu</span>
+          <span data-train-i18n="hero.badgeAssist">Asistencia 24/7</span>
+          <span data-train-i18n="hero.badgeBenefits">Beneficios exclusivos por tu compra</span>
+        </div>
+        <p data-train-i18n="hero.subtitle">Por la compra de tus trenes ida y vuelta, accede a beneficios exclusivos, reserva y paga online con asistencia personalizada para disfrutar mejor tu visita.</p>
+      </div>
+    </section>
+
+    <section class="search-shell" aria-label="Buscador de trenes">
+      <form id="trainSearchForm" class="train-search-card">
+        <label class="field-card trip-type-field">
+          <small data-train-i18n="search.tripType">Tipo de viaje</small>
+          <select id="tripTypeSelect" name="tripType" aria-label="Tipo de viaje">
+            <option value="roundtrip" data-train-i18n="search.roundtrip" selected>Ida y vuelta</option>
+            <option value="oneway" data-train-i18n="search.oneway">Solo ida</option>
+            <option value="returnonly" data-train-i18n="search.returnOnly">Solo retorno</option>
+          </select>
+        </label>
+
+        <div class="search-grid">
+          <label class="field-card outbound-field">
+            <small data-train-i18n="search.outboundDate">Fecha de viaje</small>
+            <input id="outboundDate" name="outboundDate" type="date" required>
+          </label>
+
+          <label class="field-card return-field">
+            <small data-train-i18n="search.returnDate">Fecha de retorno</small>
+            <input id="returnDate" name="returnDate" type="date">
+          </label>
+
+          <div class="field-card pax-field">
+            <small data-train-i18n="search.passengers">Pasajeros</small>
+            <button type="button" id="paxToggle" class="pax-toggle" aria-expanded="false">
+              <span id="paxLabel">1 adulto</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div id="paxPanel" class="pax-panel" hidden>
+              <div class="pax-row">
+                <div><b data-train-i18n="search.adults">Adultos</b><small data-train-i18n="search.adultAge">12 años o más</small></div>
+                <div class="stepper"><button type="button" data-pax="adults" data-delta="-1">−</button><span id="adultCount">1</span><button type="button" data-pax="adults" data-delta="1">+</button></div>
+              </div>
+              <div class="pax-row">
+                <div><b data-train-i18n="search.children">Niños</b><small data-train-i18n="search.childAge">3 a 11 años</small></div>
+                <div class="stepper"><button type="button" data-pax="children" data-delta="-1">−</button><span id="childCount">0</span><button type="button" data-pax="children" data-delta="1">+</button></div>
+              </div>
+              <div id="childAges" class="child-ages"></div>
+              <button type="button" class="pax-done-button" data-pax-done>Done</button>
+            </div>
+          </div>
+
+          <label class="field-card coupon-field">
+            <small data-train-i18n="search.coupon">Cupón</small>
+            <input id="couponCode" name="couponCode" type="text" placeholder="Opcional" data-train-placeholder="search.couponPlaceholder">
+          </label>
+
+          <button class="search-button" type="submit" data-train-i18n="search.button">Buscar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-layout">
+      <div class="results-main">
+        <div class="section-heading outbound-heading">
+          <h2 data-train-i18n="results.outboundTitle">Elige tu tren de ida</h2>
+        </div>
+        <div class="route-block outbound-route-block">
+          <p class="route-label" data-train-i18n="routes.outboundFrom">Salida desde</p>
+          <div class="route-pills" id="outboundStationPills"></div>
+        </div>
+        <p class="current-route-label" id="outboundRouteLabel">Ollantaytambo → Machu Picchu</p>
+        <div id="outboundResults" class="train-results"></div>
+
+        <div id="returnBlock" class="return-block" hidden>
+          <div class="section-heading return-heading">
+            <h2 data-train-i18n="results.returnTitle">Elige tu tren de retorno</h2>
+          </div>
+          <div class="route-block return-route-block">
+            <p class="route-label" data-train-i18n="routes.returnTo">Retorno hacia</p>
+            <div class="route-pills" id="returnStationPills"></div>
+          </div>
+          <p class="current-route-label" id="returnRouteLabel">Machu Picchu → Ollantaytambo</p>
+          <div id="returnResults" class="train-results"></div>
+        </div>
+      </div>
+
+      <aside class="summary-card" aria-label="Resumen de compra">
+        <div class="summary-titlebar" data-train-i18n="summary.title">Tu selección</div>
+        <div id="summaryContent" class="summary-content">
+          <p data-train-i18n="summary.empty">Busca trenes y selecciona ida para empezar.</p>
+        </div>
+
+        <div id="summaryExtras" class="summary-extras" hidden>
+          <h3 data-train-i18n="extras.title">Servicios extras</h3>
+
+          <article class="summary-extra-row guide-extra">
+            <img src="/assets/img/trenes/extras/guiado-machu-picchu.jpg" alt="Guiado Machu Picchu" loading="lazy">
+            <div class="summary-extra-body">
+              <div class="guide-extra-title">
+                <label for="guideCircuit" data-train-i18n="extras.guideTitle">Guiado Machu Picchu</label>
+                <span class="free-extra-badge" data-train-i18n="extras.freeBadge">Gratis</span>
+              </div>
+              <select id="guideCircuit" name="guideCircuit">
+                <option value="none" data-train-i18n="extras.guideNone">No agregar guiado</option>
+                <option value="circuit2" data-train-i18n="extras.circuit2">Circuito 2 · Gratis</option>
+                <option value="circuit1" data-train-i18n="extras.circuit1">Circuito 1 · Grupo reducido · USD 15.90 p/p</option>
+                <option value="circuit3" data-train-i18n="extras.circuit3">Circuito 3 · Grupo reducido · USD 15.90 p/p</option>
+              </select>
+              <button type="button" class="extra-detail-badge guide-detail-button" data-extra-detail="guide" data-train-i18n="extras.detailsButton">Ver detalles</button>
+            </div>
+          </article>
+
+          <label class="summary-extra-check">
+            <img src="/assets/img/trenes/extras/bus-consetur.jpg" alt="Bus Consetur Machu Picchu" loading="lazy">
+            <input type="checkbox" id="conseturBusExtra">
+            <span><b data-train-i18n="extras.busTitle">Bus Consetur Machu Picchu</b><small data-train-i18n="extras.busDesc">Subida y bajada · USD 24.00 p/p</small><button type="button" class="extra-detail-badge" data-extra-detail="bus" data-train-i18n="extras.detailsButton">Ver detalles</button></span>
+          </label>
+
+          <label class="summary-extra-check">
+            <img src="/assets/img/trenes/extras/desayuno-power-peruano.jpg" alt="Desayuno peruano" loading="lazy">
+            <input type="checkbox" id="breakfastExtra">
+            <span><b data-train-i18n="extras.breakfastTitle">Desayuno Power Peruano</b><small data-train-i18n="extras.breakfastDesc">Inca Kola + pan con chicharrón o pan con pollo · USD 8.90 p/p</small><button type="button" class="extra-detail-badge" data-extra-detail="breakfast" data-train-i18n="extras.detailsButton">Ver detalles</button></span>
+          </label>
+
+          <label class="summary-extra-check">
+            <img src="/assets/img/trenes/extras/almuerzo-power-peruano.jpg" alt="Almuerzo peruano" loading="lazy">
+            <input type="checkbox" id="lunchExtra">
+            <span><b data-train-i18n="extras.lunchTitle">Almuerzo Power Peruano</b><small data-train-i18n="extras.lunchDesc">¼ pollo a la brasa + arroz chaufa + papas fritas + Inca Kola 500 ml · USD 15.90 p/p</small><button type="button" class="extra-detail-badge" data-extra-detail="lunch" data-train-i18n="extras.detailsButton">Ver detalles</button></span>
+          </label>
+        </div>
+
+        <div class="summary-total">
+          <span data-train-i18n="summary.total">Total</span>
+          <strong id="summaryTotal">USD 0.00</strong>
+        </div>
+        <p class="summary-note" data-train-i18n="summary.note">La compra queda sujeta a disponibilidad final de la empresa ferroviaria. Te contactaremos si el horario elegido requiere ajuste.</p>
+        <button id="checkoutButton" type="button" class="checkout-button" disabled data-train-i18n="summary.reserveButton">Iniciar reserva</button>
+      </aside>
+    </section>
+
+    <section class="trains-seo-content" aria-label="Frequently asked questions about trains to Machu Picchu">
+      <h2>Frequently asked questions about trains to Machu Picchu</h2>
+      <p class="seo-intro">Find useful information to book train tickets to Machu Picchu with PeruRail and Inca Rail, choose routes from Cusco, Ollantaytambo, Urubamba or Hidroelectrica, compare schedules, and plan your visit with personalized assistance from My Cusco Trip.</p>
+      <div class="trains-faq-list">
+        <details>
+          <summary>Where do trains to Machu Picchu depart from?</summary>
+          <p>Tourist trains to Machu Picchu may depart from Ollantaytambo, Cusco, Urubamba or Hidroelectrica, depending on the railway company, season and available schedules. The most commonly used route is Ollantaytambo - Machu Picchu because of its frequency, travel time and connection with the Sacred Valley.</p>
+        </details>
+        <details>
+          <summary>Which companies operate trains to Machu Picchu?</summary>
+          <p>The main railway companies are PeruRail and Inca Rail. Both offer different service categories, schedules, departure stations and onboard experiences. With My Cusco Trip, you can compare available options and choose the most convenient alternative for your itinerary.</p>
+        </details>
+        <details>
+          <summary>What is the best train route to Machu Picchu?</summary>
+          <p>For most travelers, Ollantaytambo - Machu Picchu is the most practical route because it works well with Sacred Valley tours and offers frequent departures. Departing from Cusco can be more convenient if you prefer to leave directly from the city, although the journey is usually longer.</p>
+        </details>
+        <details>
+          <summary>How far in advance should I buy my train ticket?</summary>
+          <p>It is best to book your train tickets as soon as your Machu Picchu visit date is confirmed, especially during high season, holidays, weekends or periods of high demand. The most convenient schedules usually sell out first.</p>
+        </details>
+        <details>
+          <summary>Can I book round-trip trains for the same day?</summary>
+          <p>Yes, you can book same-day outbound and return trains as long as the schedules allow enough time for the visit. Make sure to consider the bus, entrance time, route inside Machu Picchu and the return to the station before choosing your return train.</p>
+        </details>
+        <details>
+          <summary>How much time should I stay in Machu Picchu before returning?</summary>
+          <p>We recommend leaving several hours between arrival in Machu Picchu Pueblo and the return train. If the return train is too close to your arrival time, the system may show an alert so you can review your schedule before booking.</p>
+        </details>
+        <details>
+          <summary>What is the difference between Expedition, Vistadome and Hiram Bingham?</summary>
+          <p>Expedition is a practical tourist option; Vistadome offers panoramic windows and a more scenic experience; Hiram Bingham is a luxury train with more exclusive service. Benefits and availability may vary by route, schedule and railway company conditions.</p>
+        </details>
+        <details>
+          <summary>What is the difference between The Voyager, The Prime, The 360° and The First Class?</summary>
+          <p>The Voyager is a functional option with cultural value; The Prime offers more comfort and onboard details; The 360° focuses on panoramic views and a visual experience; The First Class provides a more exclusive premium experience, depending on availability and route.</p>
+        </details>
+        <details>
+          <summary>Does the train ticket include entrance to Machu Picchu?</summary>
+          <p>In general, the train ticket does not include the Machu Picchu entrance, Consetur bus or guide, unless a specific package or service clearly states it. On this page, you can add useful extras to complement your visit and travel with better organization.</p>
+        </details>
+        <details>
+          <summary>What information is needed to book train tickets?</summary>
+          <p>Passenger full names, document type and number, nationality, birth date and contact details are usually required to book train tickets. This information is needed to validate ticket issuance and avoid issues on the travel date.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <div id="passengerModal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-panel passenger-modal passenger-modal-v8" role="dialog" aria-modal="true" aria-labelledby="passengerModalTitle">
+      <button class="modal-close" type="button" data-close-modal>×</button>
+      <div class="passenger-modal-layout">
+        <div class="passenger-modal-left">
+          <div class="modal-titlebar" id="passengerModalTitle" data-train-i18n="modal.title">Datos de los pasajeros</div>
+          <p class="modal-subtitle" data-train-i18n="modal.subtitle">El pasajero 1 será el titular de la reserva.</p>
+          <form id="passengerForm">
+            <div id="passengerForms" class="passenger-forms"></div>
+            <label class="terms-line">
+              <input type="checkbox" id="termsCheck" required>
+              <span data-train-i18n="modal.terms">Acepto que la reserva queda sujeta a disponibilidad final, validación de documentos y confirmación operativa de My Cusco Trip.</span>
+            </label>
+            <div id="paymentMessage" class="payment-message" hidden></div>
+            <div class="modal-actions">
+              <button type="button" class="secondary-button" data-close-modal data-train-i18n="modal.cancel">Cancelar</button>
+              <button type="submit" class="checkout-button" data-train-i18n="modal.pay">Pagar</button>
+            </div>
+          </form>
+        </div>
+        <aside class="modal-trip-summary" aria-label="Resumen del viaje">
+          <div id="modalTripSummary"></div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script>
+    async function loadMctComponent(componentName, targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const response = await fetch(`/components/${componentName}.html`, { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`No se pudo cargar ${componentName}`);
+        target.innerHTML = await response.text();
+      } catch (error) {
+        console.warn(error.message);
+      }
+    }
+
+    async function initializeMctShell() {
+      await Promise.all([
+        loadMctComponent('header', 'header-container'),
+        loadMctComponent('footer', 'footer-container')
+      ]);
+      window.initMyCuscoTripHeader?.();
+      window.MyCuscoTripFooter?.initFooterAccordions?.();
+      window.MyCuscoTripI18n?.applyTranslations?.();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeMctShell);
+    } else {
+      initializeMctShell();
+    }
+  </script>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/components/header.js"></script>
+  <script src="/assets/js/components/footer.js"></script>
+  <script src="/trenes/assets/js/config.js"></script>
+  <script src="/trenes/assets/js/trenes.js?v=20260603-trenes-v17" defer></script>
+</body>
+</html>

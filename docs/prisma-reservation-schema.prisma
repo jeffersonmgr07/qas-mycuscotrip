@@ -1,0 +1,133 @@
+// Prisma schema sugerido para reservas, pasajeros, agencias y pagos.
+// Ajustar nombres finales según el backend real.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ReservationStatus {
+  draft
+  pre_reserved
+  pending_payment
+  partially_paid
+  paid
+  confirmed
+  cancelled
+  expired
+}
+
+enum PaymentStatus {
+  created
+  approved
+  captured
+  failed
+  refunded
+  partially_refunded
+}
+
+enum PaymentProvider {
+  paypal
+  mercado_pago
+  manual
+}
+
+model Customer {
+  id           String        @id @default(cuid())
+  firstName    String
+  lastName     String
+  email        String?
+  whatsapp     String?
+  nationality  String?
+  createdAt    DateTime      @default(now())
+  reservations Reservation[]
+}
+
+model Reservation {
+  id              String            @id @default(cuid())
+  code            String            @unique
+  productSlug     String
+  productTitle    String
+  productKind     String?
+  travelDate      DateTime?
+  currency        String            @default("USD")
+  totalAmount     Decimal           @db.Decimal(10, 2)
+  amountToPayNow  Decimal           @db.Decimal(10, 2)
+  pendingBalance  Decimal           @db.Decimal(10, 2)
+  adults          Int               @default(1)
+  children        Int               @default(0)
+  status          ReservationStatus @default(pre_reserved)
+  customerId      String?
+  customer        Customer?         @relation(fields: [customerId], references: [id])
+  agencyId        String?
+  agency          Agency?           @relation(fields: [agencyId], references: [id])
+  passengers      Passenger[]
+  payments        Payment[]
+  metadata        Json?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model Passenger {
+  id             String      @id @default(cuid())
+  reservationId  String
+  reservation    Reservation @relation(fields: [reservationId], references: [id])
+  passengerNo    Int
+  firstName      String
+  lastName       String
+  documentType   String?
+  documentNumber String?
+  nationality    String?
+  birthdate      DateTime?
+  completionStatus String    @default("provided")
+  createdAt      DateTime    @default(now())
+}
+
+model Payment {
+  id              String          @id @default(cuid())
+  reservationId   String
+  reservation     Reservation     @relation(fields: [reservationId], references: [id])
+  provider        PaymentProvider
+  status          PaymentStatus   @default(created)
+  currency        String          @default("USD")
+  grossAmount     Decimal         @db.Decimal(10, 2)
+  providerOrderId String?
+  providerCaptureId String?
+  rawResponse     Json?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
+
+model QuoteRequest {
+  id            String   @id @default(cuid())
+  code          String   @unique
+  destination   String?
+  startDate     DateTime?
+  duration      String?
+  adults        Int      @default(1)
+  children      Int      @default(0)
+  hotelCategory String?
+  budget        String?
+  notes         String?
+  customerName  String
+  customerEmail String?
+  customerPhone String?
+  status        String   @default("new")
+  createdAt     DateTime @default(now())
+}
+
+model Agency {
+  id           String        @id @default(cuid())
+  companyName  String
+  taxId        String?
+  accessEmail  String        @unique
+  passwordHash String
+  status       String        @default("pending_review")
+  reservations Reservation[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrar pago | Portal de agencias My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../public/favicon.ico" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <link href="../assets/css/components.css" rel="stylesheet" />
+  <link href="../assets/css/header.css" rel="stylesheet" />
+  <link href="../assets/css/footer.css" rel="stylesheet" />
+  <link href="../assets/css/responsive.css" rel="stylesheet" />
+  <link href="./assets/css/agencias.css" rel="stylesheet" />
+  <link rel="canonical" href="https://mycuscotrip.com/agencias/registrar-pago.html" />
+</head>
+<body class="agency-page">
+  <div id="header-container"></div>
+  <main class="agency-main" id="registrar-pago">
+    <section class="agency-intro-bar" aria-label="Registrar pago">
+      <div>
+        <p class="eyebrow">Portal de agencias</p>
+        <h1>Registrar pago</h1>
+        <p id="paymentAgencyName">Envía el voucher de pago para validación manual.</p>
+      </div>
+      <div class="agency-controls">
+        <a class="agency-button agency-button--ghost" href="./index.html">Nueva reserva</a>
+        <a class="agency-button agency-button--ghost" href="./ordenes.html">Ver mis órdenes</a>
+      </div>
+    </section>
+
+    <div class="info-note"><strong>Validación:</strong> una vez enviado el comprobante, revisaremos el pago y actualizaremos el estado de la orden manualmente. El tiempo estimado de validación es de máximo 60 minutos.</div>
+
+    <section class="payment-card">
+      <h2>Datos del pago</h2>
+      <form id="paymentForm" class="form-grid">
+        <label class="field"><span>Código de orden</span><input id="orderCode" required placeholder="Ej. 20260526ABCD" /></label>
+        <label class="field"><span>Moneda</span><select id="paymentCurrency"><option value="USD">Dólares (USD)</option><option value="PEN">Soles (S/)</option></select></label>
+        <label class="field"><span>Monto pagado</span><input id="paymentAmount" type="number" min="0" step="0.01" required /></label>
+        <label class="field"><span>Voucher de pago</span><input id="paymentVoucher" type="file" accept="image/*,.pdf" required /><span class="file-note">Puedes adjuntar captura, foto o PDF.</span></label>
+        <label class="field full"><span>Mensaje u observación</span><textarea id="paymentMessage" rows="3" placeholder="Banco, hora de operación, nombre del pagador u otra referencia."></textarea></label>
+        <div class="full dialog-actions"><button type="submit" class="agency-button agency-button--primary">Enviar comprobante</button></div>
+      </form>
+      <div id="paymentMessageBox" class="form-message" hidden></div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+  <script src="../assets/js/components/header.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="./assets/js/pages/agencias-i18n.js"></script>
+  <script src="./assets/js/pages/registrar-pago.js" defer></script>
+  <script>
+    async function loadAgencyComponent(name, targetId) { const target = document.getElementById(targetId); if (!target) return; try { const res = await fetch(`../components/${name}.html`); if (!res.ok) throw new Error(name); target.innerHTML = await res.text(); if (name === 'header' && window.MyCuscoTripHeader) new window.MyCuscoTripHeader(); if (name === 'footer' && window.MyCuscoTripFooter) window.MyCuscoTripFooter.initFooterAccordions(); } catch (error) { console.warn('No se pudo cargar componente', name, error); } }
+    document.addEventListener('DOMContentLoaded', () => { loadAgencyComponent('header', 'header-container'); loadAgencyComponent('footer', 'footer-container'); });
+  </script>
+</body>
+</html>

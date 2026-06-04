@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reservas de experiencias | My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Selecciona experiencias en Cusco y Machu Picchu, agrega pasajeros y genera una orden de reserva." />
+  <link rel="icon" href="../public/favicon.ico" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <link href="../assets/css/components.css" rel="stylesheet" />
+  <link href="../assets/css/header.css" rel="stylesheet" />
+  <link href="../assets/css/footer.css" rel="stylesheet" />
+  <link href="../assets/css/responsive.css" rel="stylesheet" />
+  <link href="./assets/css/agencias.css" rel="stylesheet" />
+  <script src="https://www.mercadopago.com/v2/security.js" view="checkout"></script>
+  <link rel="canonical" href="https://mycuscotrip.com/agencias/" />
+</head>
+<body class="agency-page">
+  <div id="header-container"></div>
+
+  <main class="agency-main" id="inicio">
+    <section class="agency-intro-bar" aria-label="Panel de agencia">
+      <div>
+        <p class="eyebrow">Bienvenido al portal de agencias</p>
+        <h1 id="agencyNameHeading">Agencia afiliada</h1>
+        <p id="sessionWelcome">Buenos días, agencia!</p>
+      </div>
+      <div class="agency-controls agency-controls--stacked">
+        <div class="agency-controls__row agency-controls__row--buttons">
+          <a class="agency-button agency-button--ghost" href="./ordenes.html">Mis órdenes</a>
+          <a class="agency-button agency-button--ghost" href="./mis-datos.html">Mis datos</a>
+          <button type="button" class="agency-button agency-button--ghost" id="logoutButton">Cerrar sesión</button>
+        </div>
+        <div class="agency-controls__row agency-controls__row--currency">
+          <label class="currency-control currency-control--no-label"><select id="currencySelect" aria-label="Moneda visible"><option value="PEN">Soles (S/)</option><option value="USD">Dólares (USD)</option></select></label>
+        </div>
+        <input id="exchangeRateInput" type="hidden" value="3.38" />
+        <input id="searchInput" type="hidden" value="" />
+      </div>
+    </section>
+
+    <div class="info-note">
+      <strong>Antes de reservar:</strong> los servicios están sujetos a disponibilidad. Para confirmar una reserva, el pago debe quedar validado al 100% hasta 2 días antes de la fecha del tour. Los tickets de ingreso no incluidos se pagan aparte según la experiencia seleccionada.
+    </div>
+
+    <div class="portal-layout">
+      <section id="experiencias">
+        <div class="section-title section-title--simple">
+          <div>
+            <h2>Experiencias disponibles</h2>
+            <p>Agrega uno o más servicios a tu orden. Puedes reservar para los mismos pasajeros o para grupos diferentes.</p>
+          </div>
+        </div>
+        <div id="experienceGrid" class="experience-grid"></div>
+        <p id="emptyExperiences" class="empty-state" hidden>No encontramos experiencias con ese filtro.</p>
+      </section>
+
+      <aside class="checkout" id="checkout" aria-labelledby="checkoutTitle">
+        <h2 id="checkoutTitle">Tu orden</h2>
+        <div id="cartItems" class="cart-items"><p class="cart-empty">Todavía no agregaste servicios.</p></div>
+        <div class="cart-total">
+          <div class="cart-row"><span>Servicios + tickets de ingreso</span><strong id="subtotalAmount">S/ 0.00</strong></div>
+          <div class="cart-row"><span>Comisiones estimadas</span><strong id="feeAmount">S/ 0.00</strong></div>
+          <div class="cart-row"><span>Total a pagar</span><strong id="grandTotal">S/ 0.00</strong></div>
+        </div>
+        <div class="checkout-actions">
+          <button type="button" id="generateOrderButton" class="agency-button agency-button--primary">Generar orden de reserva</button>
+          <button type="button" id="clearCartButton" class="agency-button agency-button--ghost">Limpiar orden</button>
+        </div>
+        <div id="orderBox" class="order-box"></div>
+      </aside>
+    </div>
+
+    <div id="ordersList" class="requests-list" hidden></div>
+  </main>
+
+  <div id="reserveModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="reserveTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="reserveTitle">Reservar experiencia</h2>
+        <button type="button" class="close" data-close-modal aria-label="Cerrar">×</button>
+      </div>
+      <form id="reserveForm" class="modal-body">
+        <input type="hidden" id="selectedServiceId" />
+        <p class="dialog-help">Completa los datos principales del titular. Los datos de los demás pasajeros son opcionales, pero ayudan a agilizar la confirmación.</p>
+        <div class="form-grid">
+          <div class="reserve-main-row full">
+            <label class="field"><span>Fecha del tour</span><input id="serviceDate" type="date" required /></label>
+            <label class="field"><span>Hora de inicio</span><select id="serviceTime" required></select></label>
+            <label class="field"><span>Cantidad de pasajeros</span><input id="paxCount" type="number" min="1" max="50" value="2" required /></label>
+          </div>
+          <section class="entry-tickets-box full" id="entryTicketsBox" hidden>
+            <div class="entry-tickets-box__head">
+              <label class="entry-master-check"><input type="checkbox" id="includeTicketsToggle" /> <span>Incluir tickets de ingreso</span></label>
+              <small>Se aplican a todos los pasajeros de esta reserva.</small>
+            </div>
+            <div id="entryTicketOptions" class="entry-ticket-options"></div>
+          </section>
+          <div class="form-subtitle full">Datos del titular de reserva</div>
+          <label class="field"><span>Nombre</span><input id="leadFirstName" required /></label>
+          <label class="field"><span>Apellido</span><input id="leadLastName" required /></label>
+          <label class="field"><span>Tipo de documento</span><select id="leadDocType"><option>DNI</option><option>Pasaporte</option><option>Carnet de extranjería</option><option>Otro</option></select></label>
+          <label class="field"><span>Número de documento</span><input id="leadDocNumber" required /></label>
+          <label class="field"><span>Nacionalidad</span><select id="leadNationality" required data-country-select></select></label>
+          <label class="field"><span>Idioma</span><select id="leadLanguage" required><option value="Español">Español</option><option value="Inglés">Inglés</option><option value="Portugués">Portugués</option><option value="Francés">Francés</option><option value="Alemán">Alemán</option><option value="Italiano">Italiano</option><option value="Japonés">Japonés</option><option value="Otro">Otro</option></select></label>
+          <label class="field"><span>Código de país</span><select id="leadPhoneCountry" required><option value="+51">Perú +51</option><option value="+52">México +52</option><option value="+56">Chile +56</option><option value="+55">Brasil +55</option><option value="+57">Colombia +57</option><option value="+54">Argentina +54</option><option value="+591">Bolivia +591</option><option value="+593">Ecuador +593</option><option value="+1">Estados Unidos / Canadá +1</option><option value="+34">España +34</option><option value="+44">Reino Unido +44</option><option value="+33">Francia +33</option><option value="+49">Alemania +49</option><option value="+39">Italia +39</option><option value="+81">Japón +81</option><option value="+82">Corea del Sur +82</option><option value="+86">China +86</option></select></label>
+          <label class="field"><span>Celular / WhatsApp</span><input id="leadPhone" inputmode="tel" required placeholder="900 000 000" /></label>
+          <input type="hidden" id="groupMode" value="new" />
+          <label class="field full"><span>Lugar de recojo</span><textarea id="pickupPoint" rows="2" required placeholder="Nombre del hotel y dirección completa"></textarea></label>
+          <label class="field full"><span>Observaciones</span><textarea id="bookingNotes" rows="2" placeholder="Horario preferido, referencia del hotel, restricciones alimentarias, etc."></textarea></label>
+        </div>
+        <details class="tourists-box" id="passengersDetails">
+          <summary>Datos de los demás pasajeros <span>(opcional)</span></summary>
+          <p class="dialog-help">Ingresa los datos de los demás pasajeros (del segundo pasajero en adelante).</p>
+          <div id="additionalPassengers"></div>
+        </details>
+        <div class="dialog-actions">
+          <button type="button" class="agency-button agency-button--ghost" data-close-modal>Cancelar</button>
+          <button type="submit" class="agency-button agency-button--primary">Agregar a la orden</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="itineraryModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="itineraryTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="itineraryTitle">Itinerario detallado</h2>
+        <button type="button" class="close" data-close-modal aria-label="Cerrar">×</button>
+      </div>
+      <div id="itineraryBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="orderModal" class="modal-backdrop order-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <div class="modal modal--order">
+      <div class="modal-header">
+        <h2 id="orderModalTitle">Orden de reserva generada</h2>
+        <button type="button" class="close" data-close-modal aria-label="Cerrar">×</button>
+      </div>
+      <div id="orderModalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="../assets/js/components/header.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="./assets/js/pages/agencias-i18n.js"></script>
+  <script src="./assets/js/pages/agencias.js" defer></script>
+  <script>
+    async function loadAgencyComponent(name, targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const res = await fetch(`../components/${name}.html`);
+        if (!res.ok) throw new Error(name);
+        target.innerHTML = await res.text();
+        if (name === 'header' && window.MyCuscoTripHeader) new window.MyCuscoTripHeader();
+        if (name === 'footer' && window.MyCuscoTripFooter) window.MyCuscoTripFooter.initFooterAccordions();
+      } catch (error) { console.warn('No se pudo cargar componente', name, error); }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      loadAgencyComponent('header', 'header-container');
+      loadAgencyComponent('footer', 'footer-container');
+    });
+  </script>
+</body>
+</html>

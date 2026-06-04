@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mis datos | Portal de agencias My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../public/favicon.ico" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <link href="../assets/css/components.css" rel="stylesheet" />
+  <link href="../assets/css/header.css" rel="stylesheet" />
+  <link href="../assets/css/footer.css" rel="stylesheet" />
+  <link href="../assets/css/responsive.css" rel="stylesheet" />
+  <link href="./assets/css/agencias.css" rel="stylesheet" />
+  <link rel="canonical" href="https://mycuscotrip.com/agencias/mis-datos.html" />
+</head>
+<body class="agency-page">
+  <div id="header-container"></div>
+  <main class="agency-main" id="mis-datos">
+    <section class="agency-intro-bar" aria-label="Mis datos">
+      <div>
+        <p class="eyebrow">Portal de agencias</p>
+        <h1>Mis datos</h1>
+        <p>Actualiza tus datos de contacto o cambia tu contraseña.</p>
+      </div>
+      <div class="agency-controls">
+        <a class="agency-button agency-button--ghost" href="./index.html">Nueva reserva</a>
+        <a class="agency-button agency-button--ghost" href="./ordenes.html">Ver mis órdenes</a>
+      </div>
+    </section>
+
+    <section class="profile-card">
+      <h2>Datos de contacto</h2>
+      <p class="dialog-help">El correo de acceso no se puede modificar desde esta sección. Para cambiarlo, contáctanos.</p>
+      <form id="profileForm" class="form-grid">
+        <label class="field"><span>Agencia</span><input id="profileCompany" disabled /></label>
+        <label class="field"><span>Correo de acceso</span><input id="profileEmail" disabled /></label>
+        <div class="profile-phone-row full">
+          <label class="field"><span>Código de país</span><select id="profilePhoneCountry"><option value="51">Perú +51</option><option value="52">México +52</option><option value="56">Chile +56</option><option value="55">Brasil +55</option><option value="57">Colombia +57</option><option value="54">Argentina +54</option><option value="591">Bolivia +591</option><option value="593">Ecuador +593</option><option value="1">Estados Unidos / Canadá +1</option><option value="34">España +34</option><option value="44">Reino Unido +44</option><option value="33">Francia +33</option><option value="49">Alemania +49</option><option value="39">Italia +39</option><option value="81">Japón +81</option><option value="82">Corea del Sur +82</option><option value="86">China +86</option></select></label>
+          <label class="field"><span>Celular / WhatsApp</span><input id="profilePhone" inputmode="numeric" pattern="[0-9 ]*" /></label>
+        </div>
+        <label class="field full"><span>Página web</span><input id="profileWeb" /></label>
+        <div class="full dialog-actions"><button type="submit" class="agency-button agency-button--primary">Guardar cambios</button></div>
+      </form>
+      <div id="profileMessage" class="form-message" hidden></div>
+    </section>
+
+    <section class="profile-card">
+      <h2>Cambiar contraseña</h2>
+      <form id="passwordForm" class="form-grid">
+        <label class="field full"><span>Contraseña actual</span><div class="password-input-wrap"><input id="currentPassword" type="password" required /><button type="button" class="password-toggle" data-toggle-password="currentPassword">Ver</button></div></label>
+        <label class="field full"><span>Nueva contraseña</span><div class="password-input-wrap"><input id="newPassword" type="password" required minlength="8" /><button type="button" class="password-toggle" data-toggle-password="newPassword">Ver</button></div></label>
+        <label class="field full"><span>Confirmar nueva contraseña</span><div class="password-input-wrap"><input id="confirmPassword" type="password" required minlength="8" /><button type="button" class="password-toggle" data-toggle-password="confirmPassword">Ver</button></div></label>
+        <div class="password-checklist full" id="profilePasswordChecklist">
+          <div data-check="length">Mínimo 8 caracteres</div>
+          <div data-check="letter">Incluye una letra</div>
+          <div data-check="number">Incluye un número</div>
+          <div data-check="special">Incluye un carácter especial</div>
+        </div>
+        <div class="full dialog-actions"><button type="submit" class="agency-button agency-button--primary">Actualizar contraseña</button></div>
+      </form>
+      <div id="passwordMessage" class="form-message" hidden></div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+  <script src="../assets/js/components/header.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="./assets/js/pages/agencias-i18n.js"></script>
+  <script src="./assets/js/pages/mis-datos.js" defer></script>
+  <script>
+    async function loadAgencyComponent(name, targetId) { const target = document.getElementById(targetId); if (!target) return; try { const res = await fetch(`../components/${name}.html`); if (!res.ok) throw new Error(name); target.innerHTML = await res.text(); if (name === 'header' && window.MyCuscoTripHeader) new window.MyCuscoTripHeader(); if (name === 'footer' && window.MyCuscoTripFooter) window.MyCuscoTripFooter.initFooterAccordions(); } catch (error) { console.warn('No se pudo cargar componente', name, error); } }
+    document.addEventListener('DOMContentLoaded', () => { loadAgencyComponent('header', 'header-container'); loadAgencyComponent('footer', 'footer-container'); });
+  </script>
+</body>
+</html>

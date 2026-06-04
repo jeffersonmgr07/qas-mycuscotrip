@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verificar correo | My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../public/favicon.ico" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <link href="../assets/css/components.css" rel="stylesheet" />
+  <link href="../assets/css/header.css" rel="stylesheet" />
+  <link href="../assets/css/footer.css" rel="stylesheet" />
+  <link href="../assets/css/responsive.css" rel="stylesheet" />
+  <link href="./assets/css/agencias.css" rel="stylesheet" />
+  <style>
+    .verify-page-bg{
+      min-height:100vh;
+      background:
+        linear-gradient(180deg,rgba(245,250,246,.92),rgba(255,255,255,.96)),
+        url('../assets/img/tours/machu-picchu-full-day-clasico/cover.jpg'),
+        url('../assets/img/tours/machu-picchu-full-day/cover.jpg');
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
+    .verify-wrap{max-width:760px;margin:0 auto;padding:130px 18px 54px;}
+    .verify-card{background:rgba(255,255,255,.92);border:1px solid rgba(6,40,3,.12);border-radius:30px;overflow:hidden;box-shadow:0 22px 58px rgba(9,43,30,.16);backdrop-filter:blur(9px);}
+    .verify-head{background:radial-gradient(circle at 88% 88%,rgba(198,161,91,.45),transparent 34%),linear-gradient(135deg,#062803,#053220);color:#fff;padding:28px 30px;}
+    .verify-head .eyebrow{color:#f2d99d;margin:0 0 10px;font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;}
+    .verify-head h1{font-family:Montserrat,Arial,sans-serif;margin:0;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.05;letter-spacing:-.045em;color:#fff;}
+    .verify-body{padding:28px 30px 30px;text-align:center;}
+    .verify-icon{width:76px;height:76px;border-radius:50%;display:inline-grid;place-items:center;background:#eef7f1;color:#062803;font-size:2.1rem;margin-bottom:16px;border:1px solid rgba(6,40,3,.12);}
+    .verify-title{font-family:Montserrat,Arial,sans-serif;color:#062803;font-size:1.55rem;margin:0 0 8px;}
+    .verify-text{color:#506257;margin:0 auto 18px;max-width:560px;line-height:1.7;}
+    .verify-status{background:#fffaf2;border:1px solid #eadfc9;border-radius:18px;padding:14px 16px;color:#554625;margin:18px auto;max-width:560px;}
+    .verify-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px;}
+    .spinner{width:34px;height:34px;border:4px solid #e5efe9;border-top-color:#062803;border-radius:50%;animation:spin .85s linear infinite;margin:0 auto 16px;}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .is-success .verify-icon{background:#effaf1;color:#126b2f;border-color:#bfe6c8;}
+    .is-error .verify-icon{background:#fff1f0;color:#b42318;border-color:rgba(180,35,24,.18);}
+    @media(max-width:680px){.verify-wrap{padding:100px 12px 34px}.verify-head,.verify-body{padding:22px 18px}.verify-card{border-radius:24px}.verify-actions .agency-button{width:100%;}}
+  </style>
+  <link rel="canonical" href="https://mycuscotrip.com/agencias/verificar.html" />
+</head>
+<body class="agency-page verify-page-bg">
+  <div id="header-container"></div>
+  <main class="verify-wrap">
+    <section class="verify-card" id="verifyCard" aria-live="polite">
+      <div class="verify-head">
+        <p class="eyebrow">Portal de agencias afiliadas</p>
+        <h1>Verificación de correo</h1>
+      </div>
+      <div class="verify-body">
+        <div id="loadingBlock">
+          <div class="spinner" aria-hidden="true"></div>
+          <h2 class="verify-title">Estamos verificando tu correo</h2>
+          <p class="verify-text">Espera unos segundos. Confirmaremos tu registro de agencia de forma segura.</p>
+        </div>
+        <div id="resultBlock" hidden>
+          <div class="verify-icon" id="resultIcon"><i class="fa-solid fa-check"></i></div>
+          <h2 class="verify-title" id="resultTitle">Correo verificado</h2>
+          <p class="verify-text" id="resultText">Tu correo fue verificado correctamente.</p>
+          <div class="verify-status" id="resultStatus">Ya puedes ingresar al portal con tu correo y contraseña.</div>
+          <div class="verify-actions">
+            <a class="agency-button agency-button--primary" href="./login.html">Ingresar al portal</a>
+            <a class="agency-button agency-button--ghost" href="./index.html">Ir a agencias</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+
+  <script src="../assets/js/components/header.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="./assets/js/pages/agencias-i18n.js"></script>
+  <script>
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycmduYce7cpGoMSqR3iqubsC46DiIox7qaNJXFFW8abQpr0s1SYCnYfyA2w95_vGYQ/exec?authuser=0';
+
+    async function loadAgencyComponent(name, targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const res = await fetch(`../components/${name}.html`);
+        target.innerHTML = await res.text();
+        if (name === 'header' && window.MyCuscoTripHeader) new window.MyCuscoTripHeader();
+        if (name === 'footer' && window.MyCuscoTripFooter) window.MyCuscoTripFooter.initFooterAccordions();
+      } catch (error) { console.warn(error); }
+    }
+
+    function setResult(ok, title, message, status) {
+      const card = document.getElementById('verifyCard');
+      const loading = document.getElementById('loadingBlock');
+      const result = document.getElementById('resultBlock');
+      const icon = document.getElementById('resultIcon');
+      loading.hidden = true;
+      result.hidden = false;
+      card.classList.toggle('is-success', !!ok);
+      card.classList.toggle('is-error', !ok);
+      icon.innerHTML = ok ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-triangle-exclamation"></i>';
+      document.getElementById('resultTitle').textContent = title;
+      document.getElementById('resultText').textContent = message;
+      document.getElementById('resultStatus').textContent = status;
+    }
+
+    async function verifyEmailToken() {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token') || '';
+      if (!token) {
+        setResult(false, 'Enlace inválido', 'No encontramos el token de verificación en este enlace.', 'Solicita un nuevo registro o comunícate con My Cusco Trip.');
+        return;
+      }
+
+      try {
+        const response = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ action: 'verifyEmailJson', token })
+        });
+        const text = await response.text();
+        let data;
+        try { data = JSON.parse(text); } catch (error) { throw new Error('Respuesta no válida del servidor.'); }
+
+        if (data.ok) {
+          setResult(true, 'Correo verificado correctamente', data.message || 'Tu correo fue verificado correctamente.', 'Ya puedes ingresar al portal con tu correo y contraseña.');
+        } else {
+          setResult(false, 'No se pudo verificar el correo', data.message || 'El enlace no existe o ya no está disponible.', 'Revisa si usaste el correo más reciente o solicita un nuevo registro.');
+        }
+      } catch (error) {
+        console.error(error);
+        setResult(false, 'No se pudo conectar', 'No pudimos completar la verificación desde esta página.', 'Abre esta página en Chrome o intenta nuevamente en unos minutos.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadAgencyComponent('header', 'header-container');
+      loadAgencyComponent('footer', 'footer-container');
+      verifyEmailToken();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+[
+  {
+    "codigo": "CUZ14D7A9",
+    "apellido": "MUCKLE",
+    "fechaVoucher": "Tuesday, March 17, 2026",
+    "fechaEmision": "2026-03-17",
+    "idioma": "English",
+    "titularReserva": "Jadarious Muckle",
+    "telefonoContacto": "+1 678-209-5705",
+    "cantidadPaxs": 1,
+    "destino": "Cusco - Perú",
+    "packTour": "Machu Picchu Full Day + Panoramic Tour",
+    "agenteAsignado": "Jefferson García",
+    "agenteTelefono": "+51900608980",
+    "hotelInfo": [
+      {
+        "nombre": "Hotel de ejemplo",
+        "ubicacion": "Cusco",
+        "checkIn": "March 17, 2026 - 11:00 AM",
+        "checkOut": "March 19, 2026 - 10:00 AM",
+        "noches": "02",
+        "categoria": "3 estrellas",
+        "habitacion": "Matrimonial",
+        "direccion": "Cusco, Perú",
+        "telefono": "084-000000",
+        "observaciones": "Desayuno incluido / WiFi / Agua caliente"
+      }
+    ],
+    "turistas": [
+      {
+        "nombreCompleto": "Jadarious Muckle",
+        "tipoDocumento": "Passport",
+        "numeroDocumento": "A06359811",
+        "nacionalidad": "United States",
+        "fechaNacimiento": "March 19, 1996",
+        "telefono": "+1 678-209-5705"
+      }
+    ],
+    "servicios": [
+      {
+        "codigo": "CUS100",
+        "nombre": "Panoramic Tour Cusco + Andean Ceremony",
+        "fecha": "March 17, 2026",
+        "horaInicio": "03:00 PM",
+        "horaFin": "06:00 PM",
+        "incluido": true
+      },
+      {
+        "codigo": "TRA001",
+        "nombre": "Transfer Cusco → Ollantaytambo Train Station",
+        "fecha": "March 19, 2026",
+        "horaInicio": "04:00 AM",
+        "horaFin": "06:00 AM",
+        "incluido": true
+      },
+      {
+        "codigo": "EX001",
+        "nombre": "Vistadome upgrade",
+        "fecha": "March 19, 2026",
+        "horaInicio": "-",
+        "horaFin": "-",
+        "incluido": false
+      }
+    ],
+    "incluye": [
+      "Panoramic Tour of Cusco",
+      "Andean Ceremony 'Pago a la Tierra' with local shaman",
+      "Round-trip train tickets The Voyager",
+      "Bus tickets Machu Picchu Pueblo ↔ Machu Picchu Citadel",
+      "Entrance ticket to Machu Picchu Citadel"
+    ],
+    "noIncluye": [
+      "Almuerzos y cenas",
+      "Servicios personales",
+      "Seguro de viaje"
+    ],
+    "vuelos": [
+      {
+        "operador": "LATAM",
+        "numero": "LA2378",
+        "origen": "LA PAZ",
+        "destino": "CUSCO",
+        "salida": "13/8/2019 10:50 AM",
+        "llegada": "13/8/2019 11:50 AM"
+      }
+    ],
+    "pagos": {
+      "totalPendiente": {
+        "label": "Completar pago total",
+        "montoPen": 850,
+        "montoUsd": 230,
+        "url": "https://www.paypal.com/"
+      },
+      "extras": [
+        {
+          "label": "Pagar Boleto Turístico",
+          "descripcion": "Pago pendiente de boleto turístico general",
+          "montoPen": 150,
+          "montoUsd": 41,
+          "url": "https://www.paypal.com/"
+        },
+        {
+          "label": "Pagar ticket de tren",
+          "descripcion": "Pago pendiente de ticket de tren",
+          "montoPen": 490,
+          "montoUsd": 134,
+          "url": "https://www.paypal.com/"
+        }
+      ]
+    },
+    "informacionAdicional": [
+      "Presentarse con anticipación a cada servicio.",
+      "Llevar documento original.",
+      "Coordinar cambios con su agente."
+    ]
+  },
+  {
+    "codigo": "CUZ14D7A12",
+    "apellido": "MELENDEZ",
+    "fechaVoucher": "jueves, 16 de abril de 2026",
+    "fechaEmision": "2026-04-16",
+    "fechaViaje": "2026-04-16",
+    "duracion": "04 días / 03 noches",
+    "idioma": "Español",
+    "titularReserva": "Angelo Michael Melendez Espinoza",
+    "telefonoContacto": "+51934217603",
+    "codigoCupon": "CUZ14D7A12",
+    "cantidadPaxs": 3,
+    "destino": "Cusco, Valle Sagrado y Machu Picchu",
+    "packTour": "Cusco Valle y Machu Picchu - Itinerario Especial",
+    "agenteAsignado": "Jefferson García",
+    "agenteTelefono": "+51 900 608 980",
+    "agenteFoto": "./assets/img/agentes/jefferson-garcia.jpg",
+    "hotelInfo": [
+      {
+        "nombre": "Hotel Cusco Boutique",
+        "ubicacion": "Cusco",
+        "checkIn": "16-abr-2026 - 11:00 AM",
+        "checkOut": "17-abr-2026 - 10:00 AM",
+        "noches": "01",
+        "categoria": "3 estrellas",
+        "habitacion": "Triple",
+        "direccion": "Calle Teqsecocha 566 Cusco, Perú",
+        "telefono": "+51913493167",
+        "observaciones": "Desayuno incluido / WiFi / Agua caliente / Toallas"
+      },
+      {
+        "nombre": "Hotel Luz Garden",
+        "ubicacion": "Aguas Calientes",
+        "checkIn": "17-abr-2026 - 11:00 AM",
+        "checkOut": "18-abr-2026 - 10:00 AM",
+        "noches": "01",
+        "categoria": "3 estrellas",
+        "habitacion": "Triple",
+        "direccion": "Aymuraypa Tikan 109, Aguas Calientes",
+        "telefono": "+51966384656",
+        "observaciones": "Desayuno incluido / WiFi / Agua caliente / Toallas"
+      },
+      {
+        "nombre": "Hotel Cusco Boutique",
+        "ubicacion": "Cusco",
+        "checkIn": "18-abr-2026 - 11:00 AM",
+        "checkOut": "19-abr-2026 - 10:00 AM",
+        "noches": "01",
+        "categoria": "3 estrellas",
+        "habitacion": "Triple",
+        "direccion": "Calle Teqsecocha 566 Cusco, Perú",
+        "telefono": "+51913493167",
+        "observaciones": "Desayuno incluido / WiFi / Agua caliente / Toallas"
+      }
+    ],
+    "turistas": [
+      {
+        "nombreCompleto": "Angelo Michael Melendez Espinoza",
+        "tipoDocumento": "DNI",
+        "numeroDocumento": "70808554",
+        "nacionalidad": "Peruana",
+        "fechaNacimiento": "27/03/2005",
+        "telefono": "+51934217603"
+      },
+      {
+        "nombreCompleto": "Miguel Angel Melendez Herrera",
+        "tipoDocumento": "DNI",
+        "numeroDocumento": "25861017",
+        "nacionalidad": "Peruana",
+        "fechaNacimiento": "19/03/1976",
+        "telefono": "-"
+      },
+      {
+        "nombreCompleto": "Susana Beatriz Espinoza Yzaguirre",
+        "tipoDocumento": "DNI",
+        "numeroDocumento": "25842771",
+        "nacionalidad": "Peruana",
+        "fechaNacimiento": "01/03/1977",
+        "telefono": "-"
+      }
+    ],
+    "servicios": [
+      {
+        "codigo": "TRA001",
+        "nombre": "Traslado Aeropuerto / Hotel",
+        "fecha": "Jue - 16-Abr-2026",
+        "horaInicio": "07:00 a. m.",
+        "horaFin": "07:20 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "BTG004",
+        "nombre": "Boleto Turístico General Adulto Peruano",
+        "fecha": "Jue - 16-Abr-2026",
+        "horaInicio": "-",
+        "horaFin": "-",
+        "incluido": false
+      },
+      {
+        "codigo": "CUS001",
+        "nombre": "City Tour Cusco + Centros Arqueológicos",
+        "fecha": "Jue - 16-Abr-2026",
+        "horaInicio": "01:30 p. m.",
+        "horaFin": "06:30 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "TRA008",
+        "nombre": "Traslado Cusco / Est. Ollanta",
+        "fecha": "Vie - 17-Abr-2026",
+        "horaInicio": "03:00 a. m.",
+        "horaFin": "05:00 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CONS10",
+        "nombre": "Bus Consettur - Subida a Machu Picchu",
+        "fecha": "Sab - 18-Abr-2026",
+        "horaInicio": "10:00 a. m.",
+        "horaFin": "10:45 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "MAPI04",
+        "nombre": "Ingreso Machu Picchu - Adulto PE - C1",
+        "fecha": "Sab - 18-Abr-2026",
+        "horaInicio": "11:00 a. m.",
+        "horaFin": "12:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS028",
+        "nombre": "Tour Machu Picchu",
+        "fecha": "Sab - 18-Abr-2026",
+        "horaInicio": "11:00 a. m.",
+        "horaFin": "03:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CONS20",
+        "nombre": "Bus Consettur - Bajada a Machu Picchu Pueblo",
+        "fecha": "Sab - 18-Abr-2026",
+        "horaInicio": "03:30 p. m.",
+        "horaFin": "04:15 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "TRA009",
+        "nombre": "Traslado Est. Ollanta / Cusco",
+        "fecha": "Sab - 18-Abr-2026",
+        "horaInicio": "06:00 p. m.",
+        "horaFin": "08:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS004",
+        "nombre": "Tour Valle Sagrado VIP + Almuerzo buffet",
+        "fecha": "Dom - 19-Abr-2026",
+        "horaInicio": "07:00 a. m.",
+        "horaFin": "07:30 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "TRA002",
+        "nombre": "Traslado Hotel / Aeropuerto",
+        "fecha": "Dom - 19-Abr-2026",
+        "horaInicio": "08:00 p. m.",
+        "horaFin": "08:20 p. m.",
+        "incluido": true
+      }
+    ],
+    "vuelos": [
+      {
+        "operador": "JetSmart",
+        "numero": "JA7019",
+        "origen": "Lima",
+        "destino": "Cusco",
+        "salida": "16-Abr-2026 05:15 AM",
+        "llegada": "16-Abr-2026 06:40 AM"
+      },
+      {
+        "operador": "JetSmart",
+        "numero": "JA7040",
+        "origen": "Cusco",
+        "destino": "Lima",
+        "salida": "19-Abr-2026 10:10 PM",
+        "llegada": "19-Abr-2026 11:50 PM"
+      }
+    ],
+    "incluye": [
+      "02 noches de alojamiento en Hotel Cusco Boutique Cat. 3 estrellas",
+      "01 noche de alojamiento en Hotel Rumi Cat. 3 estrellas",
+      "Desayunos incluidos (semi-buffet)",
+      "Traslados aeropuerto – hotel – aeropuerto",
+      "Entrada a Machu Picchu (Circuito 1)",
+      "Ticket de bus subida y bajada para Machu Picchu",
+      "Traslados a estación de tren Ollantaytambo (ida y retorno)",
+      "Guías profesionales certificados para todas las excursiones",
+      "Ceremonia andina de bienvenida y pago a la tierra",
+      "Asistencia y orientación al turista 24/7"
+    ],
+    "noIncluye": [
+      "Pasajes aéreos Lima – Cusco – Lima (se pueden cotizar aparte)",
+      "Almuerzos y cenas (excepto desayuno y almuerzo en Montaña de Colores)",
+      "Ingresos no contemplados en el itinerario",
+      "Traslados o servicios fuera del itinerario"
+    ],
+    "informacionAdicional": [
+      "Presentarse con anticipación a cada servicio.",
+      "Llevar documento original.",
+      "Coordinar cambios con su agente.",
+      "Recojo aeropuerto de Angel Melendez programado para el 16-abr-2026 10:30 PM - Vuelo JetSmart JA7031"
+    ],
+    "pagos": {
+      "totalPendiente": {
+        "label": "Reserva totalmente pagada",
+        "descripcion": "Todos los servicios han sido cancelados en su totalidad.",
+        "montoPen": 0,
+        "url": "",
+        "detalle": [
+          "PAXS #01 - S/ 559.90",
+          "PAXS #02 - S/ 559.90",
+          "PAXS #03 - S/ 529.00",
+          "Adicional: Almuerzo Buffet Vale - S/ 105.00",
+          "TOTAL PAGADO S/ 1,753.80"
+        ],
+        "badge": "PAGADO"
+      },
+      "extras": []
+    }
+  },
+  {
+    "codigo": "BR-1367382877",
+    "apellido": "BATISTA",
+    "fechaVoucher": "jueves, 14 de mayo de 2026",
+    "fechaEmision": "2026-05-14",
+    "fechaViaje": "2026-05-14",
+    "duracion": "Full Day",
+    "idioma": "Español",
+    "titularReserva": "John Klever Batista Rivera",
+    "telefonoContacto": "+507 6714-5233",
+    "codigoCupon": "VIA-85475879",
+    "cantidadPaxs": 6,
+    "destino": "Cusco - Montaña de Colores Vinicunca",
+    "packTour": "Tour Montaña de Colores - Vinicunca Full Day",
+    "agenteAsignado": "Jefferson García",
+    "agenteTelefono": "+51 900 608 980",
+    "agenteFoto": "./assets/img/agentes/jefferson-garcia.jpg",
+    "hotelInfo": [],
+    "turistas": [
+      {
+        "nombreCompleto": "Montserrat Johana Batista Rivera",
+        "tipoDocumento": "Pasaporte",
+        "numeroDocumento": "PA0862921",
+        "nacionalidad": "Panameña",
+        "fechaNacimiento": "26/12/2007",
+        "telefono": "-"
+      },
+      {
+        "nombreCompleto": "Grecia Maybel Morales Quintero",
+        "tipoDocumento": "Pasaporte",
+        "numeroDocumento": "PA0695435",
+        "nacionalidad": "Panameña",
+        "fechaNacimiento": "07/07/1996",
+        "telefono": "-"
+      },
+      {
+        "nombreCompleto": "Eurania Maribel Rivera Gutierrez",
+        "tipoDocumento": "Pasaporte",
+        "numeroDocumento": "PA0947569",
+        "nacionalidad": "Panameña",
+        "fechaNacimiento": "29/08/1967",
+        "telefono": "-"
+      },
+      {
+        "nombreCompleto": "Zuleika Graciela Castro de Gracia",
+        "tipoDocumento": "Pasaporte",
+        "numeroDocumento": "PA1092866",
+        "nacionalidad": "Panameña",
+        "fechaNacimiento": "19/10/1967",
+        "telefono": "-"
+      },
+      {
+        "nombreCompleto": "Laura Librada Patiño Castro",
+        "tipoDocumento": "Pasaporte",
+        "numeroDocumento": "PA0843986",
+        "nacionalidad": "Panameña",
+        "fechaNacimiento": "15/09/1997",
+        "telefono": "-"
+      },
+      {
+        "nombreCompleto": "Soledad Aurora Castro de García",
+        "tipoDocumento": "Pasaporte",
+        "numeroDocumento": "PA1337728",
+        "nacionalidad": "Panameña",
+        "fechaNacimiento": "14/05/1965",
+        "telefono": "-",
+        "destacado": true,
+        "destacadoIcono": "🎂",
+        "destacadoTexto": "Cumpleaños - 14 de mayo"
+      }
+    ],
+    "servicios": [
+      {
+        "codigo": "TR03",
+        "nombre": "Recojo desde hotel",
+        "fecha": "Jue - 14-May-2026",
+        "horaInicio": "06:50 a. m.",
+        "horaFin": "06:00 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS010",
+        "nombre": "Tour de Montaña de Colores - Vinicunca Full Day",
+        "fecha": "Jue - 14-May-2026",
+        "horaInicio": "06:00 a. m.",
+        "horaFin": "05:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "UP-CUS0010",
+        "nombre": "Upgrade Four-wheeler - Cuatrimotos",
+        "fecha": "Jue - 14-May-2026",
+        "horaInicio": "Incluido",
+        "horaFin": "Incluido",
+        "incluido": true
+      },
+      {
+        "codigo": "TCK-CUS010",
+        "nombre": "Ticket de ingreso a Montaña Vinicunca",
+        "fecha": "Jue - 14-May-2026",
+        "horaInicio": "Sin hora",
+        "horaFin": "Sin hora",
+        "incluido": true
+      }
+    ],
+    "vuelos": [],
+    "incluye": [
+      "Desayuno básico con alimentos típicos de la zona",
+      "Almuerzo con platos típicos de la zona",
+      "Transporte turístico",
+      "Botiquín de primeros auxilios y equipo de asistencia",
+      "Acceso preferencial sin filas",
+      "Asistencia personalizada durante la excursión",
+      "4 unidades de cuatrimotos: 2 cuatrimotos individuales y 2 cuatrimotos dobles para 2 personas cada una"
+    ],
+    "noIncluye": [
+      "Tickets de ingreso a Montaña Vinicunca ya pagados",
+      "Upgrade Four-wheeler / cuatrimotos pagado"
+    ],
+    "informacionAdicional": [
+      "Punto de recogida: Ayenda Casa Escondida San Cristobal Premium, Calle Pumacurco, Cusco, Peru.",
+      "Presentarse con anticipación a cada servicio.",
+      "Llevar documento original.",
+      "Coordinar cambios con su agente.",
+      "Para toda clase de asistencia durante su viaje puede contactarse con su agente asignado: Jefferson García - +51 900 608 980."
+    ],
+    "pagos": {
+      "totalPendiente": {
+        "label": "Todo pagado",
+        "descripcion": "Todos los servicios, tickets de ingreso y upgrade de cuatrimotos han sido pagados en su totalidad.",
+        "montoPen": 0,
+        "montoUsd": 0,
+        "url": "",
+        "detalle": [
+          "Reserva base: PAGADA",
+          "Tickets de ingreso a Montaña Vinicunca: PAGADOS",
+          "Upgrade Four-wheeler / cuatrimotos: PAGADO",
+          "TOTAL PENDIENTE USD 0.00"
+        ],
+        "badge": "PAGADO"
+      },
+      "extras": []
+    }
+  }
+]

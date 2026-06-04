@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confirmando pago Mercado Pago | My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../public/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <link href="../assets/css/header.css" rel="stylesheet" />
+  <link href="../assets/css/footer.css" rel="stylesheet" />
+  <link href="./assets/css/agencias.css" rel="stylesheet" />
+  <script src="https://www.mercadopago.com/v2/security.js" view="checkout"></script>
+  <link rel="canonical" href="https://mycuscotrip.com/agencias/mercadopago-retorno.html" />
+</head>
+<body class="agency-page">
+  <div id="header-container"></div>
+  <main class="agency-main agency-main--narrow">
+    <section class="auth-card payment-card">
+      <h2>Confirmando pago de reserva</h2>
+      <p id="mercadoPagoReturnMessage" class="dialog-help">Estamos validando el pago. No cierres esta ventana.</p>
+      <div class="dialog-actions">
+        <a class="agency-button agency-button--ghost" href="./ordenes.html">Ver mis órdenes</a>
+        <a class="agency-button agency-button--primary" href="./index.html">Nueva reserva</a>
+      </div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+  <script src="../assets/js/components/header.js"></script>
+  <script src="../assets/js/components/footer.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="./assets/js/pages/agencias-i18n.js"></script>
+  <script src="./assets/js/pages/mercadopago-retorno.js" defer></script>
+  <script>
+    async function loadAgencyComponent(name,targetId){const target=document.getElementById(targetId);if(!target)return;try{const res=await fetch(`../components/${name}.html`);target.innerHTML=await res.text();if(name==='header'&&window.MyCuscoTripHeader)new window.MyCuscoTripHeader();if(name==='footer'&&window.MyCuscoTripFooter)window.MyCuscoTripFooter.initFooterAccordions();}catch(e){console.warn(e)}}
+    document.addEventListener('DOMContentLoaded',()=>{loadAgencyComponent('header','header-container');loadAgencyComponent('footer','footer-container');});
+  </script>
+</body>
+</html>

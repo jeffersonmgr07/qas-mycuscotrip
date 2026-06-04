@@ -1,0 +1,66 @@
+<header class="header">
+  <div class="container header-container">
+    <a class="logo" href="/" aria-label="My Cusco Trip">
+      <img src="/assets/img/logos/Logo1.png" alt="My Cusco Trip" />
+    </a>
+
+    <div class="header-actions">
+      <div class="lang-switcher" aria-label="Selector de idioma">
+        <button type="button" class="lang-switcher__toggle" aria-expanded="false">
+          <i class="fas fa-globe"></i>
+          <span>ES</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <div class="lang-switcher__menu" hidden>
+          <a href="/" data-lang="es">Español</a>
+          <a href="/en/" data-lang="en">English</a>
+          <a href="/pt/" data-lang="pt">Português</a>
+          <a href="/fr/" data-lang="fr">Français</a>
+          <a href="/de/" data-lang="de">Deutsch</a>
+          <a href="/it/" data-lang="it">Italiano</a>
+          <a href="/zh/" data-lang="zh">中文</a>
+          <a href="/ja/" data-lang="ja">日本語</a>
+        </div>
+      </div>
+
+      <div class="wa-header">
+        <a href="https://wa.me/51900608980" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <img src="/assets/img/logos/LogoWhatsapp.png" alt="WhatsApp" />
+        </a>
+      </div>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNavigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="nav" id="mainNavigation" aria-label="Menú principal">
+      <ul class="nav-menu">
+        <li><a href="/machu-picchu-tours.html" data-i18n="nav.machuPicchuTours"> Tours a Machu Picchu</a></li>
+        <li><a href="/cusco-tours.html" data-i18n="nav.cuscoTours"> Tours en Cusco</a></li>
+        <li><a href="/paquetes-cusco.html" data-i18n="nav.packages"> Paquetes completos</a></li>
+        <li><a href="/explora-peru.html" data-i18n="nav.explorePeru"> Explora Perú</a></li>
+        <li class="nav-item nav-item--dropdown nav-item--trekkings" data-dropdown="trekkings">
+          <a
+            class="nav-dropdown-toggle"
+            href="/trekkings.html"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="trekkingsDropdown"
+          >
+            <span data-i18n="nav.trekkings">Trekkings</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <span class="nav-dropdown-bridge" aria-hidden="true"></span>
+          <ul id="trekkingsDropdown" class="nav-dropdown nav-dropdown--trekkings" aria-label="Submenú de trekkings">
+            <li><a href="/trekkings.html?categoria=camino-inca" data-i18n="nav.incaTrail"> Camino Inca</a></li>
+            <li><a href="/trekkings.html?categoria=rutas-machu-picchu" data-i18n="nav.routesMachuPicchu"> Rutas a Machu Picchu</a></li>
+            <li><a href="/trekkings.html?categoria=inca-jungle" data-i18n="nav.incaJungle"> Inca Jungle</a></li>
+          </ul>
+        </li>
+        <li><a href="/mi-reserva.html" class="nav-reserva" data-i18n="nav.myReservation"> Mi Reserva</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

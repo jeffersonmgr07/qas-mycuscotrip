@@ -1,0 +1,992 @@
+<!-- ============================================
+   MODAL.HTML
+   Modal reutilizable para diferentes propósitos
+   ============================================ -->
+
+<div class="modal" id="modal-{{id}}" data-modal-type="{{type}}" aria-hidden="true" role="dialog">
+  <!-- Overlay -->
+  <div class="modal-overlay" tabindex="-1" data-modal-close></div>
+  
+  <!-- Contenido del modal -->
+  <div class="modal-container" role="document">
+    <!-- Header del modal -->
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title-{{id}}">{{title}}</h2>
+      
+      <button type="button" 
+              class="modal-close" 
+              aria-label="Cerrar modal"
+              data-modal-close>
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <!-- Body del modal -->
+    <div class="modal-body" id="modal-body-{{id}}">
+      <!-- Contenido dinámico se insertará aquí -->
+      <div class="modal-content-placeholder">
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <span>Cargando contenido...</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer del modal (opcional) -->
+    {{#if showFooter}}
+    <div class="modal-footer">
+      <div class="modal-actions">
+        {{#each actions}}
+        <button type="button" 
+                class="btn btn-{{this.type}} {{this.className}}"
+                data-action="{{this.action}}"
+                {{#if this.disabled}}disabled{{/if}}>
+          {{#if this.icon}}
+          <i class="{{this.icon}}"></i>
+          {{/if}}
+          {{this.label}}
+        </button>
+        {{/each}}
+        
+        <button type="button" 
+                class="btn btn-outline" 
+                data-modal-close>
+          Cancelar
+        </button>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
+<!-- Estilos del modal -->
+<style>
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.modal.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal.animating {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.modal-container {
+  position: relative;
+  z-index: 2;
+  background: var(--mct-surface);
+  border-radius: var(--mct-radius-lg);
+  box-shadow: var(--mct-shadow-xl);
+  max-width: {{width}};
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: modalSlideIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-bottom: 1px solid var(--mct-border-light);
+  background: var(--mct-surface);
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.modal-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--mct-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.modal-close:hover {
+  background: var(--mct-surface-tertiary);
+  color: var(--color-accent);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: var(--spacing-xl);
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.modal-content-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--mct-muted);
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.loading-spinner i {
+  font-size: 2rem;
+  color: var(--color-accent);
+}
+
+.loading-spinner span {
+  font-size: 0.9rem;
+  color: var(--mct-muted);
+}
+
+.modal-footer {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-top: 1px solid var(--mct-border-light);
+  background: var(--mct-surface-secondary);
+  flex-shrink: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Modal sizes */
+.modal-container.small {
+  max-width: 400px;
+}
+
+.modal-container.medium {
+  max-width: 600px;
+}
+
+.modal-container.large {
+  max-width: 800px;
+}
+
+.modal-container.xlarge {
+  max-width: 1000px;
+}
+
+.modal-container.fullscreen {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Modal types */
+.modal-container.alert {
+  max-width: 400px;
+}
+
+.modal-container.confirm {
+  max-width: 500px;
+}
+
+.modal-container.form {
+  max-width: 600px;
+}
+
+.modal-container.image {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+/* Content inside modal */
+.modal-content {
+  width: 100%;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.modal-content p {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--mct-radius);
+  margin-bottom: var(--spacing-md);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.modal-form .form-group {
+  margin-bottom: 0;
+}
+
+/* Alert modal specific */
+.alert-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.alert-icon i {
+  font-size: 3rem;
+  color: var(--alert-color, var(--color-accent));
+}
+
+.alert-message {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Confirm modal specific */
+.confirm-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Image modal specific */
+.modal-container.image .modal-body {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container.image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Scrollbar styling for modal body */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: var(--mct-surface-tertiary);
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: var(--mct-muted-light);
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--mct-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal {
+    padding: 10px;
+  }
+  
+  .modal-container {
+    max-height: 95vh;
+  }
+  
+  .modal-header {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .modal-body {
+    padding: var(--spacing-lg);
+  }
+  
+  .modal-footer {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .modal-actions .btn {
+    width: 100%;
+  }
+  
+  .modal-container.fullscreen {
+    padding: 0;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .modal-container {
+    background: #1a1a1a;
+    color: #f0f0f0;
+  }
+  
+  .modal-header {
+    background: #222;
+    border-bottom-color: #333;
+  }
+  
+  .modal-footer {
+    background: #222;
+    border-top-color: #333;
+  }
+  
+  .modal-title {
+    color: #f0f0f0;
+  }
+  
+  .modal-close {
+    color: #999;
+  }
+  
+  .modal-close:hover {
+    background: #333;
+    color: var(--color-accent);
+  }
+}
+</style>
+
+<!-- JavaScript para funcionalidad del modal -->
+<script>
+class Modal {
+  constructor(element) {
+    this.modal = element;
+    this.id = this.modal.id;
+    this.type = this.modal.dataset.modalType || 'default';
+    this.isOpen = false;
+    this.callbacks = {};
+    
+    this.init();
+  }
+  
+  init() {
+    this.setupElements();
+    this.setupEventListeners();
+    this.setupAccessibility();
+  }
+  
+  setupElements() {
+    this.overlay = this.modal.querySelector('.modal-overlay');
+    this.container = this.modal.querySelector('.modal-container');
+    this.closeBtn = this.modal.querySelector('.modal-close');
+    this.titleElement = this.modal.querySelector('.modal-title');
+    this.bodyElement = this.modal.querySelector('.modal-body');
+    this.footerElement = this.modal.querySelector('.modal-footer');
+    this.actionsContainer = this.modal.querySelector('.modal-actions');
+  }
+  
+  setupEventListeners() {
+    // Cerrar con botón X
+    if (this.closeBtn) {
+      this.closeBtn.addEventListener('click', () => this.close());
+    }
+    
+    // Cerrar con overlay
+    if (this.overlay) {
+      this.overlay.addEventListener('click', () => {
+        if (this.config?.closeOnOverlayClick !== false) {
+          this.close();
+        }
+      });
+    }
+    
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isOpen) {
+        if (this.config?.closeOnEsc !== false) {
+          this.close();
+        }
+      }
+    });
+    
+    // Acciones del footer
+    if (this.actionsContainer) {
+      this.actionsContainer.addEventListener('click', (e) => {
+        const actionBtn = e.target.closest('[data-action]');
+        if (actionBtn) {
+          const action = actionBtn.dataset.action;
+          this.handleAction(action);
+        }
+      });
+    }
+  }
+  
+  setupAccessibility() {
+    // Aria attributes
+    this.modal.setAttribute('aria-modal', 'true');
+    this.modal.setAttribute('aria-labelledby', `modal-title-${this.id}`);
+    this.modal.setAttribute('aria-describedby', `modal-body-${this.id}`);
+    
+    // Focus management
+    this.modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && this.isOpen) {
+        this.trapFocus(e);
+      }
+    });
+  }
+  
+  trapFocus(e) {
+    const focusableElements = this.getFocusableElements();
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    
+    if (e.shiftKey && document.activeElement === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    } else if (!e.shiftKey && document.activeElement === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
+  }
+  
+  getFocusableElements() {
+    return Array.from(this.modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )).filter(el => !el.disabled && el.offsetParent !== null);
+  }
+  
+  open(config = {}) {
+    if (this.isOpen) return;
+    
+    this.config = {
+      title: config.title || this.titleElement?.textContent || '',
+      content: config.content || '',
+      width: config.width || '600px',
+      size: config.size || 'medium',
+      showFooter: config.showFooter !== undefined ? config.showFooter : true,
+      closeOnOverlayClick: config.closeOnOverlayClick !== false,
+      closeOnEsc: config.closeOnEsc !== false,
+      onOpen: config.onOpen,
+      onClose: config.onClose,
+      onConfirm: config.onConfirm,
+      onCancel: config.onCancel,
+      actions: config.actions || [],
+      className: config.className || '',
+      data: config.data || {}
+    };
+    
+    // Actualizar configuración
+    this.updateConfig();
+    
+    // Mostrar modal
+    document.body.style.overflow = 'hidden';
+    this.modal.classList.add('active');
+    this.isOpen = true;
+    
+    // Focus en el primer elemento enfocable
+    setTimeout(() => {
+      const focusableElements = this.getFocusableElements();
+      if (focusableElements.length > 0) {
+        focusableElements[0].focus();
+      }
+      
+      // Ejecutar callback onOpen
+      if (typeof this.config.onOpen === 'function') {
+        this.config.onOpen(this);
+      }
+      
+      // Emitir evento
+      this.emit('open', this);
+    }, 10);
+  }
+  
+  updateConfig() {
+    // Título
+    if (this.titleElement && this.config.title) {
+      this.titleElement.textContent = this.config.title;
+    }
+    
+    // Contenido
+    if (this.config.content && this.bodyElement) {
+      if (typeof this.config.content === 'string') {
+        this.bodyElement.innerHTML = this.config.content;
+      } else if (this.config.content instanceof HTMLElement) {
+        this.bodyElement.innerHTML = '';
+        this.bodyElement.appendChild(this.config.content);
+      }
+    }
+    
+    // Tamaño
+    if (this.container) {
+      // Remover clases de tamaño anteriores
+      this.container.classList.remove('small', 'medium', 'large', 'xlarge', 'fullscreen');
+      // Agregar nueva clase de tamaño
+      this.container.classList.add(this.config.size);
+      
+      // Ancho personalizado
+      if (this.config.width && !['small', 'medium', 'large', 'xlarge', 'fullscreen'].includes(this.config.size)) {
+        this.container.style.maxWidth = this.config.width;
+      } else {
+        this.container.style.maxWidth = '';
+      }
+    }
+    
+    // Clases adicionales
+    if (this.config.className) {
+      this.container.classList.add(...this.config.className.split(' '));
+    }
+    
+    // Footer
+    if (this.footerElement) {
+      this.footerElement.style.display = this.config.showFooter ? '' : 'none';
+    }
+    
+    // Acciones
+    if (this.actionsContainer && this.config.actions.length > 0) {
+      this.updateActions();
+    }
+  }
+  
+  updateActions() {
+    if (!this.actionsContainer) return;
+    
+    this.actionsContainer.innerHTML = '';
+    
+    this.config.actions.forEach(action => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = `btn btn-${action.type || 'primary'} ${action.className || ''}`;
+      button.dataset.action = action.id || action.label.toLowerCase();
+      
+      if (action.disabled) {
+        button.disabled = true;
+      }
+      
+      if (action.icon) {
+        const icon = document.createElement('i');
+        icon.className = action.icon;
+        button.appendChild(icon);
+      }
+      
+      const text = document.createTextNode(action.label);
+      button.appendChild(text);
+      
+      this.actionsContainer.appendChild(button);
+    });
+    
+    // Agregar botón cancelar si no existe
+    const hasCancel = this.config.actions.some(a => a.id === 'cancel');
+    if (!hasCancel) {
+      const cancelBtn = document.createElement('button');
+      cancelBtn.type = 'button';
+      cancelBtn.className = 'btn btn-outline';
+      cancelBtn.dataset.action = 'cancel';
+      cancelBtn.textContent = 'Cancelar';
+      this.actionsContainer.appendChild(cancelBtn);
+    }
+  }
+  
+  close() {
+    if (!this.isOpen) return;
+    
+    // Animación de salida
+    this.modal.classList.remove('active');
+    this.modal.classList.add('animating');
+    
+    setTimeout(() => {
+      this.modal.classList.remove('animating');
+      document.body.style.overflow = '';
+      this.isOpen = false;
+      
+      // Ejecutar callback onClose
+      if (typeof this.config.onClose === 'function') {
+        this.config.onClose(this);
+      }
+      
+      // Emitir evento
+      this.emit('close', this);
+    }, 300);
+  }
+  
+  handleAction(action) {
+    switch (action) {
+      case 'confirm':
+        if (typeof this.config.onConfirm === 'function') {
+          const result = this.config.onConfirm(this.config.data);
+          if (result !== false) {
+            this.close();
+          }
+        } else {
+          this.close();
+        }
+        break;
+        
+      case 'cancel':
+        if (typeof this.config.onCancel === 'function') {
+          this.config.onCancel(this.config.data);
+        }
+        this.close();
+        break;
+        
+      default:
+        // Acción personalizada
+        this.emit('action', { action, data: this.config.data });
+        break;
+    }
+  }
+  
+  // Métodos de contenido
+  setTitle(title) {
+    if (this.titleElement) {
+      this.titleElement.textContent = title;
+    }
+    return this;
+  }
+  
+  setContent(content) {
+    if (this.bodyElement) {
+      if (typeof content === 'string') {
+        this.bodyElement.innerHTML = content;
+      } else if (content instanceof HTMLElement) {
+        this.bodyElement.innerHTML = '';
+        this.bodyElement.appendChild(content);
+      }
+    }
+    return this;
+  }
+  
+  appendContent(content) {
+    if (this.bodyElement) {
+      if (typeof content === 'string') {
+        const temp = document.createElement('div');
+        temp.innerHTML = content;
+        while (temp.firstChild) {
+          this.bodyElement.appendChild(temp.firstChild);
+        }
+      } else if (content instanceof HTMLElement) {
+        this.bodyElement.appendChild(content);
+      }
+    }
+    return this;
+  }
+  
+  clearContent() {
+    if (this.bodyElement) {
+      this.bodyElement.innerHTML = '';
+    }
+    return this;
+  }
+  
+  showLoading(message = 'Cargando...') {
+    if (this.bodyElement) {
+      this.bodyElement.innerHTML = `
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <span>${message}</span>
+        </div>
+      `;
+    }
+    return this;
+  }
+  
+  // Métodos de utilidad
+  showAlert(config) {
+    const defaultConfig = {
+      title: 'Atención',
+      message: '',
+      type: 'info',
+      icon: 'fa-info-circle',
+      confirmText: 'Aceptar',
+      onConfirm: null
+    };
+    
+    const alertConfig = { ...defaultConfig, ...config };
+    
+    const iconColor = {
+      info: 'var(--color-primary)',
+      success: 'var(--color-accent2)',
+      warning: '#ffc107',
+      error: '#dc3545'
+    }[alertConfig.type] || 'var(--color-primary)';
+    
+    const content = `
+      <div class="alert-content">
+        <div class="alert-icon">
+          <i class="fas ${alertConfig.icon}" style="color: ${iconColor}; font-size: 3rem;"></i>
+        </div>
+        <div class="alert-message">
+          ${alertConfig.message}
+        </div>
+      </div>
+    `;
+    
+    this.setTitle(alertConfig.title)
+        .setContent(content)
+        .setConfig({
+          size: 'small',
+          showFooter: true,
+          actions: [{
+            id: 'confirm',
+            label: alertConfig.confirmText,
+            type: 'primary',
+            icon: 'fas fa-check'
+          }],
+          onConfirm: alertConfig.onConfirm
+        })
+        .open();
+    
+    return this;
+  }
+  
+  showConfirm(config) {
+    const defaultConfig = {
+      title: 'Confirmar',
+      message: '¿Estás seguro?',
+      confirmText: 'Sí',
+      cancelText: 'No',
+      onConfirm: null,
+      onCancel: null
+    };
+    
+    const confirmConfig = { ...defaultConfig, ...config };
+    
+    const content = `
+      <div class="confirm-content">
+        <div class="alert-icon">
+          <i class="fas fa-question-circle" style="color: var(--color-primary); font-size: 3rem;"></i>
+        </div>
+        <div class="alert-message">
+          ${confirmConfig.message}
+        </div>
+      </div>
+    `;
+    
+    this.setTitle(confirmConfig.title)
+        .setContent(content)
+        .setConfig({
+          size: 'small',
+          showFooter: true,
+          actions: [
+            {
+              id: 'cancel',
+              label: confirmConfig.cancelText,
+              type: 'outline',
+              icon: 'fas fa-times'
+            },
+            {
+              id: 'confirm',
+              label: confirmConfig.confirmText,
+              type: 'primary',
+              icon: 'fas fa-check'
+            }
+          ],
+          onConfirm: confirmConfig.onConfirm,
+          onCancel: confirmConfig.onCancel
+        })
+        .open();
+    
+    return this;
+  }
+  
+  showForm(formConfig) {
+    // Implementación para mostrar formularios
+    return this;
+  }
+  
+  // Métodos de configuración
+  setConfig(config) {
+    this.config = { ...this.config, ...config };
+    this.updateConfig();
+    return this;
+  }
+  
+  // Event system
+  on(event, callback) {
+    if (!this.callbacks[event]) {
+      this.callbacks[event] = [];
+    }
+    this.callbacks[event].push(callback);
+    return this;
+  }
+  
+  off(event, callback) {
+    if (this.callbacks[event]) {
+      this.callbacks[event] = this.callbacks[event].filter(cb => cb !== callback);
+    }
+    return this;
+  }
+  
+  emit(event, data) {
+    if (this.callbacks[event]) {
+      this.callbacks[event].forEach(callback => {
+        try {
+          callback(data);
+        } catch (error) {
+          console.error(`Error in modal event callback for "${event}":`, error);
+        }
+      });
+    }
+  }
+  
+  // Métodos estáticos
+  static create(options = {}) {
+    const id = options.id || `modal-${Date.now()}`;
+    const type = options.type || 'default';
+    
+    const modalHTML = `
+      <div class="modal" id="${id}" data-modal-type="${type}">
+        <div class="modal-overlay" data-modal-close></div>
+        <div class="modal-container ${options.size || 'medium'}">
+          <div class="modal-header">
+            <h2 class="modal-title">${options.title || ''}</h2>
+            <button type="button" class="modal-close" data-modal-close>
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            ${options.content || ''}
+          </div>
+          ${options.showFooter !== false ? `
+          <div class="modal-footer">
+            <div class="modal-actions">
+              ${options.actions ? options.actions.map(action => `
+                <button type="button" class="btn btn-${action.type || 'primary'}" data-action="${action.id || 'action'}">
+                  ${action.label}
+                </button>
+              `).join('') : ''}
+              <button type="button" class="btn btn-outline" data-modal-close>
+                Cancelar
+              </button>
+            </div>
+          </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+    
+    const temp = document.createElement('div');
+    temp.innerHTML = modalHTML;
+    const modalElement = temp.firstElementChild;
+    
+    document.body.appendChild(modalElement);
+    
+    const modal = new Modal(modalElement);
+    
+    // Configuración adicional
+    if (options.onOpen) modal.on('open', options.onOpen);
+    if (options.onClose) modal.on('close', options.onClose);
+    
+    return modal;
+  }
+  
+  static alert(config) {
+    const modal = Modal.create({});
+    return modal.showAlert(config);
+  }
+  
+  static confirm(config) {
+    const modal = Modal.create({});
+    return modal.showConfirm(config);
+  }
+  
+  static get(id) {
+    const element = document.getElementById(id);
+    if (element && element.modalInstance) {
+      return element.modalInstance;
+    }
+    return null;
+  }
+  
+  static closeAll() {
+    document.querySelectorAll('.modal.active').forEach(modal => {
+      if (modal.modalInstance) {
+        modal.modalInstance.close();
+      }
+    });
+  }
+}
+
+// Inicializar modales existentes
+document.addEventListener('DOMContentLoaded', () => {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    modal.modalInstance = new Modal(modal);
+  });
+  
+  console.log(`✅ ${modals.length} modals inicializados`);
+  
+  // Hacer Modal disponible globalmente
+  window.Modal = Modal;
+  
+  // Métodos globales de conveniencia
+  window.showAlert = (config) => Modal.alert(config);
+  window.showConfirm = (config) => Modal.confirm(config);
+});
+</script>

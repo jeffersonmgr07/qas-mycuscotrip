@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confirmando pago de tren | My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/public/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="/assets/css/main.css" rel="stylesheet"/>
+  <link href="/assets/css/components.css" rel="stylesheet"/>
+  <link href="/assets/css/header.css" rel="stylesheet"/>
+  <link href="/assets/css/footer.css" rel="stylesheet"/>
+  <link href="/assets/css/responsive.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/trenes/assets/css/trenes.css" />
+</head>
+<body class="mct-trains-page">
+  <div id="header-container"></div>
+  <main class="return-page">
+    <section class="modal-panel return-card">
+      <span class="eyebrow">PayPal</span>
+      <h1>Confirmando pago</h1>
+      <p id="paypalReturnMessage">Estamos validando el pago con PayPal. No cierres esta ventana.</p>
+      <div class="modal-actions">
+        <a class="secondary-button" href="/trenes/">Comprar otro tren</a>
+        <a class="checkout-button" href="/">Volver a My Cusco Trip</a>
+      </div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+  <script>
+    async function loadMctComponent(componentName, targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const response = await fetch(`/components/${componentName}.html`, { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`No se pudo cargar ${componentName}`);
+        target.innerHTML = await response.text();
+      } catch (error) {
+        console.warn(error.message);
+      }
+    }
+    async function initializeMctShell() {
+      await Promise.all([loadMctComponent('header', 'header-container'), loadMctComponent('footer', 'footer-container')]);
+      window.initMyCuscoTripHeader?.();
+      window.MyCuscoTripFooter?.initFooterAccordions?.();
+      window.MyCuscoTripI18n?.applyTranslations?.();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeMctShell); else initializeMctShell();
+  </script>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/components/header.js"></script>
+  <script src="/assets/js/components/footer.js"></script>
+  <script src="/trenes/assets/js/config.js"></script>
+  <script src="/trenes/assets/js/paypal-retorno.js" defer></script>
+</body>
+</html>

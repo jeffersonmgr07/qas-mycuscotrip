@@ -1,0 +1,1006 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2869
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c50196\c50196\c50196;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid1\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid2\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f0\b\fs48 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Gu\'eda t\'e9cnica del proyecto My Cusco Trip\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\fs36 \cf0 \strokec2 1. Contexto general del proyecto\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 El proyecto 
+\f0\b \strokec2 My Cusco Trip
+\f1\b0 \strokec2  es una web tur\'edstica est\'e1tica orientada a vender y cotizar experiencias, tours y paquetes tur\'edsticos en Cusco, Machu Picchu y Per\'fa.\
+La arquitectura est\'e1 organizada con archivos HTML, CSS, JavaScript y JSON. La l\'f3gica principal no depende de backend; los datos se cargan desde archivos 
+\f2\fs26 .json
+\f1\fs24  mediante 
+\f2\fs26 fetch()
+\f1\fs24 . El proyecto contempla dos flujos principales:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 P\'e1gina de producto / reserva
+\f1\b0 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls1\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Usa 
+\f2\fs26 product.html
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 L\'f3gica en 
+\f2\fs26 assets/js/pages/product.js
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Estilos en 
+\f2\fs26 assets/css/product-page.css
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Trabaja principalmente con 
+\f2\fs26 tours.json
+\f1\fs24  y 
+\f2\fs26 hotels.json
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Est\'e1 pensada para tours, experiencias y paquetes internacionales con flujo de reserva/pago.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 P\'e1gina de cotizaci\'f3n de paquetes
+\f1\b0 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls1\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Usa 
+\f2\fs26 quote-packages.html
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 L\'f3gica en 
+\f2\fs26 assets/js/pages/quote-packages.js
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Estilos en 
+\f2\fs26 assets/css/quote-packages.css
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Usa 
+\f2\fs26 packages-peru.json
+\f1\fs24 , 
+\f2\fs26 trains.json
+\f1\fs24 , 
+\f2\fs26 hotels.json
+\f1\fs24  y opcionalmente 
+\f2\fs26 discount-codes.json
+\f1\fs24 .\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Est\'e1 pensada para paquetes peruanos o cotizaciones personalizadas, con tren, hotel, moneda, nacionalidad, extras, descuentos e impresi\'f3n de cotizaci\'f3n.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 2. Estructura recomendada de archivos\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 \
+/\
+\uc0\u9500 \u9472 \u9472  product.html\
+\uc0\u9500 \u9472 \u9472  quote-packages.html\
+\uc0\u9500 \u9472 \u9472  assets/\
+\uc0\u9474    \u9500 \u9472 \u9472  css/\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  main.css\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  components.css\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  header.css\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  footer.css\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  responsive.css\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  product-page.css\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  quote-packages.css\
+\uc0\u9474    \u9500 \u9472 \u9472  js/\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  main.js\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  pages/\
+\uc0\u9474    \u9474        \u9500 \u9472 \u9472  product.js\
+\uc0\u9474    \u9474        \u9492 \u9472 \u9472  quote-packages.js\
+\uc0\u9474    \u9500 \u9472 \u9472  data/\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  tours.json\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  hotels.json\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  packages-peru.json\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  trains.json\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  discount-codes.json\
+\uc0\u9474    \u9492 \u9472 \u9472  img/\
+\uc0\u9474        \u9500 \u9472 \u9472  tours/\
+\uc0\u9474        \u9500 \u9472 \u9472  reserva/\
+\uc0\u9474        \u9500 \u9472 \u9472  logos/\
+\uc0\u9474        \u9492 \u9472 \u9472  hotels/\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La separaci\'f3n clave es esta:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+tours.json = cat\'e1logo principal de tours y paquetes generales\
+hotels.json = cat\'e1logo reutilizable de hoteles por destino\
+packages-peru.json = paquetes para cotizaci\'f3n, sobre todo mercado peruano\
+trains.json = trenes por ruta, nacionalidad, categor\'eda y precio\
+discount-codes.json = c\'f3digos promocionales opcionales\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 No mezclar paquetes peruanos de cotizaci\'f3n dentro de 
+\f2\fs26 tours.json
+\f1\fs24 , porque el flujo comercial es distinto: los paquetes peruanos deben poder cotizar tren, hotel, moneda y extras por separado.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 3. Flujo de 
+\f3\fs39 \strokec2 product.html
+\f0\fs36 \strokec2 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 La p\'e1gina 
+\f2\fs26 product.html
+\f1\fs24  funciona como p\'e1gina de detalle y reserva de un tour o paquete.\
+Debe incluir:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- Header global\
+- Galer\'eda o portada del producto\
+- Informaci\'f3n del tour/paquete\
+- Selector de fecha\
+- Cantidad de adultos y ni\'f1os\
+- Extras opcionales\
+- Selecci\'f3n de hotel si el producto es paquete\
+- C\'f3digo de descuento\
+- Forma de pago\
+- Resumen de precio\
+- Bot\'f3n de continuar con pago/reserva\
+- Modal de selecci\'f3n de hotel\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 En la \'faltima versi\'f3n trabajada, se decidi\'f3 limpiar el panel de reserva eliminando informaci\'f3n redundante. El bloque de alojamiento debe mostrar solo recuadros por destino, sin el resumen superior de \'93Selecci\'f3n de alojamiento / Cusco / Aguas Calientes\'94. Tambi\'e9n se eliminaron bloques antiguos como \'93Habitaciones seleccionadas\'94, \'93Hotel seleccionado\'94 y el bot\'f3n \'93Ver resumen\'94.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 4. L\'f3gica de hoteles en 
+\f3\fs39 \strokec2 product.js
+\f0\fs36 \strokec2 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 La l\'f3gica de hoteles debe funcionar as\'ed:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+1. Detectar si el producto es un paquete.\
+2. Leer el resumen de alojamiento del producto.\
+3. Renderizar una tarjeta por destino:\
+   - Cusco\
+   - Aguas Calientes\
+   - Otro destino si existe\
+4. Cada tarjeta muestra:\
+   - destino\
+   - noches\
+   - hotel seleccionado\
+   - acomodaci\'f3n seleccionada\
+   - adicional por persona\
+   - bot\'f3n Elegir hotel / Cambiar hotel\
+5. Al abrir el modal:\
+   - mostrar opci\'f3n \'93Sin hotel\'94\
+   - mostrar hoteles reales desde hotels.json\
+   - mostrar im\'e1genes\
+   - mostrar combinaciones de habitaciones\
+6. El modal no debe cerrarse al seleccionar una habitaci\'f3n.\
+7. El usuario debe confirmar con \'93Seleccionar hotel y acomodaci\'f3n\'94.\
+8. Reci\'e9n al confirmar:\
+   - guardar hotel\
+   - guardar combinaci\'f3n\
+   - recalcular precio\
+   - cerrar modal\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La opci\'f3n 
+\f0\b \strokec2 Sin hotel
+\f1\b0 \strokec2  debe existir siempre y debe tener costo 0. Esta opci\'f3n permite vender paquetes sin alojamiento incluido.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 5. Cambios clave aplicados al panel de reserva\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 En 
+\f2\fs26 product.html
+\f1\fs24 :\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+<div id="packageAccommodationSection" class="booking-field" hidden>\
+  <div id="hotelSelectorsContainer" class="booking-dynamic-stack"></div>\
+</div>\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Se eliminaron:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- Label \'93Selecci\'f3n de alojamiento\'94\
+- accommodationSummary\
+- roomTypeSection\
+- selectedHotelGallerySection\
+- bookingPreviewButton\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Adem\'e1s, \'93Forma de pago\'94 debe ir debajo de \'93C\'f3digo de descuento\'94.\
+Resultado esperado:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- Solo se muestran los recuadros de hotel.\
+- El bot\'f3n cambia de \'93Elegir hotel\'94 a \'93Cambiar hotel\'94.\
+- Existe opci\'f3n \'93Sin hotel\'94.\
+- No hay resumen duplicado de hotel dentro del panel.\
+- No hay fotos extra dentro del panel lateral.\
+- El resumen final queda m\'e1s limpio.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 6. Estilos de 
+\f3\fs39 \strokec2 product-page.css
+\f0\fs36 \strokec2 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 El archivo 
+\f2\fs26 product-page.css
+\f1\fs24  contiene los estilos espec\'edficos de la p\'e1gina de producto.\
+Se agregaron estilos para:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- sombra verde en botones secundarios\
+- estado visual de acomodaci\'f3n seleccionada\
+- dise\'f1o de \'93Sin hotel\'94\
+- bot\'f3n de confirmaci\'f3n del modal\
+- ajustes responsive para m\'f3vil\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Bloque CSS importante:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+.booking-secondary-btn \{\
+  box-shadow: 0 10px 22px rgba(10, 58, 38, 0.12);\
+\}\
+\
+.booking-secondary-btn:hover \{\
+  box-shadow: 0 14px 28px rgba(10, 58, 38, 0.18);\
+\}\
+\
+.hotel-gallery-main--empty \{\
+  display: flex;\
+  align-items: center;\
+  justify-content: center;\
+  background: linear-gradient(135deg, #f3faf4 0%, #eef7f1 100%);\
+  min-height: 220px;\
+\}\
+\
+.hotel-gallery-empty-state \{\
+  display: grid;\
+  gap: 6px;\
+  text-align: center;\
+  color: #0a3a26;\
+  padding: 20px;\
+\}\
+\
+.hotel-combo-btn.is-selected \{\
+  border-color: #0a3a26;\
+  background: #f4fbf5;\
+  box-shadow: 0 10px 20px rgba(10, 58, 38, 0.12);\
+\}\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 7. P\'e1gina 
+\f3\fs39 \strokec2 quote-packages.html
+\f0\fs36 \strokec2 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 La p\'e1gina 
+\f2\fs26 quote-packages.html
+\f1\fs24  es un cotizador independiente para paquetes tur\'edsticos. Debe cargar estilos globales y espec\'edficos:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+<link rel="stylesheet" href="./assets/css/main.css" />\
+<link rel="stylesheet" href="./assets/css/components.css" />\
+<link rel="stylesheet" href="./assets/css/header.css" />\
+<link rel="stylesheet" href="./assets/css/footer.css" />\
+<link rel="stylesheet" href="./assets/css/responsive.css" />\
+<link rel="stylesheet" href="./assets/css/quote-packages.css" />\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Tambi\'e9n usa Flatpickr para seleccionar rango de fechas y debe tener campos como:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- Fechas de viaje\
+- Nacionalidad\
+- Moneda\
+- Adultos\
+- Ni\'f1os\
+- Paquete compatible\
+- Itinerario\
+- Hoteles\
+- Trenes de ida y retorno\
+- Extras\
+- C\'f3digo de descuento\
+- Forma de pago\
+- Datos del cliente\
+- Botones para imprimir o continuar\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La p\'e1gina est\'e1 pensada para cotizar paquetes con hoteles, trenes, moneda y modalidad de pago.
+\f0\b\fs36 \strokec2 \
+\pard\pardeftab720\sa298\partightenfactor0
+\cf0 8. L\'f3gica principal de 
+\f3\fs39 quote-packages.js
+\f0\fs36 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 La clase principal es:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+class MyCuscoTripQuotePackages\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 El constructor inicializa:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- paquetes\
+- trenes\
+- hoteles\
+- c\'f3digos de descuento\
+- adultos\
+- ni\'f1os\
+- nacionalidad\
+- moneda\
+- forma de pago\
+- fechas\
+- hoteles seleccionados\
+- trenes seleccionados\
+- extras\
+- c\'f3digo aplicado\
+- referencia de cotizaci\'f3n\
+- cup\'f3n de impresi\'f3n\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La carga de datos se hace en paralelo:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+const [packagesData, trainsData, hotelsData, discountCodes] = await Promise.all([\
+  this.fetchJson("assets/data/packages-peru.json"),\
+  this.fetchJson("assets/data/trains.json"),\
+  this.fetchJson("assets/data/hotels.json"),\
+  this.fetchOptionalJson("assets/data/discount-codes.json")\
+]);\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Tambi\'e9n se intenta cargar tipo de cambio online desde 
+\f2\fs26 open.er-api.com
+\f1\fs24 , usando una tasa de respaldo si falla.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 9. Flujo del cotizador de paquetes\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 El flujo del cotizador debe ser:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+1. El usuario selecciona fechas.\
+2. El sistema calcula d\'edas y noches.\
+3. Se muestran solo paquetes compatibles con esa duraci\'f3n.\
+4. El usuario selecciona paquete.\
+5. Se muestran:\
+   - opciones de itinerario\
+   - servicios incluidos\
+   - hoteles por destino\
+   - tren de ida\
+   - tren de retorno\
+   - extras\
+6. El usuario selecciona nacionalidad.\
+7. La nacionalidad controla:\
+   - moneda permitida\
+   - tren local disponible o no\
+   - textos explicativos\
+8. El usuario elige moneda.\
+9. El sistema convierte precios.\
+10. El usuario puede aplicar c\'f3digo de descuento.\
+11. El usuario elige pago completo o parcial.\
+12. Se calcula:\
+   - paquete base\
+   - ni\'f1os\
+   - hoteles\
+   - trenes\
+   - extras\
+   - descuentos\
+   - total\
+   - anticipo\
+   - saldo\
+13. Se actualiza la versi\'f3n imprimible.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 10. Reglas de nacionalidad y moneda\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 La nacionalidad controla reglas importantes:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+national = peruanos\
+foreign = extranjeros\
+andean_community = Comunidad Andina\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Reglas recomendadas:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+Peruanos:\
+- pueden cotizar en PEN o USD\
+- pueden ver opci\'f3n de tren local\
+- mensaje: tren local sujeto a disponibilidad presencial\
+\
+Extranjeros:\
+- cotizaci\'f3n solo en USD\
+- no pueden ver tren local\
+\
+Comunidad Andina:\
+- cotizaci\'f3n en USD\
+- no necesariamente ve tren local, salvo que se configure expl\'edcitamente\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La funci\'f3n responsable es:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+applyCurrencyRulesByNationality()\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 11. Estructura de 
+\f3\fs39 packages-peru.json
+\f0\fs36 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 Ejemplo recomendado:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+\{\
+  "packages": [\
+    \{\
+      "id": "pkg_pe_004",\
+      "slug": "paquete-cusco-machu-picchu-4d-3n-peruanos",\
+      "title": "Paquete Cusco y Machu Picchu 4D/3N",\
+      "market": "peru",\
+      "currency": "PEN",\
+      "days": 4,\
+      "nights": 3,\
+      "status": "published",\
+      "basePricing": \{\
+        "adult": 690,\
+        "child": 650\
+      \},\
+      "priceIncludesTrain": false,\
+      "accommodationSummary": [\
+        \{\
+          "destination": "cusco",\
+          "nights": 2,\
+          "label": "Cusco - 2 noches"\
+        \},\
+        \{\
+          "destination": "aguas-calientes",\
+          "nights": 1,\
+          "label": "Aguas Calientes - 1 noche"\
+        \}\
+      ],\
+      "trainSelection": \{\
+        "required": true,\
+        "outboundRoute": "ollantaytambo-aguas-calientes",\
+        "returnRoute": "aguas-calientes-ollantaytambo"\
+      \},\
+      "includes": [\
+        "Traslados aeropuerto / hotel / estaci\'f3n",\
+        "City Tour Cusco",\
+        "Valle Sagrado",\
+        "Machu Picchu",\
+        "Bus Consettur ida y vuelta",\
+        "Ingreso Machu Picchu",\
+        "Gu\'eda profesional"\
+      ],\
+      "excludes": [\
+        "Tren tur\'edstico o local",\
+        "Hotel si el cliente elige sin alojamiento",\
+        "Vuelos",\
+        "Alimentaci\'f3n no mencionada"\
+      ]\
+    \}\
+  ],\
+  "paymentOptions": \{\
+    "fullPaymentDiscountPercent": 5,\
+    "partialPaymentPercent": 40\
+  \},\
+  "currencyRules": \{\
+    "national": \{\
+      "allowedCurrencies": ["PEN", "USD"],\
+      "defaultCurrency": "PEN"\
+    \},\
+    "foreign": \{\
+      "allowedCurrencies": ["USD"],\
+      "defaultCurrency": "USD"\
+    \},\
+    "andean_community": \{\
+      "allowedCurrencies": ["USD"],\
+      "defaultCurrency": "USD"\
+    \}\
+  \}\
+\}\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La idea central es que 
+\f2\fs26 packages-peru.json
+\f1\fs24  guarde precios base sin tren ni alojamiento, para que el cotizador sume hotel y tren seg\'fan selecci\'f3n.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 12. Estructura de 
+\f3\fs39 trains.json
+\f0\fs36 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 Ejemplo:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+\{\
+  "exchangeRate": \{\
+    "fallbackRate": 3.75\
+  \},\
+  "trainCategories": \{\
+    "local": \{\
+      "label": "Tren Local",\
+      "importantMessage": "Disponible solo para peruanos y sujeto a compra presencial."\
+    \},\
+    "expedition": \{\
+      "label": "Expedition"\
+    \},\
+    "vistadome": \{\
+      "label": "Vistadome"\
+    \}\
+  \},\
+  "routes": \{\
+    "ollantaytambo-aguas-calientes": \{\
+      "label": "Ollantaytambo - Aguas Calientes",\
+      "options": [\
+        \{\
+          "code": "local-train-outbound",\
+          "company": "PeruRail",\
+          "serviceName": "Tren Local",\
+          "categoryCode": "local",\
+          "currency": "PEN",\
+          "pricePerPerson": 12,\
+          "isLocalTrain": true,\
+          "allowedNationalities": ["national"]\
+        \},\
+        \{\
+          "code": "perurail-expedition-outbound",\
+          "company": "PeruRail",\
+          "serviceName": "Expedition",\
+          "categoryCode": "expedition",\
+          "currency": "USD",\
+          "pricePerPerson": 70,\
+          "allowedNationalities": ["national", "foreign", "andean_community"]\
+        \}\
+      ]\
+    \}\
+  \}\
+\}\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Los trenes se filtran por nacionalidad. El tren local no debe aparecer para extranjeros.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 13. Estructura de 
+\f3\fs39 hotels.json
+\f0\fs36 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 El archivo 
+\f2\fs26 hotels.json
+\f1\fs24  debe organizar hoteles por destino:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+\{\
+  "destinations": \{\
+    "cusco": \{\
+      "label": "Cusco",\
+      "hotels": [\
+        \{\
+          "hotelCode": "casa-andina-cusco",\
+          "hotelName": "Casa Andina Cusco",\
+          "stars": 3,\
+          "location": "Centro Hist\'f3rico",\
+          "address": "Cusco, Per\'fa",\
+          "summary": "Hotel c\'e9ntrico recomendado para paquetes tur\'edsticos.",\
+          "images": \{\
+            "cover": "assets/img/hotels/casa-andina/cover.jpg",\
+            "gallery": [\
+              "assets/img/hotels/casa-andina/1.jpg",\
+              "assets/img/hotels/casa-andina/2.jpg"\
+            ]\
+          \},\
+          "rooms": [\
+            \{\
+              "roomType": "double",\
+              "label": "Habitaci\'f3n doble",\
+              "bedType": "1 cama matrimonial o 2 camas",\
+              "capacity": 2,\
+              "pricePerNight": 45\
+            \},\
+            \{\
+              "roomType": "triple",\
+              "label": "Habitaci\'f3n triple",\
+              "bedType": "3 camas",\
+              "capacity": 3,\
+              "pricePerNight": 65\
+            \}\
+          ]\
+        \}\
+      ]\
+    \}\
+  \}\
+\}\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Los precios de hoteles se manejan en USD internamente, salvo que se defina otra regla. En el cotizador se convierten a la moneda seleccionada.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 14. C\'e1lculo de precios\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 La f\'f3rmula general del cotizador es:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+Subtotal =\
+  paquete base adultos\
++ paquete base ni\'f1os\
++ hoteles\
++ tren ida\
++ tren retorno\
++ extras\
+\
+Descuentos =\
+  descuento por pago completo\
++ descuento manual por c\'f3digo\
+\
+Total =\
+  subtotal - descuentos\
+\
+Si pago parcial:\
+  anticipo = total * porcentaje de anticipo\
+  saldo = total - anticipo\
+\
+Si pago completo:\
+  pagar ahora = total\
+  saldo = 0\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Reglas:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- Pago completo puede aplicar descuento autom\'e1tico.\
+- Pago parcial no aplica descuento por pago completo.\
+- C\'f3digo manual puede ser percent o fixed.\
+- C\'f3digo fixed debe convertirse a la moneda activa.\
+- Extras pueden ser por persona o por reserva.\
+- Hoteles se calculan por estad\'eda, no solo por noche.\
+- Trenes se calculan por persona.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 15. Descuentos\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 Archivo recomendado:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+[\
+  \{\
+    "code": "CUSCO10",\
+    "active": true,\
+    "type": "percent",\
+    "value": 10,\
+    "label": "Descuento especial Cusco"\
+  \},\
+  \{\
+    "code": "MCT50",\
+    "active": true,\
+    "type": "fixed",\
+    "value": 50,\
+    "currency": "USD",\
+    "label": "Descuento fijo promocional"\
+  \}\
+]\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La funci\'f3n responsable de validar c\'f3digos en el cotizador es:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+applyManualDiscountCode()\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 Debe validar:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- que el c\'f3digo exista\
+- que est\'e9 activo\
+- que tenga tipo v\'e1lido: percent o fixed\
+- que tenga valor mayor a 0\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 16. Impresi\'f3n de cotizaci\'f3n\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 El cotizador incluye una versi\'f3n imprimible.\
+Debe mostrar:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- logo My Cusco Trip\
+- referencia de cotizaci\'f3n\
+- datos del cliente\
+- fechas de viaje\
+- pasajeros\
+- paquete seleccionado\
+- itinerario\
+- hoteles seleccionados\
+- trenes seleccionados\
+- extras\
+- descuentos\
+- total\
+- anticipo y saldo si aplica\
+- notas del cliente\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 La funci\'f3n 
+\f2\fs26 enhancePrintableTemplate()
+\f1\fs24  reemplaza el texto de marca por el logo:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+<img\
+  class="print-logo"\
+  src="$\{this.resolveAssetPath("assets/img/reserva/logo-color.png")\}"\
+  alt="My Cusco Trip"\
+/>\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 17. Reglas de UX/UI\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 Mantener estas reglas:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+- Dise\'f1o limpio, tur\'edstico y confiable.\
+- Colores principales: verde oscuro, blanco, tonos suaves.\
+- Botones claros: Elegir hotel, Cambiar hotel, Confirmar selecci\'f3n.\
+- El usuario nunca debe perder su selecci\'f3n al abrir/cerrar modal.\
+- En m\'f3vil, botones con altura m\'ednima c\'f3moda.\
+- Las tarjetas seleccionadas deben tener borde y sombra.\
+- Los modales no deben cerrar al elegir una opci\'f3n interna.\
+- Siempre debe existir opci\'f3n \'93Sin hotel\'94.\
+- Si no hay paquete compatible con d\'edas/noches, mostrar empty state claro.\
+- Si no hay trenes disponibles, mostrar mensaje claro.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 18. Prompt maestro para continuar en otro chat\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 \strokec2 Copia y pega esto en un nuevo chat o proyecto:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \
+Estoy trabajando en el proyecto web \'93My Cusco Trip\'94, una web tur\'edstica est\'e1tica hecha con HTML, CSS, JavaScript vanilla y archivos JSON. No usamos backend por ahora. Los datos se cargan con fetch() desde assets/data.\
+\
+Necesito que act\'faes como desarrollador frontend senior especializado en turismo, reservas, cotizadores, UX/UI responsive y JavaScript vanilla.\
+\
+Arquitectura actual:\
+\
+- product.html\
+- quote-packages.html\
+- assets/css/main.css\
+- assets/css/components.css\
+- assets/css/header.css\
+- assets/css/footer.css\
+- assets/css/responsive.css\
+- assets/css/product-page.css\
+- assets/css/quote-packages.css\
+- assets/js/pages/product.js\
+- assets/js/pages/quote-packages.js\
+- assets/data/tours.json\
+- assets/data/hotels.json\
+- assets/data/packages-peru.json\
+- assets/data/trains.json\
+- assets/data/discount-codes.json\
+\
+Hay dos flujos principales:\
+\
+1. product.html / product.js\
+   Es la p\'e1gina de producto y reserva.\
+   Usa tours.json y hotels.json.\
+   Sirve para tours, experiencias y paquetes generales.\
+   Permite seleccionar fecha, adultos, ni\'f1os, extras, hotel si el producto es paquete, c\'f3digo de descuento, forma de pago y resumen final.\
+   En paquetes, el alojamiento se muestra como tarjetas por destino.\
+   El modal de hotel permite elegir hotel y acomodaci\'f3n.\
+   Siempre debe existir opci\'f3n \'93Sin hotel\'94 con costo 0.\
+   El modal no debe cerrar al tocar una acomodaci\'f3n; solo debe cerrar al confirmar.\
+   El bot\'f3n debe decir \'93Elegir hotel\'94 si no hay selecci\'f3n y \'93Cambiar hotel\'94 si ya existe selecci\'f3n.\
+   Se eliminaron bloques redundantes como \'93Habitaciones seleccionadas\'94, \'93Hotel seleccionado\'94, fotos extra dentro del panel y bot\'f3n \'93Ver resumen\'94.\
+   La forma de pago debe aparecer debajo del c\'f3digo de descuento.\
+\
+2. quote-packages.html / quote-packages.js\
+   Es un cotizador independiente de paquetes.\
+   Usa packages-peru.json, trains.json, hotels.json y opcionalmente discount-codes.json.\
+   Sirve para paquetes peruanos o cotizaciones personalizadas.\
+   El usuario selecciona fechas; el sistema calcula d\'edas/noches y muestra paquetes compatibles.\
+   Luego se seleccionan itinerario, hoteles, tren de ida, tren de retorno, extras, nacionalidad, moneda, c\'f3digo de descuento y forma de pago.\
+   Nacionalidades:\
+   - national: peruanos, pueden cotizar en PEN o USD y ver tren local.\
+   - foreign: extranjeros, solo USD, sin tren local.\
+   - andean_community: Comunidad Andina, normalmente USD.\
+   El tren local solo debe mostrarse para peruanos y debe indicar que est\'e1 sujeto a disponibilidad presencial.\
+   El cotizador intenta cargar tipo de cambio online desde open.er-api.com y usa fallback 3.75 si falla.\
+   Debe tener versi\'f3n imprimible con logo, referencia, datos del cliente, paquete, hoteles, trenes, extras, descuentos, total, anticipo y saldo.\
+\
+Reglas de datos:\
+\
+- tours.json:\
+  Cat\'e1logo principal de tours y paquetes generales.\
+\
+- packages-peru.json:\
+  Paquetes de cotizaci\'f3n, preferentemente con precios base sin tren ni alojamiento.\
+  Debe incluir days, nights, basePricing, accommodationSummary, trainSelection, includes, excludes, itineraryOptions, extras, paymentOptions y currencyRules.\
+\
+- hotels.json:\
+  Hoteles organizados por destino.\
+  Cada hotel tiene hotelCode, hotelName, stars, location, address, images, rooms, amenities y features.\
+  Las habitaciones tienen roomType, label, bedType, capacity y pricePerNight.\
+  Debe permitirse combinar habitaciones seg\'fan n\'famero de pasajeros.\
+\
+- trains.json:\
+  Trenes organizados por routes.\
+  Cada tren tiene code, company, serviceName, categoryCode, currency, pricePerPerson, origin, destination, departureTime, arrivalTime, duration, allowedNationalities e isLocalTrain.\
+  Debe filtrarse por nacionalidad.\
+\
+- discount-codes.json:\
+  Lista opcional de c\'f3digos.\
+  Cada c\'f3digo tiene code, active, type, value, currency opcional y label.\
+  type puede ser percent o fixed.\
+\
+Reglas de c\'e1lculo:\
+\
+Subtotal =\
+paquete base adultos\
++ paquete base ni\'f1os\
++ hoteles\
++ tren ida\
++ tren retorno\
++ extras\
+\
+Descuentos =\
+descuento por pago completo\
++ descuento manual por c\'f3digo\
+\
+Total =\
+subtotal - descuentos\
+\
+Si pago parcial:\
+anticipo = total * porcentaje de anticipo\
+saldo = total - anticipo\
+\
+Si pago completo:\
+se puede aplicar descuento autom\'e1tico de pago completo.\
+\
+Reglas UX:\
+\
+- Dise\'f1o limpio, moderno y tur\'edstico.\
+- Colores sobrios con verde oscuro como color principal.\
+- Tarjetas seleccionadas con borde, sombra y estado visual claro.\
+- Modales responsive.\
+- Botones grandes en m\'f3vil.\
+- Empty states claros cuando no hay datos.\
+- Nunca duplicar informaci\'f3n en el panel.\
+- Mantener el resumen de precio claro y ordenado.\
+- Evitar romper el flujo existente.\
+\
+Cuando te pida cambios, dame instrucciones exactas por archivo:\
+1. qu\'e9 buscar\
+2. qu\'e9 reemplazar\
+3. qu\'e9 agregar\
+4. en qu\'e9 archivo\
+5. resultado esperado\
+\
+Si me das c\'f3digo, entr\'e9galo completo por funci\'f3n o por bloque, no fragmentos sueltos dif\'edciles de ubicar.\
+\
+}
