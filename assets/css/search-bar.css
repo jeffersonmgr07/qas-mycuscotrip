@@ -1,0 +1,707 @@
+/* ============================================
+   SEARCH-BAR.CSS
+   Corregido para desktop/tablet + tabs estilo prototipo solo en móvil
+   ============================================ */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.search-bar {
+  width: 100%;
+  position: relative;
+  z-index: 120;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.search-bar .mct-card {
+  width: min(1280px, 100%);
+  background: transparent;
+  border-radius: 42px;
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.12);
+  padding: 10px 0 0 0;
+  position: relative;
+  overflow: visible;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   TABS DESKTOP
+========================= */
+.search-bar .mct-tabs {
+  display: inline-flex;
+  gap: 0;
+  margin: -27px 0 0 22px;
+  overflow: visible;
+  position: relative;
+  z-index: 3;
+}
+
+.search-bar .mct-tab {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  height: 54px;
+  min-width: 270px;
+  font-weight: 800;
+  color: #0d3d2a;
+  background: #f4f1ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.94rem;
+  letter-spacing: 0;
+  border-radius: 0;
+  transition: 0.2s ease;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  top: 0;
+}
+
+.search-bar .mct-tab:first-child {
+  border-top-left-radius: 26px;
+}
+
+.search-bar .mct-tab:last-child {
+  border-top-right-radius: 26px;
+}
+
+.search-bar .mct-tabs .mct-tab {
+  margin-bottom: -2px;
+}
+
+.search-bar .mct-tab.is-active {
+  background: #004b2d;
+  color: #fff;
+  border-color: transparent;
+}
+
+.search-bar .mct-bar {
+  display: grid;
+  grid-template-columns: 1.18fr 1px 1.45fr 1px 1.08fr auto;
+  align-items: center;
+  background: #ececeb;
+  border-radius: 42px;
+  padding: 10px 16px 16px;
+  overflow: visible;
+  border: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 5;
+}
+
+.search-bar .mct-divider {
+  width: 1px;
+  height: 88px;
+  background: rgba(0, 0, 0, 0.12);
+  align-self: center;
+}
+
+.search-bar .mct-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 6px 28px 10px;
+  min-height: 102px;
+  box-sizing: border-box;
+}
+
+.search-bar .mct-label {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #7a7a7a;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.search-bar .mct-input,
+.search-bar .mct-select,
+.search-bar .mct-qty-toggle {
+  width: 100%;
+  height: 42px;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  font-weight: 800;
+  color: #0d3d2a;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: none;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.search-bar .mct-input::placeholder {
+  color: #0d3d2a;
+  font-weight: 800;
+}
+
+.search-bar .mct-qty-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding-right: 0;
+}
+
+.search-bar .mct-input:focus,
+.search-bar .mct-select:focus,
+.search-bar .mct-qty-toggle:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.search-bar .mct-select {
+  background-image: none;
+  padding-right: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.search-bar .mct-fecha-field {
+  z-index: 30;
+  padding-top: 6px;
+  padding-bottom: 18px;
+}
+
+.search-bar .mct-hint.in-card {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 8px;
+  min-height: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7a7a7a;
+  display: none;
+  text-align: left;
+  line-height: 1.1;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.search-bar .mct-hint.in-card i {
+  margin-right: 5px;
+  opacity: 0.8;
+  font-size: 0.8rem;
+  color: #0d3d2a;
+}
+
+.search-bar .mct-cantidad {
+  position: relative;
+  z-index: 140;
+}
+
+.search-bar .mct-qty-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  width: 360px;
+  max-width: min(360px, 92vw);
+  background: #fff;
+  border: 1px solid rgba(23, 43, 39, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+  padding: 14px;
+  z-index: 99999;
+  animation: fadeInOnly 0.14s ease both;
+  display: none;
+  box-sizing: border-box;
+}
+
+.search-bar .mct-qty-panel[hidden] {
+  display: none;
+}
+
+.search-bar .mct-qty-panel:not([hidden]) {
+  display: block;
+}
+
+.search-bar .mct-qty-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 16px;
+  padding: 10px 4px;
+  border-radius: 12px;
+}
+
+.search-bar .mct-qty-row + .mct-qty-row {
+  border-top: 1px solid rgba(23, 43, 39, 0.08);
+}
+
+.search-bar .mct-qty-row span {
+  font-weight: 800;
+  color: #172b27;
+  font-size: 14px;
+}
+
+.search-bar .mct-qty-ctrl {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 6px 10px;
+  background: #f7f9f8;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 43, 39, 0.08);
+  min-width: 138px;
+}
+
+.search-bar .mct-qty-ctrl input {
+  width: 34px;
+  text-align: center;
+  border: 0;
+  background: transparent;
+  font-weight: 900;
+  font-size: 15px;
+  color: #172b27;
+  font-family: "Montserrat", sans-serif;
+}
+
+.search-bar .mct-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(23, 43, 39, 0.12);
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #172b27;
+  font-size: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-bar .mct-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar .mct-qty-done {
+  width: 100%;
+  height: 42px;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 14px;
+  background: #062803;
+  color: #fff;
+  font-weight: 950;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.search-bar .mct-submit {
+  height: 64px;
+  align-self: center;
+  margin: 0 0 0 14px;
+  min-width: 210px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #eb09a7, #d90895);
+  color: #fff;
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(235, 9, 167, 0.22);
+  font-size: 16px;
+  letter-spacing: 0;
+  padding: 0 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar .mct-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(235, 9, 167, 0.28);
+}
+
+@keyframes fadeInOnly {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flatpickr */
+.flatpickr-calendar {
+  z-index: 100000 !important;
+  border: 1px solid rgba(23, 43, 39, 0.12) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22) !important;
+  font-family: "Open Sans", sans-serif !important;
+  background: #fff !important;
+  animation: fadeInOnly 0.14s ease both;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.flatpickr-day {
+  height: 40px !important;
+  line-height: 40px !important;
+  border-radius: 10px !important;
+  font-weight: 900 !important;
+  font-size: 14px !important;
+  border: 0 !important;
+  min-width: 40px !important;
+  width: 40px !important;
+  margin: 0 !important;
+}
+
+.dayContainer {
+  display: grid !important;
+  grid-template-columns: repeat(7, 40px) !important;
+  gap: 6px !important;
+  width: auto !important;
+  padding: 10px !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background: #062803 !important;
+  color: #fff !important;
+  border-color: #062803 !important;
+}
+
+.flatpickr-day.inRange {
+  background: rgba(6, 40, 3, 0.16) !important;
+  color: #062803 !important;
+  border: 0 !important;
+}
+
+.flatpickr-day.today {
+  border: 1px solid #062803 !important;
+  background: transparent !important;
+}
+
+.flatpickr-confirm {
+  background: #062803 !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  border: 0 !important;
+  height: 42px !important;
+}
+
+.search-bar .mct-popular-searches,
+.search-bar .mct-popular-label,
+.search-bar .mct-chip {
+  display: none !important;
+}
+
+.search-bar .mct-qty-toggle i,
+.search-bar .mct-hint.in-card i {
+  color: #0d3d2a;
+}
+
+.search-bar .mct-field .fa-solid,
+.search-bar .mct-field .fa-regular {
+  margin-right: 10px;
+}
+
+.modal-overlay {
+  padding: 16px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  width: min(380px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 1100px) {
+  .search-bar .mct-card {
+    width: 100%;
+    border-radius: 22px;
+    padding: 18px 12px 20px;
+    padding-top: 74px;
+    background: #fff;
+    border: 1px solid rgba(23, 43, 39, 0.08);
+  }
+
+  .search-bar .mct-tabs {
+    width: calc(100% - 16px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    transform: translateY(-58%);
+    overflow: visible;
+  }
+
+  .search-bar .mct-tab {
+    min-width: 0;
+    height: 48px;
+    font-size: 0.84rem;
+    padding: 0 14px;
+  }
+
+  .search-bar .mct-tab:first-child {
+    border-top-left-radius: 18px;
+  }
+
+  .search-bar .mct-tab:last-child {
+    border-top-right-radius: 18px;
+  }
+
+  .search-bar .mct-bar {
+    grid-template-columns: 1fr;
+    background: #fff;
+    border: 1px solid rgba(23, 43, 39, 0.1);
+    border-radius: 18px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .search-bar .mct-divider {
+    display: none;
+  }
+
+  .search-bar .mct-field {
+    min-height: auto;
+    padding: 12px 14px 14px;
+    border-bottom: 1px solid rgba(23, 43, 39, 0.08);
+  }
+
+  .search-bar .mct-field:first-child {
+    padding-top: 6px;
+  }
+
+  .search-bar .mct-field:last-of-type {
+    border-bottom: 0;
+  }
+
+  .search-bar .mct-label {
+    margin-bottom: 6px;
+    font-size: 0.78rem;
+  }
+
+  .search-bar .mct-input,
+  .search-bar .mct-select,
+  .search-bar .mct-qty-toggle {
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .search-bar .mct-hint.in-card {
+    position: static;
+    margin-top: 6px;
+    min-height: 0;
+    white-space: normal;
+  }
+
+  .search-bar .mct-fecha-field,
+  .search-bar .mct-cantidad {
+    padding-bottom: 18px;
+  }
+
+  .search-bar .mct-submit {
+    width: calc(100% - 16px);
+    height: 52px;
+    margin: 8px;
+    min-width: 0;
+    border-radius: 18px;
+    font-size: 16px;
+  }
+
+  .search-bar .mct-qty-panel {
+    width: 100%;
+    max-width: none;
+    right: 0;
+    left: 0;
+  }
+
+  .flatpickr-calendar {
+    max-width: calc(100vw - 24px) !important;
+  }
+}
+
+/* =========================
+   MÓVIL - PROTOTIPO TABS DETRÁS
+========================= */
+@media (max-width: 768px) {
+  .search-bar {
+    overflow: visible;
+    padding: 18px 12px 10px;
+    position: relative;
+  }
+
+  .search-bar .mct-card {
+    width: min(100%, calc(100vw - 2px));
+    position: relative;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    padding-top: 50px;
+  }
+
+  .search-bar .mct-tabs {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr;
+    gap: 0;
+    margin: 0;
+    z-index: 1;
+    transform: none;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .search-bar .mct-tab {
+    pointer-events: auto;
+    width: 100%;
+    min-width: 0;
+    height: 70px;
+    min-height: 70px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 15px 6px 0;
+    font-size: 0.76rem;
+    line-height: 1.05;
+    text-align: center;
+    border-radius: 0;
+    position: relative;
+    border: 0;
+    background: #f4f1ec;
+    color: #0d3d2a;
+    white-space: nowrap;
+    letter-spacing: -0.15px;
+  }
+
+  .search-bar .mct-tab:first-child {
+    border-top-left-radius: 24px;
+  }
+
+  .search-bar .mct-tab:last-child {
+    border-top-right-radius: 24px;
+  }
+
+  .search-bar .mct-tab.is-active {
+    background: #004b2d;
+    color: #fff;
+  }
+
+  .search-bar .mct-bar {
+    position: relative;
+    width: min(100%, calc(100vw - 6px));
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #fff;
+    border-radius: 28px;
+    padding: 10px 0 10px;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.14);
+    border: 0;
+    overflow: visible;
+    gap: 0;
+    margin-top: -8px;
+    min-height: 470px;
+  }
+
+  .search-bar .mct-divider {
+    display: none;
+  }
+
+  .search-bar .mct-field {
+    min-height: auto;
+    padding: 10px 14px 14px;
+    border-bottom: 1px solid rgba(23, 43, 39, 0.08);
+  }
+
+  .search-bar .mct-field:first-child {
+    padding-top: 8px;
+  }
+
+  .search-bar .mct-field:last-of-type {
+    border-bottom: 0;
+  }
+
+  .search-bar .mct-label {
+    margin-bottom: 6px;
+    font-size: 0.78rem;
+  }
+
+  .search-bar .mct-input,
+  .search-bar .mct-select,
+  .search-bar .mct-qty-toggle {
+    height: 42px;
+    font-size: 16px;
+    position: relative;
+    top: 1px;
+  }
+
+  .search-bar .mct-submit {
+    width: calc(100% - 64px);
+    max-width: 260px;
+    height: 50px;
+    margin: 12px auto 10px;
+    min-width: 0;
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    display: block;
+  }
+
+  .search-bar .mct-qty-panel {
+    width: 100%;
+    max-width: none;
+    right: 0;
+    left: 0;
+  }
+
+  .flatpickr-calendar {
+    font-size: 14px !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  .dayContainer {
+    gap: 4px !important;
+    padding: 8px !important;
+  }
+}

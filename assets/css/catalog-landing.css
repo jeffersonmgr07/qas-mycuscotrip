@@ -1,0 +1,416 @@
+.catalog-landing-page {
+  background: #f7faf8;
+  min-height: 100vh;
+}
+
+.catalog-hero {
+  padding: 132px 0 46px;
+  background:
+    linear-gradient(135deg, rgba(6, 40, 3, 0.92), rgba(10, 58, 38, 0.86)),
+    url("../img/tours/machu-picchu-full-day-clasico/cover.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.catalog-hero__inner {
+  max-width: 880px;
+}
+
+.catalog-eyebrow {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+}
+
+.catalog-hero h1 {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+.catalog-hero p {
+  max-width: 720px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.catalog-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.catalog-hero__actions .btn {
+  border-radius: 999px;
+}
+
+.catalog-landing {
+  padding: 34px 0 62px;
+}
+
+.catalog-landing__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.catalog-landing__top h2 {
+  color: #062803;
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  margin: 0 0 6px;
+}
+
+.catalog-landing__top p {
+  margin: 0;
+  color: #56645f;
+  font-weight: 700;
+}
+
+.catalog-landing__note {
+  max-width: 440px;
+  color: #56645f;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+}
+
+.catalog-card__image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: 218px;
+  background: #eef5f1;
+}
+
+.catalog-card__image img {
+  width: 100%;
+  height: 218px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.28s ease;
+}
+
+.catalog-card:hover .catalog-card__image img {
+  transform: scale(1.04);
+}
+
+.catalog-card__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0a3a26;
+  font-size: 0.78rem;
+  font-weight: 900;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.catalog-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.catalog-card__meta {
+  margin: 0 0 8px;
+  color: #56645f;
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.catalog-card h2 {
+  margin: 0 0 10px;
+  color: #062803;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+
+.catalog-card__description {
+  display: -webkit-box;
+  margin: 0 0 14px;
+  color: #56645f;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.catalog-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 16px;
+}
+
+.catalog-card__chips span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #edf5ef;
+  color: #0a3a26;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.catalog-card__footer {
+  display: grid;
+  gap: 12px;
+  margin-top: auto;
+  text-align: center;
+}
+
+.catalog-card__footer strong {
+  color: #062803;
+  font-size: 1.08rem;
+  font-weight: 900;
+}
+
+.catalog-card__button {
+  width: 100%;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.catalog-loading,
+.catalog-empty {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  min-height: 220px;
+  padding: 32px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+  color: #56645f;
+  text-align: center;
+}
+
+.catalog-empty i,
+.catalog-loading i {
+  color: #0a3a26;
+  font-size: 2rem;
+}
+
+.catalog-empty h3 {
+  margin: 0;
+  color: #062803;
+}
+
+.catalog-empty p {
+  margin: 0;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-hero {
+    padding: 108px 0 34px;
+  }
+
+  .catalog-landing {
+    padding: 26px 0 48px;
+  }
+
+  .catalog-landing__top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .catalog-landing__note {
+    max-width: none;
+    text-align: left;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-card__image,
+  .catalog-card__image img {
+    min-height: 200px;
+    height: 200px;
+  }
+}
+
+
+/* Ocultar estado vacio en vitrinas catalogo cuando el catalogo ya se renderiza. */
+.catalog-empty,
+#catalogLandingEmpty {
+  display: none !important;
+}
+
+/* Quote builder lite - pre-backend ready */
+.quote-builder-lite {
+  margin: 0 0 30px;
+  padding: 26px;
+  border-radius: 26px;
+  background: #ffffff;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+  box-shadow: 0 18px 42px rgba(6, 40, 3, 0.08);
+}
+
+.quote-builder-lite__header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.quote-builder-lite__header p {
+  margin: 0;
+  color: #0a7f49;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .78rem;
+}
+
+.quote-builder-lite__header h2 {
+  margin: 0;
+  color: #062803;
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+}
+
+.quote-builder-lite__header span {
+  color: #5e6b66;
+  line-height: 1.6;
+}
+
+.quote-builder-lite__form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.quote-builder-lite__form label {
+  display: grid;
+  gap: 7px;
+  font-weight: 800;
+  color: #17322a;
+  font-size: .92rem;
+}
+
+.quote-builder-lite__form input,
+.quote-builder-lite__form select,
+.quote-builder-lite__form textarea {
+  width: 100%;
+  border: 1px solid rgba(6, 40, 3, .16);
+  border-radius: 14px;
+  padding: 12px 13px;
+  font: inherit;
+  color: #17322a;
+  background: #fbfdfb;
+}
+
+.quote-builder-lite__wide,
+.quote-builder-lite__actions,
+.quote-builder-lite__result {
+  grid-column: 1 / -1;
+}
+
+.quote-builder-lite__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.quote-builder-lite__actions small {
+  color: #697871;
+  max-width: 620px;
+  line-height: 1.5;
+}
+
+.quote-builder-lite__result {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  line-height: 1.5;
+}
+
+.quote-builder-lite__result.is-success {
+  background: #edf8f0;
+  color: #17482d;
+  border: 1px solid rgba(21, 128, 61, .18);
+}
+
+.quote-builder-lite__result.is-error {
+  background: #fff3f1;
+  color: #923122;
+  border: 1px solid rgba(185, 28, 28, .18);
+}
+
+.quote-builder-lite__result a {
+  display: inline-flex;
+  margin-left: 10px;
+  font-weight: 800;
+  color: #0a7f49;
+}
+
+@media (max-width: 900px) {
+  .quote-builder-lite__form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .quote-builder-lite {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .quote-builder-lite__form {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-builder-lite__actions {
+    align-items: stretch;
+  }
+
+  .quote-builder-lite__actions .btn {
+    width: 100%;
+  }
+}

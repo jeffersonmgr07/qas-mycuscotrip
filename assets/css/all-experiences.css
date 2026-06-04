@@ -1,0 +1,692 @@
+.listing-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 48px;
+  background:
+    linear-gradient(135deg, rgba(6, 40, 3, .88), rgba(5, 50, 32, .84)),
+    url("../img/all-experiences/hero-catalogo.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.listing-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(244, 211, 94, .16), transparent 32%),
+    linear-gradient(180deg, rgba(6, 40, 3, .08), rgba(6, 40, 3, .28));
+  pointer-events: none;
+}
+
+.listing-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.listing-hero__content {
+  max-width: 780px;
+}
+
+.listing-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(244, 211, 94, .18);
+  border: 1px solid rgba(244, 211, 94, .34);
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+.listing-hero h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  margin-bottom: 14px;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+}
+
+.listing-hero p {
+  color: rgba(255,255,255,.9);
+  max-width: 720px;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, .2);
+}
+
+.listing-page {
+  padding: 28px 0 80px;
+  background: #f7faf8;
+}
+
+.listing-layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.listing-sidebar {
+  position: sticky;
+  top: 110px;
+}
+
+.listing-filter-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 16px 36px rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.listing-filter-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.listing-filter-group {
+  margin-bottom: 18px;
+}
+
+.listing-filter-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #062803;
+}
+
+.listing-filter-group input,
+.listing-filter-group select {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font: inherit;
+  background: #fff;
+}
+
+.listing-clear-btn {
+  width: 100%;
+}
+
+.listing-results__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.listing-results__top h2 {
+  margin-bottom: 6px;
+}
+
+#resultsCount {
+  color: #666;
+}
+
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.listing-card {
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0,0,0,.08);
+  border: 1px solid rgba(0,0,0,.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.listing-card__image {
+  position: relative;
+  height: 220px;
+}
+
+.listing-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listing-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: linear-gradient(135deg, #5a6631, #38512b);
+  color: #fff;
+  font-weight: 800;
+  font-size: .78rem;
+  padding: 8px 13px;
+  border-radius: 999px;
+  letter-spacing: .02em;
+  box-shadow: 0 10px 22px rgba(5, 50, 32, .28);
+  border: 1px solid rgba(255, 255, 255, .22);
+}
+
+.listing-card__content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.listing-card__meta {
+  color: #666;
+  font-size: .92rem;
+  margin-bottom: 8px;
+}
+
+.listing-card__content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.listing-card__description {
+  color: #666;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.55;
+  min-height: 6.2em;
+}
+
+.listing-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: #053220;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.listing-card__actions,
+.listing-card__footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.listing-empty {
+  background: #fff;
+  border-radius: 24px;
+  padding: 42px 24px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 16px 36px rgba(0,0,0,.05);
+}
+
+.listing-empty i {
+  font-size: 2.2rem;
+  color: #053220;
+  margin-bottom: 14px;
+}
+
+.listing-empty h3 {
+  margin-bottom: 10px;
+}
+
+.listing-empty p {
+  color: #666;
+}
+
+@media (max-width: 1100px) {
+  .listing-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-sidebar {
+    position: static;
+  }
+
+  .listing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .listing-hero {
+    padding: 110px 0 38px;
+    background:
+      linear-gradient(135deg, rgba(6, 40, 3, .9), rgba(5, 50, 32, .86)),
+      url("../img/all-experiences/hero-catalogo.jpg") center/cover no-repeat;
+  }
+
+  .listing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-filter-card,
+  .listing-card__content {
+    padding: 20px;
+  }
+
+  .listing-card__image {
+    height: 210px;
+  }
+}
+
+/* Fase 3 - mejoras OTA / All Experience */
+.listing-filter-card__header p,
+.listing-results__eyebrow {
+  color: #66736b;
+  font-size: .92rem;
+  margin-top: -8px;
+  margin-bottom: 18px;
+}
+
+.listing-search-control {
+  position: relative;
+}
+
+.listing-search-control i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5a6631;
+  pointer-events: none;
+}
+
+.listing-search-control input {
+  padding-left: 42px;
+}
+
+.listing-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0 16px;
+}
+
+.listing-quick-chips button {
+  appearance: none;
+  border: 1px solid rgba(5, 50, 32, .14);
+  background: #f7faf8;
+  color: #053220;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: .78rem;
+  line-height: 1.1;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+.listing-quick-chips button:hover,
+.listing-quick-chips button.is-active {
+  transform: translateY(-1px);
+  background: #053220;
+  border-color: #053220;
+  color: #fff;
+}
+
+.listing-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: #053220;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+
+.listing-loader[hidden] {
+  display: none;
+}
+
+.listing-card__link {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.listing-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  color: #5a6631;
+  font-size: .86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+}
+
+.listing-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(90, 102, 49, .1);
+  padding: 5px 9px;
+}
+
+.listing-card__details span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #f2f6f1;
+  font-size: .76rem;
+  line-height: 1.1;
+}
+
+.listing-card__codes {
+  display: none;
+}
+
+.listing-card__actions,
+.listing-card__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.listing-card__actions strong,
+.listing-card__price {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--primary, #053220);
+  font-size: 1.04rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.listing-card__button,
+.experience-card__button {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+
+.listing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 46px rgba(0,0,0,.1);
+}
+
+.listing-card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.listing-error {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 24px;
+  padding: 28px;
+  border: 1px solid rgba(180, 40, 40, .18);
+  color: #5f1d1d;
+}
+
+@media (max-width: 680px) {
+  .listing-quick-chips {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .listing-quick-chips button {
+    white-space: nowrap;
+  }
+
+  .listing-card__actions,
+  .listing-card__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+
+/* Bloque C - compactación visual de cards y compatibilidad experience-card */
+.experience-card {
+  height: 100%;
+}
+
+.experience-card__body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.experience-card__description,
+.listing-card__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.experience-card__description {
+  line-height: 1.55;
+  min-height: 6.2em;
+}
+
+.experience-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.experience-card__chip {
+  padding: 5px 9px;
+  font-size: 0.76rem;
+  line-height: 1.1;
+}
+
+.experience-card__footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.experience-card__price {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 800;
+  color: var(--primary, #053220);
+  text-align: center;
+}
+
+.listing-card__content {
+  min-height: 330px;
+}
+
+@media (max-width: 768px) {
+  .listing-page {
+    padding-top: 24px;
+  }
+
+  .listing-card__description,
+  .experience-card__description {
+    min-height: auto;
+  }
+
+  .listing-card__content {
+    min-height: auto;
+  }
+}
+
+/* =====================================================
+   BLOQUE 3 - Protecciones responsive All Experiences
+   ===================================================== */
+.all-experiences-layout,
+.experiences-layout,
+.catalog-layout {
+  min-width: 0;
+}
+
+.experiences-grid,
+.catalog-grid,
+.products-grid {
+  min-width: 0;
+}
+
+.experience-card,
+.catalog-card,
+.product-card {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .filters-sidebar,
+  .catalog-sidebar,
+  .all-experiences-sidebar {
+    max-width: 100%;
+  }
+}
+
+
+/* Corrección: ocultar el estado vacío heredado cuando la vitrina ya muestra cards. */
+.listing-empty[hidden],
+#listingEmptyState[hidden] {
+  display: none !important;
+}
+
+/* Corrección de chips/badges bajo hero: mantener contraste en hover. */
+.listing-quick-chips button:hover,
+.listing-quick-chips button:focus-visible,
+.listing-hero .btn:hover,
+.listing-hero .btn:focus-visible {
+  color: #ffffff !important;
+}
+
+/* Ajustes visuales All Experiences: filtros compactos y cards móviles */
+.listing-more-options-btn {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: #0a3a26;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.listing-advanced-filters {
+  display: grid;
+}
+
+.listing-layout,
+.listing-results,
+.listing-grid,
+.listing-card,
+.listing-card__content {
+  min-width: 0;
+}
+
+@media (max-width: 1280px) {
+  .listing-layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .listing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .listing-page .container,
+  .listing-layout {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .listing-filter-card {
+    border-radius: 20px;
+    padding: 16px;
+  }
+
+  .listing-filter-card h2 {
+    margin-bottom: 12px;
+    font-size: 1.12rem;
+  }
+
+  .listing-more-options-btn {
+    display: inline-flex;
+  }
+
+  .listing-advanced-filters {
+    display: none;
+    margin-top: 14px;
+  }
+
+  .listing-advanced-filters.is-open {
+    display: grid;
+  }
+
+  .listing-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .listing-card,
+  .experience-card,
+  .product-card {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .listing-card__content {
+    padding: 16px;
+  }
+
+  .listing-card__button,
+  .experience-card__button {
+    white-space: normal;
+    min-height: 44px;
+  }
+}
+
+
+/* Corrección móvil definitiva: filtros arriba y cards debajo en una sola columna. */
+@media (max-width: 768px) {
+  .listing-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+  }
+
+  .listing-sidebar,
+  .listing-results {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+
+  .listing-results {
+    display: block !important;
+    clear: both !important;
+  }
+
+  .listing-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+}

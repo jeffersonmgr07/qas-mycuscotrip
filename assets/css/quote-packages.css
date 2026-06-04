@@ -1,0 +1,6262 @@
+/* =========================================================
+   QUOTE PACKAGES CSS - MY CUSCO TRIP
+   Versión corregida
+   - Hero móvil con menos espacio superior y mejor aire lateral
+   - Opciones de itinerario sin tarjeta detectada pesada
+   - Límite visual de opciones con botón Ver más itinerarios
+   - Panel de cotización PC ordenado y sin scroll interno
+   - Panel inferior móvil fijo y expandible full screen
+   - Flatpickr alineado al input en PC y centrado/controlado en móvil
+   - Modal de hoteles con opción sin alojamiento compacta
+   - Vista impresión/PDF compacta profesional A4
+   ========================================================= */
+
+/* =============================================
+   1. RESET GENERAL Y CONTROL DE DESBORDE
+   ============================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #f7faf8;
+}
+
+body.quote-modal-open {
+  overflow: hidden;
+}
+
+body.quote-datepicker-open {
+  overflow-x: hidden;
+}
+
+/* =============================================
+   2. LAYOUT BASE
+   ============================================= */
+
+.quote-page {
+  background: #f7faf8;
+  color: #17322a;
+  width: 100%;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.quote-content {
+  padding: 28px 0 64px;
+}
+
+.quote-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 24px;
+  align-items: start;
+  position: relative;
+}
+
+.quote-main {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* =============================================
+   3. HERO
+   ============================================= */
+
+.quote-hero {
+  padding: 118px 0 34px;
+  background:
+    linear-gradient(rgba(6, 40, 3, 0.78), rgba(6, 40, 3, 0.78)),
+    url("../img/tours/paquete-cusco-machu-picchu-4d-3n/cover.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.quote-hero__container {
+  max-width: 1200px;
+}
+
+.quote-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.quote-hero h1 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  margin: 0 0 14px;
+}
+
+.quote-hero p {
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 760px;
+  font-size: 1.04rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* =============================================
+   4. TARJETAS GENERALES
+   ============================================= */
+
+.quote-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.quote-card__header {
+  margin-bottom: 16px;
+}
+
+.quote-card__header h2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #062803;
+  font-size: 1.35rem;
+  margin: -6px 0 10px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #dfe9d6 0%, #cddcbe 100%);
+  box-shadow: 0 8px 18px rgba(10, 58, 38, 0.1);
+}
+
+.quote-card__header p {
+  color: #56645f;
+  padding: 0 2px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* =============================================
+   5. SUBSECCIONES DEL FORMULARIO
+   ============================================= */
+
+.quote-field-group {
+  padding: 16px;
+  border: 1px solid rgba(6, 40, 3, 0.1);
+  border-radius: 20px;
+  background: #fbfdfb;
+  margin-bottom: 14px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.quote-field-group__header {
+  margin-bottom: 14px;
+}
+
+.quote-field-group__header h3 {
+  margin: 0 0 5px;
+  color: #062803;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.quote-field-group__header p {
+  margin: 0;
+  color: #66746f;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* =============================================
+   6. FORMULARIOS
+   ============================================= */
+
+.quote-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.quote-form-grid--travel {
+  grid-template-columns: 1.2fr 1fr 1fr;
+}
+
+.quote-field {
+  min-width: 0;
+  max-width: 100%;
+  display: grid;
+  align-content: start;
+  position: relative;
+}
+
+.quote-field--wide {
+  min-width: 0;
+}
+
+.quote-field label {
+  display: block;
+  font-weight: 800;
+  color: #062803;
+  margin-bottom: 8px;
+  min-height: 21px;
+}
+
+.quote-field input,
+.quote-field select,
+.quote-field textarea,
+.quote-payment-mode select,
+.quote-discount-box input {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font: inherit;
+  background: #fff;
+  color: #17322a;
+  box-sizing: border-box;
+}
+
+.quote-field input,
+.quote-field select {
+  height: 44px;
+  border-radius: 14px;
+  padding: 10px 16px;
+}
+
+.quote-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  height: auto;
+  border-radius: 14px;
+  padding: 10px 16px;
+}
+
+.quote-field .flatpickr-input,
+.quote-field .flatpickr-alt-input {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.flatpickr-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.quote-field select,
+.quote-payment-mode select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 42px;
+  padding-left: 16px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230a3a26' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+.quote-field small {
+  display: block;
+  color: #6b7772;
+  margin-top: 7px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+/* =============================================
+   7. FLATPICKR
+   ============================================= */
+
+.quote-field .flatpickr-calendar {
+  z-index: 1500 !important;
+}
+
+@media (min-width: 769px) {
+  .quote-field .flatpickr-calendar {
+    left: 0 !important;
+    right: auto !important;
+    top: calc(100% + 8px) !important;
+  }
+
+  .flatpickr-calendar.open {
+    max-width: min(340px, calc(100vw - 40px));
+  }
+}
+
+@media (max-width: 768px) {
+  .flatpickr-calendar.open {
+    position: fixed !important;
+    left: 50% !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: calc(100vw - 28px);
+    z-index: 2200 !important;
+  }
+}
+
+/* =============================================
+   8. SELECTORES DE CANTIDAD
+   ============================================= */
+
+.quote-travelers {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.quote-traveler-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 13px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  background: #f9fcfb;
+}
+
+.quote-traveler-row strong {
+  color: #062803;
+}
+
+.quote-traveler-row small {
+  display: block;
+  color: #6b7772;
+  font-size: 0.84rem;
+}
+
+.quote-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.quote-qty-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  background: #fff;
+  color: #062803;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* =============================================
+   9. ESTADOS VACÍOS Y OPCIONES
+   ============================================= */
+
+.quote-empty-state {
+  padding: 18px;
+  border-radius: 18px;
+  background: #f9fcfb;
+  color: #56645f;
+  border: 1px dashed rgba(6, 40, 3, 0.22);
+  text-align: center;
+  line-height: 1.55;
+}
+
+.quote-package-options,
+.quote-itinerary-options,
+.quote-dynamic-stack,
+.quote-extras {
+  display: grid;
+  gap: 12px;
+}
+
+.quote-package-options--compact:empty {
+  display: none;
+}
+
+.quote-package-card,
+.quote-itinerary-option,
+.quote-extra-item,
+.quote-accommodation-card {
+  border: 2px solid rgba(6, 40, 3, 0.12);
+  border-radius: 18px;
+  background: #f9fcfb;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.quote-package-card:hover,
+.quote-itinerary-option:hover,
+.quote-extra-item:hover,
+.quote-accommodation-card:hover {
+  border-color: rgba(10, 58, 38, 0.38);
+  box-shadow: 0 10px 20px rgba(10, 58, 38, 0.08);
+}
+
+.quote-package-card.is-selected,
+.quote-itinerary-option.is-selected,
+.quote-extra-item.is-selected {
+  border-color: #0a3a26;
+  background: #f4fbf5;
+  box-shadow: 0 12px 22px rgba(10, 58, 38, 0.12);
+}
+
+.quote-package-card__top,
+.quote-accommodation-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.quote-package-card h3,
+.quote-itinerary-option h3,
+.quote-accommodation-card strong {
+  color: #062803;
+  margin: 0 0 5px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.quote-package-card p,
+.quote-itinerary-option p,
+.quote-accommodation-card p {
+  color: #56645f;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.quote-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #0a3a26;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.quote-badge--gold {
+  background: #d99a00;
+}
+
+.quote-badge--muted {
+  background: #edf3ef;
+  color: #0a3a26;
+}
+
+.quote-duration-inline {
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0 3px;
+}
+
+.itinerary-date {
+  color: #a86a16;
+  font-weight: 800;
+}
+
+/* =============================================
+   10. ITINERARIO
+   ============================================= */
+
+.quote-itinerary-options {
+  margin-top: 14px;
+}
+
+.quote-itinerary-option {
+  display: grid;
+  gap: 8px;
+}
+
+.quote-itinerary-option__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.quote-itinerary-option__top h3 {
+  margin: 0;
+}
+
+.quote-load-more-itineraries {
+  width: fit-content;
+  justify-self: center;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.quote-itinerary-preview {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.quote-itinerary-preview h3 {
+  color: #062803;
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+}
+
+.quote-itinerary-list {
+  display: grid;
+  gap: 10px;
+}
+
+.quote-itinerary-item {
+  border-left: 4px solid #0a3a26;
+  padding: 13px 15px;
+  background: #f9fcfb;
+  border-radius: 0 16px 16px 0;
+}
+
+.quote-itinerary-item h4 {
+  margin: 0 0 5px;
+  color: #062803;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.quote-itinerary-item p {
+  color: #56645f;
+  margin: 0;
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+.quote-itinerary-time {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #edf3ef;
+  color: #0a3a26;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* =============================================
+   11. PAQUETE DETECTADO COMPACTO
+   ============================================= */
+
+.quote-package-card--detected {
+  display: none !important;
+}
+
+.quote-package-card--detected h3,
+.quote-package-card--detected p {
+  display: none !important;
+}
+
+/* =============================================
+   12. ALOJAMIENTO
+   ============================================= */
+
+.quote-accommodation-card {
+  cursor: default;
+  padding: 0;
+  overflow: hidden;
+}
+
+.quote-accommodation-card__header {
+  background: #edf3ef;
+  padding: 13px 15px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.quote-accommodation-card__header small {
+  color: #4f6159;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.quote-accommodation-card__body {
+  display: grid;
+  gap: 10px;
+  padding: 15px;
+}
+
+.quote-accommodation-card.has-hotel-image .quote-accommodation-card__body {
+  grid-template-columns: 92px minmax(0, 1fr);
+  align-items: center;
+}
+
+.quote-accommodation-card__image {
+  width: 92px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(6, 40, 3, 0.12);
+  background: #edf3ef;
+}
+
+.quote-accommodation-card__content {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.quote-accommodation-card__price {
+  color: #0a3a26 !important;
+  font-weight: 800;
+}
+/* =============================================
+   13. TRENES
+   ============================================= */
+
+.quote-train-selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.quote-train-selector-card {
+  display: grid;
+  gap: 14px;
+  align-content: space-between;
+  padding: 16px;
+  border: 2px solid rgba(6, 40, 3, 0.18);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(10, 58, 38, 0.05);
+}
+
+.quote-train-selector-card span {
+  display: block;
+  color: #56645f;
+  font-size: 0.84rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.quote-train-selector-card strong {
+  display: block;
+  color: #062803;
+  font-size: 1.04rem;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+.quote-train-selector-card p {
+  color: #56645f;
+  margin: 0;
+  line-height: 1.45;
+  font-size: 0.9rem;
+}
+
+.quote-train-selector-card .quote-secondary-btn {
+  width: 100%;
+}
+
+.train-option-card {
+  background: #fff;
+  border: 2px solid rgba(6, 40, 3, 0.12);
+  border-radius: 22px;
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.train-option-card:hover {
+  border-color: rgba(10, 58, 38, 0.32);
+  box-shadow: 0 14px 26px rgba(10, 58, 38, 0.08);
+}
+
+.train-option-card.is-selected {
+  border-color: #0a3a26;
+  background: #f4fbf5;
+  box-shadow: 0 16px 32px rgba(10, 58, 38, 0.14);
+}
+
+.train-option-card--local {
+  border-color: rgba(217, 154, 0, 0.45);
+  background: #fffaf0;
+}
+
+.train-option-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.train-option-card__company {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.train-option-card__logo {
+  width: 82px;
+  max-width: 82px;
+  height: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.train-option-card__company h3 {
+  color: #062803;
+  margin: 0 0 5px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.train-option-card__company p {
+  margin: 0;
+  color: #56645f;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.train-option-card__price {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-weight: 900;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.train-option-card__body {
+  display: grid;
+  gap: 14px;
+}
+
+.train-option-card__schedule {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.train-option-card__schedule > div {
+  padding: 12px;
+  border-radius: 16px;
+  background: #f7faf8;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+  min-width: 0;
+}
+
+.train-option-card__schedule span {
+  display: block;
+  color: #66746f;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.train-option-card__schedule strong {
+  display: block;
+  color: #062803;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.train-option-card__schedule small {
+  display: block;
+  color: #56645f;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.train-option-card__description {
+  color: #56645f;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.train-option-card__warning {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #fff8db;
+  border: 1px solid #f1e2a4;
+  color: #6b5a18;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.train-option-card__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.train-option-card__actions .quote-secondary-btn {
+  width: auto;
+  min-width: 160px;
+}
+
+.train-detail-box {
+  display: grid;
+  gap: 14px;
+}
+
+.train-detail-logo {
+  max-width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+.train-detail-box p,
+.train-detail-box li {
+  color: #56645f;
+  line-height: 1.55;
+  font-size: 0.94rem;
+}
+
+.train-detail-box ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.train-detail-box h4 {
+  color: #062803;
+  margin: 6px 0 0;
+  font-size: 1rem;
+}
+
+.train-recommended-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #d99a00;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.train-option-card--local .train-recommended-badge {
+  display: none !important;
+}
+
+/* =============================================
+   14. EXTRAS E INCLUYE
+   ============================================= */
+
+.quote-extra-item {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.quote-extra-item input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #8a8f94;
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+}
+
+.quote-extra-item input[type="checkbox"]:checked {
+  border-color: #0a3a26;
+  background: #0a3a26;
+}
+
+.quote-extra-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.quote-package-includes {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 20px;
+  background: #f7fbf5;
+  border: 1px solid rgba(6, 40, 3, 0.1);
+}
+
+.quote-package-includes h3 {
+  margin: 0 0 8px;
+  color: #062803;
+  font-size: 1.05rem;
+}
+
+.quote-package-includes p {
+  margin: 0 0 12px;
+  color: #56645f;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.quote-package-includes ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.quote-package-includes li {
+  color: #56645f;
+  line-height: 1.45;
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   15. SIDEBAR Y PANEL DE COTIZACIÓN
+   ============================================= */
+
+.quote-sidebar {
+  min-width: 0;
+  position: relative;
+  align-self: start;
+}
+
+.quote-summary-panel {
+  background: #fff;
+  border-radius: 24px;
+  padding: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+  min-width: 0;
+}
+
+@media (min-width: 1101px) {
+  .quote-page,
+  .quote-content,
+  .quote-layout {
+    overflow: visible !important;
+  }
+
+  .quote-layout {
+    grid-template-columns: minmax(0, 1fr) 390px;
+    align-items: start !important;
+  }
+
+  .quote-sidebar {
+    position: relative !important;
+    align-self: start !important;
+    overflow: visible !important;
+    z-index: 50;
+  }
+
+  .quote-summary-panel {
+    position: sticky !important;
+    top: 92px !important;
+    width: 100% !important;
+    max-width: 390px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    z-index: 80 !important;
+  }
+}
+
+.quote-detail-title {
+  display: none;
+  width: 100%;
+  color: #062803;
+  font-size: 1.35rem;
+  margin: -6px 0 10px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #dfe9d6 0%, #cddcbe 100%);
+  box-shadow: 0 8px 18px rgba(10, 58, 38, 0.1);
+}
+
+@media (min-width: 769px) {
+  .quote-detail-title {
+    display: block;
+  }
+}
+
+.quote-summary-panel__top {
+  display: none !important;
+}
+
+.quote-payment-mode {
+  margin-bottom: 12px;
+}
+
+.quote-payment-mode label {
+  display: block;
+  font-weight: 800;
+  color: #062803;
+  margin-bottom: 8px;
+}
+
+.quote-payment-mode select {
+  height: 42px;
+  border-radius: 14px;
+  padding: 9px 40px 9px 12px;
+  background-color: #fff;
+}
+
+.quote-discount-box {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid rgba(6, 40, 3, 0.12);
+  border-radius: 16px;
+  background: #f9fcfb;
+}
+
+.quote-discount-box label {
+  display: block;
+  font-weight: 800;
+  color: #062803;
+  margin-bottom: 8px;
+}
+
+.quote-discount-box__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.quote-discount-box input {
+  border-radius: 999px;
+  padding: 10px 12px;
+  text-transform: uppercase;
+}
+
+.quote-discount-box button {
+  border: 0;
+  border-radius: 999px;
+  background: #0a3a26;
+  color: #fff;
+  font-weight: 800;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+#discountCodeMessage {
+  margin: 8px 0 0;
+  color: #6b7772;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+#discountCodeMessage.is-success {
+  color: #0a3a26;
+  font-weight: 800;
+}
+
+#discountCodeMessage.is-error {
+  color: #9b1c1c;
+  font-weight: 800;
+}
+
+.quote-summary {
+  display: grid;
+  gap: 9px;
+  border: 1px solid rgba(6, 40, 3, 0.12);
+  border-radius: 18px;
+  padding: 13px;
+  background: #fff;
+}
+
+.quote-summary__line,
+.quote-summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.quote-summary__line {
+  color: #56645f;
+  font-size: 0.93rem;
+}
+
+.quote-summary__line--base strong:empty {
+  display: none;
+}
+
+.quote-summary__line span,
+.quote-summary__total span {
+  min-width: 0;
+}
+
+.quote-summary__line strong {
+  color: #17322a;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.quote-summary__total {
+  margin-top: 6px;
+  padding: 11px 12px;
+  border: 1px solid rgba(10, 58, 38, 0.12);
+  border-radius: 14px;
+  background: #f4fbf5;
+  color: #062803;
+}
+
+.quote-summary__total span,
+.quote-summary__total strong {
+  font-weight: 900;
+}
+
+.quote-summary__total strong {
+  color: #0a3a26;
+  font-size: 1.18rem;
+  white-space: nowrap;
+}
+
+.quote-summary__line[hidden],
+#childrenSummaryRow[hidden],
+#hotelSummaryRow[hidden],
+#trainSummaryRow[hidden],
+#extrasSummaryRow[hidden],
+#discountSummaryRow[hidden],
+#advanceSummaryRow[hidden],
+#balanceSummaryRow[hidden] {
+  display: none !important;
+}
+
+.quote-payment-info {
+  margin-top: 12px;
+  background: #fff8db;
+  border: 1px solid #f1e2a4;
+  border-radius: 14px;
+  padding: 12px 13px;
+  color: #6b5a18;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* =============================================
+   16. BOTONES
+   ============================================= */
+
+.quote-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 769px) {
+  .quote-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.quote-actions__secondary {
+  display: contents;
+}
+
+.quote-main-btn,
+.quote-secondary-btn,
+.quote-payment-btn {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  border-radius: 999px;
+  padding: 13px 14px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+}
+
+.quote-main-btn {
+  background: #0a3a26;
+  color: #fff;
+  border: 0;
+}
+
+.quote-secondary-btn {
+  background: #fff;
+  color: #062803;
+  border: 1px solid rgba(6, 40, 3, 0.18);
+  box-shadow: 0 10px 22px rgba(10, 58, 38, 0.1);
+}
+
+.quote-secondary-btn:hover {
+  box-shadow: 0 14px 28px rgba(10, 58, 38, 0.16);
+}
+
+.quote-payment-btn {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(135deg, #ff2f92 0%, #d91572 52%, #9b0f55 100%);
+  box-shadow: 0 14px 28px rgba(217, 21, 114, 0.28);
+  transform: translateY(0);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.quote-payment-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(217, 21, 114, 0.38);
+  filter: brightness(1.04);
+}
+
+.quote-payment-btn__mobile {
+  display: none;
+}
+
+.quote-pdf-btn {
+  background: #f4fbf5;
+  color: #0a3a26;
+  border: 1px solid rgba(10, 58, 38, 0.18);
+  box-shadow: 0 10px 22px rgba(10, 58, 38, 0.08);
+}
+
+.quote-pdf-btn:hover {
+  background: #edf7ef;
+  box-shadow: 0 14px 28px rgba(10, 58, 38, 0.14);
+}
+
+#savePdfBtn {
+  display: inline-flex !important;
+}
+
+.quote-mobile-summary-toggle {
+  display: none;
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-weight: 900;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+/* =============================================
+   17. MODALES GENERALES
+   ============================================= */
+
+.quote-modal[hidden] {
+  display: none !important;
+}
+
+.quote-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+
+.quote-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 18, 13, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.quote-modal__dialog {
+  position: relative;
+  width: min(1180px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  margin: 16px auto;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.quote-modal__dialog--small {
+  width: min(720px, calc(100vw - 32px));
+}
+
+.quote-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #edf3ef;
+  color: #062803;
+  cursor: pointer;
+  z-index: 5;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-modal__header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+.quote-modal__eyebrow {
+  margin: 0 0 6px;
+  color: #d99a00;
+  font-weight: 900;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.quote-modal__header h2 {
+  margin: 0 44px 7px 0;
+  color: #062803;
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
+.quote-modal__header p {
+  margin: 0;
+  color: #56645f;
+  line-height: 1.5;
+  font-size: 0.94rem;
+}
+
+.quote-modal__body {
+  overflow: auto;
+  padding: 22px 28px;
+  background: #f7faf8;
+}
+
+.quote-modal__list {
+  display: grid;
+  gap: 16px;
+}
+
+.quote-modal__footer {
+  padding: 16px 28px 20px;
+  border-top: 1px solid rgba(6, 40, 3, 0.08);
+  background: #fff;
+}
+
+/* =============================================
+   18. MODAL DE HOTELES
+   ============================================= */
+
+.hotel-option-card {
+  background: #fff;
+  border: 2px solid rgba(6, 40, 3, 0.12);
+  border-radius: 24px;
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.hotel-option-card:hover {
+  border-color: rgba(10, 58, 38, 0.34);
+  box-shadow: 0 14px 26px rgba(10, 58, 38, 0.08);
+}
+
+.hotel-option-card.is-selected {
+  border-color: #0a3a26;
+  background: #f4fbf5;
+  box-shadow: 0 16px 32px rgba(10, 58, 38, 0.14);
+}
+
+.hotel-option-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.hotel-option-card__header h3 {
+  margin: 0 0 5px;
+  color: #062803;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.hotel-option-card__header p {
+  margin: 0 0 4px;
+  color: #56645f;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.hotel-option-card__badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-weight: 900;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.hotel-option-card__content {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.hotel-option-card__media {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+
+.hotel-gallery-main,
+.hotel-gallery-main--empty {
+  width: 100%;
+  height: 190px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #edf3ef;
+  border: 1px solid rgba(6, 40, 3, 0.1);
+}
+
+.hotel-gallery-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.hotel-gallery-main--empty {
+  display: grid;
+  place-items: center;
+}
+
+.hotel-gallery-empty-state {
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  color: #56645f;
+  padding: 18px;
+}
+
+.hotel-gallery-empty-state strong {
+  color: #062803;
+}
+
+.hotel-gallery-empty-state span {
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.hotel-gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.hotel-gallery-thumb {
+  border: 2px solid transparent;
+  border-radius: 13px;
+  padding: 0;
+  height: 62px;
+  overflow: hidden;
+  background: #edf3ef;
+  cursor: pointer;
+}
+
+.hotel-gallery-thumb.is-active {
+  border-color: #0a3a26;
+}
+
+.hotel-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotel-option-card__body {
+  display: grid;
+  gap: 10px;
+}
+
+.hotel-option-card__body label {
+  color: #062803;
+  font-weight: 900;
+  font-size: 0.92rem;
+}
+
+.hotel-option-card__options {
+  display: grid;
+  gap: 8px;
+}
+
+.hotel-combo-btn {
+  width: 100%;
+  border: 1px solid rgba(6, 40, 3, 0.13);
+  border-radius: 16px;
+  padding: 11px 12px;
+  background: #fff;
+  color: #17322a;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: center;
+}
+
+.hotel-combo-btn:hover {
+  border-color: rgba(10, 58, 38, 0.36);
+}
+
+.hotel-combo-btn.is-selected {
+  border-color: #0a3a26;
+  background: #edf7ef;
+}
+
+.hotel-combo-btn__radio {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #9aa39e;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+}
+
+.hotel-combo-btn.is-selected .hotel-combo-btn__radio {
+  border-color: #0a3a26;
+}
+
+.hotel-combo-btn.is-selected .hotel-combo-btn__radio::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #0a3a26;
+}
+
+.hotel-combo-btn__main {
+  color: #062803;
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.hotel-combo-btn__sub {
+  color: #56645f;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+/* Opción sin alojamiento compacta */
+.hotel-option-card--no-hotel {
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: #fffdf7;
+  border-color: rgba(217, 154, 0, 0.28);
+}
+
+.hotel-option-card--no-hotel .hotel-option-card__header {
+  align-items: center;
+}
+
+.hotel-option-card--no-hotel .hotel-option-card__header h3 {
+  font-size: 0.98rem;
+  margin-bottom: 2px;
+}
+
+.hotel-option-card--no-hotel .hotel-option-card__header p {
+  font-size: 0.84rem;
+}
+
+.hotel-option-card--no-hotel .hotel-option-card__content {
+  display: block;
+}
+
+.hotel-option-card--no-hotel .hotel-option-card__media,
+.hotel-option-card--no-hotel .hotel-gallery-main,
+.hotel-option-card--no-hotel .hotel-gallery-main--empty,
+.hotel-option-card--no-hotel .hotel-gallery-thumbs {
+  display: none !important;
+}
+
+.hotel-option-card--no-hotel .hotel-option-card__body {
+  margin-top: 8px;
+}
+
+.hotel-option-card--no-hotel .hotel-option-card__body label {
+  display: none;
+}
+
+.hotel-option-card--no-hotel .hotel-combo-btn {
+  border-radius: 999px;
+  padding: 9px 11px;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+}
+
+.hotel-option-card--no-hotel .hotel-combo-btn__main {
+  font-size: 0.88rem;
+}
+
+.hotel-option-card--no-hotel .hotel-combo-btn__sub {
+  font-size: 0.82rem;
+}
+
+/* =============================================
+   19. PANEL MÓVIL
+   ============================================= */
+
+@media (max-width: 1100px) {
+  .quote-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quote-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 92px;
+  }
+
+  body.quote-summary-expanded {
+    overflow: hidden;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .quote-hero {
+    padding: 86px 0 30px;
+  }
+
+  .quote-hero__container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .quote-eyebrow {
+    font-size: 0.8rem;
+    padding: 7px 12px;
+    margin-bottom: 12px;
+  }
+
+  .quote-hero h1 {
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
+  }
+
+  .quote-hero p {
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+
+  .quote-content {
+    padding: 20px 0 120px;
+  }
+
+  .quote-card {
+    border-radius: 20px;
+    padding: 17px;
+  }
+
+  .quote-card__header h2 {
+    font-size: 1.12rem;
+    padding: 11px 13px;
+  }
+
+  .quote-form-grid,
+  .quote-form-grid--travel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quote-train-selector-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quote-itinerary-option__top {
+    display: grid;
+    gap: 8px;
+  }
+
+  .quote-itinerary-option__top .quote-badge {
+    justify-self: start;
+  }
+
+  .quote-itinerary-time {
+    white-space: normal;
+    border-radius: 14px;
+  }
+
+  .quote-summary-panel {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    z-index: 1800;
+    border-radius: 22px 22px 0 0;
+    padding: 10px 12px 12px;
+    box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.18);
+    display: grid;
+    gap: 8px;
+    background: #fff;
+  }
+
+  .quote-summary-panel .quote-detail-title,
+  .quote-summary-panel .quote-summary,
+  .quote-summary-panel .quote-discount-box,
+  .quote-summary-panel .quote-payment-mode,
+  .quote-summary-panel .quote-payment-info,
+  .quote-summary-panel .quote-actions__secondary {
+    display: none;
+  }
+
+  .quote-summary-panel.is-expanded {
+    inset: 0;
+    border-radius: 0;
+    padding: 18px;
+    overflow-y: auto;
+    align-content: start;
+  }
+
+  .quote-summary-panel.is-expanded .quote-detail-title {
+    display: block;
+    margin: 0 0 4px;
+  }
+
+  .quote-summary-panel.is-expanded .quote-summary,
+  .quote-summary-panel.is-expanded .quote-discount-box,
+  .quote-summary-panel.is-expanded .quote-payment-mode,
+  .quote-summary-panel.is-expanded .quote-payment-info {
+    display: grid;
+  }
+
+  .quote-summary-panel.is-expanded .quote-actions__secondary {
+    display: contents;
+  }
+
+  .quote-summary-panel.is-expanded .quote-mobile-summary-toggle {
+    order: -1;
+    margin-bottom: 2px;
+  }
+
+  .quote-mobile-summary-toggle {
+    display: inline-flex;
+  }
+
+  .quote-summary-panel:not(.is-expanded) .quote-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    margin-top: 0;
+    gap: 8px;
+  }
+
+  .quote-summary-panel:not(.is-expanded) .quote-actions::before {
+    content: attr(data-mobile-total);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #f4fbf5;
+    color: #0a3a26;
+    font-weight: 900;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .quote-summary-panel:not(.is-expanded) .quote-payment-btn {
+    min-width: 104px;
+    height: 42px;
+    padding: 10px 14px;
+  }
+
+  .quote-summary-panel.is-expanded .quote-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-payment-btn__desktop {
+    display: none;
+  }
+
+  .quote-payment-btn__mobile {
+    display: inline;
+  }
+
+  .quote-modal__dialog {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .quote-modal__header,
+  .quote-modal__body,
+  .quote-modal__footer {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hotel-option-card__content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hotel-gallery-main,
+  .hotel-gallery-main--empty {
+    height: 180px;
+  }
+
+  .hotel-option-card__header,
+  .train-option-card__header {
+    display: grid;
+    gap: 10px;
+  }
+
+  .hotel-option-card__badge,
+  .train-option-card__price {
+    justify-self: start;
+  }
+
+  .train-option-card__schedule {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hotel-combo-btn {
+    grid-template-columns: 18px minmax(0, 1fr);
+  }
+
+  .hotel-combo-btn__sub {
+    grid-column: 2;
+  }
+}
+
+/* =============================================
+   20. IMPRESIÓN / PDF (EMULA EL FORMATO DEL PDF ANTIGUO)
+   ============================================= */
+
+.print-quotation {
+  display: none;
+}
+
+.print-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  background: #fff;
+  color: #17322a;
+  font-family: "Open Sans", Arial, sans-serif;
+  padding: 9mm 11mm;           /* Márgenes superiores reducidos y uniformes */
+  box-sizing: border-box;
+  line-height: 1.3;            /* Interlineado general compacto */
+}
+
+/* ========== CABECERA ========== */
+.print-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+  align-items: start;
+  margin-bottom: 5mm;
+  padding-bottom: 3.5mm;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.25);
+}
+
+.print-company {
+  display: grid;
+  gap: 1.8mm;
+}
+
+.print-logo {
+  width: 40mm;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1.5mm;
+}
+
+.print-company p {
+  margin: 0;
+  color: #35443e;
+  font-size: 7.8pt;
+  line-height: 1.25;
+}
+
+.print-header__right {
+  text-align: right;
+  display: grid;
+  gap: 1.8mm;
+  justify-items: end;
+}
+
+.print-header__right h1 {
+  margin: 0;
+  font-size: 15pt;
+  line-height: 1.1;
+  color: #062803;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+/* Código con badge, las fechas sin badge */
+.print-quote-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5mm 3.5mm;
+  border-radius: 999px;
+  background: #0a3a26;
+  color: #fff;
+  font-size: 7.2pt;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.print-header__right p {
+  margin: 0;
+  font-size: 7.5pt;
+  color: #3b4e47;
+  line-height: 1.3;
+}
+
+/* ========== ELIMINAR CUPÓN ESPECIAL ========== */
+.print-coupon-box {
+  display: none !important;
+}
+
+/* ========== DATOS DEL CLIENTE Y VIAJE ========== */
+.print-client-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin-bottom: 1mm;
+}
+
+.print-info-box {
+  border: 1px solid rgba(6, 40, 3, 0.12);
+  border-radius: 3mm;
+  background: #fbfdfb;
+  padding: 2.5mm 3.5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.print-info-box h3 {
+  background: #0a3a26;
+  color: #fff;
+  padding: 2mm 3.5mm;
+  border-radius: 2.5mm;
+  margin: -2.5mm -3.5mm 2mm;   /* para que el fondo ocupe todo el ancho de la caja */
+  font-size: 9pt;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.print-info-box p {
+  margin: 0 0 1mm;
+  color: #35443e;
+  font-size: 7.8pt;
+  line-height: 1.25;
+}
+
+/* ========== SECCIONES CON TÍTULO DESTACADO ========== */
+.print-section {
+  margin-bottom: 1mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.print-section h3 {
+  background: #0a3a26;
+  color: #fff;
+  padding: 2mm 3.5mm;
+  border-radius: 2.5mm;
+  margin: 0 0 1mm;
+  font-size: 9pt;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.print-section p,
+.print-section li,
+.print-section span,
+.print-section strong {
+  font-size: 7.8pt;
+  line-height: 1.3;
+}
+
+/* ========== ITINERARIO ========== */
+.print-itinerary-list {
+  display: grid;
+  gap: 1.8mm;
+}
+
+.print-itinerary-item {
+  padding: 2mm 3mm;
+  border-radius: 2.5mm;
+  background: #f9fcfb;
+  border-left: 3px solid #0a3a26;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.print-itinerary-item h4 {
+  margin: 0 0 0.8mm;
+  color: #062803;
+  font-size: 8.2pt;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.print-itinerary-item p {
+  margin: 0;
+  color: #3b4e47;
+  font-size: 7.5pt;
+}
+
+.print-itinerary-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 1mm;
+  padding: 0.8mm 2mm;
+  border-radius: 999px;
+  background: #edf3ef;
+  color: #0a3a26;
+  font-size: 6.8pt;
+  font-weight: 800;
+}
+
+/* ========== SERVICIOS SELECCIONADOS (TABLA) ========== */
+.print-services-list {
+  display: grid;
+  gap: 1.5mm;
+}
+
+.print-service-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.08);
+  color: #3b4e47;
+  font-size: 7.8pt;
+  line-height: 1.25;
+}
+
+.print-service-row:last-child {
+  border-bottom: 0;
+}
+
+.print-service-row strong:first-child {
+  font-weight: 600;
+  color: #062803;
+}
+
+.print-service-row strong:last-child {
+  text-align: right;
+  color: #062803;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ========== HOTELES ========== */
+.print-hotel-images {
+  display: grid;
+  gap: 2.5mm;
+  margin-top: 1mm;
+}
+
+.print-hotel-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 2mm;
+  padding: 2mm;
+  border-radius: 3mm;
+  background: #fff;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.print-hotel-info {
+  display: grid;
+  gap: 0.6mm;
+  align-content: start;
+}
+
+.print-hotel-info strong {
+  color: #062803;
+  font-size: 8pt;
+}
+
+.print-hotel-info span {
+  color: #3b4e47;
+  font-size: 7.2pt;
+  line-height: 1.25;
+}
+
+.print-hotel-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2mm;
+}
+
+.print-hotel-gallery img {
+  width: 100%;
+  height: 15mm;
+  object-fit: cover;
+  border-radius: 2mm;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+/* ========== DETALLES DE PAGO ========== */
+.print-payment-list {
+  display: grid;
+  gap: 1.5mm;
+}
+
+.print-payment-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.08);
+  color: #3b4e47;
+  font-size: 7.8pt;
+  line-height: 1.25;
+}
+
+.print-payment-row:last-child {
+  border-bottom: 0;
+}
+
+.print-payment-row strong:last-child {
+  text-align: right;
+  color: #062803;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.print-payment-row--total {
+  margin-top: 1.2mm;
+  padding: 2mm 3mm;
+  border-radius: 2.5mm;
+  background: #edf7ef;
+  border: 1px solid rgba(10, 58, 38, 0.15);
+  color: #062803;
+  font-weight: 900;
+}
+
+.print-payment-row--total strong {
+  font-size: 9pt;
+  color: #0a3a26;
+}
+
+/* ========== CONDICIONES IMPORTANTES ========== */
+.print-notes ul {
+  margin: 0;
+  padding-left: 4mm;
+  display: grid;
+  gap: 1mm;
+}
+
+.print-notes li {
+  color: #3b4e47;
+  font-size: 7.2pt;
+  line-height: 1.25;
+}
+
+/* ========== PIE DE PÁGINA ========== */
+.print-footer {
+  text-align: center;
+  margin-top: 4mm;
+  padding-top: 3mm;
+  border-top: 1px solid rgba(6, 40, 3, 0.12);
+  color: #56645f;
+}
+
+.print-footer p {
+  margin: 0;
+  font-size: 7.2pt;
+  font-weight: 700;
+}
+
+/* =============================================
+   21. PRINT MEDIA
+   ============================================= */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    overflow: visible !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #printQuotation,
+  #printQuotation * {
+    visibility: visible !important;
+  }
+
+  #printQuotation {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-sheet {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 9mm 11mm !important;
+    box-shadow: none !important;
+  }
+   /* Ajustes adicionales para forzar compacidad */
+.print-section {
+  margin-top: 0 !important;
+  margin-bottom: 2mm !important;   /* antes era 4.5mm o 3mm */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.print-client-grid {
+  margin-bottom: 2mm !important;
+}
+
+.print-info-box {
+  margin-bottom: 2mm !important;
+}
+
+/* Asegurar que los contenedores dinámicos no tengan espacios extras */
+#printItinerary,
+#printSelectedServices,
+#printPaymentDetails,
+#printHotelImages {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Quitar margen superior del primer elemento de cada sección */
+.print-section > *:first-child {
+  margin-top: 0 !important;
+}
+
+/* Quitar margen inferior del último elemento de cada sección */
+.print-section > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Si el JS inserta tarjetas de itinerario con márgenes grandes, reducirlos */
+.print-itinerary-item {
+  margin: 0 !important;
+  padding: 2mm 3mm !important;
+}
+
+/* Espacio entre items de itinerario mínimo */
+.print-itinerary-list {
+  gap: 1.5mm !important;
+}
+
+/* Ajustar lista de servicios y pagos */
+.print-services-list,
+.print-payment-list {
+  gap: 1mm !important;
+}
+
+.print-service-row,
+.print-payment-row {
+  padding: 1mm 0 !important;
+}
+
+  .wa-float,
+  #header-container,
+  #footer-container,
+  .quote-page > .quote-hero,
+  .quote-content,
+  .quote-modal {
+    display: none !important;
+  }
+
+  .print-section,
+  .print-info-box,
+  .print-itinerary-item,
+  .print-hotel-row {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+/* =============================================
+   22. PDF MODE
+   ============================================= */
+
+body.is-generating-pdf {
+  background: #fff !important;
+}
+
+body.is-generating-pdf #printQuotation {
+  display: block !important;
+  position: static !important;
+  width: 210mm !important;
+  min-height: 297mm !important;
+  background: #fff !important;
+  margin: 0 auto !important;
+}
+
+body.is-generating-pdf .print-sheet {
+  width: 210mm !important;
+  min-height: 297mm !important;
+  padding: 9mm 11mm !important;
+  box-shadow: none !important;
+}
+
+body.is-generating-pdf .quote-hero,
+body.is-generating-pdf .quote-content,
+body.is-generating-pdf #header-container,
+body.is-generating-pdf #footer-container,
+body.is-generating-pdf .wa-float,
+body.is-generating-pdf .quote-modal {
+  display: none !important;
+}
+/* =============================================
+   23. AJUSTES RESPONSIVE ADICIONALES
+   ============================================= */
+
+@media (max-width: 560px) {
+  .quote-summary-panel:not(.is-expanded) {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-summary-panel:not(.is-expanded) .quote-mobile-summary-toggle {
+    height: 38px;
+  }
+
+  .quote-summary-panel:not(.is-expanded) .quote-actions::before {
+    font-size: 0.88rem;
+    min-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .quote-summary-panel:not(.is-expanded) .quote-payment-btn {
+    min-width: 88px;
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .quote-discount-box__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quote-discount-box button {
+    width: 100%;
+  }
+
+  .print-sheet {
+    width: 210mm;
+  }
+}
+
+
+/* =========================================================
+   REFINAMIENTO FINAL COTIZADOR DE PAQUETES - 2026-05
+   Itinerarios comerciales descriptivos, badges de día,
+   actividades visuales y estados Por elegir para hoteles/trenes.
+   ========================================================= */
+
+.quote-itinerary-options::before {
+  content: "Elige una ruta sugerida para tu viaje";
+  display: block;
+  font-weight: 900;
+  color: #062803;
+  margin: 2px 0 4px;
+}
+
+.quote-itinerary-option {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fcf9 100%);
+}
+
+.quote-itinerary-option.is-selected::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: #0a3a26;
+}
+
+.quote-itinerary-option__summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.quote-itinerary-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #edf3ef;
+  color: #0a3a26;
+  font-size: 0.77rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 7px 10px;
+}
+
+.quote-itinerary-route-label {
+  color: #a86a16;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+.quote-itinerary-list {
+  gap: 14px;
+}
+
+.quote-itinerary-item {
+  border: 1px solid rgba(6, 40, 3, 0.1);
+  border-left: none;
+  border-radius: 20px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 8px 22px rgba(10, 58, 38, 0.055);
+}
+
+.quote-itinerary-day-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.quote-itinerary-day-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #062803;
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.82rem;
+  padding: 8px 13px;
+  line-height: 1;
+}
+
+.quote-itinerary-day-date {
+  color: #a86a16;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.quote-itinerary-day-title {
+  color: #062803;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.quote-itinerary-activities {
+  display: grid;
+  gap: 12px;
+}
+
+.quote-itinerary-activity {
+  position: relative;
+  padding-left: 22px;
+}
+
+.quote-itinerary-activity::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.52rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #0a3a26;
+  box-shadow: 0 0 0 4px rgba(10, 58, 38, 0.11);
+}
+
+.quote-itinerary-activity__title {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 4px;
+  color: #062803;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.quote-itinerary-activity__time {
+  color: #a86a16;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.quote-itinerary-activity__description,
+.quote-itinerary-activity__places,
+.quote-itinerary-activity__note {
+  margin: 0;
+  color: #56645f;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.quote-itinerary-activity__places {
+  margin-top: 4px;
+  color: #41524c;
+}
+
+.quote-itinerary-activity__note {
+  margin-top: 5px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #fff7e7;
+  color: #82560c;
+  font-size: 0.86rem;
+}
+
+.quote-itinerary-time {
+  white-space: normal;
+}
+
+.quote-summary__line strong:empty::after,
+#basePackageTotal:empty::after {
+  content: "S/ 0.00";
+}
+
+@media (max-width: 768px) {
+  .quote-itinerary-item {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .quote-itinerary-day-header {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .quote-itinerary-day-title {
+    flex-basis: 100%;
+  }
+
+  .quote-itinerary-activity {
+    padding-left: 20px;
+  }
+
+  .quote-itinerary-option__summary {
+    gap: 6px;
+  }
+}
+
+
+/* Ajuste final: campos de hora nativos, sin popup visual de Flatpickr */
+.quote-native-time-input {
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  cursor: text;
+}
+
+.quote-extra-item small {
+  display: block;
+  margin-top: 2px;
+  color: #6b7772;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.quote-extra-item em {
+  display: block;
+  margin-top: 4px;
+  color: #8a6518;
+  font-size: 0.78rem;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   AJUSTES VISUALES V5 - COTIZADOR
+   ========================================================= */
+
+.quote-form-grid--travel .quote-field small[hidden],
+#travelRangeHelp[hidden] {
+  display: none !important;
+}
+
+.train-option-card {
+  cursor: pointer;
+}
+
+.train-option-card.is-selected {
+  border-color: #042015;
+  background: #e9f4ec;
+  box-shadow: 0 18px 36px rgba(4, 32, 21, 0.2);
+}
+
+.train-option-card.is-selected .train-option-card__company h3 {
+  color: #042015;
+}
+
+.train-option-card__radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(6, 40, 3, 0.35);
+  border-radius: 50%;
+  background: #fff;
+  flex: 0 0 auto;
+  margin-top: 4px;
+  position: relative;
+}
+
+.train-option-card.is-selected .train-option-card__radio {
+  border-color: #042015;
+  background: #042015;
+}
+
+.train-option-card.is-selected .train-option-card__radio::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.train-option-card__top-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.train-details-link {
+  border: 0;
+  background: #edf3ef;
+  color: #0a3a26;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.train-details-link:hover {
+  background: #0a3a26;
+  color: #fff;
+}
+
+.train-option-card__actions {
+  display: none !important;
+}
+
+.train-option-card--local {
+  border-color: rgba(187, 82, 18, 0.35);
+  background: #fff6f0;
+}
+
+.train-option-card--local.is-selected {
+  border-color: #8f350d;
+  background: #fff0e6;
+}
+
+.train-option-card__warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fff1e7;
+  border-color: #f0b083;
+  color: #7d310d;
+}
+
+.train-option-card__warning i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: #b84a12;
+}
+
+@media (max-width: 640px) {
+  .train-option-card__header {
+    gap: 12px;
+  }
+
+  .train-option-card__company {
+    align-items: flex-start;
+  }
+
+  .train-option-card__logo {
+    width: 64px;
+    max-width: 64px;
+  }
+
+  .train-option-card__top-actions {
+    align-items: flex-end;
+  }
+
+  .train-details-link,
+  .train-option-card__price {
+    font-size: 0.76rem;
+    padding: 6px 10px;
+  }
+}
+
+
+/* =========================================================
+   AJUSTES VISUALES V6 - trenes, impresión y móvil
+   ========================================================= */
+.train-option-card__logo,
+.train-detail-logo,
+.quote-train-selector-card img {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  padding: 3px;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+.train-combination-note {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #edf7ef;
+  color: #0a3a26;
+  border: 1px solid rgba(10, 58, 38, 0.14);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.print-quote-badge {
+  padding: 2.2mm 5mm !important;
+  font-size: 9pt !important;
+  letter-spacing: 0.06em;
+}
+
+.print-company p:first-of-type {
+  max-width: 75mm;
+  color: #17322a;
+  font-weight: 700;
+}
+
+.print-company i {
+  color: #0a3a26;
+  min-width: 3.6mm;
+  text-align: center;
+}
+
+.print-payment-table {
+  display: grid;
+  gap: 1.2mm;
+  width: 100%;
+}
+
+.print-payment-table > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6mm;
+  padding: 1.5mm 0 1.5mm 3mm;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.08);
+  color: #3b4e47;
+  font-size: 7.8pt;
+  line-height: 1.25;
+}
+
+.print-payment-table > div span {
+  text-align: left;
+}
+
+.print-payment-table > div strong {
+  text-align: right;
+  color: #062803;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.print-payment-table__total {
+  margin-top: 1.2mm;
+  padding: 2mm 3mm !important;
+  border-radius: 2.5mm;
+  background: #edf7ef;
+  border: 1px solid rgba(10, 58, 38, 0.15) !important;
+  color: #062803;
+  font-weight: 900;
+}
+
+.print-payment-table__total strong {
+  font-size: 9pt;
+  color: #0a3a26 !important;
+}
+
+.print-hotel-row {
+  align-items: center;
+}
+
+.print-hotel-gallery img {
+  border-radius: 3mm;
+}
+
+@media (max-width: 900px) {
+  .quote-form-grid--travel {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .quote-form-grid--travel .quote-field,
+  .quote-form-grid--travel .quote-field input,
+  .quote-native-time-input {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-summary-panel:not(.is-expanded) .quote-actions::before {
+    content: attr(data-mobile-total);
+    min-width: 116px;
+  }
+}
+
+
+/* =========================================================
+   V7 ajustes finales de impresión
+   ========================================================= */
+.print-company {
+  width: 48mm;
+  justify-items: center;
+  text-align: center;
+}
+
+.print-logo {
+  width: 44mm;
+}
+
+.print-company p {
+  width: 48mm;
+  max-width: 48mm;
+  text-align: center;
+  justify-self: center;
+}
+
+.print-company p:first-of-type {
+  color: #5a6661 !important;
+  font-weight: 400 !important;
+  font-size: 7.5pt;
+  line-height: 1.25;
+}
+
+.print-company p:not(:first-of-type) {
+  color: #4a5752;
+  font-size: 7.2pt;
+}
+
+.print-quote-badge {
+  padding: 2.6mm 5.8mm !important;
+  font-size: 9.8pt !important;
+  letter-spacing: 0.065em;
+}
+
+.print-service-row {
+  display: grid !important;
+  grid-template-columns: minmax(30mm, 42mm) minmax(0, 1fr);
+  align-items: start;
+  gap: 4mm;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.print-service-row span,
+.print-service-row strong {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.print-service-row strong:last-child {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-align: right;
+  line-height: 1.25;
+}
+
+.print-service-row--extras strong:last-child {
+  text-align: left;
+  justify-self: stretch;
+  color: #17322a;
+}
+
+.print-itinerary-item--with-image {
+  display: grid;
+  grid-template-columns: 25mm minmax(0, 1fr);
+  gap: 2.5mm;
+  align-items: stretch;
+}
+
+.print-itinerary-thumb {
+  width: 25mm;
+  min-height: 20mm;
+  border-radius: 2.2mm;
+  overflow: hidden;
+  background: #edf3ef;
+}
+
+.print-itinerary-thumb img {
+  width: 100%;
+  height: 100%;
+  min-height: 20mm;
+  object-fit: cover;
+  display: block;
+}
+
+.print-itinerary-content {
+  min-width: 0;
+}
+
+@media print {
+  .print-company {
+    width: 48mm !important;
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .print-logo {
+    width: 44mm !important;
+  }
+
+  .print-company p {
+    width: 48mm !important;
+    max-width: 48mm !important;
+  }
+
+  .print-service-row {
+    grid-template-columns: minmax(30mm, 42mm) minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .print-service-row strong:last-child {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .print-itinerary-item--with-image {
+    display: grid !important;
+    grid-template-columns: 24mm minmax(0, 1fr) !important;
+    gap: 2.2mm !important;
+  }
+
+  .print-itinerary-thumb {
+    width: 24mm !important;
+    min-height: 18mm !important;
+  }
+
+  .print-itinerary-thumb img {
+    min-height: 18mm !important;
+  }
+}
+
+
+/* =========================================================
+   V8 retoques finales PDF / impresión
+   ========================================================= */
+.print-logo {
+  width: 46mm;
+}
+
+.print-company {
+  width: 50mm;
+  justify-items: center;
+  text-align: center;
+}
+
+.print-company p {
+  width: 50mm;
+  max-width: 50mm;
+  margin: 0.7mm auto 0;
+  line-height: 1.12;
+  text-align: center;
+}
+
+.print-company p:first-of-type {
+  margin-top: 1.4mm;
+  margin-bottom: 1.1mm;
+  color: #5f6b66 !important;
+  font-weight: 400 !important;
+  line-height: 1.16;
+}
+
+.print-company p:not(:first-of-type) {
+  margin-top: 0.35mm;
+  line-height: 1.08;
+}
+
+.print-quote-badge {
+  padding: 2.8mm 6.2mm !important;
+  font-size: 10.2pt !important;
+}
+
+.print-client-grid {
+  margin-bottom: 3mm !important;
+}
+
+.print-section {
+  margin-top: 3.6mm !important;
+  padding-top: 3.4mm !important;
+}
+
+.print-section h3 {
+  margin-bottom: 2.2mm !important;
+}
+
+.print-itinerary-list,
+.print-services-list,
+.print-payment-table,
+.print-hotel-images {
+  gap: 2mm !important;
+}
+
+.print-itinerary-day-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2mm;
+  align-items: center;
+  margin-bottom: 1.6mm;
+}
+
+.print-itinerary-day-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 1.1mm 2.6mm;
+  background: #0a3a26;
+  color: #fff;
+  font-size: 7.2pt;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.print-itinerary-day-date {
+  color: #a86a16;
+  font-size: 7.3pt;
+  font-weight: 800;
+}
+
+.print-itinerary-day-title {
+  color: #062803;
+  font-size: 8.2pt;
+  font-weight: 800;
+}
+
+.print-itinerary-activities {
+  display: grid;
+  gap: 1.8mm;
+}
+
+.print-itinerary-activity {
+  position: relative;
+  padding-left: 3.6mm;
+  min-width: 0;
+}
+
+.print-itinerary-activity::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.45mm;
+  width: 1.7mm;
+  height: 1.7mm;
+  border-radius: 50%;
+  background: #0a3a26;
+}
+
+.print-itinerary-activity__title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3mm;
+  align-items: baseline;
+  color: #062803;
+  font-size: 7.9pt;
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+.print-itinerary-activity__time {
+  color: #a86a16;
+  font-weight: 900;
+}
+
+.print-itinerary-activity p {
+  margin: 0.55mm 0 0;
+  color: #56645f;
+  font-size: 7.15pt;
+  line-height: 1.26;
+}
+
+.print-itinerary-activity__places strong {
+  color: #17322a;
+}
+
+.print-itinerary-activity__note {
+  color: #6b4b19 !important;
+}
+
+.print-itinerary-item {
+  padding: 2.4mm !important;
+  border-radius: 2.6mm !important;
+}
+
+.print-itinerary-item--with-image {
+  grid-template-columns: 28mm minmax(0, 1fr);
+  gap: 2.4mm;
+}
+
+.print-itinerary-thumb {
+  width: 28mm;
+  min-height: 22mm;
+  max-height: 32mm;
+}
+
+.print-itinerary-thumb img {
+  min-height: 22mm;
+}
+
+body.is-generating-pdf .print-section {
+  margin-top: 3.2mm !important;
+  padding-top: 3mm !important;
+}
+
+body.is-generating-pdf .print-itinerary-item {
+  margin-bottom: 0 !important;
+}
+
+@media print {
+  .print-logo {
+    width: 46mm !important;
+  }
+
+  .print-company {
+    width: 50mm !important;
+  }
+
+  .print-company p {
+    width: 50mm !important;
+    max-width: 50mm !important;
+    margin-top: 0.35mm !important;
+    line-height: 1.08 !important;
+  }
+
+  .print-company p:first-of-type {
+    margin-top: 1.3mm !important;
+    margin-bottom: 1mm !important;
+    line-height: 1.16 !important;
+  }
+
+  .print-section {
+    margin-top: 3.4mm !important;
+    padding-top: 3.2mm !important;
+  }
+
+  .print-itinerary-item--with-image {
+    grid-template-columns: 27mm minmax(0, 1fr) !important;
+    gap: 2.2mm !important;
+  }
+
+  .print-itinerary-thumb {
+    width: 27mm !important;
+    min-height: 21mm !important;
+    max-height: 30mm !important;
+  }
+
+  .print-itinerary-thumb img {
+    min-height: 21mm !important;
+  }
+}
+
+
+/* =========================================================
+   V9 PRINT COMPACT HEADER + ORDER POLISH
+   ========================================================= */
+.print-company {
+  text-align: center;
+}
+
+.print-company .print-logo,
+.print-logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.print-company p {
+  margin-top: 0 !important;
+  margin-bottom: 0.18mm !important;
+  line-height: 1.02 !important;
+}
+
+.print-company p:first-of-type {
+  margin-top: 0.45mm !important;
+  margin-bottom: 0.35mm !important;
+  line-height: 1.08 !important;
+}
+
+.print-header {
+  gap: 4mm !important;
+  margin-bottom: 3mm !important;
+}
+
+.print-client-grid {
+  margin-bottom: 2mm !important;
+}
+
+.print-info-box {
+  padding-top: 2.3mm !important;
+  padding-bottom: 2.3mm !important;
+}
+
+.print-info-box p {
+  margin: 0.45mm 0 !important;
+  line-height: 1.14 !important;
+}
+
+.print-section--services,
+.print-section--payment {
+  margin-top: 2.5mm !important;
+  padding-top: 2.4mm !important;
+}
+
+.print-section--itinerary {
+  margin-top: 3mm !important;
+  padding-top: 2.8mm !important;
+}
+
+body.is-generating-pdf .print-company p {
+  margin-top: 0 !important;
+  margin-bottom: 0.15mm !important;
+  line-height: 1.01 !important;
+}
+
+body.is-generating-pdf .print-company p:first-of-type {
+  margin-top: 0.35mm !important;
+  margin-bottom: 0.25mm !important;
+}
+
+body.is-generating-pdf .print-header {
+  margin-bottom: 2.6mm !important;
+}
+
+@media print {
+  .print-company p {
+    margin-top: 0 !important;
+    margin-bottom: 0.15mm !important;
+    line-height: 1.01 !important;
+  }
+
+  .print-company p:first-of-type {
+    margin-top: 0.35mm !important;
+    margin-bottom: 0.25mm !important;
+    line-height: 1.06 !important;
+  }
+
+  .print-header {
+    margin-bottom: 2.6mm !important;
+  }
+
+  .print-info-box p {
+    margin: 0.35mm 0 !important;
+  }
+}
+
+
+/* =========================================================
+   V10 PRINT BOOKING OFFER STRIP
+   ========================================================= */
+.print-booking-offer {
+  display: none;
+}
+
+@media print {
+  .print-booking-offer {
+    display: block !important;
+    margin: 4mm 0 0 !important;
+    padding: 0 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .print-booking-offer[hidden] {
+    display: none !important;
+  }
+
+  .print-booking-offer__content {
+    border-radius: 5mm;
+    padding: 5mm 7mm;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #0a3a26 0%, #d99a00 100%);
+    box-shadow: 0 6px 16px rgba(10, 58, 38, 0.2);
+  }
+
+  .print-booking-offer__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 1.4mm;
+    padding: 1.2mm 3.4mm;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-size: 8.2pt;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .print-booking-offer strong {
+    display: block;
+    margin: 0;
+    color: #fff;
+    font-size: 15.5pt;
+    line-height: 1.15;
+    font-weight: 900;
+  }
+
+  .print-booking-offer strong span {
+    color: #fff5cd;
+    white-space: nowrap;
+  }
+
+  .print-booking-offer p {
+    margin: 1.4mm 0 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 9.4pt;
+    line-height: 1.25;
+    font-weight: 600;
+  }
+}
+
+body.is-generating-pdf .print-booking-offer {
+  display: block !important;
+  margin: 4mm 0 0 !important;
+  padding: 0 !important;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+body.is-generating-pdf .print-booking-offer[hidden] {
+  display: none !important;
+}
+
+body.is-generating-pdf .print-booking-offer__content {
+  border-radius: 5mm;
+  padding: 5mm 7mm;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #0a3a26 0%, #d99a00 100%);
+  box-shadow: 0 6px 16px rgba(10, 58, 38, 0.2);
+}
+
+body.is-generating-pdf .print-booking-offer__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 1.4mm;
+  padding: 1.2mm 3.4mm;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 8.2pt;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+body.is-generating-pdf .print-booking-offer strong {
+  display: block;
+  margin: 0;
+  color: #fff;
+  font-size: 15.5pt;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+body.is-generating-pdf .print-booking-offer strong span {
+  color: #fff5cd;
+  white-space: nowrap;
+}
+
+body.is-generating-pdf .print-booking-offer p {
+  margin: 1.4mm 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 9.4pt;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   V11 FINAL TOUCHES
+   ========================================================= */
+.quote-desktop-time-input {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.quote-native-time-input {
+  cursor: text;
+}
+
+@media print {
+  .print-booking-offer__content {
+    background: #200011 !important;
+    background-image: linear-gradient(90deg, #050005 0%, #1b000f 58%, #680039 100%) !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-booking-offer strong span {
+    color: #ff4fc3 !important;
+  }
+
+  .print-booking-offer p {
+    color: #ead7ff !important;
+  }
+
+  .print-booking-offer__eyebrow {
+    background: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  .print-itinerary-thumb,
+  .print-itinerary-thumb img {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .print-itinerary-thumb img {
+    display: block !important;
+    object-fit: cover !important;
+  }
+}
+
+body.is-generating-pdf .print-booking-offer__content {
+  background: #200011 !important;
+  background-image: linear-gradient(90deg, #050005 0%, #1b000f 58%, #680039 100%) !important;
+  box-shadow: none !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+body.is-generating-pdf .print-booking-offer strong span {
+  color: #ff4fc3 !important;
+}
+
+body.is-generating-pdf .print-booking-offer p {
+  color: #ead7ff !important;
+}
+
+body.is-generating-pdf .print-booking-offer__eyebrow {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+
+/* =========================================================
+   V12 FINAL: header/footer, sidebar desktop y PDF
+   ========================================================= */
+.quote-field-preset-active::placeholder {
+  color: #0a3a26;
+  font-weight: 700;
+}
+
+/* V13: se revierte el intento de panel scrollable de v12.
+   El resumen vuelve a comportarse como antes: sin alto fijo y sin barra propia. */
+@media (min-width: 1101px) {
+  .quote-page,
+  .quote-content,
+  .quote-layout {
+    overflow: visible !important;
+  }
+
+  .quote-layout {
+    align-items: start !important;
+  }
+
+  .quote-sidebar {
+    position: relative !important;
+    top: auto !important;
+    align-self: start !important;
+    z-index: auto !important;
+    height: auto !important;
+  }
+
+  .quote-summary-panel {
+    position: static !important;
+    top: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overscroll-behavior: auto;
+    scrollbar-width: auto;
+  }
+}
+
+@media print {
+  .print-booking-offer__content {
+    background-color: #2c0018 !important;
+    background-image: linear-gradient(100deg, #050005 0%, #210013 46%, #5f0038 72%, #92004f 100%) !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+body.is-generating-pdf .print-booking-offer__content {
+  background-color: #2c0018 !important;
+  background-image: linear-gradient(100deg, #050005 0%, #210013 46%, #5f0038 72%, #92004f 100%) !important;
+  box-shadow: none !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* =====================================================
+   BLOQUE 3 - Panel cotizador sin scroll interno desktop
+   ===================================================== */
+@media (min-width: 1101px) {
+  .quote-layout {
+    align-items: start !important;
+    overflow: visible !important;
+  }
+
+  .quote-sidebar {
+    align-self: start !important;
+    overflow: visible !important;
+  }
+
+  .quote-summary-panel,
+  .quote-summary-panel--page-flow,
+  .quote-summary-panel[data-scroll-mode="page"] {
+    position: sticky !important;
+    top: 92px !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    align-self: start !important;
+  }
+
+  .quote-summary-panel .quote-summary,
+  .quote-summary-panel .quote-actions,
+  .quote-summary-panel .quote-payment-info,
+  .quote-summary-panel .quote-discount-box,
+  .quote-summary-panel .quote-payment-mode {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .quote-summary-panel,
+  .quote-summary-panel--page-flow,
+  .quote-summary-panel[data-scroll-mode="page"] {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+/* =====================================================
+   BLOQUE 3 - UX visual de trenes del cotizador
+   ===================================================== */
+.train-option-card {
+  border-radius: 22px;
+  border: 1px solid rgba(10, 58, 38, 0.12);
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(10, 58, 38, 0.06);
+}
+
+.train-option-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(221, 176, 79, 0.78);
+  box-shadow: 0 18px 38px rgba(10, 58, 38, 0.12);
+}
+
+.train-option-card.is-selected {
+  border-color: #0a3a26 !important;
+  background: linear-gradient(135deg, rgba(10, 58, 38, 0.055), rgba(221, 176, 79, 0.1)), #fff;
+  box-shadow: 0 18px 42px rgba(10, 58, 38, 0.16);
+}
+
+.train-option-card__logo,
+.train-detail-logo,
+.quote-train-selector-card img {
+  border-radius: 14px !important;
+  border: 1px solid rgba(10, 58, 38, 0.1);
+  background: #fff;
+}
+
+.train-option-card__header {
+  gap: 12px;
+}
+
+.train-option-card__company h3 {
+  color: #0a3a26;
+  line-height: 1.2;
+}
+
+.train-option-card__price {
+  border-radius: 999px;
+  background: rgba(10, 58, 38, 0.08);
+  color: #0a3a26;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.train-option-card.is-selected .train-option-card__price {
+  background: #0a3a26;
+  color: #fff;
+}
+
+.train-option-card__warning,
+.train-combination-note,
+.train-option-card--local .train-option-card__warning {
+  border: 1px solid rgba(184, 88, 19, 0.22);
+  background: #fff4e8;
+  color: #7a3f0c;
+  border-radius: 14px;
+  padding: 10px 12px;
+  line-height: 1.45;
+}
+
+.train-option-card--local {
+  border-color: rgba(184, 88, 19, 0.28);
+  background: linear-gradient(135deg, rgba(255, 244, 232, 0.9), #fff);
+}
+
+.train-option-card--local.is-selected {
+  border-color: #b85813 !important;
+  box-shadow: 0 18px 42px rgba(184, 88, 19, 0.14);
+}
+
+.train-details-link,
+.train-option-card__actions .quote-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #0a3a26;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.train-option-card__top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .train-option-card {
+    border-radius: 18px;
+  }
+
+  .train-option-card__header,
+  .train-option-card__top-actions {
+    align-items: flex-start;
+  }
+
+  .train-option-card__price,
+  .train-details-link {
+    width: max-content;
+    max-width: 100%;
+  }
+}
+
+@media print {
+  .quote-summary-panel,
+  .quote-summary-panel--page-flow {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Ajustes visuales modal hotel cotizador */
+.hotel-option-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.hotel-option-card__features span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #eef7f1;
+  color: #0a3a26;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+.hotel-option-card--no-hotel .hotel-option-card__header {
+  padding-bottom: 8px;
+}
+.hotel-option-card--no-hotel .hotel-combo-btn {
+  min-height: 58px;
+  border-radius: 16px;
+}
+@media (max-width: 768px) {
+  .hotel-modal__header,
+  .quote-modal__header {
+    background: #0a3a26;
+    color: #fff;
+  }
+  .hotel-modal__header h2,
+  .hotel-modal__header p,
+  .quote-modal__header h2,
+  .quote-modal__header p {
+    color: #fff;
+  }
+  .hotel-option-card__features {
+    padding: 0 14px 12px;
+    margin-top: 0;
+  }
+}
+
+/* =============================================
+   RESTAURACIÓN COTIZADOR DINÁMICO v18
+   Soporte para cards generadas por assets/js/pages/quote-packages.js
+   ============================================= */
+.quote-package-option,
+.quote-dynamic-card,
+.quote-modal-card,
+.quote-extra-card {
+  width: 100%;
+  border: 2px solid rgba(6, 40, 3, 0.12);
+  border-radius: 20px;
+  background: #fff;
+  color: inherit;
+  text-align: left;
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, background 0.18s ease;
+}
+
+.quote-package-option:hover,
+.quote-dynamic-card:hover,
+.quote-modal-card:hover,
+.quote-extra-card:hover {
+  border-color: rgba(10, 58, 38, 0.38);
+  box-shadow: 0 14px 28px rgba(10, 58, 38, 0.08);
+  transform: translateY(-1px);
+}
+
+.quote-package-option.is-selected,
+.quote-modal-card.is-selected,
+.quote-extra-card.is-selected {
+  border-color: #0a3a26;
+  background: #f4fbf5;
+  box-shadow: 0 14px 30px rgba(10, 58, 38, 0.12);
+}
+
+.quote-package-option__badge,
+.quote-modal-card span,
+.quote-dynamic-card span,
+.quote-extra-card small {
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.quote-package-option strong,
+.quote-dynamic-card strong,
+.quote-modal-card strong,
+.quote-extra-card strong {
+  color: #062803;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+
+.quote-package-option p,
+.quote-dynamic-card p,
+.quote-modal-card p,
+.quote-extra-card span,
+.quote-package-option small,
+.quote-dynamic-card small,
+.quote-modal-card small {
+  color: #56645f;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.quote-package-option em,
+.quote-modal-card em,
+.quote-extra-card em,
+.quote-dynamic-card small:last-child {
+  color: #0a3a26;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.quote-dynamic-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  cursor: default;
+  background: #f9fcfb;
+}
+
+.quote-dynamic-card:hover {
+  transform: none;
+}
+
+.quote-dynamic-card .btn {
+  white-space: nowrap;
+}
+
+.quote-services-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 18px;
+  background: #f7faf8;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+.quote-services-strip span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+  color: #0a3a26;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.quote-modal-card {
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.quote-modal-card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #edf2ef;
+}
+
+.quote-extra-card {
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.quote-extra-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #0a3a26;
+}
+
+.print-service-list,
+.print-payment-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.print-service-list p,
+.print-payment-grid p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .quote-dynamic-card,
+  .quote-extra-card {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-dynamic-card .btn {
+    width: 100%;
+  }
+
+  .quote-modal-card img {
+    height: 120px;
+  }
+}
+
+/* =============================================
+   Mejoras cotizador dinámico v19
+   Itinerario con imagen, badges de día, hoteles y trenes
+   ============================================= */
+.quote-itinerary-preview > h3 {
+  display: block;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #0a3a26;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.quote-itinerary-item.quote-itinerary-item--media {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px;
+  border-left: 0;
+  border: 1px solid rgba(6, 40, 3, 0.10);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(6, 40, 3, 0.06);
+}
+
+.quote-itinerary-item__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #edf2ef;
+}
+
+.quote-itinerary-item__body {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.quote-itinerary-item__dayline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.quote-day-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #0a3a26;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.quote-itinerary-item__dayline strong {
+  color: #0a3a26;
+  font-size: 0.92rem;
+}
+
+.quote-itinerary-activity {
+  padding: 0 0 12px;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+.quote-itinerary-activity:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.quote-itinerary-activity small {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.quote-hotel-modal-card,
+.quote-train-modal-card {
+  position: relative;
+  grid-template-columns: 180px minmax(0, 1fr) 24px;
+  align-items: stretch;
+  gap: 16px;
+  padding: 14px;
+}
+
+.quote-hotel-modal-card__image img,
+.quote-hotel-modal-card__image--empty,
+.quote-train-modal-card__logo {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #edf2ef;
+  overflow: hidden;
+}
+
+.quote-hotel-modal-card__image img {
+  height: 100%;
+}
+
+.quote-hotel-modal-card__image--empty,
+.quote-train-modal-card__logo {
+  display: grid;
+  place-items: center;
+  color: #0a3a26;
+  font-size: 1.6rem;
+}
+
+.quote-hotel-modal-card__content,
+.quote-train-modal-card__body {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.quote-hotel-room-box {
+  display: grid;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #f7faf8;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+.quote-hotel-room-box b {
+  color: #062803;
+  font-size: 0.92rem;
+}
+
+.quote-hotel-feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.quote-hotel-feature-list small,
+.quote-train-schedule-row small {
+  margin: 0;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.quote-choice-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(10, 58, 38, 0.32);
+  background: #fff;
+  align-self: start;
+  justify-self: end;
+  box-shadow: inset 0 0 0 4px #fff;
+}
+
+.quote-modal-card.is-selected .quote-choice-dot {
+  background: #0a3a26;
+  border-color: #0a3a26;
+}
+
+.quote-train-selected-content {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.quote-train-selected-logo {
+  width: 72px;
+  height: 42px;
+  object-fit: contain;
+  padding: 6px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+.quote-train-modal-card__logo img {
+  width: 82%;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+.quote-train-schedule-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.quote-train-schedule-row div {
+  padding: 10px;
+  border-radius: 14px;
+  background: #f7faf8;
+  border: 1px solid rgba(6, 40, 3, 0.08);
+}
+
+.quote-train-schedule-row b {
+  display: block;
+  margin-top: 5px;
+  color: #062803;
+  font-size: 0.86rem;
+}
+
+@media (max-width: 768px) {
+  .quote-itinerary-item.quote-itinerary-item--media,
+  .quote-hotel-modal-card,
+  .quote-train-modal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-itinerary-item__media img,
+  .quote-hotel-modal-card__image img,
+  .quote-hotel-modal-card__image--empty,
+  .quote-train-modal-card__logo {
+    min-height: 130px;
+  }
+
+  .quote-choice-dot {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+  }
+
+  .quote-train-schedule-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================================
+   Corrección v20 - modal de hoteles agrupado
+   ============================================= */
+.quote-hotel-modal-list {
+  display: grid;
+  gap: 16px;
+}
+
+.quote-hotel-choice-card,
+.quote-hotel-group-card {
+  border: 1px solid rgba(6, 40, 3, 0.12);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(6, 40, 3, 0.06);
+}
+
+.quote-hotel-choice-card {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quote-hotel-choice-card strong,
+.quote-hotel-group-card strong {
+  color: #062803;
+}
+
+.quote-hotel-choice-card p,
+.quote-hotel-group-card p {
+  margin: 6px 0 0;
+  color: #5d6a64;
+  line-height: 1.5;
+}
+
+.quote-hotel-choice-card em,
+.quote-room-combo em {
+  color: #0a3a26;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.quote-hotel-choice-card.is-selected,
+.quote-hotel-group-card.is-selected {
+  border-color: #0a3a26;
+  box-shadow: 0 16px 34px rgba(6, 40, 3, 0.12);
+}
+
+.quote-hotel-group-card {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+}
+
+.quote-hotel-group-card__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  object-fit: cover;
+  display: block;
+  background: #edf2ef;
+}
+
+.quote-hotel-group-card__content {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.quote-hotel-group-card__head span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #edf5ef;
+  color: #0a3a26;
+  font-size: 0.76rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.quote-room-combo-list {
+  display: grid;
+  gap: 8px;
+}
+
+.quote-room-combo {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(6, 40, 3, 0.10);
+  background: #f9fcfb;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quote-room-combo:hover,
+.quote-hotel-choice-card:hover {
+  border-color: rgba(10, 58, 38, 0.45);
+  background: #f5faf7;
+}
+
+.quote-room-combo.is-selected {
+  border-color: #0a3a26;
+  background: #edf6ef;
+}
+
+.quote-room-combo strong {
+  display: block;
+  font-size: 0.93rem;
+  margin-bottom: 3px;
+}
+
+.quote-room-combo small {
+  color: #65726d;
+  line-height: 1.4;
+}
+
+.quote-choice-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(10, 58, 38, 0.45);
+  background: #fff;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.is-selected > .quote-choice-dot,
+.quote-room-combo.is-selected .quote-choice-dot,
+.quote-hotel-choice-card.is-selected .quote-choice-dot {
+  border-color: #0a3a26;
+  box-shadow: inset 0 0 0 4px #fff;
+  background: #0a3a26;
+}
+
+@media (max-width: 760px) {
+  .quote-hotel-group-card {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-hotel-group-card__media img {
+    height: 180px;
+    min-height: 180px;
+  }
+
+  .quote-room-combo {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .quote-room-combo em {
+    grid-column: 2;
+    white-space: normal;
+  }
+}
+
+/* =============================================
+   Corrección v21 - hotel modal tipo paquetes, trenes, itinerario y print
+   ============================================= */
+.quote-package-options {
+  align-items: stretch;
+}
+
+.quote-show-more-itineraries {
+  width: 100%;
+  border: 1.5px dashed rgba(10, 58, 38, 0.35);
+  background: #f5faf7;
+  color: #0a3a26;
+  border-radius: 18px;
+  padding: 13px 16px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+.quote-show-more-itineraries:hover {
+  background: #edf7ef;
+  border-color: #0a3a26;
+}
+
+.quote-day-badge {
+  min-width: 92px;
+  justify-content: center;
+  padding: 5px 16px;
+  border-radius: 12px;
+  line-height: 1.1;
+}
+
+.quote-itinerary-item.quote-itinerary-item--media {
+  grid-template-columns: 210px minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.quote-itinerary-item__media {
+  min-height: 154px;
+}
+
+.quote-itinerary-item__media img {
+  height: 154px;
+  min-height: 154px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.quote-itinerary-activity {
+  position: relative;
+  padding-left: 0 !important;
+}
+
+.quote-itinerary-activity::before {
+  display: none !important;
+  content: none !important;
+}
+
+.quote-itinerary-activity h4 {
+  margin: 0 0 6px !important;
+  padding-left: 0 !important;
+  color: #062803;
+  line-height: 1.28;
+}
+
+.quote-itinerary-activity p {
+  margin: 0;
+}
+
+.quote-modal__dialog:has(.quote-hotel-modal-list--wide) {
+  max-width: min(1180px, calc(100vw - 32px));
+}
+
+.quote-hotel-modal-list--wide {
+  gap: 18px;
+}
+
+.quote-hotel-group-card--wide {
+  display: grid;
+  grid-template-columns: minmax(360px, 1.1fr) minmax(320px, 0.9fr);
+  gap: 28px;
+  padding: 22px;
+  border-radius: 28px;
+  box-shadow: 0 18px 42px rgba(6, 40, 3, 0.08);
+}
+
+.quote-hotel-group-card__left,
+.quote-hotel-group-card__right {
+  min-width: 0;
+}
+
+.quote-hotel-group-card__head--top {
+  margin-bottom: 16px;
+}
+
+.quote-hotel-group-card__head--top strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #062803;
+}
+
+.quote-hotel-group-card__head--top p {
+  margin: 7px 0 0;
+  font-size: 0.98rem;
+}
+
+.quote-hotel-gallery {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #edf2ef;
+}
+
+.quote-hotel-gallery img,
+.quote-hotel-gallery__empty {
+  display: block;
+  width: 100%;
+  height: 285px;
+  object-fit: cover;
+}
+
+.quote-hotel-gallery__empty {
+  display: grid;
+  place-items: center;
+  color: #0a3a26;
+  font-size: 2rem;
+}
+
+.quote-hotel-gallery__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.94);
+  color: #0a3a26;
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+}
+
+.quote-hotel-gallery__nav--prev { left: 14px; }
+.quote-hotel-gallery__nav--next { right: 14px; }
+
+.quote-hotel-feature-list--pills {
+  margin-top: 18px;
+}
+
+.quote-hotel-feature-list--pills small {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.quote-hotel-group-card__right {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  position: relative;
+}
+
+.quote-hotel-price-pill {
+  justify-self: end;
+  width: fit-content;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-weight: 900;
+  font-size: 0.96rem;
+}
+
+.quote-hotel-group-card__right h3 {
+  margin: 0;
+  color: #1f6d2e;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.quote-hotel-group-card--wide .quote-room-combo {
+  grid-template-columns: auto minmax(0, 1fr);
+  border-radius: 20px;
+  padding: 17px 18px;
+  background: #fff;
+  border: 1.5px solid rgba(6, 40, 3, 0.18);
+}
+
+.quote-hotel-group-card--wide .quote-room-combo:hover,
+.quote-hotel-group-card--wide .quote-room-combo.is-selected {
+  border-color: #0a3a26;
+  background: #f4fbf5;
+}
+
+.quote-hotel-group-card--wide .quote-room-combo strong {
+  font-size: 1rem;
+}
+
+.quote-hotel-group-card--wide .quote-room-combo small {
+  font-size: 0.9rem;
+}
+
+.quote-train-modal-card {
+  grid-template-columns: 98px minmax(0, 1fr) 24px !important;
+  align-items: center;
+}
+
+.quote-train-modal-card__logo {
+  min-height: 68px !important;
+  height: 68px !important;
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.quote-train-modal-card__logo img {
+  width: 100% !important;
+  max-width: 74px;
+  height: 44px !important;
+  max-height: 44px !important;
+  object-fit: contain !important;
+}
+
+.print-service-list--clean p strong {
+  color: #0a3a26;
+}
+
+.print-hotel-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.print-hotel-image-card {
+  margin: 0;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.print-hotel-image-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.print-hotel-image-card figcaption {
+  margin-top: 5px;
+  font-size: 0.78rem;
+  color: #44524c;
+}
+
+.print-itinerary-item--media {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 12px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.print-itinerary-item--media img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 760px) {
+  .quote-itinerary-item.quote-itinerary-item--media {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-itinerary-item__media img {
+    width: 100%;
+    height: 190px;
+  }
+
+  .quote-hotel-group-card--wide {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .quote-hotel-gallery img,
+  .quote-hotel-gallery__empty {
+    height: 220px;
+  }
+
+  .quote-hotel-price-pill {
+    justify-self: start;
+  }
+
+  .quote-train-modal-card {
+    grid-template-columns: 78px minmax(0, 1fr) !important;
+  }
+
+  .quote-train-modal-card .quote-choice-dot {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+/* === V22 quote-package fixes: hotel modal header, train logos, print details === */
+#hotelModal .quote-modal__header {
+  background: #0a3a26;
+  border-bottom: 0;
+  color: #f4fbf5;
+}
+
+#hotelModal .quote-modal__header h2,
+#hotelModal .quote-modal__header p,
+#hotelModal .quote-modal__eyebrow {
+  color: #f4fbf5 !important;
+}
+
+#hotelModal .quote-modal__close {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+}
+
+.quote-train-modal-card {
+  grid-template-columns: 76px minmax(0, 1fr) 24px !important;
+  min-height: auto !important;
+  align-items: center !important;
+}
+
+.quote-train-modal-card__logo {
+  width: 64px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.quote-train-modal-card__logo img {
+  display: block !important;
+  width: auto !important;
+  max-width: 64px !important;
+  height: auto !important;
+  max-height: 36px !important;
+  object-fit: contain !important;
+}
+
+.quote-train-modal-card__body {
+  min-width: 0;
+}
+
+.print-header__right {
+  padding-top: 2.5mm;
+}
+
+.print-service-list--clean {
+  display: grid;
+  gap: 1.2mm;
+}
+
+.print-service-list--clean p {
+  margin: 0;
+  font-size: 7.4pt;
+  line-height: 1.28;
+  color: #3f4f48;
+}
+
+.print-lodging-title {
+  margin: 2.5mm 0 1.5mm;
+  color: #0a3a26;
+  font-size: 8.3pt;
+  font-weight: 900;
+}
+
+.print-lodging-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5mm;
+}
+
+.print-hotel-image-card {
+  border: 1px solid rgba(6, 40, 3, 0.12);
+  border-radius: 3mm;
+  padding: 2mm;
+  background: #fbfdfb;
+}
+
+.print-hotel-image-card img {
+  height: 30mm !important;
+  border-radius: 2mm !important;
+}
+
+.print-hotel-image-card figcaption {
+  display: grid;
+  gap: 0.8mm;
+  margin-top: 1.5mm !important;
+  font-size: 7.1pt !important;
+  line-height: 1.2;
+}
+
+.print-hotel-image-card figcaption strong {
+  color: #0a3a26;
+  font-size: 7.6pt;
+}
+
+.print-hotel-image-card figcaption span {
+  color: #52635c;
+}
+
+.print-itinerary-activity-block {
+  margin-top: 1.6mm;
+}
+
+.print-itinerary-note-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1mm;
+  padding: 1mm 2mm;
+  border-radius: 999px;
+  background: #edf7ef;
+  color: #0a3a26;
+  font-size: 6.8pt;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.print-itinerary-item--media > div h4 {
+  margin: 1mm 0 0.5mm;
+  color: #062803;
+  font-size: 8pt;
+  line-height: 1.2;
+}
+
+.print-itinerary-item--media > div p {
+  margin: 0;
+  color: #56645f;
+  font-size: 7.1pt;
+  line-height: 1.25;
+}
+
+@media (max-width: 760px) {
+  .quote-train-modal-card {
+    grid-template-columns: 68px minmax(0, 1fr) !important;
+  }
+  .quote-train-modal-card__logo,
+  .quote-train-modal-card__logo img {
+    max-width: 58px !important;
+  }
+}
+
+/* === V23: ajustes finales visibles para cotizador === */
+.quote-package-options:not([data-expanded="true"]) > .quote-package-option:nth-of-type(n+5) {
+  display: none !important;
+}
+.quote-package-options[data-expanded="true"] > .quote-package-option {
+  display: grid !important;
+}
+.quote-show-more-itineraries {
+  grid-column: 1 / -1;
+}
+
+.quote-itinerary-item.quote-itinerary-item--media {
+  grid-template-columns: 188px minmax(0, 1fr) !important;
+  align-items: stretch !important;
+}
+.quote-itinerary-item__media {
+  width: 100% !important;
+  height: 165px !important;
+  min-height: 165px !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  background: #edf2ef !important;
+}
+.quote-itinerary-item__media img {
+  width: 100% !important;
+  height: 165px !important;
+  min-height: 165px !important;
+  max-height: 165px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 18px !important;
+}
+.quote-day-badge {
+  min-width: 88px !important;
+  justify-content: center !important;
+  padding: 6px 18px !important;
+  line-height: 1 !important;
+  font-size: 0.78rem !important;
+  border-radius: 999px !important;
+}
+.quote-itinerary-activity,
+.quote-itinerary-item--media .quote-itinerary-activity {
+  position: relative !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.quote-itinerary-activity::before,
+.quote-itinerary-item--media .quote-itinerary-activity::before {
+  content: none !important;
+  display: none !important;
+}
+.quote-itinerary-activity h4 {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+#trainSelectionModal .quote-modal__dialog {
+  max-width: min(880px, calc(100vw - 32px)) !important;
+}
+#trainSelectionModal .quote-modal-card.quote-train-modal-card,
+#trainSelectionModal .quote-train-modal-card {
+  display: grid !important;
+  grid-template-columns: 46px minmax(0, 1fr) !important;
+  gap: 12px !important;
+  align-items: center !important;
+  min-height: 0 !important;
+  padding: 14px 16px !important;
+}
+#trainSelectionModal .quote-choice-dot {
+  position: static !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  width: 18px !important;
+  height: 18px !important;
+  align-self: center !important;
+  justify-self: center !important;
+}
+#trainSelectionModal .quote-train-modal-card__logo {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  width: 42px !important;
+  height: 30px !important;
+  min-width: 42px !important;
+  min-height: 30px !important;
+  max-width: 42px !important;
+  max-height: 30px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#trainSelectionModal .quote-train-modal-card__logo img,
+#trainSelectionModal .quote-train-modal-card img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 42px !important;
+  max-height: 28px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+#trainSelectionModal .quote-train-modal-card__body {
+  grid-column: 2 !important;
+  grid-row: 1 / span 2 !important;
+  min-width: 0 !important;
+}
+
+#hotelModal .quote-modal__dialog {
+  max-width: min(1260px, calc(100vw - 32px)) !important;
+  width: 100% !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+#hotelModal .quote-modal__header {
+  margin: 0 !important;
+  padding: 24px 28px !important;
+  background: #062803 !important;
+  color: #f5f8f2 !important;
+}
+#hotelModal .quote-modal__header h2,
+#hotelModal .quote-modal__header p,
+#hotelModal .quote-modal__eyebrow {
+  color: #f5f8f2 !important;
+}
+#hotelModal .quote-modal__body {
+  padding: 22px !important;
+  max-height: min(76vh, 760px) !important;
+  overflow: auto !important;
+}
+#hotelModal .quote-hotel-modal-list--wide {
+  display: grid !important;
+  gap: 18px !important;
+}
+#hotelModal .quote-hotel-group-card--wide {
+  display: grid !important;
+  grid-template-columns: minmax(380px, 1.06fr) minmax(360px, 0.94fr) !important;
+  gap: 30px !important;
+  padding: 24px !important;
+  border-radius: 28px !important;
+  background: #fff !important;
+  border: 1px solid rgba(6, 40, 3, 0.10) !important;
+  box-shadow: 0 20px 45px rgba(6, 40, 3, 0.08) !important;
+}
+#hotelModal .quote-hotel-gallery,
+#hotelModal .quote-hotel-gallery img,
+#hotelModal .quote-hotel-gallery__empty {
+  height: 300px !important;
+  min-height: 300px !important;
+  max-height: 300px !important;
+}
+#hotelModal .quote-hotel-gallery img {
+  width: 100% !important;
+  object-fit: cover !important;
+  border-radius: 24px !important;
+}
+#hotelModal .quote-hotel-group-card__right {
+  align-content: center !important;
+}
+#hotelModal .quote-room-combo-list {
+  display: grid !important;
+  gap: 12px !important;
+}
+#hotelModal .quote-hotel-group-card--wide .quote-room-combo {
+  min-height: 78px !important;
+  display: grid !important;
+  grid-template-columns: 28px minmax(0, 1fr) !important;
+  align-items: center !important;
+  padding: 16px 18px !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+}
+#hotelModal .quote-hotel-group-card--wide .quote-choice-dot {
+  position: static !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+#hotelModal .quote-hotel-choice-card--none {
+  border-radius: 22px !important;
+}
+
+@media (max-width: 860px) {
+  .quote-itinerary-item.quote-itinerary-item--media {
+    grid-template-columns: 1fr !important;
+  }
+  .quote-itinerary-item__media,
+  .quote-itinerary-item__media img {
+    height: 210px !important;
+    min-height: 210px !important;
+    max-height: 210px !important;
+  }
+  #hotelModal .quote-hotel-group-card--wide {
+    grid-template-columns: 1fr !important;
+  }
+  #hotelModal .quote-hotel-gallery,
+  #hotelModal .quote-hotel-gallery img,
+  #hotelModal .quote-hotel-gallery__empty {
+    height: 230px !important;
+    min-height: 230px !important;
+    max-height: 230px !important;
+  }
+}
+
+/* === V24: impresión estilo cotización formal + trenes en modal === */
+#trainSelectionModal .quote-modal__header {
+  margin: 0 !important;
+  padding: 22px 28px !important;
+  background: #062803 !important;
+  border-bottom: 0 !important;
+  color: #f5f8f2 !important;
+}
+#trainSelectionModal .quote-modal__header h2,
+#trainSelectionModal .quote-modal__header p,
+#trainSelectionModal .quote-modal__eyebrow {
+  color: #f5f8f2 !important;
+}
+#trainSelectionModal .quote-modal__close {
+  background: rgba(255,255,255,0.14) !important;
+  color: #fff !important;
+}
+#trainSelectionModal .quote-modal-card.quote-train-modal-card,
+#trainSelectionModal .quote-train-modal-card {
+  grid-template-columns: 28px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 14px !important;
+  min-height: 0 !important;
+  padding: 15px 18px !important;
+}
+#trainSelectionModal .quote-choice-dot {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+#trainSelectionModal .quote-train-modal-card__logo {
+  display: none !important;
+}
+#trainSelectionModal .quote-train-modal-card__body {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  display: grid !important;
+  gap: 9px !important;
+  min-width: 0 !important;
+}
+.quote-train-title-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+.quote-train-inline-logo {
+  flex: 0 0 auto !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 58px !important;
+  max-height: 30px !important;
+  object-fit: contain !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.quote-train-title-row strong {
+  display: block !important;
+  color: #062803 !important;
+  font-size: 1rem !important;
+  line-height: 1.2 !important;
+}
+.quote-train-title-row span {
+  display: block !important;
+  margin-top: 2px !important;
+  color: #62736b !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+}
+
+@media print {
+  body { background: #fff !important; }
+  body * { visibility: hidden !important; }
+  #printQuotation, #printQuotation * { visibility: visible !important; }
+  #printQuotation {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 100% !important;
+    background: #fff !important;
+  }
+  .print-sheet {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 8mm 9mm !important;
+    color: #17322a !important;
+    font-family: "Open Sans", Arial, sans-serif !important;
+    background: #fff !important;
+  }
+  .print-header {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    align-items: start !important;
+    gap: 7mm !important;
+    margin-bottom: 4mm !important;
+    padding-bottom: 3.5mm !important;
+    border-bottom: 1px solid rgba(6, 40, 3, 0.22) !important;
+  }
+  .print-logo {
+    width: 36mm !important;
+    margin: 0 0 1.2mm !important;
+  }
+  .print-company p {
+    margin: 0 0 0.8mm !important;
+    font-size: 7.6pt !important;
+    line-height: 1.22 !important;
+    color: #35443e !important;
+  }
+  .print-header__right {
+    padding-top: 4mm !important;
+    text-align: right !important;
+    justify-items: end !important;
+    gap: 1.3mm !important;
+  }
+  .print-quote-badge {
+    border-radius: 999px !important;
+    padding: 1.6mm 4mm !important;
+    font-size: 7.6pt !important;
+    background: #0a3a26 !important;
+    color: #fff !important;
+  }
+  .print-header__right p {
+    margin: 0 !important;
+    font-size: 7.4pt !important;
+    line-height: 1.25 !important;
+  }
+  .print-client-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4mm !important;
+    margin-bottom: 3mm !important;
+  }
+  .print-info-box,
+  .print-section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .print-section {
+    margin: 0 0 3mm !important;
+    border: 1px solid rgba(6, 40, 3, 0.12) !important;
+    border-radius: 2.5mm !important;
+    overflow: hidden !important;
+    background: #fff !important;
+  }
+  .print-section h3,
+  .print-info-box h3 {
+    margin: 0 !important;
+    padding: 2mm 3mm !important;
+    background: #0a3a26 !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+    font-size: 8.8pt !important;
+    line-height: 1.18 !important;
+  }
+  .print-info-box {
+    overflow: hidden !important;
+    padding: 0 0 2mm !important;
+    border: 1px solid rgba(6, 40, 3, 0.12) !important;
+    border-radius: 2.5mm !important;
+    background: #fbfdfb !important;
+  }
+  .print-info-box p {
+    margin: 1.2mm 3mm 0 !important;
+    font-size: 7.4pt !important;
+    line-height: 1.22 !important;
+  }
+  .print-services-list--compact,
+  .print-payment-list--quote {
+    display: grid !important;
+    padding: 1mm 3mm 2mm !important;
+    gap: 0 !important;
+  }
+  .print-service-row,
+  .print-payment-row {
+    display: grid !important;
+    grid-template-columns: 46mm minmax(0, 1fr) !important;
+    gap: 4mm !important;
+    padding: 1.3mm 0 !important;
+    border-bottom: 1px solid rgba(6, 40, 3, 0.10) !important;
+    font-size: 7.3pt !important;
+    line-height: 1.22 !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+  .print-service-row:last-child,
+  .print-payment-row:last-child { border-bottom: 0 !important; }
+  .print-service-row strong,
+  .print-payment-row strong {
+    color: #062803 !important;
+    font-weight: 900 !important;
+    text-align: left !important;
+  }
+  .print-service-row span,
+  .print-payment-row span {
+    color: #35443e !important;
+    text-align: right !important;
+  }
+  .print-payment-row--strong {
+    background: #f0f8f2 !important;
+    margin: 0 -3mm !important;
+    padding: 1.5mm 3mm !important;
+    border-top: 1.5px solid #0a3a26 !important;
+  }
+  .print-hotel-images {
+    padding: 2mm 3mm !important;
+    display: block !important;
+  }
+  .print-hotel-strip-list {
+    display: grid !important;
+    gap: 2mm !important;
+  }
+  .print-hotel-row--strip {
+    display: grid !important;
+    grid-template-columns: 40mm minmax(0, 1fr) !important;
+    gap: 2.5mm !important;
+    align-items: center !important;
+    padding: 1.8mm !important;
+    border-radius: 2.5mm !important;
+    background: #fbfdfb !important;
+    border: 1px solid rgba(6, 40, 3, 0.10) !important;
+  }
+  .print-hotel-info { display: grid !important; gap: 0.6mm !important; }
+  .print-hotel-info strong { font-size: 7.6pt !important; color: #062803 !important; }
+  .print-hotel-info span { font-size: 6.8pt !important; color: #53645d !important; }
+  .print-hotel-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1.2mm !important;
+  }
+  .print-hotel-gallery img {
+    display: block !important;
+    width: 100% !important;
+    height: 16mm !important;
+    object-fit: cover !important;
+    border-radius: 2mm !important;
+    border: 1px solid rgba(6, 40, 3, 0.08) !important;
+  }
+  .print-itinerary-list {
+    display: grid !important;
+    gap: 2mm !important;
+    padding: 2mm 3mm !important;
+  }
+  .print-itinerary-item--media {
+    display: grid !important;
+    grid-template-columns: 34mm minmax(0, 1fr) !important;
+    gap: 2.5mm !important;
+    padding: 1.8mm !important;
+    border: 1px solid rgba(6, 40, 3, 0.10) !important;
+    border-left: 3px solid #0a3a26 !important;
+    border-radius: 2.2mm !important;
+    background: #f9fcfb !important;
+  }
+  .print-itinerary-item--media > img {
+    display: block !important;
+    width: 34mm !important;
+    height: 25mm !important;
+    object-fit: cover !important;
+    border-radius: 2mm !important;
+  }
+  .print-itinerary-item--media > div > strong {
+    display: block !important;
+    margin-bottom: 0.8mm !important;
+    color: #062803 !important;
+    font-size: 7.7pt !important;
+    line-height: 1.15 !important;
+  }
+  .print-itinerary-activity-block { margin-top: 1mm !important; }
+  .print-itinerary-activity-block h4 {
+    margin: 0 0 0.4mm !important;
+    color: #062803 !important;
+    font-size: 7.6pt !important;
+    line-height: 1.16 !important;
+  }
+  .print-itinerary-activity-block p {
+    margin: 0 !important;
+    color: #52625c !important;
+    font-size: 6.9pt !important;
+    line-height: 1.18 !important;
+  }
+  .print-itinerary-note-badge {
+    display: inline-flex !important;
+    width: fit-content !important;
+    margin-top: 0.8mm !important;
+    padding: 0.8mm 1.8mm !important;
+    border-radius: 999px !important;
+    background: #edf7ef !important;
+    color: #0a3a26 !important;
+    font-size: 6.4pt !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+  }
+  .print-booking-offer {
+    display: block !important;
+    margin-top: 2mm !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .print-booking-offer__content {
+    border-radius: 3mm !important;
+    padding: 4mm !important;
+    background: linear-gradient(135deg, #0a3a26, #146341) !important;
+    color: #fff !important;
+    text-align: center !important;
+  }
+  .print-booking-offer__content * { color: #fff !important; }
+}
+
+/* === V24: mismos estilos para html2pdf / vista no impresa del bloque imprimible === */
+#printQuotation .print-section--hotels[hidden] { display: none !important; }
+#printQuotation .print-services-list--compact,
+#printQuotation .print-payment-list--quote {
+  display: grid;
+  padding: 8px 12px 12px;
+  gap: 0;
+}
+#printQuotation .print-service-row,
+#printQuotation .print-payment-row {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  height: auto;
+  min-height: 0;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.10);
+  color: #35443e;
+}
+#printQuotation .print-service-row span,
+#printQuotation .print-payment-row span {
+  text-align: right;
+}
+#printQuotation .print-payment-row--strong {
+  background: #f0f8f2;
+  margin: 0 -12px;
+  padding: 8px 12px;
+  border-top: 2px solid #0a3a26;
+}
+#printQuotation .print-hotel-strip-list {
+  display: grid;
+  gap: 8px;
+  padding: 8px 12px 12px;
+}
+#printQuotation .print-hotel-row--strip {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 10px;
+  background: #fbfdfb;
+  border: 1px solid rgba(6, 40, 3, 0.10);
+}
+#printQuotation .print-hotel-row--strip .print-hotel-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+}
+#printQuotation .print-hotel-row--strip .print-hotel-gallery img {
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+#printQuotation .print-itinerary-item--media {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 10px;
+}
+#printQuotation .print-itinerary-item--media > img {
+  width: 128px;
+  height: 94px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* === V25: horas del itinerario + color fecha + banner premium === */
+.quote-itinerary-item__dayline {
+  align-items: flex-start !important;
+}
+.quote-itinerary-date-label,
+.quote-itinerary-item__dayline strong.quote-itinerary-date-label,
+.quote-itinerary-item__dayline strong {
+  color: #b07a35 !important;
+  font-weight: 900 !important;
+}
+.quote-itinerary-start-time {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  margin: 0 0 6px !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  background: #fff4df !important;
+  color: #9a651f !important;
+  font-size: 0.78rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+.quote-itinerary-start-time::before {
+  content: "Hora de inicio: ";
+  font-weight: 800;
+  color: #8a5b1b;
+}
+.quote-itinerary-places {
+  margin-top: 6px !important;
+  color: #42534d !important;
+  font-size: 0.88rem !important;
+}
+.quote-itinerary-places strong {
+  color: #0a3a26 !important;
+}
+.quote-itinerary-activity h4 {
+  margin-top: 0 !important;
+  margin-bottom: 6px !important;
+}
+.quote-itinerary-activity p {
+  line-height: 1.52 !important;
+}
+
+#printQuotation .print-itinerary-date-label,
+.print-itinerary-date-label {
+  color: #b07a35 !important;
+  font-weight: 900 !important;
+}
+#printQuotation .print-itinerary-start-time,
+.print-itinerary-start-time {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin: 0 0 0.8mm !important;
+  padding: 0.75mm 1.8mm !important;
+  border-radius: 99px !important;
+  background: #fff2dd !important;
+  color: #935f1d !important;
+  font-size: 7pt !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+#printQuotation .print-itinerary-start-time::before,
+.print-itinerary-start-time::before {
+  content: "Hora de inicio: ";
+  color: #7f541d !important;
+}
+#printQuotation .print-itinerary-places,
+.print-itinerary-places {
+  margin-top: 0.7mm !important;
+  color: #4f625c !important;
+  font-size: 7pt !important;
+  line-height: 1.24 !important;
+}
+#printQuotation .print-itinerary-places strong,
+.print-itinerary-places strong {
+  color: #0a3a26 !important;
+}
+
+#printQuotation .print-booking-offer__content,
+.print-booking-offer__content,
+body.is-generating-pdf .print-booking-offer__content {
+  background: linear-gradient(135deg, #050505 0%, #171019 42%, #31143d 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  box-shadow: 0 8px 24px rgba(12, 4, 20, 0.22) !important;
+}
+#printQuotation .print-booking-offer__content *,
+.print-booking-offer__content *,
+body.is-generating-pdf .print-booking-offer__content * {
+  color: #fff !important;
+}
+#printQuotation .print-booking-offer strong span,
+.print-booking-offer strong span,
+body.is-generating-pdf .print-booking-offer strong span {
+  color: #ffe6a8 !important;
+}
+
+#trainSelectionModal .quote-modal__header {
+  background: #062803 !important;
+  color: #f5f8f2 !important;
+}
+#trainSelectionModal .quote-modal__header h2,
+#trainSelectionModal .quote-modal__header p,
+#trainSelectionModal .quote-modal__eyebrow {
+  color: #f5f8f2 !important;
+}
+#trainSelectionModal .quote-train-title-row {
+  align-items: center !important;
+}
+#trainSelectionModal .quote-train-inline-logo {
+  width: auto !important;
+  height: auto !important;
+  max-width: 54px !important;
+  max-height: 26px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* === V26: ajustes puntuales solicitados === */
+/* Cabecera del formato de impresión: estilo tipo Brenda Valenzuela */
+#printQuotation .print-header,
+.print-header,
+body.is-generating-pdf .print-header {
+  display: grid !important;
+  grid-template-columns: 1fr 0.85fr !important;
+  gap: 10mm !important;
+  align-items: start !important;
+  padding: 0 0 5mm !important;
+  margin-bottom: 5mm !important;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.18) !important;
+  background: #fff !important;
+}
+#printQuotation .print-company,
+.print-company,
+body.is-generating-pdf .print-company {
+  display: block !important;
+}
+#printQuotation .print-logo,
+.print-logo,
+body.is-generating-pdf .print-logo {
+  width: 43mm !important;
+  max-height: 26mm !important;
+  object-fit: contain !important;
+  object-position: left top !important;
+  margin: 0 0 3mm !important;
+}
+#printQuotation .print-company p,
+.print-company p,
+body.is-generating-pdf .print-company p {
+  margin: 0 0 1mm !important;
+  color: #3d403d !important;
+  font-size: 8.8pt !important;
+  line-height: 1.25 !important;
+  font-weight: 400 !important;
+}
+#printQuotation .print-company p strong,
+.print-company p strong,
+body.is-generating-pdf .print-company p strong,
+#printQuotation .print-company i,
+.print-company i,
+body.is-generating-pdf .print-company i {
+  display: none !important;
+}
+#printQuotation .print-header__right,
+.print-header__right,
+body.is-generating-pdf .print-header__right {
+  display: block !important;
+  text-align: right !important;
+  padding-top: 4mm !important;
+}
+#printQuotation .print-header__right h1,
+.print-header__right h1,
+body.is-generating-pdf .print-header__right h1 {
+  margin: 0 0 4mm !important;
+  color: #062803 !important;
+  font-size: 20pt !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+}
+#printQuotation .print-quote-badge,
+.print-quote-badge,
+body.is-generating-pdf .print-quote-badge {
+  display: inline !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #062803 !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: 0 !important;
+}
+#printQuotation .print-header__right p,
+.print-header__right p,
+body.is-generating-pdf .print-header__right p {
+  margin: 0 0 1.2mm !important;
+  color: #3d403d !important;
+  font-size: 8.7pt !important;
+  line-height: 1.25 !important;
+}
+#printQuotation .print-header__right p strong,
+.print-header__right p strong,
+body.is-generating-pdf .print-header__right p strong {
+  font-weight: 900 !important;
+  color: #3a3a3a !important;
+}
+
+/* Itinerario en pantalla: una imagen por actividad cuando el día tiene varios servicios */
+.quote-itinerary-item__media--stack {
+  display: grid !important;
+  gap: 10px !important;
+  align-self: stretch !important;
+}
+.quote-itinerary-activity-media {
+  margin: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  background: #edf4ef !important;
+  min-height: 118px !important;
+}
+.quote-itinerary-activity-media img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 118px !important;
+  max-height: 170px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+.quote-itinerary-activity-media figcaption {
+  position: absolute !important;
+  left: 8px !important;
+  right: 8px !important;
+  bottom: 8px !important;
+  padding: 5px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(6, 40, 3, 0.78) !important;
+  color: #fff !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Itinerario impreso: miniatura por cada actividad */
+#printQuotation .print-itinerary-item--activity-images,
+.print-itinerary-item--activity-images,
+body.is-generating-pdf .print-itinerary-item--activity-images {
+  display: block !important;
+  padding: 1.8mm !important;
+  border: 1px solid rgba(6, 40, 3, 0.10) !important;
+  border-left: 3px solid #0a3a26 !important;
+  border-radius: 2.2mm !important;
+  background: #f9fcfb !important;
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+#printQuotation .print-itinerary-item--activity-images > strong,
+.print-itinerary-item--activity-images > strong,
+body.is-generating-pdf .print-itinerary-item--activity-images > strong {
+  display: block !important;
+  margin-bottom: 1.2mm !important;
+  color: #062803 !important;
+  font-size: 7.8pt !important;
+  line-height: 1.15 !important;
+}
+#printQuotation .print-itinerary-activity-block--with-image,
+.print-itinerary-activity-block--with-image,
+body.is-generating-pdf .print-itinerary-activity-block--with-image {
+  display: grid !important;
+  grid-template-columns: 25mm minmax(0, 1fr) !important;
+  gap: 2mm !important;
+  align-items: start !important;
+  margin-top: 1.5mm !important;
+  padding-top: 1.5mm !important;
+  border-top: 1px solid rgba(6, 40, 3, 0.08) !important;
+}
+#printQuotation .print-itinerary-activity-block--with-image:first-of-type,
+.print-itinerary-activity-block--with-image:first-of-type,
+body.is-generating-pdf .print-itinerary-activity-block--with-image:first-of-type {
+  border-top: 0 !important;
+  padding-top: 0 !important;
+}
+#printQuotation .print-itinerary-activity-block--with-image img,
+.print-itinerary-activity-block--with-image img,
+body.is-generating-pdf .print-itinerary-activity-block--with-image img {
+  width: 25mm !important;
+  height: 18mm !important;
+  object-fit: cover !important;
+  border-radius: 2mm !important;
+  display: block !important;
+}
+
+/* Banner final: degradado como referencia negra/morada */
+#printQuotation .print-booking-offer__content,
+.print-booking-offer__content,
+body.is-generating-pdf .print-booking-offer__content {
+  background:
+    radial-gradient(circle at 50% 60%, rgba(173, 0, 94, 0.94) 0%, rgba(104, 0, 70, 0.92) 34%, rgba(34, 14, 32, 0.97) 68%, #040405 100%) !important;
+  color: #fff !important;
+}
+
+/* Modal de trenes: logo más visible junto al nombre */
+#trainSelectionModal .quote-train-inline-logo {
+  max-width: 78px !important;
+  max-height: 36px !important;
+  min-width: 52px !important;
+  object-fit: contain !important;
+}
+
+/* === V27: SOLO cabecera del formato de impresión según referencia enviada === */
+#printQuotation .print-header,
+.print-header,
+body.is-generating-pdf .print-header {
+  display: grid !important;
+  grid-template-columns: 1fr 0.92fr !important;
+  gap: 12mm !important;
+  align-items: start !important;
+  padding: 0 0 4.5mm !important;
+  margin: 0 0 5mm !important;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.16) !important;
+  background: #ffffff !important;
+}
+
+#printQuotation .print-company,
+.print-company,
+body.is-generating-pdf .print-company {
+  display: block !important;
+  text-align: left !important;
+}
+
+#printQuotation .print-logo,
+.print-logo,
+body.is-generating-pdf .print-logo {
+  width: 54mm !important;
+  max-width: 54mm !important;
+  height: auto !important;
+  max-height: 30mm !important;
+  object-fit: contain !important;
+  object-position: left top !important;
+  margin: 0 0 3.5mm !important;
+}
+
+#printQuotation .print-company p,
+.print-company p,
+body.is-generating-pdf .print-company p {
+  margin: 0 0 1.15mm !important;
+  padding: 0 !important;
+  color: #333333 !important;
+  font-size: 9pt !important;
+  line-height: 1.25 !important;
+  font-weight: 400 !important;
+}
+
+#printQuotation .print-company p strong,
+.print-company p strong,
+body.is-generating-pdf .print-company p strong,
+#printQuotation .print-company i,
+.print-company i,
+body.is-generating-pdf .print-company i {
+  display: none !important;
+}
+
+#printQuotation .print-header__right,
+.print-header__right,
+body.is-generating-pdf .print-header__right {
+  display: block !important;
+  text-align: right !important;
+  padding-top: 5mm !important;
+}
+
+#printQuotation .print-header__right h1,
+.print-header__right h1,
+body.is-generating-pdf .print-header__right h1 {
+  margin: 0 0 4.2mm !important;
+  color: #062803 !important;
+  font-size: 22pt !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+}
+
+#printQuotation .print-quote-badge,
+.print-quote-badge,
+body.is-generating-pdf .print-quote-badge {
+  display: inline !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #062803 !important;
+  font: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+#printQuotation .print-header__right p,
+.print-header__right p,
+body.is-generating-pdf .print-header__right p {
+  margin: 0 0 1.15mm !important;
+  color: #333333 !important;
+  font-size: 8.8pt !important;
+  line-height: 1.25 !important;
+  font-weight: 400 !important;
+}
+
+#printQuotation .print-header__right p strong,
+.print-header__right p strong,
+body.is-generating-pdf .print-header__right p strong {
+  color: #333333 !important;
+  font-weight: 900 !important;
+}
+
+
+/* === V28: corrección puntual de tamaño de imágenes del itinerario ===
+   No cambia estructura, textos ni otros estilos: solo limita miniaturas de itinerario
+   en pantalla, impresión y generación PDF. */
+.quote-itinerary-item__media,
+.quote-itinerary-activity-media,
+#printQuotation .print-itinerary-thumb,
+#printQuotation .print-itinerary-item--media,
+#printQuotation .print-itinerary-item--activity-images,
+body.is-generating-pdf .print-itinerary-thumb,
+body.is-generating-pdf .print-itinerary-item--media,
+body.is-generating-pdf .print-itinerary-item--activity-images {
+  overflow: hidden !important;
+}
+
+.quote-itinerary-item__media img,
+.quote-itinerary-activity-media img {
+  width: 100% !important;
+  height: 180px !important;
+  max-height: 180px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 18px !important;
+}
+
+#printQuotation .print-itinerary-thumb img,
+body.is-generating-pdf .print-itinerary-thumb img {
+  width: 32mm !important;
+  max-width: 32mm !important;
+  height: 24mm !important;
+  max-height: 24mm !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 2mm !important;
+}
+
+#printQuotation .print-itinerary-item--media > img,
+body.is-generating-pdf .print-itinerary-item--media > img {
+  width: 32mm !important;
+  max-width: 32mm !important;
+  height: 24mm !important;
+  max-height: 24mm !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 2mm !important;
+}
+
+#printQuotation .print-itinerary-activity-block--with-image,
+body.is-generating-pdf .print-itinerary-activity-block--with-image {
+  display: grid !important;
+  grid-template-columns: 25mm minmax(0, 1fr) !important;
+  gap: 2mm !important;
+  align-items: start !important;
+}
+
+#printQuotation .print-itinerary-activity-block--with-image img,
+body.is-generating-pdf .print-itinerary-activity-block--with-image img {
+  width: 25mm !important;
+  max-width: 25mm !important;
+  height: 18mm !important;
+  max-height: 18mm !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 2mm !important;
+}
+
+
+/* === V29: corrección puntual solicitada ===
+   1) Las imágenes del itinerario en HTML no deben crecer.
+   2) En impresión, el texto bajo el logo debe ocupar 3 líneas.
+   3) En impresión, cada imagen de actividad debe quedar alineada con su texto.
+   No modifica reglas, hoteles, trenes ni estructura del cotizador.
+*/
+
+/* HTML: controla estrictamente las imágenes del itinerario, incluso cuando un día tiene varias actividades */
+.quote-itinerary-item.quote-itinerary-item--media {
+  grid-template-columns: 190px minmax(0, 1fr) !important;
+  align-items: start !important;
+}
+
+.quote-itinerary-item__media,
+.quote-itinerary-item__media--stack {
+  width: 190px !important;
+  max-width: 190px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  display: grid !important;
+  gap: 8px !important;
+  overflow: visible !important;
+  align-self: start !important;
+}
+
+.quote-itinerary-activity-media,
+.quote-itinerary-item__media figure {
+  width: 190px !important;
+  height: 118px !important;
+  min-height: 118px !important;
+  max-height: 118px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  background: #edf4ef !important;
+}
+
+.quote-itinerary-activity-media img,
+.quote-itinerary-item__media figure img,
+.quote-itinerary-item__media img {
+  width: 190px !important;
+  max-width: 190px !important;
+  height: 118px !important;
+  min-height: 118px !important;
+  max-height: 118px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 16px !important;
+}
+
+.quote-itinerary-activity-media figcaption {
+  font-size: 0.68rem !important;
+  padding: 4px 7px !important;
+  bottom: 6px !important;
+}
+
+@media (max-width: 860px) {
+  .quote-itinerary-item.quote-itinerary-item--media {
+    grid-template-columns: 1fr !important;
+  }
+  .quote-itinerary-item__media,
+  .quote-itinerary-item__media--stack,
+  .quote-itinerary-activity-media,
+  .quote-itinerary-item__media figure,
+  .quote-itinerary-activity-media img,
+  .quote-itinerary-item__media figure img,
+  .quote-itinerary-item__media img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .quote-itinerary-activity-media,
+  .quote-itinerary-item__media figure,
+  .quote-itinerary-activity-media img,
+  .quote-itinerary-item__media figure img,
+  .quote-itinerary-item__media img {
+    height: 155px !important;
+    min-height: 155px !important;
+    max-height: 155px !important;
+  }
+}
+
+/* Impresión/PDF: cabecera con 3 líneas bajo el logo */
+@media print {
+  #printQuotation .print-header,
+  .print-header,
+  body.is-generating-pdf .print-header {
+    grid-template-columns: 72mm minmax(0, 1fr) !important;
+    gap: 14mm !important;
+  }
+
+  #printQuotation .print-company,
+  .print-company,
+  body.is-generating-pdf .print-company {
+    width: 72mm !important;
+    max-width: 72mm !important;
+    text-align: left !important;
+  }
+
+  #printQuotation .print-logo,
+  .print-logo,
+  body.is-generating-pdf .print-logo {
+    width: 54mm !important;
+    max-width: 54mm !important;
+    margin: 0 0 3mm !important;
+  }
+
+  #printQuotation .print-company p,
+  .print-company p,
+  body.is-generating-pdf .print-company p {
+    width: 72mm !important;
+    max-width: 72mm !important;
+    margin: 0 0 1mm !important;
+    font-size: 8.8pt !important;
+    line-height: 1.18 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+  }
+
+  /* Impresión/PDF: cada imagen de actividad alineada con el texto correspondiente */
+  #printQuotation .print-itinerary-activity-block--with-image,
+  body.is-generating-pdf .print-itinerary-activity-block--with-image {
+    display: grid !important;
+    grid-template-columns: 26mm minmax(0, 1fr) !important;
+    gap: 2.4mm !important;
+    align-items: start !important;
+    margin-top: 1.6mm !important;
+  }
+
+  #printQuotation .print-itinerary-activity-block--with-image img,
+  body.is-generating-pdf .print-itinerary-activity-block--with-image img {
+    width: 26mm !important;
+    max-width: 26mm !important;
+    height: 18mm !important;
+    max-height: 18mm !important;
+    object-fit: cover !important;
+    align-self: start !important;
+  }
+
+  #printQuotation .print-itinerary-activity-block--with-image > div,
+  body.is-generating-pdf .print-itinerary-activity-block--with-image > div {
+    min-width: 0 !important;
+    align-self: start !important;
+  }
+}
+
+/* La generación con html2pdf usa esta clase fuera de @media print */
+body.is-generating-pdf .print-header {
+  grid-template-columns: 72mm minmax(0, 1fr) !important;
+  gap: 14mm !important;
+}
+body.is-generating-pdf .print-company,
+body.is-generating-pdf .print-company p {
+  width: 72mm !important;
+  max-width: 72mm !important;
+  text-align: left !important;
+}
+body.is-generating-pdf .print-company p {
+  white-space: nowrap !important;
+  font-size: 8.8pt !important;
+  line-height: 1.18 !important;
+}
+
+
+/* === V30: corrección puntual solicitada ===
+   Solo corrige: imágenes gigantes del itinerario en HTML y badges de día en impresión.
+*/
+
+/* HTML visible: las imágenes del itinerario nunca deben crecer fuera de su tarjeta */
+.quote-page #itineraryPreview .quote-itinerary-item.quote-itinerary-item--media {
+  display: grid !important;
+  grid-template-columns: minmax(150px, 190px) minmax(0, 1fr) !important;
+  gap: 18px !important;
+  align-items: start !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-item__media,
+.quote-page #itineraryPreview .quote-itinerary-item__media--stack {
+  width: 190px !important;
+  max-width: 190px !important;
+  min-width: 0 !important;
+  display: grid !important;
+  gap: 8px !important;
+  align-self: start !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-activity-media,
+.quote-page #itineraryPreview .quote-itinerary-item__media figure {
+  width: 190px !important;
+  max-width: 190px !important;
+  height: 118px !important;
+  max-height: 118px !important;
+  min-height: 118px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 16px !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-activity-media img,
+.quote-page #itineraryPreview .quote-itinerary-item__media img,
+.quote-page #itineraryPreview .quote-itinerary-item__media figure img {
+  width: 190px !important;
+  max-width: 190px !important;
+  height: 118px !important;
+  max-height: 118px !important;
+  min-height: 118px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 16px !important;
+}
+
+@media (max-width: 860px) {
+  .quote-page #itineraryPreview .quote-itinerary-item.quote-itinerary-item--media {
+    grid-template-columns: 1fr !important;
+  }
+  .quote-page #itineraryPreview .quote-itinerary-item__media,
+  .quote-page #itineraryPreview .quote-itinerary-item__media--stack,
+  .quote-page #itineraryPreview .quote-itinerary-activity-media,
+  .quote-page #itineraryPreview .quote-itinerary-item__media figure,
+  .quote-page #itineraryPreview .quote-itinerary-activity-media img,
+  .quote-page #itineraryPreview .quote-itinerary-item__media img,
+  .quote-page #itineraryPreview .quote-itinerary-item__media figure img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .quote-page #itineraryPreview .quote-itinerary-activity-media,
+  .quote-page #itineraryPreview .quote-itinerary-item__media figure,
+  .quote-page #itineraryPreview .quote-itinerary-activity-media img,
+  .quote-page #itineraryPreview .quote-itinerary-item__media img,
+  .quote-page #itineraryPreview .quote-itinerary-item__media figure img {
+    height: 155px !important;
+    max-height: 155px !important;
+    min-height: 155px !important;
+  }
+}
+
+/* Impresión/PDF: vuelve a mostrar los días como badges */
+#printQuotation .print-itinerary-dayline,
+body.is-generating-pdf .print-itinerary-dayline {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2.5mm !important;
+  margin: 0 0 2mm !important;
+}
+
+#printQuotation .print-itinerary-day-badge,
+body.is-generating-pdf .print-itinerary-day-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #064224 !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  padding: 1.2mm 4.5mm !important;
+  font-size: 9pt !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+#printQuotation .print-itinerary-date-label,
+body.is-generating-pdf .print-itinerary-date-label {
+  color: #b58547 !important;
+  font-weight: 800 !important;
+  font-size: 9.5pt !important;
+}
+
+/* === V31: itinerario HTML - imagen alineada con cada actividad === */
+.quote-page #itineraryPreview .quote-itinerary-item.quote-itinerary-item--activity-list {
+  display: block !important;
+  padding: 18px !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-item--activity-list .quote-itinerary-item__body {
+  width: 100% !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-activity--with-image,
+.quote-page #itineraryPreview .quote-itinerary-item--activity-list .quote-itinerary-activity--with-image {
+  display: grid !important;
+  grid-template-columns: 220px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  align-items: start !important;
+  padding: 14px 0 !important;
+  margin: 0 !important;
+  border-bottom: 1px solid rgba(6, 40, 3, 0.08) !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-activity--with-image:last-child {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-activity--with-image .quote-itinerary-activity-media {
+  width: 220px !important;
+  max-width: 220px !important;
+  height: 148px !important;
+  min-height: 148px !important;
+  max-height: 148px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  background: #edf4ef !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-activity--with-image .quote-itinerary-activity-media img {
+  width: 220px !important;
+  max-width: 220px !important;
+  height: 148px !important;
+  min-height: 148px !important;
+  max-height: 148px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 16px !important;
+}
+
+.quote-page #itineraryPreview .quote-itinerary-activity__content {
+  min-width: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .quote-page #itineraryPreview .quote-itinerary-activity--with-image,
+  .quote-page #itineraryPreview .quote-itinerary-item--activity-list .quote-itinerary-activity--with-image {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .quote-page #itineraryPreview .quote-itinerary-activity--with-image .quote-itinerary-activity-media,
+  .quote-page #itineraryPreview .quote-itinerary-activity--with-image .quote-itinerary-activity-media img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 170px !important;
+    min-height: 170px !important;
+    max-height: 170px !important;
+  }
+}
