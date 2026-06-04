@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "updatedAt": "2026-05-28",
+  "mode": "apps_script",
+  "apiBaseUrl": "https://script.google.com/macros/s/AKfycbxhBchwmQvPghrQvacpbvnQkd-rNFCZUJjFzDeTYTvnRfUu13pG7k0Eds_4-mzYFmZ0/exec",
+  "notes": "Backend Google Apps Script para cupones, reservas, pasajeros, PayPal en USD y Mercado Pago en PEN. Reemplazar apiBaseUrl por la URL /exec publicada.",
+  "endpoints": {
+    "quotes": "/api/quotes",
+    "preReservations": "/api/pre-reservations",
+    "bookings": "/api/bookings",
+    "passengers": "/api/passengers",
+    "paypalCreateOrder": "/api/payments/paypal/orders",
+    "paypalCaptureOrder": "/api/payments/paypal/orders/{orderId}/capture",
+    "couponLeads": "/api/coupons/leads",
+    "validateCoupon": "/api/coupons/validate",
+    "reservationsLookup": "/api/reservations/lookup",
+    "mercadoPagoCreatePreference": "/api/payments/mercadopago/preferences",
+    "mercadoPagoCapturePayment": "/api/payments/mercadopago/payments/{paymentId}/sync"
+  },
+  "paypal": {
+    "enabled": true,
+    "clientId": "PAYPAL_CLIENT_ID_PUBLIC_ONLY",
+    "currency": "USD",
+    "intent": "capture",
+    "components": "buttons"
+  },
+  "storagePolicy": {
+    "storeSensitivePassengerDataInBrowser": false,
+    "mockStorage": "sessionStorage",
+    "localDraftTtlMinutes": 90
+  },
+  "mercadoPago": {
+    "enabled": true,
+    "currency": "PEN",
+    "checkout": "checkout_pro"
+  }
+}

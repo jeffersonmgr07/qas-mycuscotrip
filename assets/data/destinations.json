@@ -1,0 +1,1602 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-02",
+  "description": "Catálogo maestro de destinos para My Cusco Trip. Normaliza destinos, alias, jerarquías, zonas de alojamiento, filtros, rutas y equivalencias operativas para tours, paquetes, hoteles y búsqueda.",
+  "status": "published",
+  "defaultCountry": "peru",
+  "defaultLanguage": "es",
+  "defaultCurrency": "USD",
+  "dataSourceReferences": {
+    "toursCusco": "assets/data/tours-cusco.json",
+    "toursMachuPicchu": "assets/data/tours-machu-picchu.json",
+    "toursPeru": "assets/data/tours-peru.json",
+    "packagesCusco": "assets/data/packages-cusco.json",
+    "packagesPeru": "assets/data/packages-peru.json",
+    "hotels": "assets/data/hotels.json",
+    "trains": "assets/data/trains.json",
+    "currencyConfig": "assets/data/currency-config.json",
+    "paymentConfig": "assets/data/payment-config.json"
+  },
+  "globalRules": {
+    "searchShouldUseControlledFields": true,
+    "doNotSearchIn": [
+      "includes",
+      "excludes",
+      "longDescription",
+      "faq",
+      "importantInfo"
+    ],
+    "destinationMatchingMode": "slug_alias_tags",
+    "hotelDestinationResolution": {
+      "machu-picchu": "aguas-calientes",
+      "machu-picchu-pueblo": "aguas-calientes",
+      "mapi": "aguas-calientes",
+      "valle-sagrado": "cusco",
+      "sacred-valley": "cusco",
+      "colca": "arequipa",
+      "huacachina": "ica",
+      "islas-ballestas": "paracas",
+      "tambopata": "puerto-maldonado"
+    },
+    "packageDestinationResolution": {
+      "machu-picchu": [
+        "cusco",
+        "aguas-calientes"
+      ],
+      "valle-sagrado": [
+        "cusco",
+        "valle-sagrado"
+      ],
+      "paracas-ica": [
+        "paracas",
+        "ica",
+        "huacachina"
+      ],
+      "arequipa-colca": [
+        "arequipa",
+        "colca"
+      ],
+      "puno-titicaca": [
+        "puno",
+        "lago-titicaca"
+      ],
+      "tarapoto-amazonia": [
+        "tarapoto"
+      ],
+      "iquitos-amazonia": [
+        "iquitos"
+      ],
+      "tambopata-amazonia": [
+        "puerto-maldonado",
+        "tambopata"
+      ]
+    },
+    "customerFacingNamePriority": [
+      "label",
+      "commercialLabel",
+      "shortLabel"
+    ]
+  },
+  "destinationGroups": [
+    {
+      "code": "cusco-region",
+      "label": "Cusco y Machu Picchu",
+      "country": "peru",
+      "featured": true,
+      "destinations": [
+        "cusco",
+        "valle-sagrado",
+        "aguas-calientes",
+        "machu-picchu",
+        "humantay",
+        "vinicunca",
+        "palcoyo",
+        "ausangate"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "machu-picchu-tour",
+        "cusco-package",
+        "peru-package"
+      ]
+    },
+    {
+      "code": "south-peru-classic",
+      "label": "Sur clásico del Perú",
+      "country": "peru",
+      "featured": true,
+      "destinations": [
+        "lima",
+        "paracas",
+        "ica",
+        "huacachina",
+        "nazca",
+        "arequipa",
+        "colca",
+        "puno",
+        "lago-titicaca",
+        "cusco",
+        "machu-picchu"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ]
+    },
+    {
+      "code": "amazon-peru",
+      "label": "Amazonía peruana",
+      "country": "peru",
+      "featured": false,
+      "destinations": [
+        "tarapoto",
+        "iquitos",
+        "puerto-maldonado",
+        "tambopata"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ]
+    }
+  ],
+  "countries": {
+    "peru": {
+      "code": "PE",
+      "iso3": "PER",
+      "label": "Perú",
+      "commercialLabel": "Perú",
+      "currency": "PEN",
+      "defaultDisplayCurrency": "USD",
+      "enabled": true,
+      "search": {
+        "keywords": [
+          "peru",
+          "perú",
+          "viajes peru",
+          "paquetes peru",
+          "tours peru"
+        ]
+      }
+    }
+  },
+  "destinations": {
+    "cusco": {
+      "id": "dest_cusco",
+      "slug": "cusco",
+      "label": "Cusco",
+      "commercialLabel": "Cusco",
+      "shortLabel": "Cusco",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "city",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "cusco",
+      "defaultStayNights": 2,
+      "recommendedMinNights": 2,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "valle-sagrado",
+        "aguas-calientes",
+        "machu-picchu"
+      ],
+      "aliases": [
+        "cuzco",
+        "qosqo",
+        "ciudad del cusco"
+      ],
+      "search": {
+        "destinations": [
+          "cusco",
+          "cuzco"
+        ],
+        "tags": [
+          "cusco",
+          "ciudad-imperial",
+          "centro-historico"
+        ],
+        "keywords": [
+          "cusco",
+          "cuzco",
+          "city tour cusco",
+          "paquete cusco"
+        ]
+      },
+      "logistics": {
+        "arrivalPoints": [
+          "aeropuerto-cusco",
+          "terminal-terrestre-cusco"
+        ],
+        "departurePoints": [
+          "aeropuerto-cusco",
+          "terminal-terrestre-cusco"
+        ],
+        "defaultTransferIn": true,
+        "defaultTransferOut": true
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Cusco",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "valle-sagrado": {
+      "id": "dest_valle_sagrado",
+      "slug": "valle-sagrado",
+      "label": "Valle Sagrado",
+      "commercialLabel": "Valle Sagrado de los Incas",
+      "shortLabel": "Valle Sagrado",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "route_area",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "cusco",
+      "defaultStayNights": 0,
+      "recommendedMinNights": 0,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "cusco",
+        "ollantaytambo",
+        "aguas-calientes",
+        "machu-picchu"
+      ],
+      "aliases": [
+        "sacred valley",
+        "valle sagrado de los incas",
+        "pisac",
+        "ollantaytambo",
+        "chinchero"
+      ],
+      "search": {
+        "destinations": [
+          "valle-sagrado",
+          "cusco"
+        ],
+        "tags": [
+          "valle-sagrado",
+          "pisac",
+          "ollantaytambo",
+          "chinchero",
+          "urubamba"
+        ],
+        "keywords": [
+          "valle sagrado",
+          "sacred valley",
+          "ollantaytambo",
+          "pisac"
+        ]
+      },
+      "logistics": {
+        "canConnectToMachuPicchu": true,
+        "connectionDestination": "aguas-calientes",
+        "connectionRule": "valle_sagrado_connection_requires_machu_picchu_overnight"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Valle Sagrado",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "aguas-calientes": {
+      "id": "dest_aguas_calientes",
+      "slug": "aguas-calientes",
+      "label": "Aguas Calientes",
+      "commercialLabel": "Machu Picchu Pueblo",
+      "shortLabel": "Aguas Calientes",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "town",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "aguas-calientes",
+      "defaultStayNights": 1,
+      "recommendedMinNights": 1,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "machu-picchu-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "machu-picchu",
+        "cusco",
+        "valle-sagrado",
+        "ollantaytambo"
+      ],
+      "aliases": [
+        "machu picchu pueblo",
+        "machupicchu pueblo",
+        "aguas calientes",
+        "mapi pueblo"
+      ],
+      "search": {
+        "destinations": [
+          "aguas-calientes",
+          "machu-picchu-pueblo"
+        ],
+        "tags": [
+          "aguas-calientes",
+          "machu-picchu-pueblo",
+          "hotel-machu-picchu"
+        ],
+        "keywords": [
+          "aguas calientes",
+          "machu picchu pueblo",
+          "hotel en aguas calientes"
+        ]
+      },
+      "logistics": {
+        "mainAccessMode": "train",
+        "trainArrivalStation": "Machu Picchu",
+        "usedForMachuPicchuOvernight": true
+      },
+      "ui": {
+        "showInFilters": false,
+        "filterLabel": "Aguas Calientes",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "machu-picchu": {
+      "id": "dest_machu_picchu",
+      "slug": "machu-picchu",
+      "label": "Machu Picchu",
+      "commercialLabel": "Machu Picchu",
+      "shortLabel": "Machu Picchu",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "archaeological_site",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "aguas-calientes",
+      "defaultStayNights": 0,
+      "recommendedMinNights": 0,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "machu-picchu-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "aguas-calientes",
+        "cusco",
+        "valle-sagrado"
+      ],
+      "aliases": [
+        "machupicchu",
+        "mapi",
+        "ciudadela de machu picchu",
+        "santuario de machu picchu"
+      ],
+      "search": {
+        "destinations": [
+          "machu-picchu",
+          "aguas-calientes"
+        ],
+        "tags": [
+          "machu-picchu",
+          "tren",
+          "bus-consettur",
+          "entrada-machu-picchu"
+        ],
+        "keywords": [
+          "machu picchu",
+          "machupicchu",
+          "mapi",
+          "tour machu picchu"
+        ]
+      },
+      "logistics": {
+        "requiresTrainForStandardOperation": true,
+        "hotelResolvedTo": "aguas-calientes",
+        "notes": "Machu Picchu no se usa como destino de hotel. Para alojamiento se usa Aguas Calientes / Machu Picchu Pueblo."
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Machu Picchu",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "ollantaytambo": {
+      "id": "dest_ollantaytambo",
+      "slug": "ollantaytambo",
+      "label": "Ollantaytambo",
+      "commercialLabel": "Ollantaytambo",
+      "shortLabel": "Ollantaytambo",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "town_station",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "cusco",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "machu-picchu-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "valle-sagrado",
+        "aguas-calientes",
+        "machu-picchu"
+      ],
+      "aliases": [
+        "ollanta",
+        "ollantaytambo station"
+      ],
+      "search": {
+        "destinations": [
+          "ollantaytambo",
+          "valle-sagrado"
+        ],
+        "tags": [
+          "ollantaytambo",
+          "estacion-de-tren",
+          "valle-sagrado"
+        ],
+        "keywords": [
+          "ollantaytambo",
+          "tren ollantaytambo",
+          "valle sagrado conexion"
+        ]
+      },
+      "logistics": {
+        "trainStation": true,
+        "trainRoutes": [
+          "OLLA_MAPI",
+          "MAPI_OLLA"
+        ]
+      },
+      "ui": {
+        "showInFilters": false,
+        "filterLabel": "Ollantaytambo",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "humantay": {
+      "id": "dest_humantay",
+      "slug": "humantay",
+      "label": "Laguna Humantay",
+      "commercialLabel": "Laguna Humantay",
+      "shortLabel": "Humantay",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "natural_attraction",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "cusco",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "cusco"
+      ],
+      "aliases": [
+        "humantay lake",
+        "laguna humantay"
+      ],
+      "search": {
+        "destinations": [
+          "cusco",
+          "humantay"
+        ],
+        "tags": [
+          "humantay",
+          "laguna-humantay",
+          "trekking"
+        ],
+        "keywords": [
+          "laguna humantay",
+          "humantay",
+          "trekking cusco"
+        ]
+      },
+      "logistics": {
+        "activityType": "trekking",
+        "recommendedAfterMachuPicchuRule": "if_after_machu_picchu_use_overnight_express"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Humantay",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "vinicunca": {
+      "id": "dest_vinicunca",
+      "slug": "vinicunca",
+      "label": "Montaña de Colores Vinicunca",
+      "commercialLabel": "Montaña de Colores",
+      "shortLabel": "Vinicunca",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "natural_attraction",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "cusco",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "cusco"
+      ],
+      "aliases": [
+        "montaña de 7 colores",
+        "rainbow mountain",
+        "vinicunca",
+        "montana de colores"
+      ],
+      "search": {
+        "destinations": [
+          "cusco",
+          "vinicunca"
+        ],
+        "tags": [
+          "vinicunca",
+          "montana-de-colores",
+          "rainbow-mountain",
+          "trekking"
+        ],
+        "keywords": [
+          "montaña de colores",
+          "vinicunca",
+          "rainbow mountain"
+        ]
+      },
+      "logistics": {
+        "activityType": "trekking",
+        "recommendedAfterMachuPicchuRule": "if_after_machu_picchu_use_overnight_express"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Montaña de Colores",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "palcoyo": {
+      "id": "dest_palcoyo",
+      "slug": "palcoyo",
+      "label": "Montaña Palcoyo",
+      "commercialLabel": "Montaña Palcoyo",
+      "shortLabel": "Palcoyo",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "natural_attraction",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "cusco",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "cusco"
+      ],
+      "aliases": [
+        "palcoyo rainbow mountain",
+        "montaña de colores palcoyo"
+      ],
+      "search": {
+        "destinations": [
+          "cusco",
+          "palcoyo"
+        ],
+        "tags": [
+          "palcoyo",
+          "montana-palcoyo",
+          "rainbow-mountain",
+          "trekking-suave"
+        ],
+        "keywords": [
+          "palcoyo",
+          "montaña palcoyo",
+          "rainbow mountain palcoyo"
+        ]
+      },
+      "logistics": {
+        "activityType": "soft_trekking",
+        "recommendedAfterMachuPicchuRule": "if_after_machu_picchu_use_overnight_express"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Palcoyo",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "ausangate": {
+      "id": "dest_ausangate",
+      "slug": "ausangate",
+      "label": "Ausangate",
+      "commercialLabel": "Siete Lagunas Ausangate",
+      "shortLabel": "Ausangate",
+      "country": "peru",
+      "region": "Cusco",
+      "type": "natural_area",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "cusco",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "cusco-tour",
+        "cusco-package",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "cusco"
+      ],
+      "aliases": [
+        "7 lagunas",
+        "siete lagunas",
+        "siete lagunas ausangate"
+      ],
+      "search": {
+        "destinations": [
+          "cusco",
+          "ausangate"
+        ],
+        "tags": [
+          "ausangate",
+          "siete-lagunas",
+          "trekking"
+        ],
+        "keywords": [
+          "siete lagunas",
+          "ausangate",
+          "7 lagunas"
+        ]
+      },
+      "logistics": {
+        "activityType": "trekking",
+        "recommendedAfterMachuPicchuRule": "if_after_machu_picchu_use_overnight_express"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Siete Lagunas",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "lima": {
+      "id": "dest_lima",
+      "slug": "lima",
+      "label": "Lima",
+      "commercialLabel": "Lima",
+      "shortLabel": "Lima",
+      "country": "peru",
+      "region": "Lima",
+      "type": "city",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "lima",
+      "defaultStayNights": 1,
+      "recommendedMinNights": 1,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "paracas",
+        "ica",
+        "cusco"
+      ],
+      "aliases": [
+        "lima peru",
+        "lima colonial",
+        "miraflores",
+        "barranco"
+      ],
+      "search": {
+        "destinations": [
+          "lima"
+        ],
+        "tags": [
+          "lima",
+          "lima-colonial",
+          "lima-moderna"
+        ],
+        "keywords": [
+          "lima",
+          "city tour lima",
+          "lima colonial",
+          "lima moderna"
+        ]
+      },
+      "logistics": {
+        "arrivalPoints": [
+          "aeropuerto-lima",
+          "terminal-terrestre-lima"
+        ],
+        "departurePoints": [
+          "aeropuerto-lima",
+          "terminal-terrestre-lima"
+        ]
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Lima",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "paracas": {
+      "id": "dest_paracas",
+      "slug": "paracas",
+      "label": "Paracas",
+      "commercialLabel": "Paracas",
+      "shortLabel": "Paracas",
+      "country": "peru",
+      "region": "Ica",
+      "type": "coastal_town",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "paracas",
+      "defaultStayNights": 1,
+      "recommendedMinNights": 0,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "ica",
+        "huacachina",
+        "nazca",
+        "lima"
+      ],
+      "aliases": [
+        "islas ballestas",
+        "reserva nacional de paracas"
+      ],
+      "search": {
+        "destinations": [
+          "paracas"
+        ],
+        "tags": [
+          "paracas",
+          "islas-ballestas",
+          "candelabro"
+        ],
+        "keywords": [
+          "paracas",
+          "islas ballestas",
+          "candelabro"
+        ]
+      },
+      "logistics": {
+        "mainAccessMode": "road",
+        "commonRouteFrom": "lima",
+        "canBeFullDayFromLima": true
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Paracas",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "ica": {
+      "id": "dest_ica",
+      "slug": "ica",
+      "label": "Ica",
+      "commercialLabel": "Ica y Huacachina",
+      "shortLabel": "Ica",
+      "country": "peru",
+      "region": "Ica",
+      "type": "city_area",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "ica",
+      "defaultStayNights": 1,
+      "recommendedMinNights": 0,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "huacachina",
+        "paracas",
+        "nazca",
+        "lima"
+      ],
+      "aliases": [
+        "huacachina",
+        "oasis de huacachina",
+        "ica huacachina"
+      ],
+      "search": {
+        "destinations": [
+          "ica",
+          "huacachina"
+        ],
+        "tags": [
+          "ica",
+          "huacachina",
+          "buggies",
+          "sandboarding",
+          "bodega"
+        ],
+        "keywords": [
+          "ica",
+          "huacachina",
+          "buggies",
+          "sandboarding"
+        ]
+      },
+      "logistics": {
+        "mainAccessMode": "road",
+        "commonRouteFrom": "paracas"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Ica / Huacachina",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "huacachina": {
+      "id": "dest_huacachina",
+      "slug": "huacachina",
+      "label": "Huacachina",
+      "commercialLabel": "Oasis de Huacachina",
+      "shortLabel": "Huacachina",
+      "country": "peru",
+      "region": "Ica",
+      "type": "natural_attraction",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "ica",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "ica",
+        "paracas",
+        "nazca"
+      ],
+      "aliases": [
+        "oasis huacachina",
+        "dunas huacachina"
+      ],
+      "search": {
+        "destinations": [
+          "huacachina",
+          "ica"
+        ],
+        "tags": [
+          "huacachina",
+          "buggies",
+          "sandboarding",
+          "desierto"
+        ],
+        "keywords": [
+          "huacachina",
+          "oasis",
+          "buggies",
+          "sandboarding"
+        ]
+      },
+      "logistics": {
+        "hotelResolvedTo": "ica"
+      },
+      "ui": {
+        "showInFilters": false,
+        "filterLabel": "Huacachina",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "nazca": {
+      "id": "dest_nazca",
+      "slug": "nazca",
+      "label": "Nazca",
+      "commercialLabel": "Líneas de Nazca",
+      "shortLabel": "Nazca",
+      "country": "peru",
+      "region": "Ica",
+      "type": "city_area",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "nazca",
+      "defaultStayNights": 1,
+      "recommendedMinNights": 0,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "ica",
+        "paracas",
+        "arequipa"
+      ],
+      "aliases": [
+        "nasca",
+        "lineas de nazca",
+        "líneas de nazca"
+      ],
+      "search": {
+        "destinations": [
+          "nazca",
+          "ica"
+        ],
+        "tags": [
+          "nazca",
+          "lineas-de-nazca",
+          "sobrevuelo"
+        ],
+        "keywords": [
+          "nazca",
+          "lineas de nazca",
+          "sobrevuelo"
+        ]
+      },
+      "logistics": {
+        "mainAccessMode": "road_or_flight",
+        "operationDependsOnWeather": true
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Nazca",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "arequipa": {
+      "id": "dest_arequipa",
+      "slug": "arequipa",
+      "label": "Arequipa",
+      "commercialLabel": "Arequipa",
+      "shortLabel": "Arequipa",
+      "country": "peru",
+      "region": "Arequipa",
+      "type": "city",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "arequipa",
+      "defaultStayNights": 2,
+      "recommendedMinNights": 1,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "colca",
+        "puno",
+        "lima",
+        "cusco"
+      ],
+      "aliases": [
+        "ciudad blanca",
+        "arequipa peru"
+      ],
+      "search": {
+        "destinations": [
+          "arequipa"
+        ],
+        "tags": [
+          "arequipa",
+          "ciudad-blanca",
+          "santa-catalina"
+        ],
+        "keywords": [
+          "arequipa",
+          "city tour arequipa",
+          "santa catalina"
+        ]
+      },
+      "logistics": {
+        "arrivalPoints": [
+          "aeropuerto-arequipa",
+          "terminal-terrestre-arequipa"
+        ],
+        "departurePoints": [
+          "aeropuerto-arequipa",
+          "terminal-terrestre-arequipa"
+        ]
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Arequipa",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "colca": {
+      "id": "dest_colca",
+      "slug": "colca",
+      "label": "Cañón del Colca",
+      "commercialLabel": "Cañón del Colca",
+      "shortLabel": "Colca",
+      "country": "peru",
+      "region": "Arequipa",
+      "type": "natural_area",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "arequipa",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "arequipa",
+        "puno"
+      ],
+      "aliases": [
+        "valle del colca",
+        "cruz del condor",
+        "chivay"
+      ],
+      "search": {
+        "destinations": [
+          "colca",
+          "arequipa"
+        ],
+        "tags": [
+          "colca",
+          "canon-del-colca",
+          "cruz-del-condor",
+          "chivay"
+        ],
+        "keywords": [
+          "colca",
+          "cañon del colca",
+          "cruz del condor"
+        ]
+      },
+      "logistics": {
+        "hotelResolvedTo": "arequipa",
+        "canConnectToPuno": true
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Colca",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "puno": {
+      "id": "dest_puno",
+      "slug": "puno",
+      "label": "Puno",
+      "commercialLabel": "Puno y Lago Titicaca",
+      "shortLabel": "Puno",
+      "country": "peru",
+      "region": "Puno",
+      "type": "city",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "puno",
+      "defaultStayNights": 2,
+      "recommendedMinNights": 1,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "lago-titicaca",
+        "arequipa",
+        "cusco"
+      ],
+      "aliases": [
+        "puno peru",
+        "titicaca",
+        "lago titicaca"
+      ],
+      "search": {
+        "destinations": [
+          "puno",
+          "lago-titicaca"
+        ],
+        "tags": [
+          "puno",
+          "lago-titicaca",
+          "uros",
+          "taquile"
+        ],
+        "keywords": [
+          "puno",
+          "lago titicaca",
+          "uros",
+          "taquile"
+        ]
+      },
+      "logistics": {
+        "arrivalPoints": [
+          "terminal-terrestre-puno",
+          "estacion-puno"
+        ],
+        "departurePoints": [
+          "terminal-terrestre-puno",
+          "estacion-puno"
+        ],
+        "commonRouteToCusco": true
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Puno",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "lago-titicaca": {
+      "id": "dest_lago_titicaca",
+      "slug": "lago-titicaca",
+      "label": "Lago Titicaca",
+      "commercialLabel": "Lago Titicaca",
+      "shortLabel": "Titicaca",
+      "country": "peru",
+      "region": "Puno",
+      "type": "lake_area",
+      "status": "active",
+      "featured": true,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "puno",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "puno"
+      ],
+      "aliases": [
+        "uros",
+        "taquile",
+        "islas flotantes",
+        "titicaca"
+      ],
+      "search": {
+        "destinations": [
+          "puno",
+          "lago-titicaca"
+        ],
+        "tags": [
+          "lago-titicaca",
+          "uros",
+          "taquile",
+          "islas-flotantes"
+        ],
+        "keywords": [
+          "lago titicaca",
+          "uros",
+          "taquile",
+          "puno"
+        ]
+      },
+      "logistics": {
+        "hotelResolvedTo": "puno"
+      },
+      "ui": {
+        "showInFilters": false,
+        "filterLabel": "Lago Titicaca",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "tarapoto": {
+      "id": "dest_tarapoto",
+      "slug": "tarapoto",
+      "label": "Tarapoto",
+      "commercialLabel": "Tarapoto",
+      "shortLabel": "Tarapoto",
+      "country": "peru",
+      "region": "San Martín",
+      "type": "city_jungle",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "tarapoto",
+      "defaultStayNights": 2,
+      "recommendedMinNights": 2,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [],
+      "aliases": [
+        "tarapoto peru",
+        "selva tarapoto"
+      ],
+      "search": {
+        "destinations": [
+          "tarapoto"
+        ],
+        "tags": [
+          "tarapoto",
+          "selva",
+          "naturaleza"
+        ],
+        "keywords": [
+          "tarapoto",
+          "selva",
+          "amazonía"
+        ]
+      },
+      "logistics": {
+        "arrivalPoints": [
+          "aeropuerto-tarapoto"
+        ],
+        "departurePoints": [
+          "aeropuerto-tarapoto"
+        ]
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Tarapoto",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "iquitos": {
+      "id": "dest_iquitos",
+      "slug": "iquitos",
+      "label": "Iquitos",
+      "commercialLabel": "Iquitos",
+      "shortLabel": "Iquitos",
+      "country": "peru",
+      "region": "Loreto",
+      "type": "city_jungle",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "iquitos",
+      "defaultStayNights": 2,
+      "recommendedMinNights": 2,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [],
+      "aliases": [
+        "iquitos peru",
+        "amazonas",
+        "amazonía peruana"
+      ],
+      "search": {
+        "destinations": [
+          "iquitos"
+        ],
+        "tags": [
+          "iquitos",
+          "amazonas",
+          "selva"
+        ],
+        "keywords": [
+          "iquitos",
+          "amazonas",
+          "selva peruana"
+        ]
+      },
+      "logistics": {
+        "arrivalPoints": [
+          "aeropuerto-iquitos"
+        ],
+        "departurePoints": [
+          "aeropuerto-iquitos"
+        ],
+        "mainAccessMode": "flight_or_boat"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Iquitos",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "puerto-maldonado": {
+      "id": "dest_puerto_maldonado",
+      "slug": "puerto-maldonado",
+      "label": "Puerto Maldonado",
+      "commercialLabel": "Puerto Maldonado",
+      "shortLabel": "Puerto Maldonado",
+      "country": "peru",
+      "region": "Madre de Dios",
+      "type": "city_jungle",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": true,
+      "hotelDestinationKey": "puerto-maldonado",
+      "defaultStayNights": 2,
+      "recommendedMinNights": 2,
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "tambopata"
+      ],
+      "aliases": [
+        "madre de dios",
+        "puerto maldonado",
+        "tambopata"
+      ],
+      "search": {
+        "destinations": [
+          "puerto-maldonado",
+          "tambopata"
+        ],
+        "tags": [
+          "puerto-maldonado",
+          "tambopata",
+          "selva"
+        ],
+        "keywords": [
+          "puerto maldonado",
+          "tambopata",
+          "selva peruana"
+        ]
+      },
+      "logistics": {
+        "arrivalPoints": [
+          "aeropuerto-puerto-maldonado"
+        ],
+        "departurePoints": [
+          "aeropuerto-puerto-maldonado"
+        ],
+        "mainAccessMode": "flight"
+      },
+      "ui": {
+        "showInFilters": true,
+        "filterLabel": "Puerto Maldonado",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    },
+    "tambopata": {
+      "id": "dest_tambopata",
+      "slug": "tambopata",
+      "label": "Tambopata",
+      "commercialLabel": "Reserva Nacional Tambopata",
+      "shortLabel": "Tambopata",
+      "country": "peru",
+      "region": "Madre de Dios",
+      "type": "natural_area_jungle",
+      "status": "active",
+      "featured": false,
+      "isAccommodationDestination": false,
+      "hotelDestinationKey": "puerto-maldonado",
+      "allowedProductKinds": [
+        "tour",
+        "package"
+      ],
+      "productFamilies": [
+        "peru-tour",
+        "peru-package"
+      ],
+      "relatedDestinations": [
+        "puerto-maldonado"
+      ],
+      "aliases": [
+        "reserva tambopata",
+        "amazonía tambopata"
+      ],
+      "search": {
+        "destinations": [
+          "tambopata",
+          "puerto-maldonado"
+        ],
+        "tags": [
+          "tambopata",
+          "selva",
+          "amazonía"
+        ],
+        "keywords": [
+          "tambopata",
+          "reserva nacional tambopata",
+          "amazonía"
+        ]
+      },
+      "logistics": {
+        "hotelResolvedTo": "puerto-maldonado"
+      },
+      "ui": {
+        "showInFilters": false,
+        "filterLabel": "Tambopata",
+        "cardImage": "./assets/img/placeholder/experience.jpg"
+      }
+    }
+  },
+  "filterOptions": {
+    "destinationsForAllExperiences": [
+      {
+        "value": "all",
+        "label": "Todos los destinos"
+      },
+      {
+        "value": "cusco",
+        "label": "Cusco"
+      },
+      {
+        "value": "machu-picchu",
+        "label": "Machu Picchu"
+      },
+      {
+        "value": "valle-sagrado",
+        "label": "Valle Sagrado"
+      },
+      {
+        "value": "humantay",
+        "label": "Humantay"
+      },
+      {
+        "value": "vinicunca",
+        "label": "Montaña de Colores"
+      },
+      {
+        "value": "palcoyo",
+        "label": "Palcoyo"
+      },
+      {
+        "value": "ausangate",
+        "label": "Siete Lagunas"
+      },
+      {
+        "value": "lima",
+        "label": "Lima"
+      },
+      {
+        "value": "paracas",
+        "label": "Paracas"
+      },
+      {
+        "value": "ica",
+        "label": "Ica / Huacachina"
+      },
+      {
+        "value": "nazca",
+        "label": "Nazca"
+      },
+      {
+        "value": "arequipa",
+        "label": "Arequipa"
+      },
+      {
+        "value": "colca",
+        "label": "Colca"
+      },
+      {
+        "value": "puno",
+        "label": "Puno"
+      },
+      {
+        "value": "tarapoto",
+        "label": "Tarapoto"
+      },
+      {
+        "value": "iquitos",
+        "label": "Iquitos"
+      },
+      {
+        "value": "puerto-maldonado",
+        "label": "Puerto Maldonado"
+      }
+    ],
+    "destinationGroupsForPackages": [
+      {
+        "value": "cusco-region",
+        "label": "Cusco y Machu Picchu"
+      },
+      {
+        "value": "south-peru-classic",
+        "label": "Sur clásico del Perú"
+      },
+      {
+        "value": "amazon-peru",
+        "label": "Amazonía peruana"
+      }
+    ]
+  },
+  "urlParameterMapping": {
+    "destino": "destination",
+    "destination": "destination",
+    "tipo": "productKind",
+    "type": "productKind",
+    "days": "days",
+    "nights": "nights",
+    "q": "query"
+  },
+  "implementationNotes": [
+    "Este archivo debe usarse como fuente de verdad para etiquetas de destino, aliases, filtros y resolución de alojamiento.",
+    "All Experience debe filtrar por destination usando slug, aliases y search.tags controlados.",
+    "Product.html debe resolver alojamiento usando hotelDestinationKey o globalRules.hotelDestinationResolution.",
+    "Machu Picchu no debe usarse como destino de hotel; debe resolverse a aguas-calientes.",
+    "Los paquetes Perú pueden usar destinationGroups para combinar destinos sin duplicar lógica.",
+    "No buscar en includes, excludes, FAQ ni descripciones largas para evitar falsos positivos comerciales."
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "version": "1.0",
+  "currency": "PEN",
+  "exchangeRate": 3.38,
+  "experiences": [
+    {
+      "id": "bienvenida-ancestral",
+      "slug": "bienvenida-ancestral-cusco",
+      "title": "Bienvenida Ancestral + Tour Panorámico",
+      "image": "../assets/img/tours/bienvenida-ancestral-cusco/cover.jpg",
+      "category": "Cusco",
+      "duration": "2 h 30 min",
+      "frequency": "Frecuencias diarias",
+      "times": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "pricePen": 25,
+      "unit": "por persona",
+      "tickets": "No requiere tickets de ingreso.",
+      "description": "Recorrido por puntos emblemáticos de Cusco con una bienvenida ancestral en la parte alta de la ciudad, pidiendo buenos augurios para los días en Cusco. Luego se continúa hacia el Mirador del Cristo Blanco y se retorna a la ciudad.",
+      "includes": [
+        "Guía durante el recorrido",
+        "Transporte turístico panorámico",
+        "Ceremonia simbólica de bienvenida ancestral",
+        "Visita al Mirador del Cristo Blanco"
+      ],
+      "excludes": [
+        "Gastos personales",
+        "Servicios no mencionados"
+      ]
+    },
+    {
+      "id": "city-tour",
+      "slug": "city-tour",
+      "title": "City Tour + Centros Arqueológicos",
+      "image": "../assets/img/tours/city-tour/cover.jpg",
+      "category": "Cusco",
+      "duration": "Aprox. 5 h",
+      "frequency": "Salidas diarias",
+      "times": [
+        "09:00",
+        "10:00",
+        "13:00",
+        "14:00"
+      ],
+      "pricePen": 20,
+      "unit": "por persona",
+      "tickets": "Boleto turístico parcial: S/ 40 nacional / S/ 70 extranjero. Coricancha: S/ 15 por adulto.",
+      "description": "Experiencia cultural por el centro histórico y los principales centros arqueológicos cercanos a Cusco. Se visita Coricancha, Saqsaywaman, Qenqo, Pucapucara y Tambomachay.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional",
+        "Asistencia durante el tour"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Ingreso a Coricancha",
+        "Alimentación"
+      ]
+    },
+    {
+      "id": "valle-sagrado",
+      "slug": "valle-sagrado",
+      "title": "Valle Sagrado Clásico",
+      "image": "../assets/img/tours/valle-sagrado/cover.jpg",
+      "category": "Valle Sagrado",
+      "duration": "Full day o conexión",
+      "frequency": "Salida diaria 08:00",
+      "times": [
+        "08:00"
+      ],
+      "pricePen": 40,
+      "priceAltPen": 65,
+      "altLabel": "con almuerzo",
+      "unit": "sin almuerzo",
+      "tickets": "Boleto turístico parcial circuito 2: S/ 40 nacional / S/ 70 extranjero.",
+      "description": "Ruta clásica por Pisac mercado artesanal, centro arqueológico de Pisac, Urubamba con almuerzo opcional y Ollantaytambo. En modalidad conexión finaliza en Ollantaytambo aprox. 3:30 p.m.; en full day continúa hacia Chinchero y retorna a Cusco aprox. 8:00 p.m.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional",
+        "Opción conexión en Ollantaytambo"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Almuerzo si se elige tarifa sin almuerzo"
+      ]
+    },
+    {
+      "id": "valle-vip",
+      "slug": "valle-sagrado-vip",
+      "title": "Valle Sagrado VIP",
+      "image": "../assets/img/tours/valle-sagrado/cover2.jpg",
+      "category": "Valle Sagrado",
+      "duration": "Full day o conexión",
+      "frequency": "Salida diaria 07:00",
+      "times": [
+        "07:00"
+      ],
+      "pricePen": 40,
+      "priceAltPen": 65,
+      "altLabel": "con almuerzo",
+      "unit": "sin almuerzo",
+      "tickets": "Boleto turístico parcial circuito 2 + ingreso a Maras: S/ 15 nacional / S/ 20 extranjero.",
+      "description": "Ruta especial iniciando por Chinchero, Maras, Moray y Urubamba para almuerzo. Luego continúa a Ollantaytambo, donde finaliza la modalidad conexión. En full day se continúa hacia Pisac y se retorna a Cusco por la noche.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional",
+        "Opción conexión en Ollantaytambo"
+      ],
+      "excludes": [
+        "Boleto turístico",
+        "Ingreso a Maras",
+        "Almuerzo si se elige tarifa sin almuerzo"
+      ]
+    },
+    {
+      "id": "maras-moray",
+      "slug": "maras-moray",
+      "title": "Maras y Moray",
+      "image": "../assets/img/tours/maras-moray/cover.jpg",
+      "category": "Valle Sagrado",
+      "duration": "Aprox. 6 h 30 min",
+      "frequency": "Salida única",
+      "times": [
+        "08:30"
+      ],
+      "pricePen": 40,
+      "unit": "por persona",
+      "tickets": "Ticket de Maras: S/ 15 nacional / S/ 20 extranjero. Otros ingresos según corresponda.",
+      "description": "Recorrido hacia Moray y las Salineras de Maras, combinando paisaje andino, historia agrícola inca y una de las vistas más fotogénicas del Valle Sagrado.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional"
+      ],
+      "excludes": [
+        "Tickets de ingreso",
+        "Alimentación"
+      ]
+    },
+    {
+      "id": "valle-sur",
+      "slug": "valle-sur",
+      "title": "Valle Sur",
+      "image": "../assets/img/tours/valle-sur/cover.jpg",
+      "category": "Cusco",
+      "duration": "Aprox. 6 h",
+      "frequency": "Salida única",
+      "times": [
+        "09:00"
+      ],
+      "pricePen": 40,
+      "unit": "por persona",
+      "tickets": "Tickets de ingreso no incluidos.",
+      "description": "Ruta cultural hacia el sur de Cusco visitando Tipón, Piquillacta y espacios históricos que muestran la ingeniería hidráulica inca y la herencia preinca de la región.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional"
+      ],
+      "excludes": [
+        "Tickets de ingreso",
+        "Alimentación"
+      ]
+    },
+    {
+      "id": "montana-colores",
+      "slug": "montana-colores",
+      "title": "Montaña de Colores",
+      "image": "../assets/img/tours/montana-colores/cover.jpg",
+      "category": "Aventura",
+      "duration": "Full day",
+      "frequency": "Salida 04:30",
+      "times": [
+        "04:30"
+      ],
+      "pricePen": 60,
+      "unit": "por persona",
+      "tickets": "Ingreso: S/ 20 nacional / S/ 25 extranjero.",
+      "description": "Caminata de altura hacia Vinicunca, una de las rutas naturales más solicitadas de Cusco, con paisajes altoandinos, montañas multicolores y vistas panorámicas.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional",
+        "Desayuno y almuerzo según operación"
+      ],
+      "excludes": [
+        "Ticket de ingreso",
+        "Gastos personales"
+      ]
+    },
+    {
+      "id": "laguna-humantay",
+      "slug": "laguna-humantay",
+      "title": "Laguna Humantay",
+      "image": "../assets/img/tours/laguna-humantay/cover.jpg",
+      "category": "Aventura",
+      "duration": "Full day",
+      "frequency": "Salida 04:30",
+      "times": [
+        "04:30"
+      ],
+      "pricePen": 65,
+      "unit": "por persona",
+      "tickets": "Ingreso: S/ 20 nacional / S/ 25 extranjero.",
+      "description": "Experiencia de trekking hacia la laguna turquesa de Humantay, rodeada por montañas nevadas y paisajes altoandinos ideales para fotografía y naturaleza.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional",
+        "Desayuno y almuerzo según operación"
+      ],
+      "excludes": [
+        "Ticket de ingreso",
+        "Gastos personales"
+      ]
+    },
+    {
+      "id": "siete-lagunas",
+      "slug": "siete-lagunas-ausangate",
+      "title": "7 Lagunas Ausangate",
+      "image": "../assets/img/tours/siete-lagunas-ausangate/cover.jpg",
+      "category": "Aventura",
+      "duration": "Full day",
+      "frequency": "Salida 04:00",
+      "times": [
+        "04:00"
+      ],
+      "pricePen": 120,
+      "unit": "por persona",
+      "tickets": "Ingreso por confirmar.",
+      "description": "Ruta de naturaleza en la zona de Ausangate, visitando lagunas altoandinas y paisajes únicos al pie de una de las montañas sagradas más importantes del Cusco.",
+      "includes": [
+        "Transporte turístico",
+        "Guía profesional",
+        "Desayuno y almuerzo según operación"
+      ],
+      "excludes": [
+        "Ingreso local por confirmar",
+        "Gastos personales"
+      ]
+    },
+    {
+      "id": "guiado-mp-c2",
+      "slug": "machu-picchu-guiado-circuito-2",
+      "title": "Guiado Machu Picchu - Circuito 2",
+      "image": "../assets/img/tours/machu-picchu-full-day-clasico/cover.jpg",
+      "category": "Machu Picchu",
+      "duration": "Aprox. 2 h 30 min",
+      "frequency": "Grupo compartido",
+      "times": [
+        "09:00",
+        "10:00",
+        "11:00"
+      ],
+      "pricePen": 35,
+      "unit": "por persona",
+      "tickets": "No incluye ticket de ingreso Machu Picchu.",
+      "description": "Servicio de guiado en grupo dentro de Machu Picchu para el Circuito 2. Otros horarios pueden solicitarse en modalidad privada.",
+      "includes": [
+        "Guía en Machu Picchu en horario seleccionado"
+      ],
+      "excludes": [
+        "Ticket de ingreso Machu Picchu",
+        "Bus Consetur",
+        "Tren"
+      ]
+    },
+    {
+      "id": "guiado-mp-privado",
+      "slug": "machu-picchu-guiado-circuitos-1-3",
+      "title": "Guiado Machu Picchu - Circuitos 1 y 3",
+      "image": "../assets/img/tours/machu-picchu-full-day-clasico/cover.jpg",
+      "category": "Machu Picchu",
+      "duration": "Aprox. 2 h 30 min",
+      "frequency": "Solo privado",
+      "times": [
+        "Consultar"
+      ],
+      "pricePen": 170,
+      "unit": "por grupo",
+      "tickets": "No incluye ticket de ingreso Machu Picchu.",
+      "description": "Guiado privado para Circuitos 1 y 3. Tarifa por grupo de 1 a máximo 10 personas.",
+      "includes": [
+        "Guía privado en Machu Picchu"
+      ],
+      "excludes": [
+        "Ticket de ingreso Machu Picchu",
+        "Bus Consetur",
+        "Tren"
+      ]
+    },
+    {
+      "id": "mp-full-day-ex",
+      "slug": "machu-picchu-full-day-clasico",
+      "title": "Full Day Machu Picchu - Extranjeros",
+      "image": "../assets/img/tours/machu-picchu-full-day-clasico/cover.jpg",
+      "category": "Machu Picchu",
+      "duration": "1 día",
+      "frequency": "Según disponibilidad",
+      "times": [
+        "Consultar"
+      ],
+      "priceUsd": 230,
+      "unit": "por persona",
+      "tickets": "Incluye ticket de ingreso Machu Picchu.",
+      "description": "Servicio integral para visitar Machu Picchu en un solo día, con coordinación de traslados, tren, bus de subida y bajada, ticket de ingreso y guiado en la ciudadela.",
+      "includes": [
+        "Transporte a estación ida y retorno",
+        "Tren Inca Rail ida y vuelta",
+        "Bus Consetur subida y bajada",
+        "Guía Machu Picchu",
+        "Ticket de ingreso Machu Picchu"
+      ],
+      "excludes": [
+        "Alimentación no mencionada",
+        "Gastos personales"
+      ]
+    },
+    {
+      "id": "mp-full-day-pe",
+      "slug": "machu-picchu-full-day-peruanos",
+      "title": "Full Day Machu Picchu - Peruanos",
+      "image": "../assets/img/tours/machu-picchu-full-day-clasico/cover.jpg",
+      "category": "Machu Picchu",
+      "duration": "1 día",
+      "frequency": "Sin tren incluido",
+      "times": [
+        "Consultar"
+      ],
+      "pricePen": 200,
+      "unit": "por persona",
+      "tickets": "Incluye ticket de ingreso Machu Picchu. No incluye tren.",
+      "description": "Servicio full day para pasajeros peruanos. Incluye todo el servicio excepto ticket de tren; el tren turístico o tren local se cotiza aparte.",
+      "includes": [
+        "Transporte a estación ida y retorno",
+        "Bus Consetur subida y bajada",
+        "Guía Machu Picchu",
+        "Ticket de ingreso Machu Picchu"
+      ],
+      "excludes": [
+        "Ticket de tren",
+        "Alimentación no mencionada"
+      ]
+    },
+    {
+      "id": "mp-overnight-ex",
+      "slug": "machu-picchu-overnight",
+      "title": "Machu Picchu Overnight - Extranjeros",
+      "image": "../assets/img/tours/machu-picchu-overnight/cover.jpg",
+      "category": "Machu Picchu",
+      "duration": "2 días / 1 noche",
+      "frequency": "Mínimo 2 personas",
+      "times": [
+        "Consultar"
+      ],
+      "priceUsd": 260,
+      "unit": "por persona",
+      "tickets": "Incluye ticket de ingreso Machu Picchu.",
+      "description": "Programa cómodo para viajar a Machu Picchu con una noche en Aguas Calientes, ideal para operar con mejor ritmo y menor presión de horarios. Tarifa calculada en habitación doble, mínimo 2 personas.",
+      "includes": [
+        "Tren Inca Rail ida y vuelta",
+        "Bus Consetur",
+        "Ticket de ingreso Machu Picchu",
+        "Hotel 3 estrellas",
+        "Desayuno por parte del hotel",
+        "Guía Machu Picchu"
+      ],
+      "excludes": [
+        "Alimentación no mencionada",
+        "Gastos personales"
+      ]
+    },
+    {
+      "id": "mp-overnight-pe",
+      "slug": "machu-picchu-overnight-peruanos",
+      "title": "Machu Picchu Overnight - Peruanos",
+      "image": "../assets/img/tours/machu-picchu-overnight/cover.jpg",
+      "category": "Machu Picchu",
+      "duration": "2 días / 1 noche",
+      "frequency": "Mínimo 2 personas",
+      "times": [
+        "Consultar"
+      ],
+      "pricePen": 265,
+      "unit": "por persona",
+      "tickets": "Incluye ticket de ingreso Machu Picchu. No incluye tren.",
+      "description": "Programa overnight para pasajeros peruanos. Incluye todo el servicio excepto ticket de tren; el tren turístico o tren local se cotiza aparte. Tarifa calculada en habitación doble, mínimo 2 personas.",
+      "includes": [
+        "Bus Consetur",
+        "Ticket de ingreso Machu Picchu",
+        "Hotel 3 estrellas",
+        "Desayuno por parte del hotel",
+        "Guía Machu Picchu"
+      ],
+      "excludes": [
+        "Ticket de tren",
+        "Alimentación no mencionada"
+      ]
+    }
+  ]
+}

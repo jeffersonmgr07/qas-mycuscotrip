@@ -1,0 +1,348 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-02",
+  "description": "Configuración central de proveedores de pago para My Cusco Trip. Define qué proveedor se usa según moneda, país, mercado, tipo de pago y fase de integración.",
+  "environment": {
+    "mode": "sandbox",
+    "productionReady": false,
+    "notes": "No guardar client secrets, access tokens ni credenciales privadas dentro de este archivo público. Las credenciales deben manejarse en backend, serverless functions o variables seguras cuando se integre el checkout real."
+  },
+  "defaultProvider": "paypal",
+  "providerResolution": {
+    "mode": "currency_first",
+    "fallbackProvider": "manual_payment",
+    "rules": [
+      {
+        "provider": "paypal",
+        "currencies": [
+          "USD",
+          "EUR",
+          "GBP",
+          "JPY",
+          "MXN"
+        ],
+        "markets": [
+          "international",
+          "default"
+        ],
+        "priority": 1
+      },
+      {
+        "provider": "mercado_pago",
+        "currencies": [
+          "PEN",
+          "ARS",
+          "BRL",
+          "CLP",
+          "COP"
+        ],
+        "markets": [
+          "latin_america",
+          "peru",
+          "argentina",
+          "brazil",
+          "chile",
+          "colombia"
+        ],
+        "priority": 1
+      },
+      {
+        "provider": "manual_payment",
+        "currencies": [
+          "USD",
+          "EUR",
+          "GBP",
+          "JPY",
+          "MXN",
+          "PEN",
+          "ARS",
+          "BRL",
+          "CLP",
+          "COP"
+        ],
+        "markets": [
+          "default"
+        ],
+        "priority": 99
+      }
+    ]
+  },
+  "providers": {
+    "paypal": {
+      "enabled": true,
+      "label": "PayPal",
+      "type": "online_gateway",
+      "integrationStatus": "planned_next_phase",
+      "environment": "sandbox",
+      "mode": "redirect_or_js_sdk",
+      "supportedCurrencies": [
+        "USD",
+        "EUR",
+        "GBP",
+        "JPY",
+        "MXN"
+      ],
+      "supportedCountries": [
+        "default"
+      ],
+      "recommendedUse": [
+        "international_customers",
+        "usd_payments",
+        "eur_payments",
+        "gbp_payments",
+        "jpy_payments",
+        "mxn_payments"
+      ],
+      "checkoutCapabilities": {
+        "fullPayment": true,
+        "partialPayment": true,
+        "authorizationCapture": false,
+        "refunds": "manual_from_provider_dashboard",
+        "webhooks": "future_backend_required"
+      },
+      "feeProfile": {
+        "applyFeesInPricing": true,
+        "customerPaysGatewayFee": false,
+        "includedInPublishedPrice": true,
+        "paypalPercent": 0.054,
+        "paypalFixedByCurrency": {
+          "USD": 0.3,
+          "EUR": 0.35,
+          "GBP": 0.2,
+          "JPY": 40,
+          "MXN": 4.0
+        },
+        "bankWithdrawalPercent": 0.015,
+        "peruIgvPercentOnWithdrawal": 0.18,
+        "bankWithdrawalEffectivePercent": 0.0177,
+        "notes": "La comisión PayPal y el retiro bancario se consideran en los precios publicados cuando corresponda. Para cálculos simplificados se puede omitir el fijo PayPal en paquetes grandes."
+      },
+      "publicConfig": {
+        "clientIdPlaceholder": "PAYPAL_CLIENT_ID_PUBLIC_ONLY",
+        "currencyParamRequired": true,
+        "intent": "capture",
+        "components": [
+          "buttons"
+        ],
+        "disableFunding": []
+      },
+      "securityNotes": [
+        "El clientId público puede usarse en frontend.",
+        "No exponer client secret en GitHub Pages.",
+        "Para crear órdenes seguras, validar montos y registrar pagos se recomienda backend o serverless function."
+      ],
+      "status": "active_sandbox"
+    },
+    "mercado_pago": {
+      "enabled": true,
+      "label": "Mercado Pago",
+      "type": "online_gateway",
+      "integrationStatus": "planned_next_phase",
+      "environment": "sandbox",
+      "mode": "checkout_pro_or_wallet_brick",
+      "supportedCurrencies": [
+        "PEN",
+        "ARS",
+        "BRL",
+        "CLP",
+        "COP"
+      ],
+      "supportedCountries": [
+        "PE",
+        "AR",
+        "BR",
+        "CL",
+        "CO"
+      ],
+      "recommendedUse": [
+        "peru_customers",
+        "latin_america_customers",
+        "pen_payments",
+        "ars_payments",
+        "brl_payments",
+        "clp_payments",
+        "cop_payments"
+      ],
+      "checkoutCapabilities": {
+        "fullPayment": true,
+        "partialPayment": true,
+        "installments": true,
+        "localPaymentMethods": true,
+        "refunds": "manual_from_provider_dashboard",
+        "webhooks": "future_backend_required"
+      },
+      "feeProfile": {
+        "applyFeesInPricing": false,
+        "customerPaysGatewayFee": false,
+        "includedInPublishedPrice": false,
+        "feeCalculationMode": "pending_provider_confirmation",
+        "notes": "Las comisiones reales de Mercado Pago dependen del país, tipo de cuenta, medio de pago y plazo de liberación del dinero. Se deja preparado para completar cuando se active la integración comercial."
+      },
+      "publicConfig": {
+        "publicKeyPlaceholder": "MERCADO_PAGO_PUBLIC_KEY",
+        "preferenceIdRequired": true,
+        "countryByCurrency": {
+          "PEN": "PE",
+          "ARS": "AR",
+          "BRL": "BR",
+          "CLP": "CL",
+          "COP": "CO"
+        }
+      },
+      "securityNotes": [
+        "La public key puede usarse en frontend.",
+        "El access token privado no debe exponerse en GitHub Pages.",
+        "Para crear preferencias de pago se necesita backend o serverless function."
+      ],
+      "status": "active_sandbox"
+    },
+    "manual_payment": {
+      "enabled": true,
+      "label": "Pago manual coordinado",
+      "type": "manual",
+      "integrationStatus": "available_as_fallback",
+      "environment": "manual",
+      "mode": "manual_confirmation",
+      "supportedCurrencies": [
+        "USD",
+        "EUR",
+        "GBP",
+        "JPY",
+        "MXN",
+        "PEN",
+        "ARS",
+        "BRL",
+        "CLP",
+        "COP"
+      ],
+      "supportedCountries": [
+        "default"
+      ],
+      "recommendedUse": [
+        "fallback",
+        "custom_quotes",
+        "offline_reservations",
+        "bank_transfer_or_manual_confirmation"
+      ],
+      "checkoutCapabilities": {
+        "fullPayment": true,
+        "partialPayment": true,
+        "installments": false,
+        "localPaymentMethods": false,
+        "refunds": "manual",
+        "webhooks": "not_applicable"
+      },
+      "feeProfile": {
+        "applyFeesInPricing": false,
+        "customerPaysGatewayFee": false,
+        "includedInPublishedPrice": false,
+        "notes": "Proveedor de respaldo cuando la moneda, el país o el checkout automático todavía no estén disponibles."
+      },
+      "status": "fallback_enabled"
+    }
+  },
+  "paymentModes": {
+    "full": {
+      "code": "full",
+      "label": "Pago completo",
+      "description": "El cliente paga el total del producto o paquete al momento de reservar.",
+      "enabled": true,
+      "discountEligible": true,
+      "defaultDiscountPercent": 0
+    },
+    "partial": {
+      "code": "partial",
+      "label": "Separar cupo",
+      "description": "El cliente paga un anticipo por persona y completa el saldo antes del viaje o según coordinación.",
+      "enabled": true,
+      "discountEligible": false,
+      "defaultPartialPaymentPerPerson": {
+        "USD": 50,
+        "EUR": 50,
+        "GBP": 45,
+        "JPY": 7500,
+        "MXN": 900,
+        "PEN": 180,
+        "ARS": 50000,
+        "BRL": 250,
+        "CLP": 45000,
+        "COP": 200000
+      }
+    }
+  },
+  "productRules": {
+    "tour": {
+      "allowedPaymentModes": [
+        "full",
+        "partial"
+      ],
+      "preferredProviderResolution": "currency_first"
+    },
+    "package": {
+      "allowedPaymentModes": [
+        "full",
+        "partial"
+      ],
+      "preferredProviderResolution": "currency_first",
+      "allowHiddenServiceFee": true,
+      "allowInternalProfitAnalytics": true
+    },
+    "custom_quote": {
+      "allowedPaymentModes": [
+        "full",
+        "partial"
+      ],
+      "preferredProviderResolution": "manual_first",
+      "allowManualAdjustment": true
+    }
+  },
+  "currencyProviderMap": {
+    "USD": "paypal",
+    "EUR": "paypal",
+    "GBP": "paypal",
+    "JPY": "paypal",
+    "MXN": "paypal",
+    "PEN": "mercado_pago",
+    "ARS": "mercado_pago",
+    "BRL": "mercado_pago",
+    "CLP": "mercado_pago",
+    "COP": "mercado_pago"
+  },
+  "checkoutFlow": {
+    "staticFrontendCompatibility": {
+      "githubPages": true,
+      "notes": "GitHub Pages puede mostrar botones y redirigir, pero no debe crear órdenes definitivas ni preferencias con tokens privados directamente desde frontend."
+    },
+    "recommendedNextPhase": {
+      "paypal": "Implementar PayPal JS SDK con validación de monto y moneda. Para mayor seguridad, crear orden desde backend o serverless.",
+      "mercado_pago": "Implementar creación de preferencia mediante backend o serverless y renderizar Checkout Pro o Wallet Brick en frontend."
+    },
+    "requiredBeforeProduction": [
+      "Validar moneda soportada por proveedor.",
+      "Validar monto final en servidor o función segura.",
+      "Registrar código de reserva.",
+      "Guardar estado del pago.",
+      "Confirmar pago con webhook o verificación posterior.",
+      "No confiar únicamente en el frontend para confirmar reservas pagadas."
+    ]
+  },
+  "privateDashboardPreparation": {
+    "enabledForFuture": true,
+    "fieldsToTrack": [
+      "provider",
+      "currency",
+      "grossAmount",
+      "gatewayFeeEstimated",
+      "bankWithdrawalFeeEstimated",
+      "netReceivedEstimated",
+      "internalCost",
+      "targetProfit",
+      "actualProfit",
+      "maximumDiscountAllowed",
+      "paymentStatus",
+      "reservationCode"
+    ],
+    "notes": "Estos campos permitirán que una futura vista privada muestre utilidad, costo real, descuento máximo y estado de pago por cotización o reserva."
+  },
+  "status": "published"
+}

@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-02",
+  "description": "Configuración central de monedas, tipo de cambio y reglas de redondeo para My Cusco Trip.",
+  "baseCurrencies": [
+    "USD",
+    "PEN"
+  ],
+  "enabledCurrencies": [
+    "PEN",
+    "USD",
+    "EUR",
+    "CLP",
+    "MXN"
+  ],
+  "defaultCurrency": "USD",
+  "exchangeRate": {
+    "mode": "manual_fallback",
+    "primarySource": "manual",
+    "futureSources": [
+      "sbs_sunat_api",
+      "openexchangerates",
+      "exchangerate_host",
+      "currencylayer"
+    ],
+    "updatedAt": "2026-05-02"
+  },
+  "exchangeRates": {
+    "USD_PEN": 3.75,
+    "USD_EUR": 0.92,
+    "USD_CLP": 950,
+    "USD_MXN": 18.5,
+    "PEN_USD": 0.2667,
+    "EUR_USD": 1.087,
+    "CLP_USD": 0.00105,
+    "MXN_USD": 0.054
+  },
+  "roundingRules": {
+    "USD": {
+      "mode": "up",
+      "ending": 0.9,
+      "step": 5,
+      "description": "Redondeo hacia arriba con terminación comercial .90"
+    },
+    "PEN": {
+      "mode": "up",
+      "ending": 0,
+      "step": 5,
+      "description": "Redondeo hacia múltiplos de 5 soles"
+    },
+    "EUR": {
+      "mode": "up",
+      "ending": 0.9,
+      "step": 5,
+      "description": "Redondeo comercial similar a USD"
+    },
+    "CLP": {
+      "mode": "up",
+      "ending": 0,
+      "step": 1000,
+      "description": "Redondeo en miles"
+    },
+    "MXN": {
+      "mode": "up",
+      "ending": 0,
+      "step": 50,
+      "description": "Redondeo en múltiplos de 50"
+    }
+  },
+  "display": {
+    "USD": {
+      "symbol": "$",
+      "position": "before",
+      "decimals": 2
+    },
+    "PEN": {
+      "symbol": "S/",
+      "position": "before",
+      "decimals": 0
+    },
+    "EUR": {
+      "symbol": "€",
+      "position": "before",
+      "decimals": 2
+    },
+    "CLP": {
+      "symbol": "$",
+      "position": "before",
+      "decimals": 0
+    },
+    "MXN": {
+      "symbol": "$",
+      "position": "before",
+      "decimals": 0
+    }
+  },
+  "conversionRules": {
+    "useBaseCurrencyFirst": true,
+    "basePriority": [
+      "USD",
+      "PEN"
+    ],
+    "allowInverseRates": true,
+    "roundAfterConversion": true
+  }
+}
