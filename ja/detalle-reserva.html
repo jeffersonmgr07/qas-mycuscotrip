@@ -1,0 +1,3844 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>予約詳細 | MyCuscoTrip</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../assets/css/main.css" rel="stylesheet"/>
+<link href="../assets/css/components.css" rel="stylesheet"/>
+<link href="../assets/css/header.css" rel="stylesheet"/>
+<link href="../assets/css/footer.css" rel="stylesheet"/>
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<style>
+    :root {
+      --brand-primary: #0f172a;
+      --brand-dark-green: #253b2f;
+      --brand-gold-dark: #b08a2d;
+      --text-main: #1f2937;
+      --text-soft: #667085;
+      --text-mid: #7b7b7b;
+      --line: #e6e8ec;
+      --bg-soft: #f7f8fa;
+      --white: #ffffff;
+      --success-soft: #ecfdf3;
+      --success-text: #166534;
+      --warning-soft: #fff7ed;
+      --warning-text: #b45309;
+      --shadow-lg: 0 24px 80px rgba(15, 23, 42, 0.10);
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.05);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --section-title-bg: #ffd84d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-main);
+      background: #f3f5f7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .voucher-page {
+      min-height: 100vh;
+      padding: 74px 0 50px;
+      background:
+        linear-gradient(rgba(255,255,255,.90), rgba(255,255,255,.90)),
+        url("../assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat fixed;
+    }
+
+    .voucher-shell {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .top-actions-right {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      border: none;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: .95rem;
+      transition: .2s ease;
+    }
+
+    .action-btn.primary {
+      background: var(--brand-primary);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .action-btn.secondary {
+      background: white;
+      color: var(--brand-primary);
+      border: 1px solid var(--line);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .voucher-web {
+      background: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(15, 23, 42, 0.04);
+    }
+
+    .voucher-top {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 26px;
+      padding: 18px 34px 16px;
+      border-bottom: 1px solid var(--line);
+      background: white;
+    }
+
+    .voucher-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .voucher-brand img {
+      width: 319px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .voucher-brand .subcopy {
+      width: 319px;
+      max-width: 100%;
+      color: var(--text-mid);
+      line-height: 1.32;
+      font-size: .95rem;
+      text-align: center;
+      margin: 0;
+    }
+
+    .voucher-brand .contact {
+      width: 319px;
+      max-width: 100%;
+      display: grid;
+      gap: 1px;
+      color: var(--brand-dark-green);
+      font-size: .9rem;
+      line-height: 1.22;
+      text-align: center;
+    }
+
+    .voucher-divider {
+      display: none;
+      width: 100%;
+      max-width: 340px;
+      height: 1px;
+      background: var(--brand-gold-dark);
+      opacity: .9;
+      margin: 0 auto 4px;
+    }
+
+    .voucher-head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .voucher-head-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .voucher-head .date {
+      color: var(--text-mid);
+      font-weight: 700;
+      font-size: 1.44rem;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .voucher-head .title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 3vw, 3.1rem);
+      line-height: 1;
+      letter-spacing: .02em;
+      color: var(--brand-dark-green);
+      margin: 0 0 12px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .voucher-code-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .voucher-code {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 14px 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--line);
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .voucher-code span {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .voucher-code strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.45rem;
+      letter-spacing: .1em;
+      color: var(--brand-primary);
+      text-align: center;
+    }
+
+    .voucher-qr {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .voucher-qr img {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 8px;
+      background: white;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 14px 34px 18px;
+      background: #fcfcfd;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .summary-card {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      min-height: 70px;
+    }
+
+    .summary-card .label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: .73rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .summary-card .value {
+      font-size: .93rem;
+      line-height: 1.38;
+      font-weight: 700;
+      color: var(--brand-primary);
+      word-break: break-word;
+      text-align: center;
+    }
+
+    .voucher-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 20px 34px 28px;
+      background: #fafbfc;
+    }
+
+    .row-full {
+      display: grid;
+      gap: 18px;
+    }
+
+    .row-secondary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .row-bottom {
+      display: grid;
+      grid-template-columns: 1fr .92fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .main-column,
+    .side-column {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--line);
+      background: var(--section-title-bg);
+    }
+
+    .card-head h2 {
+      margin: 0;
+      width: 100%;
+      text-align: left;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.08rem;
+      color: var(--brand-primary);
+      letter-spacing: -.01em;
+    }
+
+    .card-kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.55);
+      color: #7a5c00;
+      font-size: .76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    .card-body {
+      padding: 18px 22px;
+    }
+
+    .soft-note {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfcfd;
+      color: var(--text-soft);
+      line-height: 1.65;
+      font-size: .92rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 11px 10px;
+      border-bottom: 1px solid #edf1f4;
+      vertical-align: top;
+      font-size: .91rem;
+    }
+
+    th {
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-soft);
+      font-weight: 700;
+      background: #f8fafc;
+      text-align: center;
+    }
+
+    td {
+      text-align: left;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: .76rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill.included {
+      background: var(--success-soft);
+      color: var(--success-text);
+    }
+
+    .pill.extra {
+      background: var(--warning-soft);
+      color: var(--warning-text);
+    }
+
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 340px));
+      gap: 14px;
+      justify-content: start;
+    }
+
+    .hotel-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+      border-radius: 18px;
+      padding: 16px;
+      width: 100%;
+    }
+
+    .hotel-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: var(--brand-primary);
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+
+    .hotel-card p {
+      margin: 6px 0;
+      font-size: .9rem;
+      line-height: 1.5;
+      color: #475467;
+      text-align: left;
+    }
+
+    .list-clean {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .list-clean li {
+      margin-bottom: 10px;
+      line-height: 1.62;
+      color: #475467;
+    }
+
+    .agent-box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: linear-gradient(180deg, #fff 0%, #fbfcfd 100%);
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .agent-photo {
+      width: 86px;
+      height: 86px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #f3f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .agent-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .agent-photo i {
+      font-size: 28px;
+      color: #94a3b8;
+    }
+
+    .agent-box .helper {
+      margin-bottom: 10px;
+      color: var(--text-soft);
+      font-size: .91rem;
+      line-height: 1.55;
+    }
+
+    .agent-box .label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-soft);
+      font-size: .78rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+
+    .agent-box .name {
+      font-weight: 800;
+      font-size: 1.02rem;
+      color: var(--brand-primary);
+      margin-bottom: 4px;
+    }
+
+    .agent-box .phone {
+      font-weight: 700;
+      color: #344054;
+    }
+
+    .pay-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pay-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .pay-card h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: var(--brand-primary);
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+
+    .pay-card p {
+      margin: 0 0 12px;
+      color: var(--text-soft);
+      line-height: 1.6;
+      font-size: .91rem;
+      text-align: center;
+    }
+
+    .amounts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+      justify-content: center;
+    }
+
+    .amount-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+    }
+
+    .pay-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-width: 180px;
+      max-width: 230px;
+      min-height: 44px;
+      border-radius: 14px;
+      background: var(--brand-primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .2s ease;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .pay-link:hover {
+      opacity: .95;
+      transform: translateY(-1px);
+    }
+
+    .billing-card {
+      position: relative;
+    }
+
+    .pay-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      color: #3730a3;
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .pay-badge.offer {
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      color: #c2410c;
+    }
+
+    .billing-box {
+      border: 1px dashed #d6dae1;
+      border-radius: 14px;
+      background: #fafbfd;
+      padding: 12px 14px;
+      margin: 12px 0 14px;
+    }
+
+    .billing-line {
+      display: block;
+      padding: 6px 0;
+      border-bottom: 1px dashed #e5e7eb;
+      color: #334155;
+      font-size: .9rem;
+      line-height: 1.45;
+    }
+
+    .billing-line:last-child {
+      border-bottom: none;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .empty-state {
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .empty-state h1 {
+      margin: 0 0 10px;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--brand-primary);
+    }
+
+    .empty-state p {
+      color: var(--text-soft);
+    }
+
+    .back-home {
+      display: inline-flex;
+      margin-top: 18px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: var(--brand-primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .print-voucher {
+      display: none;
+    }
+
+    .pv-classic {
+      display: none;
+    }
+
+    @media (max-width: 1200px) {
+      .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .row-secondary,
+      .row-bottom {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .voucher-top {
+        grid-template-columns: 1fr;
+      }
+
+      .voucher-head {
+        flex-direction: column;
+      }
+
+      .voucher-brand {
+        align-items: center;
+      }
+
+      .voucher-brand .subcopy,
+      .voucher-brand .contact {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .voucher-page {
+        padding: 84px 0 34px;
+      }
+
+      .voucher-top,
+      .summary-grid,
+      .voucher-content {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-head,
+      .card-body {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .top-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .top-actions-right {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .action-btn {
+        width: 100%;
+      }
+
+      .voucher-brand img {
+        width: 271px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .voucher-brand .subcopy {
+        width: 271px;
+        text-align: center;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .voucher-brand .contact {
+        width: 271px;
+        text-align: center;
+        font-size: .82rem;
+        line-height: 1.18;
+      }
+
+      .voucher-brand .contact div {
+        white-space: nowrap;
+      }
+
+      .voucher-divider {
+        display: block;
+        max-width: 271px;
+        margin-bottom: 10px;
+      }
+
+      .voucher-head .date {
+        white-space: nowrap;
+        font-size: 1.05rem;
+        margin-top: 2px;
+      }
+
+      .voucher-head .title {
+        white-space: nowrap;
+      }
+
+      .voucher-code-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .voucher-code {
+        min-width: 220px;
+        padding: 12px 14px;
+      }
+
+      .voucher-qr img {
+        width: 142px;
+        height: 142px;
+      }
+
+      .agent-box {
+        grid-template-columns: 72px 1fr;
+      }
+
+      .agent-photo {
+        width: 72px;
+        height: 72px;
+      }
+
+      th,
+      .summary-card .label,
+      .summary-card .value,
+      .card-head h2,
+      .card-kicker,
+      .voucher-code span,
+      .voucher-code strong,
+      .pay-card h3,
+      .amount-pill,
+      .pay-link {
+        white-space: nowrap;
+      }
+
+      th {
+        font-size: .72rem;
+        text-align: center;
+      }
+
+      .summary-card .label {
+        font-size: .7rem;
+      }
+
+      .summary-card .value {
+        font-size: .88rem;
+      }
+
+      td {
+        text-align: left;
+      }
+
+      .hotel-card h3 {
+        text-align: center;
+      }
+
+      .hotel-card p {
+        text-align: left;
+      }
+    }
+
+
+    .birthday-row td,
+    .pv-birthday-row td {
+      background: #fff7df !important;
+      border-top: 1px solid #f2d28a;
+      border-bottom: 1px solid #f2d28a;
+    }
+
+    .birthday-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      color: #7a4a00;
+    }
+
+    .birthday-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05em;
+      line-height: 1;
+    }
+
+    .birthday-badge {
+      display: none !important;
+    }
+
+    @media print {
+      body { background: white; }
+      #header-container, #footer-container, .wa-float, .top-actions { display: none !important; }
+      .voucher-page { background: white !important; padding: 0 !important; min-height: auto !important; }
+      .voucher-shell { max-width: none; padding: 0; }
+
+      .voucher-web,
+      #voucherWeb,
+      #voucherEmpty {
+        display: none !important;
+      }
+
+      #voucherPrint,
+      .print-voucher,
+      .pv-classic {
+        display: block !important;
+      }
+
+      .pv-classic {
+        background: #fff;
+        color: #222;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .pv-top {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 20px;
+        align-items: start;
+        margin-bottom: 14px;
+      }
+
+      .pv-left img {
+        width: 240px;
+        max-width: 100%;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .pv-subcopy {
+        width: 240px;
+        color: #666;
+        font-size: 12px;
+        line-height: 1.25;
+        margin-bottom: 8px;
+      }
+
+      .pv-contact {
+        width: 240px;
+        color: #253b2f;
+        font-size: 11.5px;
+        line-height: 1.2;
+      }
+
+      .pv-right {
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      .pv-date {
+        color: #777;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .pv-title {
+        color: #253b2f;
+        font-size: 28px;
+        font-weight: 800;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 10px;
+      }
+
+      .pv-code-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .pv-code-box {
+        border: 1px solid #cfd4dc;
+        border-radius: 10px;
+        padding: 8px 14px;
+        min-width: 220px;
+        text-align: center;
+        background: #fff;
+      }
+
+      .pv-code-box span {
+        display: block;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: #6b7280;
+        margin-bottom: 3px;
+        font-weight: 700;
+      }
+
+      .pv-code-box strong {
+        font-size: 18px;
+        letter-spacing: .08em;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .pv-qr-box img {
+        width: 92px;
+        height: 92px;
+        object-fit: contain;
+        border: 1px solid #cfd4dc;
+        padding: 4px;
+        background: #fff;
+      }
+
+      .pv-meta-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .pv-meta-item {
+        border: 1px solid #d7dbe0;
+        padding: 7px 8px;
+        min-height: 50px;
+        overflow: hidden;
+      }
+
+      .pv-meta-item strong {
+        display: block;
+        font-size: 9.6px;
+        text-transform: uppercase;
+        color: #6b7280;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .pv-meta-item span {
+        display: -webkit-box;
+        font-size: 11.2px;
+        font-weight: 800;
+        line-height: 1.18;
+        max-height: 2.36em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: normal;
+      }
+
+      .pv-section-title {
+        background: #ffd84d;
+        border: 1px solid #e5b900;
+        padding: 6px 8px;
+        font-weight: 800;
+        font-size: 12.5px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .pv-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+      }
+
+      .pv-table th,
+      .pv-table td {
+        border: 1px solid #d7dbe0;
+        padding: 6px 7px;
+        vertical-align: top;
+      }
+
+      .pv-table th {
+        background: #f6f6f6;
+        text-align: center;
+        font-size: 10.2px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .pv-table td {
+        text-align: left;
+        font-size: 11.5px;
+      }
+
+      .pv-table th,
+      .pv-table td {
+        word-break: normal;
+      }
+
+      .pv-table th:nth-child(5),
+      .pv-table td:nth-child(5) {
+        white-space: nowrap;
+      }
+
+      .pv-hotels-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 8px;
+        margin-bottom: 10px;
+      }
+
+      .pv-hotel-card {
+        border: 1px solid #d7dbe0;
+        padding: 8px;
+        min-height: 160px;
+        font-size: 11.5px;
+        line-height: 1.35;
+      }
+
+      .pv-hotel-name {
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 6px;
+        font-size: 12px;
+      }
+
+      .pv-bottom {
+        display: grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .pv-info-box,
+      .pv-side-box {
+        border: 1px solid #d7dbe0;
+        padding: 10px;
+        min-height: 220px;
+      }
+
+      .pv-subtitle {
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        font-size: 11px;
+        color: #253b2f;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .pv-assist-box {
+        margin-bottom: 12px;
+      }
+
+      .pv-assist-text {
+        font-size: 11px;
+        line-height: 1.35;
+        margin-bottom: 8px;
+      }
+
+      .pv-agent-name {
+        font-weight: 800;
+        font-size: 12px;
+      }
+
+      .pv-agent-phone {
+        font-weight: 700;
+        font-size: 12px;
+        margin-top: 2px;
+      }
+
+      .pv-payment-card {
+        border: 1px dashed #cfd4dc;
+        padding: 8px;
+        margin-top: 8px;
+      }
+
+      .pv-payment-title {
+        font-weight: 800;
+        font-size: 11px;
+        margin-bottom: 4px;
+      }
+
+      .pv-payment-badge {
+        display: inline-block;
+        border: 1px solid #f59e0b;
+        background: #fff7ed;
+        color: #b45309;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 999px;
+        margin-bottom: 6px;
+      }
+
+      .pv-payment-lines div {
+        font-size: 10.8px;
+        line-height: 1.35;
+        margin-bottom: 2px;
+      }
+
+
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      .pv-classic {
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+      }
+
+      .pv-meta-item,
+      .pv-hotel-card,
+      .pv-info-box,
+      .pv-side-box,
+      .pv-payment-card,
+      .pv-qr-box img {
+        border-radius: 10px;
+      }
+
+      .pv-section-title {
+        border-radius: 10px 10px 0 0;
+        border-bottom: 0;
+      }
+
+      .pv-table {
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 1px solid #d7dbe0;
+        border-top: 0;
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
+        page-break-inside: avoid;
+      }
+
+      .pv-table th,
+      .pv-table td {
+        border-top: 1px solid #d7dbe0;
+        border-left: 1px solid #d7dbe0;
+        border-right: 0;
+        border-bottom: 0;
+      }
+
+      .pv-table th:first-child,
+      .pv-table td:first-child {
+        border-left: 0;
+      }
+
+      .pv-services-table {
+        table-layout: fixed;
+      }
+
+      .pv-services-table th,
+      .pv-services-table td {
+        font-size: 11.3px;
+        line-height: 1.2;
+        padding: 5px 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+      }
+
+      .pv-services-table th:nth-child(6),
+      .pv-services-table td:nth-child(6) {
+        font-size: 9px;
+      }
+
+      .pv-services-table th:nth-child(1),
+      .pv-services-table td:nth-child(1) { width: 11%; }
+      .pv-services-table th:nth-child(2),
+      .pv-services-table td:nth-child(2) { width: 38%; }
+      .pv-services-table th:nth-child(3),
+      .pv-services-table td:nth-child(3) { width: 16%; }
+      .pv-services-table th:nth-child(4),
+      .pv-services-table td:nth-child(4) { width: 11%; }
+      .pv-services-table th:nth-child(5),
+      .pv-services-table td:nth-child(5) { width: 11%; }
+      .pv-services-table th:nth-child(6),
+      .pv-services-table td:nth-child(6) {
+        width: 13%;
+        text-align: center;
+        font-size: 9px;
+      }
+
+      .pv-status-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 52px;
+        padding: 3px 6px;
+        border-radius: 999px;
+        border: 1px solid #a7d9b8;
+        background: #ecfdf3;
+        color: #137333;
+        font-size: 8.6px;
+        font-weight: 800;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .pv-status-pill.extra {
+        border-color: #f4c7a1;
+        background: #fff4e8;
+        color: #9a4b00;
+      }
+
+      .pv-bottom,
+      .pv-hotels-grid,
+      .pv-meta-grid {
+        max-width: 100%;
+      }
+
+      .pv-birthday-row td {
+        white-space: nowrap;
+      }
+
+      .birthday-name {
+        gap: 5px;
+      }
+
+      .birthday-icon {
+        font-size: 1em;
+      }
+
+
+
+      .pv-section,
+      .pv-signature-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .pv-section-title,
+      .pv-section-title + .pv-table,
+      .pv-section-title + .pv-hotels-grid,
+      .pv-section-title + .pv-bottom {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .pv-signature-section {
+        border: 1px solid #d7dbe0;
+        border-radius: 12px;
+        margin-top: 12px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .pv-signature-main {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 14px;
+        align-items: center;
+        padding: 12px 14px;
+        background: linear-gradient(120deg, #0b1f18 0%, #123525 56%, #24583b 100%);
+        border-bottom: 1px solid #183f2c;
+      }
+
+      .pv-signature-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+      }
+
+      .pv-signature-brand img {
+        width: 138px;
+        max-height: 58px;
+        object-fit: contain;
+        opacity: .96;
+      }
+
+      .pv-social-area {
+        display: grid;
+        gap: 7px;
+        min-width: 0;
+      }
+
+      .pv-social-title {
+        color: #fff4c2;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 11.5px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        white-space: nowrap;
+      }
+
+      .pv-socials {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+        flex-wrap: nowrap;
+        min-width: 0;
+      }
+
+      .pv-social-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        border: 1px solid rgba(255, 255, 255, .22);
+        border-radius: 999px;
+        padding: 5px 6px;
+        background: rgba(255, 255, 255, .1);
+        color: #fff;
+        font-size: 8.6px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .pv-social-pill i {
+        color: #ffd84d;
+        font-size: 9.5px;
+      }
+
+      .pv-tripadvisor-award {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        width: 118px;
+        max-width: 118px;
+        margin-left: 2px;
+        padding: 0;
+        align-self: center;
+        transform: translateY(-4px);
+        flex: 0 0 118px;
+        overflow: hidden;
+      }
+
+      .pv-tripadvisor-award img {
+        display: block;
+        max-height: 40px;
+        max-width: 116px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .pv-ta-icon {
+        display: inline-flex;
+        width: 12px;
+        height: 12px;
+        align-items: center;
+        justify-content: center;
+        color: #ffd84d;
+        flex: 0 0 12px;
+      }
+
+      .pv-ta-icon svg {
+        display: block;
+        width: 12px;
+        height: 12px;
+        fill: currentColor;
+      }
+
+      .pv-ad-banner-slot {
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: .02em;
+        background: repeating-linear-gradient(135deg, #f8fafc, #f8fafc 8px, #f1f5f9 8px, #f1f5f9 16px);
+      }
+
+      .pv-ad-banner-slot img {
+        width: 100%;
+        max-height: 86px;
+        object-fit: cover;
+        display: block;
+      }
+
+
+
+      /* Ajustes finales de impresión: más contenido en la primera hoja */
+      .pv-classic {
+        font-size: 11.4px;
+        line-height: 1.22;
+      }
+
+      .pv-top {
+        grid-template-columns: 250px 1fr;
+        gap: 12px;
+        align-items: start;
+        margin-top: 0;
+        margin-bottom: 7px;
+      }
+
+      .pv-left img {
+        width: 198px;
+        margin-bottom: 3px;
+      }
+
+      .pv-subcopy {
+        width: 220px;
+        font-size: 10.4px;
+        line-height: 1.14;
+        margin-bottom: 3px;
+      }
+
+      .pv-contact {
+        width: 220px;
+        font-size: 9.9px;
+        line-height: 1.08;
+      }
+
+      .pv-right {
+        padding-top: 0;
+      }
+
+      .pv-date {
+        font-size: 13.4px;
+        margin-bottom: 3px;
+        white-space: nowrap;
+      }
+
+      .pv-title {
+        font-size: 23px;
+        line-height: 1;
+        margin-bottom: 6px;
+        white-space: nowrap;
+      }
+
+      .pv-code-row {
+        gap: 8px;
+      }
+
+      .pv-code-box {
+        min-width: 190px;
+        padding: 6px 10px;
+        border-radius: 9px;
+      }
+
+      .pv-code-box span {
+        font-size: 8.8px;
+        margin-bottom: 2px;
+      }
+
+      .pv-code-box strong {
+        font-size: 15.5px;
+      }
+
+      .pv-qr-box img {
+        width: 70px;
+        height: 70px;
+        padding: 3px;
+      }
+
+      .pv-meta-grid {
+        display: grid;
+        grid-template-columns: 1.28fr .52fr 1.58fr .54fr .72fr .72fr;
+        grid-template-areas:
+          "holder duration destination passengers phone coupon"
+          "holder language pack passengers phone coupon";
+        gap: 5px;
+        margin-bottom: 7px;
+      }
+
+      .pv-meta-holder { grid-area: holder; }
+      .pv-meta-duration { grid-area: duration; }
+      .pv-meta-language { grid-area: language; }
+      .pv-meta-destination { grid-area: destination; }
+      .pv-meta-pack { grid-area: pack; }
+      .pv-meta-passengers { grid-area: passengers; }
+      .pv-meta-phone { grid-area: phone; }
+      .pv-meta-coupon { grid-area: coupon; }
+
+      .pv-meta-item {
+        min-height: 34px;
+        padding: 4px 5px;
+        border-radius: 9px;
+      }
+
+      .pv-meta-item strong {
+        font-size: 7.8px;
+        letter-spacing: .02em;
+        margin-bottom: 1px;
+      }
+
+      .pv-meta-item span {
+        font-size: 9.8px;
+        line-height: 1.08;
+        max-height: 2.16em;
+        -webkit-line-clamp: 2;
+      }
+
+      .pv-meta-duration span,
+      .pv-meta-language span,
+      .pv-meta-passengers span,
+      .pv-meta-phone span,
+      .pv-meta-coupon span {
+        font-size: 9.2px;
+      }
+
+      .pv-section-title {
+        padding: 4px 7px;
+        font-size: 11.2px;
+        line-height: 1.05;
+        margin-top: 6px;
+        background: #ffd21f;
+        border-color: #d8aa00;
+      }
+
+      .pv-table {
+        margin-bottom: 7px;
+      }
+
+      .pv-table th,
+      .pv-table td {
+        padding: 4px 5px;
+      }
+
+      .pv-table th {
+        font-size: 8.9px;
+        line-height: 1.05;
+      }
+
+      .pv-table td {
+        font-size: 10.3px;
+        line-height: 1.13;
+      }
+
+      .pv-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .pv-services-table th,
+      .pv-services-table td {
+        font-size: 10.8px;
+        padding: 4px 4px;
+      }
+
+      .pv-services-table th:nth-child(6),
+      .pv-services-table td:nth-child(6) {
+        font-size: 8.4px;
+      }
+
+      .pv-signature-main {
+        grid-template-columns: 112px 1fr;
+        gap: 10px;
+        padding: 9px 12px;
+      }
+
+      .pv-signature-brand img {
+        width: 88px;
+        max-height: 62px;
+        object-fit: contain;
+      }
+
+      .pv-social-title {
+        font-size: 10.6px;
+      }
+
+      .pv-social-pill {
+        font-size: 8.1px;
+        padding: 4px 5px;
+      }
+
+      .pv-tripadvisor-award {
+        height: 38px;
+        width: 108px;
+        min-width: 108px;
+        max-width: 108px;
+        margin-left: 2px;
+        padding: 0;
+        flex-basis: 108px;
+        transform: translateY(-4px);
+      }
+
+      .pv-tripadvisor-award img {
+        max-height: 36px;
+        max-width: 106px;
+      }
+
+      .pv-ta-icon,
+      .pv-ta-icon svg {
+        width: 10px;
+        height: 10px;
+      }
+
+      .pv-ad-banner-slot {
+        min-height: 54px;
+      }
+
+
+      /* Corrección de estructura y compacidad de cabecera impresa */
+      .pv-classic {
+        font-size: 11.2px;
+        line-height: 1.16;
+      }
+
+      .pv-top {
+        grid-template-columns: 224px 1fr;
+        gap: 10px;
+        margin-top: 0;
+        margin-bottom: 5px;
+        align-items: start;
+      }
+
+      .pv-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .pv-left img {
+        width: 185px;
+        margin-bottom: 2px;
+      }
+
+      .pv-subcopy {
+        width: 190px;
+        text-align: center;
+        font-size: 9.8px;
+        line-height: 1.08;
+        margin-bottom: 2px;
+      }
+
+      .pv-contact {
+        width: 205px;
+        font-size: 9.4px;
+        line-height: 1.06;
+        text-align: center;
+      }
+
+      .pv-right {
+        padding-top: 0;
+      }
+
+      .pv-date {
+        font-size: 12.4px;
+        margin-bottom: 2px;
+      }
+
+      .pv-title {
+        font-size: 21px;
+        margin-bottom: 4px;
+      }
+
+      .pv-code-box {
+        min-width: 176px;
+        padding: 5px 9px;
+      }
+
+      .pv-qr-box img {
+        width: 64px;
+        height: 64px;
+      }
+
+      .pv-meta-grid {
+        grid-template-columns: 1.35fr .52fr 1.22fr 1.55fr;
+        grid-template-areas:
+          "holder duration destination pack"
+          "passengers language phone coupon";
+        gap: 5px;
+        margin-bottom: 5px;
+      }
+
+      .pv-meta-item {
+        min-height: 31px;
+        padding: 4px 6px;
+        border-radius: 9px;
+      }
+
+      .pv-meta-item strong {
+        font-size: 7.5px;
+        line-height: 1;
+        margin-bottom: 1px;
+        white-space: nowrap;
+      }
+
+      .pv-meta-item span {
+        font-size: 9.5px;
+        line-height: 1.05;
+        max-height: 2.1em;
+        -webkit-line-clamp: 2;
+      }
+
+      .pv-meta-duration span,
+      .pv-meta-language span {
+        font-size: 9.1px;
+      }
+
+      .pv-section-title {
+        margin-top: 5px;
+        padding: 3.5px 7px;
+        font-size: 10.9px;
+        line-height: 1;
+      }
+
+      .pv-tourists-table th,
+      .pv-tourists-table td {
+        padding: 3px 5px;
+        line-height: 1.08;
+      }
+
+      .pv-tourists-table th {
+        font-size: 8.4px;
+      }
+
+      .pv-tourists-table td {
+        font-size: 9.7px;
+      }
+
+      .pv-tourists-table th:nth-child(1),
+      .pv-tourists-table td:nth-child(1) { width: 38%; }
+      .pv-tourists-table th:nth-child(2),
+      .pv-tourists-table td:nth-child(2) { width: 15%; }
+      .pv-tourists-table th:nth-child(3),
+      .pv-tourists-table td:nth-child(3) { width: 18%; }
+      .pv-tourists-table th:nth-child(4),
+      .pv-tourists-table td:nth-child(4) { width: 16%; }
+      .pv-tourists-table th:nth-child(5),
+      .pv-tourists-table td:nth-child(5) { width: 13%; }
+
+      .pv-ad-banner-slot {
+        min-height: 54px;
+        overflow: hidden;
+      }
+
+      .pv-ad-banner-slot img {
+        width: 100%;
+        height: 100%;
+        min-height: 54px;
+        max-height: 94px;
+        object-fit: cover;
+      }
+
+
+      /* Ajuste final solicitado: cabecera uniforme y banner sin recorte */
+      .pv-meta-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-areas: none !important;
+        gap: 6px !important;
+        margin-bottom: 7px !important;
+      }
+
+      .pv-meta-holder,
+      .pv-meta-duration,
+      .pv-meta-destination,
+      .pv-meta-pack,
+      .pv-meta-passengers,
+      .pv-meta-language,
+      .pv-meta-phone,
+      .pv-meta-coupon {
+        grid-area: auto !important;
+      }
+
+      .pv-meta-item {
+        min-height: 40px !important;
+        padding: 6px 7px !important;
+        border-radius: 10px !important;
+      }
+
+      .pv-meta-item strong {
+        font-size: 8.6px !important;
+        line-height: 1.05 !important;
+        letter-spacing: .02em !important;
+        margin-bottom: 2px !important;
+        white-space: nowrap !important;
+      }
+
+      .pv-meta-item span,
+      .pv-meta-duration span,
+      .pv-meta-language span,
+      .pv-meta-passengers span,
+      .pv-meta-phone span,
+      .pv-meta-coupon span {
+        font-size: 10.2px !important;
+        line-height: 1.12 !important;
+        max-height: 2.24em !important;
+        -webkit-line-clamp: 2 !important;
+      }
+
+      .pv-ad-banner-slot {
+        min-height: 0 !important;
+        padding: 5px !important;
+        background: #0b1f18 !important;
+        overflow: visible !important;
+      }
+
+      .pv-ad-banner-slot img {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+        display: block !important;
+        border-radius: 8px !important;
+      }
+
+
+
+      /* Ajuste fino: mantener Datos de los turistas en la primera hoja */
+      .pv-top {
+        margin-bottom: 9px !important;
+      }
+
+      .pv-right {
+        transform: translate(12px, 5px) !important;
+      }
+
+      .pv-meta-grid {
+        margin-bottom: 4px !important;
+      }
+
+      .pv-meta-item {
+        min-height: 37px !important;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+      }
+
+      .pv-section-title {
+        margin-top: 4px !important;
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+      }
+
+      .pv-tourists-section,
+      .pv-tourists-table {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+
+      .pv-tourists-table {
+        margin-bottom: 6px !important;
+      }
+
+      .pv-tourists-table th,
+      .pv-tourists-table td {
+        padding-top: 2.7px !important;
+        padding-bottom: 2.7px !important;
+      }
+
+      /* Correccion final: bloque superior compacto, QR a la derecha y turistas completos */
+      .pv-top {
+        grid-template-columns: 205px 1fr !important;
+        gap: 8px !important;
+        margin-bottom: 10px !important;
+      }
+
+      .pv-left img {
+        width: 172px !important;
+        margin-bottom: 2px !important;
+      }
+
+      .pv-subcopy {
+        width: 186px !important;
+        font-size: 9.4px !important;
+        line-height: 1.04 !important;
+        margin-bottom: 3px !important;
+      }
+
+      .pv-contact {
+        width: 198px !important;
+        font-size: 9.1px !important;
+        line-height: 1.03 !important;
+      }
+
+      .pv-right {
+        justify-self: end !important;
+        width: 370px !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        transform: translate(0, 11px) !important;
+        padding-right: 2px !important;
+      }
+
+      .pv-date {
+        font-size: 12px !important;
+        margin-bottom: 1px !important;
+      }
+
+      .pv-title {
+        font-size: 20px !important;
+        margin-bottom: 3px !important;
+      }
+
+      .pv-code-row {
+        justify-content: center !important;
+        gap: 9px !important;
+      }
+
+      .pv-code-box {
+        min-width: 164px !important;
+        padding: 4px 8px !important;
+      }
+
+      .pv-code-box span {
+        font-size: 8.8px !important;
+        margin-bottom: 1px !important;
+      }
+
+      .pv-code-box strong {
+        font-size: 14.2px !important;
+      }
+
+      .pv-qr-box img {
+        width: 58px !important;
+        height: 58px !important;
+        padding: 3px !important;
+      }
+
+      .pv-meta-grid {
+        margin-top: 2px !important;
+        margin-bottom: 4px !important;
+        gap: 5px !important;
+      }
+
+      .pv-meta-item {
+        min-height: 34px !important;
+        padding: 4px 6px !important;
+      }
+
+      .pv-meta-item strong {
+        font-size: 8px !important;
+        margin-bottom: 1px !important;
+      }
+
+      .pv-meta-item span,
+      .pv-meta-duration span,
+      .pv-meta-language span,
+      .pv-meta-passengers span,
+      .pv-meta-phone span,
+      .pv-meta-coupon span {
+        font-size: 9.5px !important;
+        line-height: 1.05 !important;
+        max-height: 2.1em !important;
+      }
+
+      .pv-tourists-section {
+        margin-top: 0 !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .pv-tourists-section .pv-section-title {
+        margin-top: 2px !important;
+        padding: 2.5px 7px !important;
+        font-size: 10.4px !important;
+      }
+
+      .pv-tourists-table {
+        table-layout: fixed !important;
+        margin-bottom: 4px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .pv-tourists-table th,
+      .pv-tourists-table td {
+        padding: 1.8px 4px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .pv-tourists-table th {
+        font-size: 7.9px !important;
+      }
+
+      .pv-tourists-table td {
+        font-size: 8.8px !important;
+      }
+
+      .pv-tourists-table tr {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .pv-birthday-row td {
+        white-space: nowrap !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 3mm 8mm 8mm;
+      }
+    }
+  
+
+    /* Ajuste final: acceso mi-reserva + formato impreso continuo */
+    @media print {
+      .pv-top {
+        grid-template-columns: 285px 1fr !important;
+        align-items: start !important;
+        gap: 12px !important;
+      }
+
+      .pv-left {
+        max-width: 285px !important;
+      }
+
+      .pv-right {
+        justify-self: end !important;
+        width: auto !important;
+        min-width: 300px !important;
+        text-align: right !important;
+        padding-top: 14px !important;
+        padding-right: 2px !important;
+        margin-left: auto !important;
+      }
+
+      .pv-date,
+      .pv-title {
+        text-align: right !important;
+      }
+
+      .pv-code-row {
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: 9px !important;
+        margin-left: auto !important;
+      }
+
+      .pv-tourists-section,
+      .pv-tourists-table {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+
+      .pv-tourists-section {
+        margin-top: 0 !important;
+      }
+
+      .pv-tourists-table {
+        table-layout: fixed !important;
+        width: 100% !important;
+        margin-bottom: 3px !important;
+      }
+
+      .pv-tourists-table thead {
+        display: table-header-group !important;
+      }
+
+      .pv-tourists-table tr {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .pv-tourists-table th,
+      .pv-tourists-table td {
+        padding-top: 1.4px !important;
+        padding-bottom: 1.4px !important;
+        line-height: .98 !important;
+      }
+    }
+
+
+    /* Corrección definitiva de impresión: turistas en flujo continuo y sin salto artificial */
+    .pv-tourists-grid {
+      width: 100%;
+      display: block;
+      border: 1px solid #d7dbe0;
+      border-top: 0;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      margin-bottom: 7px;
+      background: #fff;
+    }
+
+    .pv-tourists-grid-row {
+      display: grid;
+      grid-template-columns: 38% 15% 18% 16% 13%;
+    }
+
+    .pv-tourists-grid-row > div {
+      border-top: 1px solid #d7dbe0;
+      border-left: 1px solid #d7dbe0;
+      padding: 3px 5px;
+      font-size: 10.3px;
+      line-height: 1.12;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-sizing: border-box;
+    }
+
+    .pv-tourists-grid-row > div:first-child {
+      border-left: 0;
+    }
+
+    .pv-tourists-grid-head > div {
+      background: #f6f6f6;
+      text-align: center;
+      font-size: 8.9px;
+      font-weight: 800;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      line-height: 1.05;
+    }
+
+    .pv-tourists-grid-row.pv-birthday-row > div {
+      background: #fff7df !important;
+      border-top-color: #f2d28a;
+    }
+
+    @media print {
+      .pv-tourists-section {
+        display: block !important;
+        margin-top: 0 !important;
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+
+      .pv-tourists-section .pv-section-title {
+        display: block !important;
+        margin-top: 2px !important;
+        margin-bottom: 0 !important;
+        padding: 2.6px 7px !important;
+        font-size: 10.4px !important;
+        line-height: 1 !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+
+      .pv-tourists-grid {
+        display: block !important;
+        margin-bottom: 4px !important;
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+
+      .pv-tourists-grid-row {
+        display: grid !important;
+        grid-template-columns: 38% 15% 18% 16% 13% !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .pv-tourists-grid-row > div {
+        padding: 1.55px 4px !important;
+        font-size: 8.7px !important;
+        line-height: .98 !important;
+      }
+
+      .pv-tourists-grid-head > div {
+        padding-top: 1.6px !important;
+        padding-bottom: 1.6px !important;
+        font-size: 7.9px !important;
+        line-height: .98 !important;
+      }
+
+      .pv-tourists-table {
+        display: none !important;
+      }
+
+      .pv-section:not(.pv-tourists-section) {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+
+
+    /* Corrección final real: quitar saltos artificiales entre turistas y servicios */
+    @media print {
+      @page {
+        size: A4;
+        margin: 6mm 8mm 8mm 8mm;
+      }
+
+      html,
+      body {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+
+      .pv-classic {
+        font-size: 10px !important;
+        line-height: 1.16 !important;
+        overflow: visible !important;
+      }
+
+      /* Regresar logo/bloque izquierdo a su sitio y solo ajustar el bloque derecho */
+      .pv-top {
+        grid-template-columns: 255px 1fr !important;
+        gap: 12px !important;
+        align-items: start !important;
+        margin-bottom: 6px !important;
+      }
+
+      .pv-left {
+        justify-self: start !important;
+        max-width: 255px !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        transform: none !important;
+      }
+
+      .pv-left img {
+        width: 176px !important;
+        margin: 0 0 2px 0 !important;
+      }
+
+      .pv-subcopy {
+        width: 206px !important;
+        font-size: 8.8px !important;
+        line-height: 1 !important;
+        margin: 0 0 2px 0 !important;
+        text-align: center !important;
+      }
+
+      .pv-contact {
+        width: 206px !important;
+        font-size: 8.5px !important;
+        line-height: 1 !important;
+        text-align: center !important;
+      }
+
+      .pv-right {
+        justify-self: end !important;
+        width: 280px !important;
+        min-width: 0 !important;
+        max-width: 280px !important;
+        margin: 0 12px 0 0 !important;
+        padding: 9px 0 0 0 !important;
+        transform: none !important;
+        text-align: center !important;
+      }
+
+      .pv-date,
+      .pv-title {
+        text-align: center !important;
+      }
+
+      .pv-date {
+        font-size: 10.5px !important;
+        line-height: 1 !important;
+        margin-bottom: 1px !important;
+      }
+
+      .pv-title {
+        font-size: 18px !important;
+        line-height: 1 !important;
+        margin-bottom: 4px !important;
+      }
+
+      .pv-code-row {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 7px !important;
+        margin: 0 !important;
+      }
+
+      .pv-code-box {
+        min-width: 154px !important;
+        padding: 4px 8px !important;
+        border-radius: 8px !important;
+      }
+
+      .pv-code-box span {
+        font-size: 7.4px !important;
+        line-height: 1 !important;
+        margin-bottom: 1px !important;
+      }
+
+      .pv-code-box strong {
+        font-size: 12.8px !important;
+        line-height: 1 !important;
+        letter-spacing: .05em !important;
+      }
+
+      .pv-qr-box img {
+        width: 54px !important;
+        height: 54px !important;
+        padding: 2px !important;
+        border-radius: 7px !important;
+      }
+
+      .pv-meta-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 4px !important;
+        margin-top: 1px !important;
+        margin-bottom: 4px !important;
+      }
+
+      .pv-meta-item {
+        min-height: 32px !important;
+        padding: 4px 5px !important;
+        border-radius: 8px !important;
+      }
+
+      .pv-meta-item strong {
+        font-size: 7.5px !important;
+        line-height: 1 !important;
+        margin-bottom: 1px !important;
+      }
+
+      .pv-meta-item span {
+        font-size: 8.8px !important;
+        line-height: 1.05 !important;
+        max-height: 2.1em !important;
+        -webkit-line-clamp: 2 !important;
+      }
+
+      .pv-section-title {
+        margin-top: 3px !important;
+        padding: 2.2px 7px !important;
+        font-size: 10px !important;
+        line-height: 1 !important;
+        border-radius: 8px 8px 0 0 !important;
+      }
+
+      /* Lo importante: no obligar secciones/tablas completas a saltar a la siguiente página */
+      .pv-section,
+      .pv-section:not(.pv-tourists-section),
+      .pv-table,
+      .pv-services-table,
+      .pv-bottom,
+      .pv-info-box,
+      .pv-side-box,
+      .pv-signature-section,
+      .pv-tourists-section,
+      .pv-tourists-grid {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        break-before: auto !important;
+        page-break-before: auto !important;
+        break-after: auto !important;
+        page-break-after: auto !important;
+      }
+
+      .pv-section-title,
+      .pv-section-title + .pv-table,
+      .pv-section-title + .pv-hotels-grid,
+      .pv-section-title + .pv-bottom {
+        break-after: auto !important;
+        page-break-after: auto !important;
+      }
+
+      .pv-tourists-grid {
+        margin-bottom: 3px !important;
+        border-radius: 0 0 8px 8px !important;
+      }
+
+      .pv-tourists-grid-row {
+        display: grid !important;
+        grid-template-columns: 38% 15% 18% 16% 13% !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .pv-tourists-grid-row > div {
+        padding: 1.2px 3px !important;
+        font-size: 8.2px !important;
+        line-height: .98 !important;
+        min-height: 0 !important;
+      }
+
+      .pv-tourists-grid-head > div {
+        font-size: 7.4px !important;
+        padding-top: 1.2px !important;
+        padding-bottom: 1.2px !important;
+      }
+
+      .birthday-name {
+        gap: 2px !important;
+      }
+
+      .birthday-icon {
+        font-size: .85em !important;
+      }
+
+      .pv-services-table {
+        table-layout: fixed !important;
+        margin-bottom: 4px !important;
+      }
+
+      .pv-services-table th,
+      .pv-services-table td {
+        padding: 3px 4px !important;
+        font-size: 9px !important;
+        line-height: 1.05 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        vertical-align: middle !important;
+      }
+
+      .pv-services-table th:nth-child(6),
+      .pv-services-table td:nth-child(6) {
+        font-size: 8px !important;
+      }
+
+      .pv-status-pill {
+        min-width: 45px !important;
+        padding: 2px 5px !important;
+        font-size: 7.5px !important;
+      }
+
+      .pv-bottom {
+        gap: 8px !important;
+        margin-top: 5px !important;
+      }
+
+      .pv-info-box,
+      .pv-side-box {
+        min-height: 0 !important;
+        padding: 8px !important;
+        font-size: 9px !important;
+        line-height: 1.15 !important;
+        border-radius: 9px !important;
+      }
+
+      .pv-subtitle {
+        font-size: 9.2px !important;
+        margin-bottom: 4px !important;
+      }
+
+      .pv-assist-text,
+      .pv-payment-lines div {
+        font-size: 8.8px !important;
+        line-height: 1.16 !important;
+      }
+
+      .pv-agent-name,
+      .pv-agent-phone {
+        font-size: 9.2px !important;
+      }
+
+      .pv-payment-card {
+        padding: 6px !important;
+        margin-top: 6px !important;
+      }
+
+      .pv-payment-title {
+        font-size: 9px !important;
+        margin-bottom: 3px !important;
+      }
+
+      .pv-signature-section {
+        margin-top: 8px !important;
+      }
+    }
+
+
+
+    /* Ajuste fino final: legibilidad de Datos de los turistas y bloque Travel Voucher */
+    @media print {
+      .pv-right {
+        padding-top: 14px !important;
+      }
+
+      .pv-tourists-grid-row > div {
+        padding: 3px 4px !important;
+        font-size: 9px !important;
+        line-height: 1.05 !important;
+        min-height: 20px !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+
+      .pv-tourists-grid-head > div {
+        padding: 3px 4px !important;
+        font-size: 8px !important;
+        line-height: 1.05 !important;
+        min-height: 18px !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+
+      .pv-tourists-grid-row:not(.pv-tourists-grid-head) > div:nth-child(n+2) {
+        padding-left: 10px !important;
+      }
+
+      .pv-tourists-grid-row:not(.pv-tourists-grid-head) > div:first-child {
+        padding-left: 6px !important;
+      }
+
+      .pv-tourists-grid {
+        margin-bottom: 5px !important;
+      }
+    }
+
+    /* Ajuste final banner redes + bloque Travel Voucher */
+    @media print {
+      .pv-socials {
+        gap: 4px !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+      }
+
+      .pv-social-pill {
+        border-radius: 999px !important;
+        padding: 4px 5px !important;
+        font-size: 8.1px !important;
+        line-height: 1 !important;
+        height: auto !important;
+        min-height: 18px !important;
+        flex: 0 0 auto !important;
+      }
+
+      .pv-social-pill i {
+        font-size: 9px !important;
+        line-height: 1 !important;
+      }
+
+      .pv-tripadvisor-award {
+        height: 38px !important;
+        width: 108px !important;
+        min-width: 108px !important;
+        max-width: 108px !important;
+        margin-left: 2px !important;
+        padding: 0 !important;
+        flex: 0 0 108px !important;
+        overflow: hidden !important;
+      }
+
+      .pv-tripadvisor-award img {
+        max-height: 36px !important;
+        max-width: 106px !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
+      .voucher-head {
+        padding-top: 7px !important;
+      }
+
+      .voucher-head .date {
+        font-size: 1.11rem !important;
+      }
+
+      .voucher-head .title {
+        font-size: 2.08rem !important;
+      }
+
+      .voucher-code span {
+        font-size: .84rem !important;
+      }
+
+      .voucher-code strong {
+        font-size: 1.52rem !important;
+      }
+
+      .voucher-qr img {
+        width: 148px !important;
+        height: 148px !important;
+      }
+    }
+
+</style>
+<script>window.MCT_LOCALE="ja"; window.MCT_IS_LOCALIZED_PAGE=true;</script><meta content="ja_JP" property="og:locale"/><link href="https://mycuscotrip.com/ja/detalle-reserva.html" rel="canonical"/><meta content="https://mycuscotrip.com/ja/detalle-reserva.html" property="og:url"/></head>
+<body>
+<div id="header-container"></div>
+<a aria-label="WhatsApp" class="wa-float" href="https://wa.me/51900608980" rel="noopener" target="_blank">
+<img alt="WhatsApp" src="../assets/img/logos/LogoWhatsapp.png"/>
+</a>
+<main class="voucher-page">
+<div class="voucher-shell">
+<div class="top-actions">
+<div class="top-actions-right">
+<button class="action-btn secondary" id="backBtn" onclick="window.location.href='./mi-reserva.html'">
+<i class="fa-solid fa-arrow-left"></i> Volver
+          </button>
+<button class="action-btn primary" id="printBtn" onclick="window.print()">
+<i class="fa-solid fa-print"></i> Imprimir voucher
+          </button>
+</div>
+</div>
+<section class="voucher-web" id="voucherWeb" style="display:none;"></section>
+<section class="print-voucher" id="voucherPrint"></section>
+<section class="empty-state" id="voucherEmpty" style="display:none;">
+<h1 id="emptyTitle">予約が見つかりません</h1>
+<p id="emptyText">表示できる予約が読み込まれていません。</p>
+<a class="back-home" href="./mi-reserva.html" id="emptyBtn">マイ予約へ</a>
+</section>
+</div>
+</main>
+<div id="footer-container"></div>
+<script>
+    const IS_GITHUB_PAGES = window.location.hostname.includes('github.io');
+    const BASE_PATH = IS_GITHUB_PAGES ? '/mycuscotrip/' : '/';
+
+    const voucherPathLocale = window.location.pathname.split("/").filter(Boolean)[0];
+    let currentLanguage = voucherPathLocale === "en" ? "en" : "es";
+
+    const i18n = {
+      es: {
+        langLabel: "Idioma",
+        back: "Volver",
+        print: "Imprimir voucher",
+        emptyTitle: "Reserva no encontrada",
+        emptyText: "No hay una reserva cargada para mostrar.",
+        emptyBtn: "Ir a Mi Reserva",
+        subtitle: "Especialistas diseñando viajes llenos de emociones al Valle Sagrado de los Incas",
+        contact1: "Portal de Panes 123 - Plaza de Armas Cusco",
+        contact2: "Whatsapp: +51 900 608 980",
+        contact3: "Email: reservas@mycuscotrip.com",
+        contact4: "Web: www.mycuscotrip.com",
+        travelVoucher: "TRAVEL VOUCHER",
+        bookingCode: "Código de reserva",
+        holder: "Titular reserva",
+        travelDate: "Duración",
+        destination: "Destino",
+        pack: "Pack / programa",
+        passengersCount: "Cantidad de pasajeros",
+        language: "Idioma",
+        phone: "Teléfono de contacto",
+        coupon: "Cupón / referencia",
+        passengers: "Datos de los turistas",
+        travelers: "viajero(s)",
+        fullName: "Nombre completo",
+        documentType: "Tipo documento",
+        documentNumber: "Nro documento",
+        nationality: "Nacionalidad",
+        birthDate: "Fecha NAC",
+        lodging: "Información de hoteles / alojamiento",
+        hotels: "hotel(es)",
+        services: "Servicios e itinerario",
+        serviceLabel: "servicio(s)",
+        code: "Código",
+        service: "Servicio",
+        date: "Fecha",
+        start: "Inicio",
+        departure: "Salida",
+        end: "Fin",
+        status: "Estado",
+        included: "Incluido",
+        extra: "No incluido",
+        transfers: "Información de vuelos o buses",
+        operator: "Operador",
+        number: "Número",
+        origin: "Origen",
+        arrival: "Llegada",
+        assistance: "Asistencia personalizada",
+        assignedAgent: "Agente asignado",
+        assignedAgentText: "Para toda clase de asistencia durante su viaje puede contactarse con su agente de viajes asignado:",
+        includes: "Servicios incluidos",
+        notIncludes: "Servicios no incluidos / adicionales",
+        recommendations: "Recomendaciones",
+        pendingPayments: "Pagos pendientes",
+        payNow: "Pagar ahora",
+        goToPayment: "Ir al pago",
+        completePayment: "Completar pago total",
+        noData: "-"
+      },
+      en: {
+        langLabel: "Language",
+        back: "Back",
+        print: "Print voucher",
+        emptyTitle: "Reservation not found",
+        emptyText: "There is no reservation loaded to display.",
+        emptyBtn: "Go to My Reservation",
+        subtitle: "Specialists in designing emotional journeys to the Sacred Valley of the Incas",
+        contact1: "Portal de Panes 123 - Plaza de Armas Cusco",
+        contact2: "WhatsApp: +51 900 608 980",
+        contact3: "Email: reservas@mycuscotrip.com",
+        contact4: "Web: www.mycuscotrip.com",
+        travelVoucher: "TRAVEL VOUCHER",
+        bookingCode: "Booking code",
+        holder: "Reservation holder",
+        travelDate: "Duration",
+        destination: "Destination",
+        pack: "Package / program",
+        passengersCount: "Passengers",
+        language: "Language",
+        phone: "Contact phone",
+        coupon: "Coupon / reference",
+        passengers: "Traveler details",
+        travelers: "traveler(s)",
+        fullName: "Full name",
+        documentType: "Document type",
+        documentNumber: "Document No.",
+        nationality: "Nationality",
+        birthDate: "DOB",
+        lodging: "Hotel / accommodation information",
+        hotels: "hotel(s)",
+        services: "Services and itinerary",
+        serviceLabel: "service(s)",
+        code: "Code",
+        service: "Service",
+        date: "Date",
+        start: "Start",
+        departure: "Departure",
+        end: "End",
+        status: "Status",
+        included: "Included",
+        extra: "Not included",
+        transfers: "Flight or bus information",
+        operator: "Operator",
+        number: "Number",
+        origin: "Origin",
+        arrival: "Arrival",
+        assistance: "Personal assistance",
+        assignedAgent: "Assigned agent",
+        assignedAgentText: "For any assistance during your trip, please contact your assigned travel agent:",
+        includes: "Included services",
+        notIncludes: "Not included / additional services",
+        recommendations: "Recommendations",
+        pendingPayments: "Pending payments",
+        payNow: "Pay now",
+        goToPayment: "Go to payment",
+        completePayment: "Complete total payment",
+        noData: "-"
+      }
+    };
+
+    async function loadComponent(componentName, targetId) {
+      try {
+        const componentPath = `${BASE_PATH}components/${componentName}.html`;
+        const response = await fetch(componentPath);
+        if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
+        const html = await response.text();
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.innerHTML = html;
+          fixImagePaths(target);
+        }
+      } catch (error) {
+        console.error(`Error cargando ${componentName}:`, error);
+      }
+    }
+
+    function fixImagePaths(container) {
+      const images = container.querySelectorAll('img[src*="assets/"]');
+      images.forEach(img => {
+        const currentSrc = img.getAttribute('src');
+        if (currentSrc && currentSrc.startsWith('assets/')) {
+          img.setAttribute('src', `./${currentSrc}`);
+        }
+      });
+    }
+
+    async function initializeSharedComponents() {
+      await Promise.all([
+        loadComponent('header', 'header-container'),
+        loadComponent('footer', 'footer-container')
+      ]);
+
+      syncFooterAccordions();
+      setTimeout(syncFooterAccordions, 200);
+      setTimeout(initializeComponents, 300);
+    }
+
+    function initializeComponents() {
+      if (typeof MyCuscoTripHeader === 'function') {
+        try {
+          new MyCuscoTripHeader();
+        } catch (e) {
+          console.error('Error en Header JS:', e);
+        }
+      }
+    }
+
+    function syncFooterAccordions() {
+      const accordions = document.querySelectorAll('.footer-accordion');
+      if (!accordions.length) return;
+
+      const isDesktop = window.innerWidth >= 769;
+
+      accordions.forEach((item) => {
+        item.open = isDesktop;
+      });
+    }
+
+    window.addEventListener('resize', syncFooterAccordions);
+
+    function esc(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function moneyPen(value) {
+      if (value === undefined || value === null || value === "") return null;
+      return `S/ ${Number(value).toFixed(2)}`;
+    }
+
+    function moneyUsd(value) {
+      if (value === undefined || value === null || value === "") return null;
+      return `USD ${Number(value).toFixed(2)}`;
+    }
+
+    function buildAmountPills(item) {
+      const pills = [];
+      const pen = moneyPen(item.montoPen);
+      const usd = moneyUsd(item.montoUsd);
+      if (pen) pills.push(`<span class="amount-pill">${pen}</span>`);
+      if (usd) pills.push(`<span class="amount-pill">${usd}</span>`);
+      return pills.join("");
+    }
+
+    function buildVerificationUrl(reserva) {
+      const params = new URLSearchParams({
+        codigo: reserva.codigo || "",
+        titular: reserva.titularReserva || "",
+        fecha: reserva.fechaViaje || reserva.fechaVoucher || ""
+      });
+      return `${window.location.origin}${window.location.pathname.replace('detalle-reserva.html', 'verificar-reserva.html')}?${params.toString()}`;
+    }
+
+    function buildQrUrl(text) {
+      return `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(text)}`;
+    }
+
+    function formatDateLocalized(input, lang = "es") {
+      if (!input) return i18n[lang].noData;
+
+      const normalized = String(input).trim();
+      const isoMatch = normalized.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      const slashMatch = normalized.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+
+      let date;
+
+      if (isoMatch) {
+        date = new Date(`${isoMatch[1]}-${isoMatch[2]}-${isoMatch[3]}T12:00:00`);
+      } else if (slashMatch) {
+        date = new Date(`${slashMatch[3]}-${slashMatch[2]}-${slashMatch[1]}T12:00:00`);
+      } else {
+        const tentative = new Date(normalized);
+        if (!Number.isNaN(tentative.getTime())) {
+          date = tentative;
+        } else {
+          return normalized;
+        }
+      }
+
+      const locale = lang === "en" ? "en-US" : "es-PE";
+      const formatted = date.toLocaleDateString(locale, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+
+      if (lang === "es") {
+        return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+      }
+      return formatted;
+    }
+
+    function getLocalizedField(field, lang) {
+      if (field == null) return "";
+      if (typeof field === "object" && !Array.isArray(field)) {
+        return field[lang] || field.es || field.en || "";
+      }
+      return field;
+    }
+
+
+    function normalizeDateText(value) {
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+    }
+
+    function parseDateParts(value) {
+      const raw = String(value || "").trim();
+      if (!raw) return null;
+
+      let match = raw.match(/^(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})/);
+      if (match) {
+        return { year: Number(match[1]), month: Number(match[2]), day: Number(match[3]) };
+      }
+
+      match = raw.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+      if (match) {
+        const year = Number(match[3].length === 2 ? `20${match[3]}` : match[3]);
+        return { day: Number(match[1]), month: Number(match[2]), year };
+      }
+
+      const normalized = normalizeDateText(raw)
+        .replace(/\b(lunes|martes|miercoles|jueves|viernes|sabado|domingo|lun|mar|mie|jue|vie|sab|dom)\b/g, "")
+        .replace(/[,.]/g, " ")
+        .replace(/\s*-\s*/g, " ")
+        .replace(/\s+de\s+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      const monthMap = {
+        ene: 1, enero: 1, jan: 1, january: 1,
+        feb: 2, febrero: 2, february: 2,
+        mar: 3, marzo: 3, march: 3,
+        abr: 4, abril: 4, apr: 4, april: 4,
+        may: 5, mayo: 5,
+        jun: 6, junio: 6, june: 6,
+        jul: 7, julio: 7, july: 7,
+        ago: 8, agosto: 8, aug: 8, august: 8,
+        sep: 9, set: 9, sept: 9, septiembre: 9, setiembre: 9, september: 9,
+        oct: 10, octubre: 10, october: 10,
+        nov: 11, noviembre: 11, november: 11,
+        dic: 12, diciembre: 12, dec: 12, december: 12
+      };
+
+      match = normalized.match(/(\d{1,2})\s+([a-z]+)\s+(\d{4})/);
+      if (match && monthMap[match[2]]) {
+        return { day: Number(match[1]), month: monthMap[match[2]], year: Number(match[3]) };
+      }
+
+      match = normalized.match(/([a-z]+)\s+(\d{1,2})\s+(\d{4})/);
+      if (match && monthMap[match[1]]) {
+        return { day: Number(match[2]), month: monthMap[match[1]], year: Number(match[3]) };
+      }
+
+      return null;
+    }
+
+    function getServiceDateParts(servicios) {
+      return (Array.isArray(servicios) ? servicios : [])
+        .map((servicio) => parseDateParts(servicio.fecha))
+        .filter(Boolean);
+    }
+
+    function getTravelerBirthdayInfo(turista, servicios) {
+      if (turista && turista.destacado) {
+        return {
+          active: true,
+          icon: turista.destacadoIcono || "🎂",
+          text: turista.destacadoTexto || "Cumpleaños"
+        };
+      }
+
+      const birth = parseDateParts(turista?.fechaNacimiento || turista?.fechaNacimientoTexto || "");
+      if (!birth) return { active: false, icon: "🎂", text: "" };
+
+      const matchingServiceDate = getServiceDateParts(servicios)
+        .find((date) => date.day === birth.day && date.month === birth.month);
+
+      if (!matchingServiceDate) return { active: false, icon: "🎂", text: "" };
+
+      const day = String(birth.day).padStart(2, "0");
+      const month = String(birth.month).padStart(2, "0");
+      return {
+        active: true,
+        icon: "🎂",
+        text: currentLanguage === "en"
+          ? `Birthday during service - ${month}/${day}`
+          : `Cumpleaños durante el servicio - ${day}/${month}`
+      };
+    }
+
+    function buildPassengerSummary(reserva, turistas, lang = "es") {
+      const total = Number(reserva?.cantidadPaxs || turistas?.length || 0);
+      const serviceParts = parseDateParts(reserva?.fechaViaje || reserva?.fechaVoucher || reserva?.fechaEmision || "");
+      let adults = 0;
+      let children = 0;
+
+      (Array.isArray(turistas) ? turistas : []).forEach((turista) => {
+        const rawType = normalizeDateText(turista?.tipoPasajero || turista?.tipo || turista?.categoria || turista?.tarifa || "");
+        if (/nino|niño|child|menor/.test(rawType)) {
+          children += 1;
+          return;
+        }
+        if (/adult/.test(rawType)) {
+          adults += 1;
+          return;
+        }
+
+        const birth = parseDateParts(turista?.fechaNacimiento || turista?.fechaNacimientoTexto || "");
+        if (birth && serviceParts) {
+          let age = serviceParts.year - birth.year;
+          if (serviceParts.month < birth.month || (serviceParts.month === birth.month && serviceParts.day < birth.day)) {
+            age -= 1;
+          }
+          if (age >= 0 && age < 12) children += 1;
+          else adults += 1;
+        } else {
+          adults += 1;
+        }
+      });
+
+      if (!adults && !children && total) adults = total;
+      if (total && adults + children < total) adults += total - adults - children;
+
+      if (lang === "en") {
+        const parts = [];
+        if (adults) parts.push(`${adults} adult${adults === 1 ? "" : "s"}`);
+        if (children) parts.push(`${children} child${children === 1 ? "" : "ren"}`);
+        return parts.join(" and ") || i18n[lang].noData;
+      }
+
+      const parts = [];
+      if (adults) parts.push(`${adults} adulto${adults === 1 ? "" : "s"}`);
+      if (children) parts.push(`${children} niño${children === 1 ? "" : "s"}`);
+      return parts.join(" y ") || i18n[lang].noData;
+    }
+
+    function formatServiceDatePrint(value) {
+      const parts = parseDateParts(value);
+      if (!parts) return value || "";
+      const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+      return `${String(parts.day).padStart(2, "0")}-${months[parts.month - 1] || String(parts.month).padStart(2, "0")}-${parts.year}`;
+    }
+
+    function getServiceNamePrint(nombre) {
+      return String(getLocalizedField(nombre, currentLanguage) || "")
+        .replace(/\s+Full\s+Day\b/gi, " Full")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+
+    function getPrimaryNameAndSurname(fullName) {
+      const parts = String(fullName || "")
+        .trim()
+        .replace(/\s+/g, " ")
+        .split(" ")
+        .filter(Boolean);
+      if (!parts.length) return { firstName: "Cliente", firstSurname: "" };
+      const firstName = parts[0];
+      const firstSurname = parts.length >= 3 ? parts[2] : (parts[1] || "");
+      return { firstName, firstSurname };
+    }
+
+    function formatVoucherTitleDate(reserva) {
+      const parts = parseDateParts(reserva?.fechaViaje || reserva?.fechaVoucher || reserva?.fechaEmision || "");
+      if (!parts) return "Travel-Voucher";
+      return `${String(parts.month).padStart(2, "0")}${String(parts.day).padStart(2, "0")}${parts.year}`;
+    }
+
+    function sanitizeDocumentTitle(value) {
+      return String(value || "")
+        .trim()
+        .replace(/[\\/:*?"<>|]+/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function buildVoucherDocumentTitle(reserva) {
+      const date = formatVoucherTitleDate(reserva);
+      const { firstName, firstSurname } = getPrimaryNameAndSurname(reserva?.titularReserva || "");
+      const code = reserva?.codigo || "SIN-CODIGO";
+      return sanitizeDocumentTitle([date, firstName, firstSurname, code].filter(Boolean).join(" ").toUpperCase());
+    }
+
+    function applyVoucherDocumentTitle(reserva) {
+      const title = buildVoucherDocumentTitle(reserva);
+      if (title) document.title = title;
+    }
+
+    function applyStaticTranslations() {
+      const t = i18n[currentLanguage];
+      document.documentElement.lang = currentLanguage;
+
+      const langLabel = document.getElementById("langLabel");
+      if (langLabel) langLabel.textContent = t.langLabel;
+
+      document.getElementById("backBtn").innerHTML = `<i class="fa-solid fa-arrow-left"></i> ${t.back}`;
+      document.getElementById("printBtn").innerHTML = `<i class="fa-solid fa-print"></i> ${t.print}`;
+      document.getElementById("emptyTitle").textContent = t.emptyTitle;
+      document.getElementById("emptyText").textContent = t.emptyText;
+      document.getElementById("emptyBtn").textContent = t.emptyBtn;
+
+      const languageSelect = document.getElementById("languageSelect");
+      if (languageSelect) languageSelect.value = currentLanguage;
+    }
+
+    function renderWebVoucher(reserva) {
+      const t = i18n[currentLanguage];
+      const turistas = Array.isArray(reserva.turistas) ? reserva.turistas : [];
+      const hoteles = Array.isArray(reserva.hotelInfo) ? reserva.hotelInfo : [];
+      const servicios = Array.isArray(reserva.servicios) ? reserva.servicios : [];
+      const vuelos = Array.isArray(reserva.vuelos) ? reserva.vuelos : [];
+      const incluye = Array.isArray(reserva.incluye) ? reserva.incluye : [];
+      const noIncluye = Array.isArray(reserva.noIncluye) ? reserva.noIncluye : [];
+      const infoAdicional = Array.isArray(reserva.informacionAdicional) ? reserva.informacionAdicional : [];
+      const pagosExtras = reserva.pagos && Array.isArray(reserva.pagos.extras) ? reserva.pagos.extras : [];
+      const pagoTotal = reserva.pagos && reserva.pagos.totalPendiente ? reserva.pagos.totalPendiente : null;
+      const qrUrl = buildQrUrl(buildVerificationUrl(reserva));
+      const agenteFoto = reserva.agenteFoto || "../assets/img/agentes/jefferson-garcia.jpg";
+
+      return `
+        <div class="voucher-top">
+          <div class="voucher-brand">
+            <img src="../assets/img/reserva/logo-color.png" alt="MyCuscoTrip">
+
+            <div class="subcopy">
+              ${esc(t.subtitle)}
+            </div>
+
+            <div class="contact">
+              <div>${esc(t.contact1)}</div>
+              <div>${esc(t.contact2)}</div>
+              <div>${esc(t.contact3)}</div>
+              <div>${esc(t.contact4)}</div>
+            </div>
+          </div>
+
+          <div class="voucher-head">
+            <div class="voucher-head-main">
+              <div class="voucher-divider"></div>
+              <div class="date">${esc(formatDateLocalized(reserva.fechaViaje || reserva.fechaVoucher || reserva.fechaEmision || "", currentLanguage))}</div>
+              <h1 class="title">${esc(t.travelVoucher)}</h1>
+
+              <div class="voucher-code-row">
+                <div class="voucher-code">
+                  <span>${esc(t.bookingCode)}</span>
+                  <strong>${esc(reserva.codigo || t.noData)}</strong>
+                </div>
+
+                <div class="voucher-qr">
+                  <img src="${qrUrl}" alt="QR">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-card"><span class="label">${esc(t.holder)}</span><div class="value">${esc(reserva.titularReserva || t.noData)}</div></div>
+          <div class="summary-card"><span class="label">${esc(t.travelDate)}</span><div class="value">${esc(reserva.duracion || t.noData)}</div></div>
+          <div class="summary-card"><span class="label">${esc(t.destination)}</span><div class="value">${esc(reserva.destino || t.noData)}</div></div>
+          <div class="summary-card"><span class="label">${esc(t.pack)}</span><div class="value">${esc(reserva.packTour || t.noData)}</div></div>
+          <div class="summary-card"><span class="label">${esc(t.passengersCount)}</span><div class="value">${esc(buildPassengerSummary(reserva, turistas, currentLanguage))}</div></div>
+          <div class="summary-card"><span class="label">${esc(t.language)}</span><div class="value">${esc(reserva.idioma || t.noData)}</div></div>
+          <div class="summary-card"><span class="label">${esc(t.phone)}</span><div class="value">${esc(reserva.telefonoContacto || t.noData)}</div></div>
+          <div class="summary-card"><span class="label">${esc(t.coupon)}</span><div class="value">${esc(reserva.codigoCupon || t.noData)}</div></div>
+        </div>
+
+        <div class="voucher-content">
+          <div class="row-full">
+            <article class="card">
+              <div class="card-head">
+                <h2>${esc(t.passengers)}</h2>
+                <span class="card-kicker">${turistas.length} ${esc(t.travelers)}</span>
+              </div>
+              <div class="card-body">
+                <div style="overflow:auto;">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>${esc(t.fullName)}</th>
+                        <th>${esc(t.documentType)}</th>
+                        <th>${esc(t.documentNumber)}</th>
+                        <th>${esc(t.nationality)}</th>
+                        <th>${esc(t.birthDate)}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${turistas.map(turista => {
+                        const nombreTurista = turista.nombreCompleto || `${turista.nombres || ""} ${turista.apellidos || ""}`.trim() || t.noData;
+                        const birthdayInfo = getTravelerBirthdayInfo(turista, servicios);
+                        return `
+                        <tr class="${birthdayInfo.active ? "birthday-row" : ""}">
+                          <td>${birthdayInfo.active ? `<span class="birthday-name"><span>${esc(nombreTurista)}</span><span class="birthday-icon">${esc(birthdayInfo.icon)}</span></span>` : esc(nombreTurista)}</td>
+                          <td>${esc(turista.tipoDocumento || t.noData)}</td>
+                          <td>${esc(turista.numeroDocumento || turista.documento || t.noData)}</td>
+                          <td>${esc(turista.nacionalidad || t.noData)}</td>
+                          <td>${esc(turista.fechaNacimiento || t.noData)}</td>
+                        </tr>
+                        `;
+                      }).join("")}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+
+            ${hoteles.length ? `
+            <article class="card">
+              <div class="card-head">
+                <h2>${esc(t.lodging)}</h2>
+                <span class="card-kicker">${hoteles.length} ${esc(t.hotels)}</span>
+              </div>
+              <div class="card-body">
+                <div class="hotel-grid">
+                  ${hoteles.map(h => `
+                    <div class="hotel-card">
+                      <h3>${esc(h.nombre || t.noData)}</h3>
+                      <p><strong>Ubicación:</strong> ${esc(h.ubicacion || t.noData)}</p>
+                      <p><strong>Check-in:</strong> ${esc(h.checkIn || t.noData)}</p>
+                      <p><strong>Check-out:</strong> ${esc(h.checkOut || t.noData)}</p>
+                      <p><strong>Noches:</strong> ${esc(h.noches || t.noData)}</p>
+                      <p><strong>Categoría:</strong> ${esc(h.categoria || t.noData)}</p>
+                      <p><strong>Habitación:</strong> ${esc(h.habitacion || t.noData)}</p>
+                      <p><strong>Dirección:</strong> ${esc(h.direccion || t.noData)}</p>
+                      <p><strong>Teléfono:</strong> ${esc(h.telefono || t.noData)}</p>
+                      <p><strong>Observaciones:</strong> ${esc(h.observaciones || t.noData)}</p>
+                    </div>
+                  `).join("")}
+                </div>
+              </div>
+            </article>` : ""}
+
+            <article class="card">
+              <div class="card-head">
+                <h2>${esc(t.services)}</h2>
+                <span class="card-kicker">${servicios.length} ${esc(t.serviceLabel)}</span>
+              </div>
+              <div class="card-body">
+                <div style="overflow:auto;">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>${esc(t.code)}</th>
+                        <th>${esc(t.service)}</th>
+                        <th>${esc(t.date)}</th>
+                        <th>${esc(t.start)}</th>
+                        <th>${esc(t.end)}</th>
+                        <th>${esc(t.status)}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${servicios.map(s => `
+                        <tr>
+                          <td>${esc(s.codigo || t.noData)}</td>
+                          <td>${esc(getLocalizedField(s.nombre, currentLanguage) || t.noData)}</td>
+                          <td>${esc(s.fecha || t.noData)}</td>
+                          <td>${esc(s.horaInicio || t.noData)}</td>
+                          <td>${esc(s.horaFin || t.noData)}</td>
+                          <td>${s.incluido
+                            ? `<span class="pill included">${esc(t.included)}</span>`
+                            : `<span class="pill extra">${esc(t.extra)}</span>`}</td>
+                        </tr>
+                      `).join("")}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+
+            ${vuelos.length ? `
+            <article class="card">
+              <div class="card-head">
+                <h2>${esc(t.transfers)}</h2>
+              </div>
+              <div class="card-body">
+                <div style="overflow:auto;">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>${esc(t.operator)}</th>
+                        <th>${esc(t.number)}</th>
+                        <th>${esc(t.origin)}</th>
+                        <th>${esc(t.destination)}</th>
+                        <th>${esc(t.departure)}</th>
+                        <th>${esc(t.arrival)}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${vuelos.map(v => `
+                        <tr>
+                          <td>${esc(v.operador || t.noData)}</td>
+                          <td>${esc(v.numero || t.noData)}</td>
+                          <td>${esc(v.origen || t.noData)}</td>
+                          <td>${esc(v.destino || t.noData)}</td>
+                          <td>${esc(v.salida || t.noData)}</td>
+                          <td>${esc(v.llegada || t.noData)}</td>
+                        </tr>
+                      `).join("")}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </article>` : ""}
+          </div>
+
+          <div class="row-secondary">
+            ${incluye.length ? `
+            <article class="card">
+              <div class="card-head">
+                <h2>${esc(t.includes)}</h2>
+              </div>
+              <div class="card-body">
+                <ul class="list-clean">
+                  ${incluye.map(i => `<li>${esc(getLocalizedField(i, currentLanguage) || t.noData)}</li>`).join("")}
+                </ul>
+              </div>
+            </article>` : '<div></div>'}
+
+            ${noIncluye.length ? `
+            <article class="card">
+              <div class="card-head">
+                <h2>${esc(t.notIncludes)}</h2>
+              </div>
+              <div class="card-body">
+                <ul class="list-clean">
+                  ${noIncluye.map(i => `<li>${esc(getLocalizedField(i, currentLanguage) || t.noData)}</li>`).join("")}
+                </ul>
+              </div>
+            </article>` : '<div></div>'}
+          </div>
+
+          <div class="row-bottom">
+            <div class="main-column">
+              ${infoAdicional.length ? `
+              <article class="card">
+                <div class="card-head">
+                  <h2>${esc(t.recommendations)}</h2>
+                </div>
+                <div class="card-body">
+                  <div class="soft-note">
+                    ${infoAdicional.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}
+                  </div>
+                </div>
+              </article>` : ""}
+
+              <article class="card">
+                <div class="card-head">
+                  <h2>${esc(t.assistance)}</h2>
+                </div>
+                <div class="card-body">
+                  <div class="agent-box">
+                    <div class="agent-photo">
+                      ${agenteFoto
+                        ? `<img src="${esc(agenteFoto)}" alt="${esc(reserva.agenteAsignado || t.noData)}">`
+                        : `<i class="fa-solid fa-user"></i>`}
+                    </div>
+
+                    <div>
+                      <div class="helper">${esc(t.assignedAgentText)}</div>
+                      <span class="label">${esc(t.assignedAgent)}</span>
+                      <div class="name">${esc(reserva.agenteAsignado || t.noData)}</div>
+                      <div class="phone">${esc(reserva.agenteTelefono || t.noData)}</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="side-column">
+              ${(pagoTotal || pagosExtras.length) ? `
+              <article class="card">
+                <div class="card-head">
+                  <h2>${esc(t.pendingPayments)}</h2>
+                </div>
+                <div class="card-body">
+                  <div class="pay-stack">
+                    ${pagoTotal ? `
+                      <div class="pay-card billing-card">
+                        ${pagoTotal.badge ? `<div class="pay-badge">${esc(getLocalizedField(pagoTotal.badge, currentLanguage) || pagoTotal.badge)}</div>` : ""}
+                        <h3>${esc(getLocalizedField(pagoTotal.label, currentLanguage) || t.completePayment)}</h3>
+                        <p>${esc(getLocalizedField(pagoTotal.descripcion, currentLanguage) || "")}</p>
+
+                        ${Array.isArray(pagoTotal.detalle) && pagoTotal.detalle.length ? `
+                          <div class="billing-box">
+                            ${pagoTotal.detalle.map(item => `<div class="billing-line">${esc(item)}</div>`).join("")}
+                          </div>
+                        ` : ""}
+
+                        <div class="amounts">${buildAmountPills(pagoTotal)}</div>
+
+                        ${pagoTotal.url ? `
+                          <a class="pay-link" href="${esc(pagoTotal.url)}" target="_blank" rel="noopener">
+                            ${esc(t.payNow)}
+                          </a>
+                        ` : ""}
+                      </div>
+                    ` : ""}
+
+                    ${pagosExtras.map(p => `
+                      <div class="pay-card">
+                        ${p.badge ? `<div class="pay-badge offer">${esc(getLocalizedField(p.badge, currentLanguage) || p.badge)}</div>` : ""}
+                        <h3>${esc(getLocalizedField(p.label, currentLanguage) || t.goToPayment)}</h3>
+                        <p>${esc(getLocalizedField(p.descripcion, currentLanguage) || "")}</p>
+
+                        ${Array.isArray(p.detalle) && p.detalle.length ? `
+                          <div class="billing-box">
+                            ${p.detalle.map(item => `<div class="billing-line">${esc(item)}</div>`).join("")}
+                          </div>
+                        ` : ""}
+
+                        <div class="amounts">${buildAmountPills(p)}</div>
+
+                        ${p.url ? `
+                          <a class="pay-link" href="${esc(p.url)}" target="_blank" rel="noopener">
+                            ${esc(t.payNow)}
+                          </a>
+                        ` : ""}
+                      </div>
+                    `).join("")}
+                  </div>
+                </div>
+              </article>` : ""}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderPrintVoucher(reserva) {
+      const t = i18n[currentLanguage];
+      const turistas = Array.isArray(reserva.turistas) ? reserva.turistas : [];
+      const hoteles = Array.isArray(reserva.hotelInfo) ? reserva.hotelInfo : [];
+      const servicios = Array.isArray(reserva.servicios) ? reserva.servicios : [];
+      const vuelos = Array.isArray(reserva.vuelos) ? reserva.vuelos : [];
+      const noIncluye = Array.isArray(reserva.noIncluye) ? reserva.noIncluye : [];
+      const incluye = Array.isArray(reserva.incluye) ? reserva.incluye : [];
+      const infoAdicional = Array.isArray(reserva.informacionAdicional) ? reserva.informacionAdicional : [];
+      const pagosExtras = reserva.pagos && Array.isArray(reserva.pagos.extras) ? reserva.pagos.extras : [];
+      const pagoTotal = reserva.pagos && reserva.pagos.totalPendiente ? reserva.pagos.totalPendiente : null;
+      const qrUrl = buildQrUrl(buildVerificationUrl(reserva));
+
+      return `
+        <div class="pv-classic">
+          <div class="pv-top">
+            <div class="pv-left">
+              <img src="../assets/img/reserva/logo-color.png" alt="MyCuscoTrip">
+              <div class="pv-subcopy">${esc(t.subtitle)}</div>
+              <div class="pv-contact">
+                <div>${esc(t.contact1)}</div>
+                <div>${esc(t.contact2)}</div>
+                <div>${esc(t.contact3)}</div>
+                <div>${esc(t.contact4)}</div>
+              </div>
+            </div>
+
+            <div class="pv-right">
+              <div class="pv-date">${esc(formatDateLocalized(reserva.fechaViaje || reserva.fechaVoucher || reserva.fechaEmision || "", currentLanguage))}</div>
+              <div class="pv-title">${esc(t.travelVoucher)}</div>
+
+              <div class="pv-code-row">
+                <div class="pv-code-box">
+                  <span>${esc(t.bookingCode)}</span>
+                  <strong>${esc(reserva.codigo || t.noData)}</strong>
+                </div>
+                <div class="pv-qr-box">
+                  <img src="${qrUrl}" alt="QR">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pv-meta-grid">
+            <div class="pv-meta-item pv-meta-holder"><strong>${esc(t.holder)}</strong><span>${esc(reserva.titularReserva || t.noData)}</span></div>
+            <div class="pv-meta-item pv-meta-duration"><strong>${esc(t.travelDate)}</strong><span>${esc(reserva.duracion || t.noData)}</span></div>
+            <div class="pv-meta-item pv-meta-destination"><strong>${esc(t.destination)}</strong><span>${esc(reserva.destino || t.noData)}</span></div>
+            <div class="pv-meta-item pv-meta-pack"><strong>${esc(t.pack)}</strong><span>${esc(reserva.packTour || t.noData)}</span></div>
+            <div class="pv-meta-item pv-meta-passengers"><strong>${esc(t.passengersCount)}</strong><span>${esc(buildPassengerSummary(reserva, turistas, currentLanguage))}</span></div>
+            <div class="pv-meta-item pv-meta-language"><strong>${esc(t.language)}</strong><span>${esc(reserva.idioma || t.noData)}</span></div>
+            <div class="pv-meta-item pv-meta-phone"><strong>${esc(t.phone)}</strong><span>${esc(reserva.telefonoContacto || t.noData)}</span></div>
+            <div class="pv-meta-item pv-meta-coupon"><strong>${esc(t.coupon)}</strong><span>${esc(reserva.codigoCupon || t.noData)}</span></div>
+          </div>
+
+          <div class="pv-section pv-tourists-section">
+            <div class="pv-section-title">${esc(t.passengers)}</div>
+            <div class="pv-tourists-grid" role="table" aria-label="${esc(t.passengers)}">
+              <div class="pv-tourists-grid-row pv-tourists-grid-head" role="row">
+                <div role="columnheader">${esc(t.fullName)}</div>
+                <div role="columnheader">${esc(t.documentType)}</div>
+                <div role="columnheader">${esc(t.documentNumber)}</div>
+                <div role="columnheader">${esc(t.nationality)}</div>
+                <div role="columnheader">${esc(t.birthDate)}</div>
+              </div>
+              ${turistas.map(turista => {
+                const nombreTurista = turista.nombreCompleto || `${turista.nombres || ""} ${turista.apellidos || ""}`.trim() || t.noData;
+                const birthdayInfo = getTravelerBirthdayInfo(turista, servicios);
+                return `
+                <div class="pv-tourists-grid-row ${birthdayInfo.active ? "pv-birthday-row" : ""}" role="row">
+                  <div role="cell">${birthdayInfo.active ? `<span class="birthday-name"><span>${esc(nombreTurista)}</span><span class="birthday-icon">${esc(birthdayInfo.icon)}</span></span>` : esc(nombreTurista)}</div>
+                  <div role="cell">${esc(turista.tipoDocumento || t.noData)}</div>
+                  <div role="cell">${esc(turista.numeroDocumento || turista.documento || t.noData)}</div>
+                  <div role="cell">${esc(turista.nacionalidad || t.noData)}</div>
+                  <div role="cell">${esc(turista.fechaNacimiento || t.noData)}</div>
+                </div>
+                `;
+              }).join("")}
+            </div>
+          </div>
+
+          ${hoteles.length ? `
+            <div class="pv-section">
+              <div class="pv-section-title">${esc(t.lodging)}</div>
+            <div class="pv-hotels-grid">
+              ${hoteles.map(h => `
+                <div class="pv-hotel-card">
+                  <div class="pv-hotel-name">${esc(h.nombre || t.noData)}</div>
+                  <div><strong>Ubicación:</strong> ${esc(h.ubicacion || t.noData)}</div>
+                  <div><strong>Check-in:</strong> ${esc(h.checkIn || t.noData)}</div>
+                  <div><strong>Check-out:</strong> ${esc(h.checkOut || t.noData)}</div>
+                  <div><strong>Noches:</strong> ${esc(h.noches || t.noData)}</div>
+                  <div><strong>Categoría:</strong> ${esc(h.categoria || t.noData)}</div>
+                  <div><strong>Habitación:</strong> ${esc(h.habitacion || t.noData)}</div>
+                  <div><strong>Dirección:</strong> ${esc(h.direccion || t.noData)}</div>
+                  <div><strong>Teléfono:</strong> ${esc(h.telefono || t.noData)}</div>
+                  <div><strong>Observaciones:</strong> ${esc(h.observaciones || t.noData)}</div>
+                </div>
+              `).join("")}
+            </div>
+            </div>
+          ` : ""}
+
+          <div class="pv-section">
+            <div class="pv-section-title">${esc(t.services)}</div>
+          <table class="pv-table pv-services-table">
+            <thead>
+              <tr>
+                <th>${esc(t.code)}</th>
+                <th>${esc(t.service)}</th>
+                <th>${esc(t.date)}</th>
+                <th>${esc(t.start)}</th>
+                <th>${esc(t.end)}</th>
+                <th>${esc(t.status)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${servicios.map(s => `
+                <tr>
+                  <td>${esc(s.codigo || t.noData)}</td>
+                  <td>${esc(getServiceNamePrint(s.nombre) || t.noData)}</td>
+                  <td>${esc(formatServiceDatePrint(s.fecha) || t.noData)}</td>
+                  <td>${esc(s.horaInicio || t.noData)}</td>
+                  <td>${esc(s.horaFin || t.noData)}</td>
+                  <td><span class="pv-status-pill ${s.incluido ? 'included' : 'extra'}">${esc(s.incluido ? t.included : t.extra)}</span></td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+          </div>
+
+          ${vuelos.length ? `
+            <div class="pv-section">
+              <div class="pv-section-title">${esc(t.transfers)}</div>
+            <table class="pv-table">
+              <thead>
+                <tr>
+                  <th>${esc(t.operator)}</th>
+                  <th>${esc(t.number)}</th>
+                  <th>${esc(t.origin)}</th>
+                  <th>${esc(t.destination)}</th>
+                  <th>${esc(t.departure)}</th>
+                  <th>${esc(t.arrival)}</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${vuelos.map(v => `
+                  <tr>
+                    <td>${esc(v.operador || t.noData)}</td>
+                    <td>${esc(v.numero || t.noData)}</td>
+                    <td>${esc(v.origen || t.noData)}</td>
+                    <td>${esc(v.destino || t.noData)}</td>
+                    <td>${esc(v.salida || t.noData)}</td>
+                    <td>${esc(v.llegada || t.noData)}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+            </div>
+          ` : ""}
+
+          <div class="pv-section">
+            <div class="pv-section-title">Información adicional</div>
+          <div class="pv-bottom">
+            <div class="pv-info-box">
+              ${incluye.length ? `<div class="pv-subtitle">${esc(currentLanguage === "en" ? "Included services" : "Servicios incluidos")}</div><div>${incluye.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div><br>` : ""}
+              ${noIncluye.length ? `<div class="pv-subtitle">${esc(currentLanguage === "en" ? "Not included / additional services" : "Servicios no incluidos / adicionales")}</div><div>${noIncluye.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div><br>` : ""}
+              ${infoAdicional.length ? `<div class="pv-subtitle">${esc(currentLanguage === "en" ? "Recommendations" : "Recomendaciones")}</div><div>${infoAdicional.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div>` : ""}
+            </div>
+
+            <div class="pv-side-box">
+              <div class="pv-assist-box">
+                <div class="pv-subtitle">Asistencia personalizada</div>
+                <div class="pv-assist-text">Para toda clase de asistencia durante su viaje puede contactarse con su agente de viajes asignado:</div>
+                <div class="pv-agent-name">${esc(reserva.agenteAsignado || t.noData)}</div>
+                <div class="pv-agent-phone">${esc(reserva.agenteTelefono || t.noData)}</div>
+              </div>
+
+              ${(pagoTotal || pagosExtras.length) ? `
+                <div class="pv-payments-box">
+                  <div class="pv-subtitle">${esc(t.pendingPayments)}</div>
+
+                  ${pagoTotal ? `
+                    <div class="pv-payment-card">
+                      <div class="pv-payment-title">${esc(getLocalizedField(pagoTotal.label, currentLanguage) || t.completePayment)}</div>
+                      ${Array.isArray(pagoTotal.detalle) ? `<div class="pv-payment-lines">${pagoTotal.detalle.map(d => `<div>${esc(d)}</div>`).join("")}</div>` : ""}
+                    </div>
+                  ` : ""}
+
+                  ${pagosExtras.map(p => `
+                    <div class="pv-payment-card">
+                      <div class="pv-payment-title">${esc(getLocalizedField(p.label, currentLanguage) || t.goToPayment)}</div>
+                      ${p.badge ? `<div class="pv-payment-badge">${esc(getLocalizedField(p.badge, currentLanguage) || p.badge)}</div>` : ""}
+                      ${Array.isArray(p.detalle) ? `<div class="pv-payment-lines">${p.detalle.map(d => `<div>${esc(d)}</div>`).join("")}</div>` : ""}
+                    </div>
+                  `).join("")}
+                </div>
+              ` : ""}
+            </div>
+          </div>
+          </div>
+
+          <div class="pv-signature-section">
+            <div class="pv-signature-main">
+              <div class="pv-signature-brand">
+                <img src="../assets/img/logos/Logo2.png" alt="My Cusco Trip">
+              </div>
+              <div class="pv-social-area">
+                <div class="pv-social-title">Síguenos en nuestras redes sociales</div>
+                <div class="pv-socials">
+                  <span class="pv-social-pill"><i class="fa-brands fa-instagram"></i> @mycuscotrip</span>
+                  <span class="pv-social-pill"><i class="fa-brands fa-facebook-f"></i> My Cusco Trip</span>
+                  <span class="pv-social-pill"><i class="fa-brands fa-tiktok"></i> @mycuscotrip</span>
+                  <span class="pv-social-pill"><i class="fa-brands fa-whatsapp"></i> +51 900 608 980</span>
+                  <span class="pv-social-pill"><i class="fa-brands fa-youtube"></i> My Cusco Trip</span>
+                  <span class="pv-social-pill"><span class="pv-ta-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M32 18c-8.5 0-15.9 2.6-22.6 7.7L4 18H0l6.4 9.4C2.5 31 0 36.2 0 42c0 8.3 6.7 15 15 15 6.6 0 12.2-4.3 14.2-10.2L32 39l2.8 7.8C36.8 52.7 42.4 57 49 57c8.3 0 15-6.7 15-15 0-5.8-2.5-11-6.4-14.6L64 18h-4l-5.4 7.7C47.9 20.6 40.5 18 32 18Zm-17 12a12 12 0 1 1 0 24 12 12 0 0 1 0-24Zm34 0a12 12 0 1 1 0 24 12 12 0 0 1 0-24Zm-34 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm34 0a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/></svg></span> My Cusco Trip</span>
+                  <span class="pv-tripadvisor-award" aria-label="TripAdvisor"><img src="../assets/img/reserva/tripadvisor-adwards.png" alt="TripAdvisor Awards"></span>
+                </div>
+              </div>
+            </div>
+            <div class="pv-ad-banner-slot">
+              <img src="../assets/img/reserva/banner-restaurantes.jpg" alt="Banner promocional" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span style="display:none;">Espacio reservado para banner publicitario · sugerido: assets/img/reserva/banner-restaurantes.jpg</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function codigoCoincideExacto(valorA, valorB) {
+      return String(valorA || "").trim().toUpperCase() === String(valorB || "").trim().toUpperCase();
+    }
+
+    async function obtenerReservaActual() {
+      const params = new URLSearchParams(window.location.search);
+      const codigoUrl = params.get("codigo");
+      const reservaRaw = localStorage.getItem("reservaSeleccionada");
+
+      if (reservaRaw) {
+        try {
+          const reservaLocal = JSON.parse(reservaRaw);
+          if (!codigoUrl || codigoCoincideExacto(reservaLocal?.codigo, codigoUrl)) {
+            return reservaLocal;
+          }
+        } catch (error) {
+          console.warn("No se pudo leer la reserva guardada en el navegador:", error);
+          localStorage.removeItem("reservaSeleccionada");
+        }
+      }
+
+      if (!codigoUrl) return null;
+
+      if (window.MyCuscoTripApiClient?.lookupReservation) {
+        try {
+          const result = await window.MyCuscoTripApiClient.lookupReservation({ code: codigoUrl });
+          if (result?.found && result.voucher) {
+            localStorage.setItem("reservaSeleccionada", JSON.stringify(result.voucher));
+            return result.voucher;
+          }
+        } catch (error) {
+          console.warn("No se pudo consultar voucher en backend. Se usará respaldo estático.", error);
+        }
+      }
+
+      const response = await fetch("./data/reservas.json", { cache: "no-store" });
+      if (!response.ok) throw new Error("No se pudo cargar data/reservas.json");
+      const reservas = await response.json();
+      const reservaEncontrada = reservas.find((reserva) => codigoCoincideExacto(reserva.codigo, codigoUrl));
+
+      if (reservaEncontrada) {
+        localStorage.setItem("reservaSeleccionada", JSON.stringify(reservaEncontrada));
+      }
+
+      return reservaEncontrada || null;
+    }
+
+    async function initVoucher() {
+      const webEl = document.getElementById("voucherWeb");
+      const printEl = document.getElementById("voucherPrint");
+      const emptyEl = document.getElementById("voucherEmpty");
+
+      applyStaticTranslations();
+
+      try {
+        const reserva = await obtenerReservaActual();
+
+        if (!reserva) {
+          emptyEl.style.display = "block";
+          webEl.style.display = "none";
+          return;
+        }
+
+        applyVoucherDocumentTitle(reserva);
+        webEl.innerHTML = renderWebVoucher(reserva);
+
+        if (printEl) {
+          printEl.innerHTML = renderPrintVoucher(reserva);
+        }
+
+        webEl.style.display = "block";
+        emptyEl.style.display = "none";
+      } catch (error) {
+        console.error("Error leyendo reserva:", error);
+        emptyEl.style.display = "block";
+        webEl.style.display = "none";
+      }
+    }
+
+    function setupLanguageSwitcher() {
+      const select = document.getElementById("languageSelect");
+      if (!select) return;
+
+      select.value = currentLanguage;
+
+      select.addEventListener("change", (e) => {
+        currentLanguage = e.target.value;
+        localStorage.setItem("voucherLanguage", currentLanguage);
+        initVoucher();
+      });
+    }
+
+    window.addEventListener("beforeprint", () => {
+      try {
+        const reserva = JSON.parse(localStorage.getItem("reservaSeleccionada") || "null");
+        if (reserva) applyVoucherDocumentTitle(reserva);
+      } catch (error) {}
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', async () => {
+        await initializeSharedComponents();
+        setupLanguageSwitcher();
+        initVoucher();
+      });
+    } else {
+      initializeSharedComponents().then(() => {
+        setupLanguageSwitcher();
+        initVoucher();
+      });
+    }
+  </script>
+<script src="../assets/js/config/tracking-config.js"></script>
+<script src="../assets/js/components/tracking.js"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/components/header.js"></script>
+<script src="../assets/js/lib/utils.js"></script>
+<script src="../assets/js/core/api-client.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/agencias"
+  to = "/agencias/"
+  status = 301
+
+[[redirects]]
+  from = "/agencias.html"
+  to = "/agencias/"
+  status = 301

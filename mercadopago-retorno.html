@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmando pago | My Cusco Trip</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/header.css" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <style>
+    body { background: #f6f8f5; }
+    .payment-return { min-height: 78vh; display: grid; place-items: center; padding: 120px 20px 60px; }
+    .payment-return__card { width: min(720px, 100%); background: #fff; border-radius: 28px; padding: 34px; box-shadow: 0 24px 60px rgba(9, 48, 30, .14); border: 1px solid rgba(10, 58, 38, .08); text-align: center; }
+    .payment-return__icon { width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 18px; display: grid; place-items: center; background: rgba(10,58,38,.1); color: #0a3a26; font-size: 2rem; font-weight: 900; }
+    .payment-return__card h1 { margin: 0 0 10px; color: #0a3a26; font-family: Montserrat, sans-serif; font-size: clamp(1.5rem, 4vw, 2.3rem); }
+    .payment-return__card p { margin: 0 auto 14px; color: #56645f; line-height: 1.65; max-width: 560px; }
+    .payment-return__code { display: inline-flex; align-items: center; gap: 8px; margin: 10px 0 18px; padding: 10px 15px; border-radius: 999px; background: #f0f7f2; color: #0a3a26; font-weight: 900; letter-spacing: .08em; }
+    .payment-return__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px; }
+    .payment-return__actions a { text-decoration: none; }
+    .payment-return__error .payment-return__icon { background: #fff2f2; color: #b42318; }
+    .payment-return__pending .payment-return__icon { background: #fff8e8; color: #9a6700; }
+  </style>
+</head>
+<body>
+  <main class="payment-return">
+    <section class="payment-return__card" id="paymentReturnCard" aria-live="polite">
+      <div class="payment-return__icon">…</div>
+      <h1>Confirmando tu pago</h1>
+      <p>Estamos verificando la operación con Mercado Pago. No cierres esta página.</p>
+      <div class="payment-return__code" id="paymentReturnCode" hidden></div>
+      <div class="payment-return__actions" id="paymentReturnActions" hidden></div>
+    </section>
+  </main>
+  <script src="./assets/js/core/api-client.js"></script>
+  <script src="./assets/js/pages/mercadopago-retorno.js"></script>
+</body>
+</html>

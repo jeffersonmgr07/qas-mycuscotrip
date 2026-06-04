@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La mia prenotazione | MyCuscoTrip</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../assets/css/main.css" rel="stylesheet"/>
+<link href="../assets/css/components.css" rel="stylesheet"/>
+<link href="../assets/css/header.css" rel="stylesheet"/>
+<link href="../assets/css/footer.css" rel="stylesheet"/>
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<style>
+    .reserva-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(6, 40, 3, 0.72), rgba(5, 50, 32, 0.82)),
+        url("../assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat;
+    }
+
+    .reserva-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .reserva-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .reserva-copy {
+      color: #fff;
+    }
+
+    .reserva-copy .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .reserva-copy h1 {
+      margin: 0 0 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.3rem, 4vw, 4.4rem);
+      line-height: 1.05;
+      color: #fff;
+    }
+
+    .reserva-copy h1 span {
+      color: #f4d35e;
+    }
+
+    .reserva-copy p {
+      max-width: 640px;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,.92);
+    }
+
+    .reserva-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
+      background: rgba(255,255,255,.96);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 22px 70px rgba(0,0,0,.22);
+      width: 100%;
+      max-width: 760px;
+      margin-left: auto;
+    }
+
+    .reserva-image {
+      position: relative;
+      background: url("../assets/img/reserva/machu-picchu-card.jpg") center/cover no-repeat;
+      min-height: 320px;
+    }
+
+    .reserva-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,40,3,.35), rgba(6,40,3,.08));
+    }
+
+    .reserva-form-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 44px 40px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
+    }
+
+    .reserva-form-box {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .reserva-form-box .label-top {
+      margin-bottom: 10px;
+      color: #a16207;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .reserva-form-box h2 {
+      margin: 0 0 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      color: #062803;
+    }
+
+    .reserva-form-box .intro {
+      margin-bottom: 24px;
+      color: #5f6c67;
+      line-height: 1.7;
+      font-size: .98rem;
+    }
+
+    .reserva-field {
+      margin-bottom: 18px;
+    }
+
+    .reserva-field label {
+      display: block;
+      margin-bottom: 8px;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: .96rem;
+    }
+
+    .reserva-field input {
+      width: 100%;
+      height: 54px;
+      padding: 0 16px;
+      border: 1px solid #d9e0dc;
+      border-radius: 14px;
+      background: #fff;
+      color: #062803;
+      font-size: 1rem;
+      transition: .2s ease;
+      outline: none;
+    }
+
+    .reserva-field input:focus {
+      border-color: #c79a2b;
+      box-shadow: 0 0 0 4px rgba(199,154,43,.14);
+    }
+
+    .reserva-error {
+      display: none;
+      margin-bottom: 16px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: #fff1f2;
+      color: #be123c;
+      font-size: .94rem;
+      line-height: 1.5;
+    }
+
+    .reserva-btn {
+      width: 100%;
+      height: 56px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #053220, #0b5d3b);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: .2s ease;
+      box-shadow: 0 10px 24px rgba(5,50,32,.22);
+    }
+
+    .reserva-btn:hover {
+      transform: translateY(-1px);
+      opacity: .97;
+    }
+
+    .reserva-btn:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .reserva-help {
+      margin-top: 14px;
+      color: #6b7280;
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 991px) {
+      .reserva-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reserva-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .reserva-image {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .reserva-hero {
+        padding: 110px 0 60px;
+      }
+
+      .reserva-form-wrap {
+        padding: 24px 18px;
+      }
+
+      .reserva-form-box h2 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+<script>window.MCT_LOCALE="it"; window.MCT_IS_LOCALIZED_PAGE=true;</script><meta content="it_IT" property="og:locale"/><link href="https://mycuscotrip.com/it/mi-reserva.html" rel="canonical"/><meta content="https://mycuscotrip.com/it/mi-reserva.html" property="og:url"/></head>
+<body>
+<div id="header-container"></div>
+<a aria-label="WhatsApp" class="wa-float" href="https://wa.me/51900608980" rel="noopener" target="_blank">
+<img alt="WhatsApp" src="../assets/img/logos/LogoWhatsapp.png"/>
+</a>
+<section class="reserva-hero">
+<div class="container">
+<div class="reserva-grid">
+<div class="reserva-copy">
+<span class="eyebrow">La mia prenotazione</span>
+<h1>Consulta tu <span>viaje</span> en segundos</h1>
+<p>
+            Inserisci il codice prenotazione e il cognome per rivedere dettagli itinerario, tariffe, viaggiatori e link di pagamento.
+          </p>
+</div>
+<div class="reserva-panel">
+<div aria-label="Machu Picchu" class="reserva-image"></div>
+<div class="reserva-form-wrap">
+<div class="reserva-form-box">
+<div class="label-top">Accesso alla prenotazione</div>
+<h2>Cerca prenotazione</h2>
+<p class="intro">
+                Completa i dati registrati nel tuo acquisto per vedere tutte le informazioni della prenotazione.
+              </p>
+<form id="reservaForm">
+<div class="reserva-field">
+<label for="codigo">Reservation code</label>
+<input id="codigo" name="codigo" placeholder="Ej. CUZ12345" required="" type="text"/>
+</div>
+<div class="reserva-field">
+<label for="apellido">Last name</label>
+<input id="apellido" name="apellido" placeholder="Ej. Garcia" required="" type="text"/>
+</div>
+<div class="reserva-error" id="errorMessage"></div>
+<button class="reserva-btn" id="buscarBtn" type="submit">
+                  Cerca prenotazione
+                </button>
+<p class="reserva-help">
+                  Convalidiamo i dati confrontandoli con il file prenotazioni caricato sul tuo sito.
+                </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div id="footer-container"></div>
+<script>
+    const IS_GITHUB_PAGES = window.location.hostname.includes('github.io');
+    const BASE_PATH = IS_GITHUB_PAGES ? '/mycuscotrip/' : '/';
+
+    async function loadComponent(componentName, targetId) {
+      try {
+        const componentPath = `${BASE_PATH}components/${componentName}.html`;
+        const response = await fetch(componentPath);
+
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+
+        const html = await response.text();
+        const target = document.getElementById(targetId);
+
+        if (target) {
+          target.innerHTML = html;
+          fixImagePaths(target);
+          return true;
+        }
+
+        return false;
+      } catch (error) {
+        console.error(`Error cargando ${componentName}:`, error);
+
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.innerHTML = getFallbackContent(componentName);
+        }
+
+        return false;
+      }
+    }
+
+    function fixImagePaths(container) {
+      const images = container.querySelectorAll('img[src*="assets/"]');
+
+      images.forEach((img) => {
+        const currentSrc = img.getAttribute('src');
+
+        if (currentSrc && currentSrc.startsWith('assets/')) {
+          img.setAttribute('src', `./${currentSrc}`);
+        }
+      });
+    }
+
+    function getFallbackContent(componentName) {
+      const fallbacks = {
+        header: `
+          <header style="background:#053220;padding:15px 0;">
+            <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+              <div style="color:white;font-weight:bold;font-size:1.2rem;">MyCuscoTrip</div>
+              <nav>
+                <a href="./index.html" style="color:white;margin:0 10px;">Home</a>
+                <a href="./mi-reserva.html" style="color:white;margin:0 10px;">Mi Reserva</a>
+              </nav>
+            </div>
+          </header>
+        `,
+        footer: `
+          <footer style="background:#062803;color:white;padding:40px 0;margin-top:0;">
+            <div class="container">
+              <div style="text-align:center;">
+                <p>© 2023 MyCuscoTrip</p>
+                <p>Especialistas en viajes a Cusco y Machu Picchu</p>
+              </div>
+            </div>
+          </footer>
+        `
+      };
+
+      return fallbacks[componentName] || `<div>Componente ${componentName} no disponible</div>`;
+    }
+
+    function initializeComponents() {
+      if (typeof MyCuscoTripHeader === 'function') {
+        try {
+          new MyCuscoTripHeader();
+        } catch (e) {
+          console.error('Error en Header JS:', e);
+        }
+      }
+    }
+
+    function syncFooterAccordions() {
+      const accordions = document.querySelectorAll('.footer-accordion');
+      if (!accordions.length) return;
+
+      const isDesktop = window.innerWidth >= 769;
+
+      accordions.forEach((item) => {
+        item.open = isDesktop;
+      });
+    }
+
+    async function initializeApp() {
+      await Promise.all([
+        loadComponent('header', 'header-container'),
+        loadComponent('footer', 'footer-container')
+      ]);
+
+      syncFooterAccordions();
+      setTimeout(syncFooterAccordions, 200);
+      setTimeout(initializeComponents, 300);
+    }
+
+    window.addEventListener('resize', syncFooterAccordions);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeApp);
+    } else {
+      initializeApp();
+    }
+  </script>
+<script src="../assets/js/config/tracking-config.js"></script>
+<script src="../assets/js/components/tracking.js"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/components/header.js"></script>
+<script src="../assets/js/lib/utils.js"></script>
+<script src="../assets/js/core/api-client.js"></script>
+<script>
+    const form = document.getElementById("reservaForm");
+    const errorMessage = document.getElementById("errorMessage");
+    const buscarBtn = document.getElementById("buscarBtn");
+
+    function limpiarExacto(valor) {
+      return String(valor || "").trim().toUpperCase();
+    }
+
+    function normalizarParaSugerencia(valor) {
+      return limpiarExacto(valor)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function obtenerApellidoReserva(reserva) {
+      return String(reserva?.apellido || "").trim();
+    }
+
+    function codigoCoincideExacto(reserva, codigoIngresado) {
+      return limpiarExacto(reserva?.codigo) === limpiarExacto(codigoIngresado);
+    }
+
+    function apellidoCoincideExacto(reserva, apellidoIngresado) {
+      const apellidoReserva = obtenerApellidoReserva(reserva);
+      if (!apellidoReserva || !String(apellidoIngresado || "").trim()) return false;
+      return limpiarExacto(apellidoReserva) === limpiarExacto(apellidoIngresado);
+    }
+
+    function distanciaLevenshtein(a, b) {
+      const textoA = normalizarParaSugerencia(a);
+      const textoB = normalizarParaSugerencia(b);
+      const matriz = Array.from({ length: textoA.length + 1 }, () => []);
+
+      for (let i = 0; i <= textoA.length; i++) matriz[i][0] = i;
+      for (let j = 0; j <= textoB.length; j++) matriz[0][j] = j;
+
+      for (let i = 1; i <= textoA.length; i++) {
+        for (let j = 1; j <= textoB.length; j++) {
+          const costo = textoA[i - 1] === textoB[j - 1] ? 0 : 1;
+          matriz[i][j] = Math.min(
+            matriz[i - 1][j] + 1,
+            matriz[i][j - 1] + 1,
+            matriz[i - 1][j - 1] + costo
+          );
+        }
+      }
+
+      return matriz[textoA.length][textoB.length];
+    }
+
+    function pareceApellidoMalEscrito(reserva, apellidoIngresado) {
+      const apellidoReserva = obtenerApellidoReserva(reserva);
+      const apellido = String(apellidoIngresado || "").trim();
+      if (!apellidoReserva || !apellido) return false;
+
+      const esperado = normalizarParaSugerencia(apellidoReserva);
+      const ingresado = normalizarParaSugerencia(apellido);
+      if (!esperado || !ingresado) return false;
+
+      // Solo sugerimos error de escritura cuando el dato es razonablemente cercano.
+      // Ejemplos: BATISTA / BAUTISTA, MELENDEZ / MELENDES, MUCKLE / MUKLE.
+      const distancia = distanciaLevenshtein(esperado, ingresado);
+      const limite = esperado.length <= 6 ? 1 : 2;
+      return distancia > 0 && distancia <= limite;
+    }
+
+    async function cargarReservas() {
+      const response = await fetch("./data/reservas.json", { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`No se pudo cargar data/reservas.json (${response.status})`);
+      }
+      const reservas = await response.json();
+      if (!Array.isArray(reservas)) {
+        throw new Error("El archivo data/reservas.json no contiene una lista válida de reservas.");
+      }
+      return reservas;
+    }
+
+    async function consultarReservaBackend(codigo, apellido) {
+      if (!window.MyCuscoTripApiClient?.lookupReservation) return null;
+      try {
+        const result = await window.MyCuscoTripApiClient.lookupReservation({ code: codigo, lastName: apellido });
+        if (result?.found && result.voucher) return result.voucher;
+        return null;
+      } catch (error) {
+        console.warn("No se pudo consultar el backend de reservas. Se usará respaldo estático.", error);
+        return null;
+      }
+    }
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      errorMessage.style.display = "none";
+      errorMessage.textContent = "";
+      buscarBtn.disabled = true;
+      buscarBtn.textContent = "Buscando...";
+
+      const codigo = document.getElementById("codigo").value;
+      const apellido = document.getElementById("apellido").value;
+
+      if (!String(codigo || "").trim() || !String(apellido || "").trim()) {
+        errorMessage.textContent = "Ingresa el código de reserva y el apellido.";
+        errorMessage.style.display = "block";
+        buscarBtn.disabled = false;
+        buscarBtn.textContent = "Buscar reserva";
+        return;
+      }
+
+      try {
+        const reservaBackend = await consultarReservaBackend(codigo, apellido);
+        if (reservaBackend) {
+          localStorage.setItem("reservaSeleccionada", JSON.stringify(reservaBackend));
+          const codigoUrl = encodeURIComponent(reservaBackend.codigo || String(codigo).trim());
+          window.location.assign(`./detalle-reserva.html?codigo=${codigoUrl}`);
+          return;
+        }
+
+        const reservas = await cargarReservas();
+        const reservaPorCodigo = reservas.find((reserva) => codigoCoincideExacto(reserva, codigo));
+
+        if (!reservaPorCodigo) {
+          errorMessage.textContent = "No existe una reserva con esos datos.";
+          errorMessage.style.display = "block";
+          return;
+        }
+
+        if (!apellidoCoincideExacto(reservaPorCodigo, apellido)) {
+          errorMessage.textContent = pareceApellidoMalEscrito(reservaPorCodigo, apellido)
+            ? "Parece que escribiste mal tu apellido. Revisa que coincida exactamente con el apellido registrado."
+            : "No existe una reserva con esos datos.";
+          errorMessage.style.display = "block";
+          return;
+        }
+
+        localStorage.setItem("reservaSeleccionada", JSON.stringify(reservaPorCodigo));
+        const codigoUrl = encodeURIComponent(reservaPorCodigo.codigo || String(codigo).trim());
+        window.location.assign(`./detalle-reserva.html?codigo=${codigoUrl}`);
+      } catch (error) {
+        console.error("Error consultando reserva:", error);
+        errorMessage.textContent = "No se pudo consultar la reserva. Verifica el código y apellido, o contacta a tu asesor.";
+        errorMessage.style.display = "block";
+      } finally {
+        buscarBtn.disabled = false;
+        buscarBtn.textContent = "Buscar reserva";
+      }
+    });
+  </script>
+</body>
+</html>

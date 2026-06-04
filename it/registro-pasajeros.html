@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registro de Pasajeros | MyCuscoTrip</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../assets/css/main.css" rel="stylesheet"/>
+<link href="../assets/css/components.css" rel="stylesheet"/>
+<link href="../assets/css/header.css" rel="stylesheet"/>
+<link href="../assets/css/footer.css" rel="stylesheet"/>
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<style>
+    :root {
+      --mct-green: #053220;
+      --mct-green-2: #0b5d3b;
+      --mct-gold: #f4d35e;
+      --mct-gold-dark: #c79a2b;
+      --text-main: #1f2937;
+      --text-soft: #667085;
+      --line: #d9e0dc;
+      --bg-soft: #fbfaf7;
+      --white: #ffffff;
+      --danger-bg: #fff1f2;
+      --danger-text: #be123c;
+      --success-bg: #ecfdf3;
+      --success-text: #166534;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shadow-lg: 0 22px 70px rgba(0,0,0,.22);
+      --shadow-md: 0 10px 24px rgba(5,50,32,.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-main);
+      background: #f3f5f7;
+    }
+
+    .registro-page {
+      min-height: 100vh;
+      padding: 120px 0 80px;
+      background:
+        linear-gradient(rgba(6, 40, 3, 0.72), rgba(5, 50, 32, 0.82)),
+        url("../assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat fixed;
+    }
+
+    .registro-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .registro-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .registro-copy {
+      color: white;
+      position: sticky;
+      top: 110px;
+    }
+
+    .registro-copy .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .registro-copy h1 {
+      margin: 0 0 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.25rem, 4vw, 4.1rem);
+      line-height: 1.05;
+      color: white;
+    }
+
+    .registro-copy h1 span { color: var(--mct-gold); }
+
+    .registro-copy p {
+      max-width: 580px;
+      font-size: 1.04rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,.92);
+    }
+
+    .registro-info-list {
+      margin-top: 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .registro-info-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.94);
+    }
+
+    .registro-info-item i {
+      color: var(--mct-gold);
+      margin-top: 3px;
+    }
+
+    .registro-panel {
+      background: rgba(255,255,255,.97);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .registro-panel-head {
+      padding: 28px 34px 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
+      border-bottom: 1px solid #edf1f4;
+    }
+
+    .registro-panel-head .label-top {
+      margin-bottom: 10px;
+      color: #a16207;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .registro-panel-head h2 {
+      margin: 0 0 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      color: var(--mct-green);
+    }
+
+    .registro-panel-head p {
+      margin: 0;
+      color: #5f6c67;
+      line-height: 1.65;
+      font-size: .98rem;
+    }
+
+    .registro-body {
+      padding: 30px 34px 34px;
+    }
+
+    .step-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .step-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+      color: var(--text-soft);
+      font-size: .82rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .step-item.is-active {
+      background: #fff7d6;
+      border-color: #e3c44b;
+      color: #7a5c00;
+    }
+
+    .access-card,
+    .form-step,
+    .success-card {
+      display: none;
+    }
+
+    .access-card.is-active,
+    .form-step.is-active,
+    .success-card.is-active {
+      display: block;
+    }
+
+    .form-section {
+      border: 1px solid #e6e8ec;
+      border-radius: var(--radius-lg);
+      background: white;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .form-section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 15px 20px;
+      background: #ffe97a;
+      border-bottom: 1px solid #e6e8ec;
+    }
+
+    .form-section-head h3 {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #0f172a;
+      font-size: 1.05rem;
+    }
+
+    .form-section-head small {
+      font-weight: 800;
+      color: #7a5c00;
+      white-space: nowrap;
+    }
+
+    .form-section-body {
+      padding: 20px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .field-grid.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .field,
+    .field-full {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field-full { grid-column: 1 / -1; }
+
+    label {
+      color: #1f2937;
+      font-weight: 800;
+      font-size: .94rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fff;
+      color: var(--mct-green);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    textarea {
+      min-height: 100px;
+      padding-top: 13px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--mct-gold-dark);
+      box-shadow: 0 0 0 4px rgba(199,154,43,.14);
+    }
+
+    .help-text {
+      color: var(--text-soft);
+      font-size: .88rem;
+      line-height: 1.55;
+    }
+
+    .alert {
+      display: none;
+      margin-bottom: 16px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      font-size: .94rem;
+      line-height: 1.5;
+    }
+
+    .alert.error {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+    }
+
+    .alert.success {
+      background: var(--success-bg);
+      color: var(--success-text);
+    }
+
+    .passenger-card {
+      border: 1px solid #edf1f4;
+      border-radius: 18px;
+      background: #fbfcfd;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .passenger-card:first-child {
+      border-color: #e3c44b;
+      background: #fffdf1;
+    }
+
+    .passenger-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .passenger-card-head strong {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--mct-green);
+    }
+
+    .holder-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #fff7d6;
+      color: #7a5c00;
+      border: 1px solid #e3c44b;
+      font-size: .78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .remove-passenger-btn {
+      border: none;
+      background: #fff1f2;
+      color: #be123c;
+      font-weight: 800;
+      border-radius: 12px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    .actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .actions-right {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-ghost {
+      min-height: 52px;
+      border-radius: 14px;
+      padding: 0 18px;
+      font-weight: 800;
+      font-size: .96rem;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      border: none;
+      background: linear-gradient(135deg, var(--mct-green), var(--mct-green-2));
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--mct-green);
+    }
+
+    .btn-ghost {
+      border: 1px dashed #cbd5e1;
+      background: #fbfcfd;
+      color: var(--mct-green);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:disabled,
+    .btn-secondary:disabled,
+    .btn-ghost:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .conditional-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid #edf1f4;
+      background: #fbfcfd;
+    }
+
+    .conditional-box.is-active {
+      display: block;
+    }
+
+    .review-box {
+      border: 1px solid #e6e8ec;
+      border-radius: 18px;
+      background: #fbfcfd;
+      padding: 18px;
+      color: #334155;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      max-height: 420px;
+      overflow: auto;
+    }
+
+    .success-card {
+      text-align: center;
+      padding: 28px;
+      border: 1px solid #bbf7d0;
+      background: #f0fdf4;
+      border-radius: 22px;
+    }
+
+    .success-card i {
+      font-size: 42px;
+      color: #16a34a;
+      margin-bottom: 14px;
+    }
+
+    .success-card h3 {
+      margin: 0 0 10px;
+      font-family: 'Montserrat', sans-serif;
+      color: #14532d;
+      font-size: 1.6rem;
+    }
+
+    .success-card p {
+      margin: 0 auto 18px;
+      max-width: 560px;
+      color: #166534;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 980px) {
+      .registro-grid { grid-template-columns: 1fr; }
+      .registro-copy { position: static; }
+    }
+
+    @media (max-width: 720px) {
+      .registro-page { padding: 110px 0 60px; }
+      .registro-panel-head,
+      .registro-body { padding-left: 18px; padding-right: 18px; }
+      .step-bar { grid-template-columns: 1fr 1fr; }
+      .field-grid,
+      .field-grid.three { grid-template-columns: 1fr; }
+      .form-section-head { align-items: flex-start; flex-direction: column; }
+      .actions-row,
+      .actions-right { flex-direction: column; align-items: stretch; width: 100%; }
+      .btn-primary,
+      .btn-secondary,
+      .btn-ghost { width: 100%; }
+    }
+  </style>
+<script>window.MCT_LOCALE="it"; window.MCT_IS_LOCALIZED_PAGE=true;</script><meta content="it_IT" property="og:locale"/><link href="https://mycuscotrip.com/it/registro-pasajeros.html" rel="canonical"/><meta content="https://mycuscotrip.com/it/registro-pasajeros.html" property="og:url"/></head>
+<body>
+<div id="header-container"></div>
+<a aria-label="WhatsApp" class="wa-float" href="https://wa.me/51900608980" rel="noopener" target="_blank">
+<img alt="WhatsApp" src="../assets/img/logos/LogoWhatsapp.png"/>
+</a>
+<main class="registro-page">
+<div class="registro-shell">
+<div class="registro-grid">
+<aside class="registro-copy">
+<span class="eyebrow">Registro de pasajeros</span>
+<h1>Completa i dati della tua <span>viaje</span></h1>
+<p>
+            Inserisci il codice prenotazione inviato dal consulente e registra dati passeggeri, informazioni di arrivo a Cusco e contatto di emergenza.
+          </p>
+<div class="registro-info-list">
+<div class="registro-info-item">
+<i class="fa-solid fa-user-check"></i>
+<div>Il primo passeggero sarà il titolare di coordinamento del gruppo.</div>
+</div>
+<div class="registro-info-item">
+<i class="fa-solid fa-users"></i>
+<div>Puoi registrare fino a 10 passeggeri per prenotazione.</div>
+</div>
+<div class="registro-info-item">
+<i class="fa-solid fa-plane-arrival"></i>
+<div>I voli possono essere completati ora o inviati più avanti.</div>
+</div>
+</div>
+</aside>
+<section class="registro-panel">
+<div class="registro-panel-head">
+<div class="label-top">Acceso seguro</div>
+<h2>Formulario de registro</h2>
+<p>
+              Convalida la prenotazione e completa le informazioni richieste per preparare l’operazione del viaggio e generare il Travel Voucher.
+            </p>
+</div>
+<div class="registro-body">
+<div class="step-bar" id="stepBar">
+<div class="step-item is-active" data-step-label="0">Acceso</div>
+<div class="step-item" data-step-label="1">Pasajeros</div>
+<div class="step-item" data-step-label="2">Arrivo</div>
+<div class="step-item" data-step-label="3">Emergencia</div>
+</div>
+<div class="alert error" id="globalAlert"></div>
+<section class="access-card is-active" id="accessCard">
+<div class="form-section">
+<div class="form-section-head">
+<h3>Convalida prenotazione</h3>
+<small>Paso inicial</small>
+</div>
+<div class="form-section-body">
+<div class="field-grid">
+<div class="field">
+<label for="bookingCode">Reservation code</label>
+<input autocomplete="off" id="bookingCode" placeholder="Ej. CUZ12345" required="" type="text"/>
+</div>
+<div class="field">
+<label for="bookingKey">Apellido del primer pasajero o clave</label>
+<input autocomplete="off" id="bookingKey" placeholder="Ej. García" required="" type="text"/>
+</div>
+</div>
+<p class="help-text">
+                    Suggerimento: puoi inviare al passeggero un codice prenotazione e una chiave breve. Esempio: codice CUZ12345 + cognome del titolare.
+                  </p>
+</div>
+</div>
+<div class="actions-row">
+<div></div>
+<div class="actions-right">
+<button class="btn-primary" id="validateReservationBtn" type="button">Ingresar al formulario</button>
+</div>
+</div>
+</section>
+<form id="passengerForm" novalidate="">
+<section class="form-step" data-step="1">
+<div id="reservationSummaryMount"></div>
+<div class="form-section">
+<div class="form-section-head">
+<h3>Dati passeggeri</h3>
+<small id="passengerCounter">1 pasajero</small>
+</div>
+<div class="form-section-body">
+<div id="passengersContainer"></div>
+<button class="btn-ghost" id="addPassengerBtn" type="button">
+<i class="fa-solid fa-user-plus"></i> Agregar pasajero
+                    </button>
+<p class="help-text">Il passeggero 1 sarà considerato titolare di coordinamento del gruppo.</p>
+</div>
+</div>
+</section>
+<section class="form-step" data-step="2">
+<div class="form-section">
+<div class="form-section-head">
+<h3>Mezzo di arrivo a Cusco</h3>
+<small>Itinerario de viaje</small>
+</div>
+<div class="form-section-body">
+<div class="field-grid">
+<div class="field-full">
+<label for="arrivalMode">Con quale mezzo arriverete a Cusco?</label>
+<select id="arrivalMode" required="">
+<option value="">Seleziona un’opzione</option>
+<option value="aereo">Via aerea</option>
+<option value="terrestre">Via terrestre</option>
+<option value="mas-adelante">Inserirò i dati di arrivo più avanti</option>
+<option value="mycuscotrip">My Cusco Trip si occupa dell’operazione del mio volo</option>
+</select>
+</div>
+</div>
+<div class="conditional-box" id="flightBox">
+<div class="field-grid three">
+<div class="field">
+<label for="arrivalFlightDate">Data di arrivo</label>
+<input id="arrivalFlightDate" type="date"/>
+</div>
+<div class="field">
+<label for="arrivalFlightTime">Ora di arrivo</label>
+<input id="arrivalFlightTime" type="time"/>
+</div>
+<div class="field">
+<label for="arrivalFlightNumber">Numero volo di arrivo</label>
+<input id="arrivalFlightNumber" placeholder="Ej. LA2045" type="text"/>
+</div>
+</div>
+<div class="field-grid three" style="margin-top:16px;">
+<div class="field">
+<label for="departureFlightDate">Data di partenza da Cusco</label>
+<input id="departureFlightDate" type="date"/>
+</div>
+<div class="field">
+<label for="departureFlightTime">Ora di partenza</label>
+<input id="departureFlightTime" type="time"/>
+</div>
+<div class="field">
+<label for="departureFlightNumber">Numero volo di partenza</label>
+<input id="departureFlightNumber" placeholder="Ej. LA2050" type="text"/>
+</div>
+</div>
+</div>
+<div class="conditional-box" id="landBox">
+<div class="field-grid three">
+<div class="field">
+<label for="landArrivalDate">Data di arrivo</label>
+<input id="landArrivalDate" type="date"/>
+</div>
+<div class="field">
+<label for="landArrivalTime">Hora aproximada</label>
+<input id="landArrivalTime" type="time"/>
+</div>
+<div class="field">
+<label for="landCompany">Empresa / transporte</label>
+<input id="landCompany" placeholder="Ej. Cruz del Sur" type="text"/>
+</div>
+</div>
+<div class="field-grid" style="margin-top:16px;">
+<div class="field">
+<label for="landDepartureDate">Data di partenza da Cusco</label>
+<input id="landDepartureDate" type="date"/>
+</div>
+<div class="field">
+<label for="landDepartureTime">Ora approssimativa di partenza</label>
+<input id="landDepartureTime" type="time"/>
+</div>
+</div>
+</div>
+<div class="conditional-box" id="laterBox">
+<div class="field-grid">
+<div class="field">
+<label for="approxArrivalDate">Data approssimativa di arrivo</label>
+<input id="approxArrivalDate" type="date"/>
+</div>
+<div class="field">
+<label for="approxDepartureDate">Data approssimativa di partenza</label>
+<input id="approxDepartureDate" type="date"/>
+</div>
+</div>
+<p class="help-text">Il tuo consulente My Cusco Trip potrà completare o aggiornare queste informazioni dopo.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="form-step" data-step="3">
+<div class="form-section">
+<div class="form-section-head">
+<h3>Contacto de emergencia</h3>
+<small>Important information</small>
+</div>
+<div class="form-section-body">
+<div class="field-grid">
+<div class="field">
+<label for="emergencyName">Full name</label>
+<input id="emergencyName" required="" type="text"/>
+</div>
+<div class="field">
+<label for="emergencyRelation">Parentela o relazione</label>
+<input id="emergencyRelation" placeholder="Ej. Madre, esposo, amiga" required="" type="text"/>
+</div>
+<div class="field">
+<label for="emergencyPhone">Celular de emergencia</label>
+<input id="emergencyPhone" placeholder="Incluye código de país" required="" type="tel"/>
+</div>
+<div class="field">
+<label for="emergencyEmail">Email di emergenza opzionale</label>
+<input id="emergencyEmail" type="email"/>
+</div>
+<div class="field-full">
+<label for="additionalNotes">Comentarios adicionales opcionales</label>
+<textarea id="additionalNotes" placeholder="Alergias, restricciones alimentarias, observaciones médicas relevantes o indicaciones para coordinación."></textarea>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="form-step" data-step="4">
+<div class="form-section">
+<div class="form-section-head">
+<h3>Revisione finale</h3>
+<small>Antes de enviar</small>
+</div>
+<div class="form-section-body">
+<div class="review-box" id="reviewBox"></div>
+<p class="help-text">
+                      All’invio, le informazioni saranno salvate direttamente nel tuo foglio Google Sheets tramite Google Apps Script.
+                    </p>
+</div>
+</div>
+</section>
+<div class="actions-row" id="formActions" style="display:none;">
+<button class="btn-secondary" id="prevStepBtn" type="button">Volver</button>
+<div class="actions-right">
+<button class="btn-primary" id="nextStepBtn" type="button">Continua</button>
+<button class="btn-primary" id="submitFormBtn" style="display:none;" type="submit">Enviar registro</button>
+</div>
+</div>
+</form>
+<section class="success-card" id="successCard">
+<i class="fa-solid fa-circle-check"></i>
+<h3>Registro preparado</h3>
+<p>
+                Le informazioni sono state inviate correttamente e registrate nel foglio Google Sheets di My Cusco Trip.
+              </p>
+<button class="btn-primary" id="newRegisterBtn" type="button">Registra un’altra prenotazione</button>
+</section>
+</div>
+</section>
+</div>
+</div>
+</main>
+<div id="footer-container"></div>
+<script>
+    const IS_GITHUB_PAGES = window.location.hostname.includes('github.io');
+    const BASE_PATH = IS_GITHUB_PAGES ? '/mycuscotrip/' : '/';
+
+    /*
+      1) Crea tu Google Sheet con 2 pestañas:
+         - Reservas
+         - RegistrosPasajeros
+
+      2) Publica el Google Apps Script como Web App.
+
+      3) Pega aquí la URL de tu Web App, termina normalmente en /exec.
+    */
+    const GOOGLE_SCRIPT_URL = 'PEGA_AQUI_TU_URL_DE_GOOGLE_APPS_SCRIPT_EXEC';
+
+    async function apiRequest(payload) {
+      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('PEGA_AQUI')) {
+        throw new Error('Falta configurar la URL de Google Apps Script en GOOGLE_SCRIPT_URL.');
+      }
+
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+      if (!data.ok) throw new Error(data.message || 'No se pudo completar la operación.');
+      return data;
+    }
+
+    async function loadComponent(componentName, targetId) {
+      try {
+        const componentPath = `${BASE_PATH}components/${componentName}.html`;
+        const response = await fetch(componentPath);
+        if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
+        const html = await response.text();
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.innerHTML = html;
+          fixImagePaths(target);
+        }
+      } catch (error) {
+        console.error(`Error cargando ${componentName}:`, error);
+      }
+    }
+
+    function fixImagePaths(container) {
+      const images = container.querySelectorAll('img[src*="assets/"]');
+      images.forEach((img) => {
+        const currentSrc = img.getAttribute('src');
+        if (currentSrc && currentSrc.startsWith('assets/')) img.setAttribute('src', `./${currentSrc}`);
+      });
+    }
+
+    function initializeComponents() {
+      if (typeof MyCuscoTripHeader === 'function') {
+        try { new MyCuscoTripHeader(); } catch (e) { console.error('Error en Header JS:', e); }
+      }
+    }
+
+    function syncFooterAccordions() {
+      const accordions = document.querySelectorAll('.footer-accordion');
+      if (!accordions.length) return;
+      const isDesktop = window.innerWidth >= 769;
+      accordions.forEach((item) => { item.open = isDesktop; });
+    }
+
+    async function initializeSharedComponents() {
+      await Promise.all([
+        loadComponent('header', 'header-container'),
+        loadComponent('footer', 'footer-container')
+      ]);
+      syncFooterAccordions();
+      setTimeout(syncFooterAccordions, 200);
+      setTimeout(initializeComponents, 300);
+    }
+
+    window.addEventListener('resize', syncFooterAccordions);
+
+    const MAX_PASSENGERS = 10;
+    let currentStep = 0;
+    let passengerCount = 1;
+    let reservationAccess = { code: '', key: '' };
+    let reservaValidada = null;
+
+    const accessCard = document.getElementById('accessCard');
+    const passengerForm = document.getElementById('passengerForm');
+    const passengersContainer = document.getElementById('passengersContainer');
+    const passengerCounter = document.getElementById('passengerCounter');
+    const formActions = document.getElementById('formActions');
+    const prevStepBtn = document.getElementById('prevStepBtn');
+    const nextStepBtn = document.getElementById('nextStepBtn');
+    const submitFormBtn = document.getElementById('submitFormBtn');
+    const addPassengerBtn = document.getElementById('addPassengerBtn');
+    const validateReservationBtn = document.getElementById('validateReservationBtn');
+    const successCard = document.getElementById('successCard');
+    const globalAlert = document.getElementById('globalAlert');
+    const reviewBox = document.getElementById('reviewBox');
+
+    function showAlert(message) {
+      globalAlert.textContent = message;
+      globalAlert.style.display = 'block';
+      globalAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function hideAlert() {
+      globalAlert.textContent = '';
+      globalAlert.style.display = 'none';
+    }
+
+    function normalizeText(text) {
+      return String(text || '')
+        .trim()
+        .toUpperCase()
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '');
+    }
+
+    function money(value, currency) {
+      if (value === undefined || value === null || value === '') return '-';
+      const n = Number(value);
+      if (Number.isNaN(n)) return value;
+      return `${currency || ''} ${n.toFixed(2)}`.trim();
+    }
+
+    function buildReservationSummary(reserva) {
+      if (!reserva) return '';
+
+      return `
+        <div class="form-section" id="reservationSummarySection">
+          <div class="form-section-head">
+            <h3>Resumen de compra y pago</h3>
+            <small>No editable</small>
+          </div>
+          <div class="form-section-body">
+            <div class="field-grid">
+              <div class="field">
+                <label>Titular de la compra</label>
+                <input type="text" value="${escapeHtml(reserva.titularCompra || '-')}" readonly />
+              </div>
+              <div class="field">
+                <label>Documento titular compra</label>
+                <input type="text" value="${escapeHtml(reserva.documentoTitularCompra || '-')}" readonly />
+              </div>
+              <div class="field">
+                <label>Paquete / programa</label>
+                <input type="text" value="${escapeHtml(reserva.paquete || '-')}" readonly />
+              </div>
+              <div class="field">
+                <label>Fecha de viaje</label>
+                <input type="text" value="${escapeHtml(reserva.fechaViaje || '-')}" readonly />
+              </div>
+              <div class="field">
+                <label>Monto total</label>
+                <input type="text" value="${escapeHtml(money(reserva.montoTotal, reserva.moneda))}" readonly />
+              </div>
+              <div class="field">
+                <label>Monto pagado</label>
+                <input type="text" value="${escapeHtml(money(reserva.montoPagado, reserva.moneda))}" readonly />
+              </div>
+              <div class="field">
+                <label>Saldo pendiente</label>
+                <input type="text" value="${escapeHtml(money(reserva.saldoPendiente, reserva.moneda))}" readonly />
+              </div>
+              <div class="field">
+                <label>Estado de pago</label>
+                <input type="text" value="${escapeHtml(reserva.estadoPago || '-')}" readonly />
+              </div>
+              <div class="field-full">
+                <label>Detalle del pago</label>
+                <textarea readonly>${escapeHtml(reserva.detallePago || '-')}</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    async function validateReservationAccess() {
+      const code = document.getElementById('bookingCode').value.trim();
+      const key = document.getElementById('bookingKey').value.trim();
+
+      if (!code || !key) {
+        showAlert('Ingresa el código de reserva y el apellido o clave de acceso.');
+        return;
+      }
+
+      validateReservationBtn.disabled = true;
+      validateReservationBtn.textContent = 'Validando...';
+
+      try {
+        const data = await apiRequest({ action: 'validateReservation', codigo: code, clave: key });
+        reservaValidada = data.reserva;
+        reservationAccess = { code, key };
+
+        const summaryTarget = document.getElementById('reservationSummaryMount');
+        if (summaryTarget) summaryTarget.innerHTML = buildReservationSummary(reservaValidada);
+
+        hideAlert();
+        accessCard.classList.remove('is-active');
+        formActions.style.display = 'flex';
+        currentStep = 1;
+        renderStep();
+      } catch (error) {
+        showAlert(error.message);
+      } finally {
+        validateReservationBtn.disabled = false;
+        validateReservationBtn.textContent = 'Ingresar al formulario';
+      }
+    }
+
+    function renderStep() {
+      hideAlert();
+
+      document.querySelectorAll('[data-step-label]').forEach((item) => {
+        const stepNumber = Number(item.dataset.stepLabel);
+        item.classList.toggle('is-active', stepNumber === currentStep || (currentStep === 4 && stepNumber === 3));
+      });
+
+      document.querySelectorAll('.form-step').forEach((step) => {
+        step.classList.toggle('is-active', Number(step.dataset.step) === currentStep);
+      });
+
+      prevStepBtn.style.display = currentStep > 1 ? 'inline-flex' : 'none';
+      nextStepBtn.style.display = currentStep < 4 ? 'inline-flex' : 'none';
+      submitFormBtn.style.display = currentStep === 4 ? 'inline-flex' : 'none';
+
+      if (currentStep === 4) renderReview();
+    }
+
+    function passengerTemplate(index) {
+      const number = index + 1;
+      const isHolder = index === 0;
+      return `
+        <article class="passenger-card" data-passenger-index="${index}">
+          <div class="passenger-card-head">
+            <strong>Pasajero ${number}</strong>
+            ${isHolder
+              ? '<span class="holder-badge"><i class="fa-solid fa-star"></i> Titular de coordinación</span>'
+              : '<button type="button" class="remove-passenger-btn" data-remove-passenger>Eliminar</button>'}
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="paxFirstName${index}">Nombres</label>
+              <input id="paxFirstName${index}" name="paxFirstName${index}" type="text" required />
+            </div>
+            <div class="field">
+              <label for="paxLastName${index}">Apellidos</label>
+              <input id="paxLastName${index}" name="paxLastName${index}" type="text" required />
+            </div>
+            <div class="field">
+              <label for="paxBirthDate${index}">Fecha de nacimiento</label>
+              <input id="paxBirthDate${index}" name="paxBirthDate${index}" type="date" required />
+            </div>
+            <div class="field">
+              <label for="paxDocumentType${index}">Tipo de documento</label>
+              <select id="paxDocumentType${index}" name="paxDocumentType${index}" required>
+                <option value="">Selecciona</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="DNI">DNI</option>
+                <option value="Carnet de extranjería">Carnet de extranjería</option>
+                <option value="Cédula emitida por su país">Cédula emitida por su país</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="paxDocumentNumber${index}">Número de documento</label>
+              <input id="paxDocumentNumber${index}" name="paxDocumentNumber${index}" type="text" required />
+            </div>
+            <div class="field">
+              <label for="paxPhone${index}">Celular</label>
+              <input id="paxPhone${index}" name="paxPhone${index}" type="tel" placeholder="Incluye código de país" required />
+            </div>
+            <div class="field-full">
+              <label for="paxEmail${index}">Correo electrónico opcional</label>
+              <input id="paxEmail${index}" name="paxEmail${index}" type="email" />
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderPassengers() {
+      const previousValues = collectPassengers(false);
+      passengersContainer.innerHTML = Array.from({ length: passengerCount }, (_, index) => passengerTemplate(index)).join('');
+      passengerCounter.textContent = `${passengerCount} pasajero${passengerCount !== 1 ? 's' : ''}`;
+      addPassengerBtn.disabled = passengerCount >= MAX_PASSENGERS;
+
+      previousValues.forEach((pax, index) => {
+        if (index >= passengerCount) return;
+        setValue(`paxFirstName${index}`, pax.nombres);
+        setValue(`paxLastName${index}`, pax.apellidos);
+        setValue(`paxBirthDate${index}`, pax.fechaNacimiento);
+        setValue(`paxDocumentType${index}`, pax.tipoDocumento);
+        setValue(`paxDocumentNumber${index}`, pax.numeroDocumento);
+        setValue(`paxPhone${index}`, pax.celular);
+        setValue(`paxEmail${index}`, pax.email);
+      });
+
+      document.querySelectorAll('[data-remove-passenger]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const card = button.closest('[data-passenger-index]');
+          const removeIndex = Number(card.dataset.passengerIndex);
+          removePassenger(removeIndex);
+        });
+      });
+    }
+
+    function setValue(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.value = value || '';
+    }
+
+    function addPassenger() {
+      if (passengerCount >= MAX_PASSENGERS) return;
+      passengerCount += 1;
+      renderPassengers();
+    }
+
+    function removePassenger(removeIndex) {
+      const current = collectPassengers(false).filter((_, index) => index !== removeIndex);
+      passengerCount = Math.max(1, passengerCount - 1);
+      renderPassengers();
+      current.forEach((pax, index) => {
+        setValue(`paxFirstName${index}`, pax.nombres);
+        setValue(`paxLastName${index}`, pax.apellidos);
+        setValue(`paxBirthDate${index}`, pax.fechaNacimiento);
+        setValue(`paxDocumentType${index}`, pax.tipoDocumento);
+        setValue(`paxDocumentNumber${index}`, pax.numeroDocumento);
+        setValue(`paxPhone${index}`, pax.celular);
+        setValue(`paxEmail${index}`, pax.email);
+      });
+    }
+
+    function collectPassengers(validate = true) {
+      const passengers = [];
+
+      for (let index = 0; index < passengerCount; index++) {
+        const pax = {
+          titularCoordinacion: index === 0,
+          nombres: document.getElementById(`paxFirstName${index}`)?.value.trim() || '',
+          apellidos: document.getElementById(`paxLastName${index}`)?.value.trim() || '',
+          fechaNacimiento: document.getElementById(`paxBirthDate${index}`)?.value || '',
+          tipoDocumento: document.getElementById(`paxDocumentType${index}`)?.value || '',
+          numeroDocumento: document.getElementById(`paxDocumentNumber${index}`)?.value.trim() || '',
+          celular: document.getElementById(`paxPhone${index}`)?.value.trim() || '',
+          email: document.getElementById(`paxEmail${index}`)?.value.trim() || ''
+        };
+
+        if (validate) {
+          const required = [pax.nombres, pax.apellidos, pax.fechaNacimiento, pax.tipoDocumento, pax.numeroDocumento, pax.celular];
+          if (required.some((item) => !item)) {
+            throw new Error(`Completa todos los campos obligatorios del pasajero ${index + 1}.`);
+          }
+        }
+
+        passengers.push(pax);
+      }
+
+      return passengers;
+    }
+
+    function updateTransportBoxes() {
+      const mode = document.getElementById('arrivalMode').value;
+      document.getElementById('flightBox').classList.toggle('is-active', mode === 'aereo');
+      document.getElementById('landBox').classList.toggle('is-active', mode === 'terrestre');
+      document.getElementById('laterBox').classList.toggle('is-active', mode === 'mas-adelante' || mode === 'mycuscotrip');
+    }
+
+    function collectTransport(validate = true) {
+      const mode = document.getElementById('arrivalMode').value;
+      if (validate && !mode) throw new Error('Selecciona el medio de llegada a Cusco.');
+
+      const transport = { medioLlegada: mode };
+
+      if (mode === 'aereo') {
+        Object.assign(transport, {
+          llegada: {
+            fecha: document.getElementById('arrivalFlightDate').value,
+            hora: document.getElementById('arrivalFlightTime').value,
+            numeroVuelo: document.getElementById('arrivalFlightNumber').value.trim()
+          },
+          salida: {
+            fecha: document.getElementById('departureFlightDate').value,
+            hora: document.getElementById('departureFlightTime').value,
+            numeroVuelo: document.getElementById('departureFlightNumber').value.trim()
+          }
+        });
+      }
+
+      if (mode === 'terrestre') {
+        Object.assign(transport, {
+          llegada: {
+            fecha: document.getElementById('landArrivalDate').value,
+            hora: document.getElementById('landArrivalTime').value,
+            empresa: document.getElementById('landCompany').value.trim()
+          },
+          salida: {
+            fecha: document.getElementById('landDepartureDate').value,
+            hora: document.getElementById('landDepartureTime').value
+          }
+        });
+      }
+
+      if (mode === 'mas-adelante' || mode === 'mycuscotrip') {
+        Object.assign(transport, {
+          llegadaAprox: document.getElementById('approxArrivalDate').value,
+          salidaAprox: document.getElementById('approxDepartureDate').value
+        });
+      }
+
+      return transport;
+    }
+
+    function collectEmergency(validate = true) {
+      const emergency = {
+        nombre: document.getElementById('emergencyName').value.trim(),
+        relacion: document.getElementById('emergencyRelation').value.trim(),
+        celular: document.getElementById('emergencyPhone').value.trim(),
+        email: document.getElementById('emergencyEmail').value.trim(),
+        comentarios: document.getElementById('additionalNotes').value.trim()
+      };
+
+      if (validate && (!emergency.nombre || !emergency.relacion || !emergency.celular)) {
+        throw new Error('Completa el nombre, relación y celular del contacto de emergencia.');
+      }
+
+      return emergency;
+    }
+
+    function collectAll(validate = true) {
+      return {
+        reserva: reservationAccess,
+        resumenCompra: reservaValidada,
+        fechaRegistro: new Date().toISOString(),
+        pasajeros: collectPassengers(validate),
+        transporte: collectTransport(validate),
+        emergencia: collectEmergency(validate)
+      };
+    }
+
+    function validateCurrentStep() {
+      try {
+        if (currentStep === 1) collectPassengers(true);
+        if (currentStep === 2) collectTransport(true);
+        if (currentStep === 3) collectEmergency(true);
+        hideAlert();
+        return true;
+      } catch (error) {
+        showAlert(error.message);
+        return false;
+      }
+    }
+
+    function nextStep() {
+      if (!validateCurrentStep()) return;
+      currentStep += 1;
+      renderStep();
+    }
+
+    function prevStep() {
+      currentStep = Math.max(1, currentStep - 1);
+      renderStep();
+    }
+
+    function renderReview() {
+      try {
+        const data = collectAll(false);
+        reviewBox.textContent = buildReadableSummary(data);
+      } catch (error) {
+        reviewBox.textContent = 'No se pudo generar el resumen.';
+      }
+    }
+
+    function getModeLabel(mode) {
+      const labels = {
+        aereo: 'Vía aérea',
+        terrestre: 'Vía terrestre',
+        'mas-adelante': 'Ingresará datos más adelante',
+        mycuscotrip: 'My Cusco Trip opera el vuelo'
+      };
+      return labels[mode] || '-';
+    }
+
+    function buildReadableSummary(data) {
+      const r = data.resumenCompra || {};
+      const lines = [];
+      lines.push(`REGISTRO DE PASAJEROS - MY CUSCO TRIP`);
+      lines.push(`Código de reserva: ${data.reserva.code}`);
+      lines.push(`Titular de compra: ${r.titularCompra || '-'}`);
+      lines.push(`Paquete: ${r.paquete || '-'}`);
+      lines.push(`Fecha de viaje: ${r.fechaViaje || '-'}`);
+      lines.push(`Monto total: ${money(r.montoTotal, r.moneda)}`);
+      lines.push(`Monto pagado: ${money(r.montoPagado, r.moneda)}`);
+      lines.push(`Saldo pendiente: ${money(r.saldoPendiente, r.moneda)}`);
+      lines.push(`Estado de pago: ${r.estadoPago || '-'}`);
+      lines.push(`Detalle pago: ${r.detallePago || '-'}`);
+      lines.push(`Fecha de registro: ${new Date(data.fechaRegistro).toLocaleString('es-PE')}`);
+      lines.push('');
+      lines.push(`PASAJEROS (${data.pasajeros.length})`);
+      data.pasajeros.forEach((pax, index) => {
+        lines.push(`${index + 1}. ${pax.nombres} ${pax.apellidos}${pax.titularCoordinacion ? ' - TITULAR DE COORDINACIÓN' : ''}`);
+        lines.push(`   Fecha nacimiento: ${pax.fechaNacimiento}`);
+        lines.push(`   Documento: ${pax.tipoDocumento} ${pax.numeroDocumento}`);
+        lines.push(`   Celular: ${pax.celular}`);
+        lines.push(`   Email: ${pax.email || '-'}`);
+      });
+      lines.push('');
+      lines.push('LLEGADA / SALIDA');
+      lines.push(`Medio: ${getModeLabel(data.transporte.medioLlegada)}`);
+      if (data.transporte.llegada) lines.push(`Llegada: ${JSON.stringify(data.transporte.llegada)}`);
+      if (data.transporte.salida) lines.push(`Salida: ${JSON.stringify(data.transporte.salida)}`);
+      if (data.transporte.llegadaAprox || data.transporte.salidaAprox) {
+        lines.push(`Llegada aproximada: ${data.transporte.llegadaAprox || '-'}`);
+        lines.push(`Salida aproximada: ${data.transporte.salidaAprox || '-'}`);
+      }
+      lines.push('');
+      lines.push('CONTACTO DE EMERGENCIA');
+      lines.push(`Nombre: ${data.emergencia.nombre}`);
+      lines.push(`Relación: ${data.emergencia.relacion}`);
+      lines.push(`Celular: ${data.emergencia.celular}`);
+      lines.push(`Email: ${data.emergencia.email || '-'}`);
+      lines.push(`Comentarios: ${data.emergencia.comentarios || '-'}`);
+      return lines.join('
+');
+    }
+
+    async function submitRegistration(e) {
+      e.preventDefault();
+
+      submitFormBtn.disabled = true;
+      submitFormBtn.textContent = 'Enviando...';
+
+      try {
+        const data = collectAll(true);
+        await apiRequest({ action: 'savePassengerRegistration', data });
+
+        passengerForm.style.display = 'none';
+        formActions.style.display = 'none';
+        document.getElementById('stepBar').style.display = 'none';
+        successCard.classList.add('is-active');
+        hideAlert();
+      } catch (error) {
+        showAlert(error.message);
+      } finally {
+        submitFormBtn.disabled = false;
+        submitFormBtn.textContent = 'Enviar registro';
+      }
+    }
+
+    function resetForm() {
+      window.location.reload();
+    }
+
+    validateReservationBtn.addEventListener('click', validateReservationAccess);
+    addPassengerBtn.addEventListener('click', addPassenger);
+    nextStepBtn.addEventListener('click', nextStep);
+    prevStepBtn.addEventListener('click', prevStep);
+    passengerForm.addEventListener('submit', submitRegistration);
+    document.getElementById('arrivalMode').addEventListener('change', updateTransportBoxes);
+    document.getElementById('newRegisterBtn').addEventListener('click', resetForm);
+
+    renderPassengers();
+    initializeSharedComponents();
+  </script>
+<script src="../assets/js/config/tracking-config.js"></script>
+<script src="../assets/js/components/tracking.js"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/components/header.js"></script>
+<script src="../assets/js/lib/utils.js"></script>
+</body>
+</html>
