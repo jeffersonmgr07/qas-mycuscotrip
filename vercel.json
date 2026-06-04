@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/agencias",
+      "destination": "/agencias/",
+      "permanent": true
+    },
+    {
+      "source": "/agencias.html",
+      "destination": "/agencias/",
+      "permanent": true
+    }
+  ]
+}

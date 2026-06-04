@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reserva Verificada | MyCuscoTrip</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --brand-dark: #253b2f;
+      --brand-gold: #b08a2d;
+      --text-main: #1f2937;
+      --text-soft: #667085;
+      --line: #e5e7eb;
+      --bg-card: rgba(255,255,255,.97);
+      --shadow: 0 24px 80px rgba(15, 23, 42, 0.18);
+      --ok-bg: #ecfdf3;
+      --ok-border: #bbf7d0;
+      --ok-text: #166534;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.78)),
+        url("./assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat fixed;
+      color: var(--text-main);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 760px;
+      background: var(--bg-card);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(15,23,42,.05);
+    }
+
+    .top {
+      padding: 30px 28px 20px;
+      text-align: center;
+      background: white;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .top img {
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 14px;
+    }
+
+    .divider {
+      width: 120px;
+      height: 2px;
+      background: var(--brand-gold);
+      margin: 0 auto 16px;
+    }
+
+    .top h1 {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--brand-dark);
+      letter-spacing: -.02em;
+    }
+
+    .top p {
+      margin: 10px 0 0;
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .body {
+      padding: 24px 28px 30px;
+      display: grid;
+      gap: 16px;
+      background: #fcfcfd;
+    }
+
+    .ok-box {
+      border: 1px solid var(--ok-border);
+      background: var(--ok-bg);
+      color: var(--ok-text);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--text-soft);
+      font-size: .92rem;
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .top,
+      .body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .top img {
+        width: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+<main class="card">
+<section class="top">
+<img alt="MyCuscoTrip" src="./assets/img/reserva/logo-color.png"/>
+<div class="divider"></div>
+<h1>Reserva Verificada</h1>
+<p>Validación oficial de MyCuscoTrip</p>
+</section>
+<section class="body">
+<div class="ok-box">
+        Esta reserva fue validada correctamente.
+      </div>
+<div class="grid">
+<div class="field">
+<span class="label">Código de reserva</span>
+<div class="value" id="codigo">-</div>
+</div>
+<div class="field">
+<span class="label">Fecha de viaje</span>
+<div class="value" id="fecha">-</div>
+</div>
+<div class="field full">
+<span class="label">Titular de la reserva</span>
+<div class="value" id="titular">-</div>
+</div>
+</div>
+<div class="footer-note">
+        Si necesita asistencia adicional, comuníquese con MyCuscoTrip por nuestros canales oficiales.
+      </div>
+</section>
+</main>
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById("codigo").textContent = params.get("codigo") || "-";
+    document.getElementById("titular").textContent = params.get("titular") || "-";
+    document.getElementById("fecha").textContent = params.get("fecha") || "-";
+  </script>
+<script src="./assets/js/config/tracking-config.js"></script>
+<script src="./assets/js/components/tracking.js"></script>
+</body>
+</html>
