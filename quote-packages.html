@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cotizador de paquetes | My Cusco Trip</title>
+  <meta name="description" content="Cotiza paquetes turísticos para Cusco y Machu Picchu con hoteles, trenes, moneda y modalidad de pago." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/header.css" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/responsive.css" />
+  <link rel="stylesheet" href="./assets/css/quote-packages.css?v=31" />
+  <link rel="stylesheet" href="./assets/css/coupon-popup.css?v=7">
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <a class="wa-float" href="https://wa.me/51900608980" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="./assets/img/logos/LogoWhatsapp.png" alt="WhatsApp" />
+  </a>
+
+  <main class="quote-page">
+    <section class="quote-hero">
+      <div class="container quote-hero__container">
+        <span class="quote-eyebrow">Cotiza aquí tu paquete turístico</span>
+        <h1>Arma tu paquete a Cusco y Machu Picchu a tu medida</h1>
+        <p>
+          Elige tus fechas, indica opcionalmente tus horarios aproximados de llegada y salida,
+          selecciona tus hoteles, trenes y modalidad de pago. Detectaremos automáticamente
+          el itinerario compatible y podrás imprimir o guardar tu cotización.
+        </p>
+      </div>
+    </section>
+
+    <section class="quote-content">
+      <div class="container quote-layout">
+        <div class="quote-main">
+
+          <article class="quote-card">
+            <div class="quote-card__header">
+              <h2>Datos del viaje</h2>
+              <p>
+                Selecciona tus fechas y, si ya las conoces, agrega tus horarios aproximados
+                para optimizar el itinerario.
+              </p>
+            </div>
+
+            <div class="quote-field-group">
+              <div class="quote-field-group__header">
+                <h3>Fechas y horarios</h3>
+                <p>Ingresa las fechas y horas de tus vuelos o llegada a Cusco para ofrecerte el itinerario más conveniente y la mejor tarifa posible.</p>
+              </div>
+
+              <div class="quote-form-grid quote-form-grid--travel">
+                <div class="quote-field quote-field--wide">
+                  <label for="travelRange">Fechas de viaje</label>
+                  <input type="text" id="travelRange" placeholder="Selecciona fecha de llegada y salida" readonly />
+                  <small id="travelRangeHelp" hidden></small>
+                </div>
+
+                <div class="quote-field">
+                  <label for="arrivalTime">Hora de llegada</label>
+                  <input type="text" id="arrivalTime" placeholder="Selecciona hora" readonly />
+                  <small hidden></small>
+                </div>
+
+                <div class="quote-field">
+                  <label for="departureTime">Hora de salida</label>
+                  <input type="text" id="departureTime" placeholder="Selecciona hora" readonly />
+                  <small hidden></small>
+                </div>
+              </div>
+            </div>
+
+            <div class="quote-field-group">
+              <div class="quote-field-group__header">
+                <h3>Nacionalidad y moneda</h3>
+                <p>La moneda y algunas tarifas cambian según la nacionalidad de los pasajeros.</p>
+              </div>
+
+              <div class="quote-form-grid">
+                <div class="quote-field">
+                  <label for="nationality">Nacionalidad de turistas</label>
+                  <select id="nationality">
+                    <option value="national">Nacionales peruanos</option>
+                    <option value="foreign">Extranjeros</option>
+                    <option value="andean_community">Comunidad Andina</option>
+                  </select>
+                  <small id="nationalityHelp">El tren local solo aplica para turistas nacionales peruanos.</small>
+                </div>
+
+                <div class="quote-field">
+                  <label for="quoteCurrency">Moneda de cotización</label>
+                  <select id="quoteCurrency">
+                    <option value="PEN">Soles peruanos</option>
+                    <option value="USD">Dólares americanos</option>
+                  </select>
+                  <small id="exchangeRateHelp">El tipo de cambio se calculará desde el JS.</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="quote-travelers">
+              <div class="quote-traveler-row">
+                <div>
+                  <strong>Adultos</strong>
+                  <small>12+ años</small>
+                </div>
+
+                <div class="quote-stepper">
+                  <button type="button" class="quote-qty-btn" data-action="minus" data-target="adults" aria-label="Reducir adultos">−</button>
+                  <span id="adultsCount">2</span>
+                  <button type="button" class="quote-qty-btn" data-action="plus" data-target="adults" aria-label="Aumentar adultos">+</button>
+                </div>
+              </div>
+
+              <div class="quote-traveler-row">
+                <div>
+                  <strong>Niños</strong>
+                  <small>3 a 11 años</small>
+                </div>
+
+                <div class="quote-stepper">
+                  <button type="button" class="quote-qty-btn" data-action="minus" data-target="children" aria-label="Reducir niños">−</button>
+                  <span id="childrenCount">0</span>
+                  <button type="button" class="quote-qty-btn" data-action="plus" data-target="children" aria-label="Aumentar niños">+</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="itinerarySection" class="quote-card" hidden>
+            <div class="quote-card__header">
+              <h2>Opciones de itinerario</h2>
+              <p id="itinerarySectionIntro">
+                Estos son los itinerarios disponibles según tus fechas y horas de estadía.
+              </p>
+            </div>
+
+            <div id="packageOptions" class="quote-package-options quote-package-options--compact" aria-live="polite"></div>
+
+            <div id="itineraryOptions" class="quote-itinerary-options" aria-live="polite"></div>
+
+            <div class="quote-itinerary-preview">
+              <h3>Itinerario seleccionado</h3>
+              <div id="itineraryPreview" class="quote-itinerary-list"></div>
+            </div>
+          </article>
+
+          <article id="hotelSection" class="quote-card" hidden>
+            <div class="quote-card__header">
+              <h2>Elige tus hoteles</h2>
+              <p>
+                Selecciona tu alojamiento en Cusco y/o Aguas Calientes,
+                o continúa sin hotel si prefieres gestionarlo por tu cuenta.
+              </p>
+            </div>
+
+            <div id="hotelSelectorsContainer" class="quote-dynamic-stack"></div>
+          </article>
+
+          <article id="trainSection" class="quote-card" hidden>
+            <div class="quote-card__header">
+              <h2>Elige tus trenes</h2>
+              <p>
+                Selecciona tu tren de ida y retorno a Machu Picchu.
+                Si eres turista nacional peruano, también podrás ver la opción de tren local sujeta a disponibilidad.
+              </p>
+            </div>
+
+            <div class="quote-train-selector-grid">
+              <div id="outboundTrainSelected" class="quote-train-selector-card">
+                <div>
+                  <span>Tren de ida</span>
+                  <strong>Sin selección</strong>
+                  <p>Elige una opción de tren para completar la cotización.</p>
+                </div>
+                <button type="button" class="btn quote-secondary-btn" data-train-direction="outbound">
+                  <i class="fas fa-train"></i> Elegir tren
+                </button>
+              </div>
+
+              <div id="returnTrainSelected" class="quote-train-selector-card">
+                <div>
+                  <span>Tren de retorno</span>
+                  <strong>Sin selección</strong>
+                  <p>Elige una opción de tren para completar la cotización.</p>
+                </div>
+                <button type="button" class="btn quote-secondary-btn" data-train-direction="return">
+                  <i class="fas fa-train"></i> Elegir tren
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article id="extrasSection" class="quote-card" hidden>
+            <div class="quote-card__header">
+              <h2>Personaliza con extras</h2>
+              <p>Agrega servicios opcionales para complementar algunos tours de tu itinerario.</p>
+            </div>
+
+            <div id="extrasContainer" class="quote-extras"></div>
+          </article>
+
+          <article class="quote-card">
+            <div class="quote-card__header">
+              <h2>Datos del cliente</h2>
+              <p>Completa tus datos para generar una cotización formal y continuar con el pago cuando estés listo.</p>
+            </div>
+
+            <div class="quote-form-grid">
+              <div class="quote-field">
+                <label for="clientName">Nombre completo</label>
+                <input type="text" id="clientName" placeholder="Nombre del cliente" />
+              </div>
+
+              <div class="quote-field">
+                <label for="clientPhone">Teléfono / WhatsApp</label>
+                <input type="text" id="clientPhone" placeholder="+51 999 999 999" />
+              </div>
+
+              <div class="quote-field">
+                <label for="clientEmail">Correo electrónico</label>
+                <input type="email" id="clientEmail" placeholder="cliente@email.com" />
+              </div>
+
+              <div class="quote-field">
+                <label for="clientDocument">DNI / Documento</label>
+                <input type="text" id="clientDocument" placeholder="Opcional" />
+              </div>
+            </div>
+
+            <div class="quote-field">
+              <label for="clientNotes">Comentarios adicionales</label>
+              <textarea id="clientNotes" rows="4" placeholder="Ejemplo: horarios de vuelo, preferencias de hotel, restricciones alimentarias, etc."></textarea>
+            </div>
+          </article>
+        </div>
+
+        <aside class="quote-sidebar">
+          <div class="quote-summary-panel quote-summary-panel--page-flow" id="quoteSummaryPanel" data-scroll-mode="page">
+            <h2 class="quote-detail-title">Detalles de cotización</h2>
+
+            <div class="quote-summary-panel__top">
+              <span>Cotización estimada</span>
+              <strong id="quoteReference">COT-PE---</strong>
+            </div>
+
+            <div class="quote-summary">
+              <div class="quote-summary__line">
+                <span id="adultSummaryLabel">Adultos x2</span>
+                <strong id="adultSummaryTotal">S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__line" id="childrenSummaryRow" hidden>
+                <span id="childrenSummaryLabel">Niños x0</span>
+                <strong id="childrenSummaryTotal">S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__line" id="hotelSummaryRow" hidden>
+                <span>Alojamiento</span>
+                <strong id="hotelSummaryTotal">S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__line" id="trainSummaryRow" hidden>
+                <span>Trenes</span>
+                <strong id="trainSummaryTotal">S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__line" id="extrasSummaryRow" hidden>
+                <span>Extras</span>
+                <strong id="extrasSummaryTotal">S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__line" id="discountSummaryRow" hidden>
+                <span>Descuento</span>
+                <strong id="discountSummaryTotal">- S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__total">
+                <span>Total cotizado</span>
+                <strong id="quoteGrandTotal">S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__line" id="advanceSummaryRow">
+                <span id="advanceSummaryLabel">Pagarás ahora</span>
+                <strong id="advanceSummaryTotal">S/ 0.00</strong>
+              </div>
+
+              <div class="quote-summary__line" id="balanceSummaryRow" hidden>
+                <span id="balanceSummaryLabel">Pagarás luego el saldo pendiente</span>
+                <strong id="balanceSummaryTotal">S/ 0.00</strong>
+              </div>
+            </div>
+
+            <div class="quote-discount-box">
+              <label for="discountCodeInput">Código de descuento</label>
+              <div class="quote-discount-box__row">
+                <input type="text" id="discountCodeInput" placeholder="Ej: MCT-8KQ4-P7X2" />
+                <button type="button" id="applyDiscountCodeBtn">Aplicar</button>
+              </div>
+              <p id="discountCodeMessage">Ingresa tu código promocional si tienes uno.</p>
+            </div>
+
+            <div class="quote-payment-mode">
+              <label for="paymentMode">Modalidad de pago</label>
+              <select id="paymentMode">
+                <option value="full">Pago 100% con descuento</option>
+                <option value="partial">Anticipo sin descuento</option>
+              </select>
+            </div>
+
+            <div id="paymentInfo" class="quote-payment-info">
+              <span id="paymentInfoText">Selecciona fechas, itinerario, hotel y tren para generar la cotización.</span>
+            </div>
+
+            <div class="quote-actions">
+              <button type="button" id="continuePaymentBtn" class="btn quote-payment-btn">
+                <i class="fas fa-credit-card"></i>
+                <span class="quote-payment-btn__desktop">Pagar</span>
+                <span class="quote-payment-btn__mobile">Pagar</span>
+              </button>
+
+              <div class="quote-actions__secondary">
+                <button type="button" id="printQuoteBtn" class="btn quote-secondary-btn">
+                  <i class="fas fa-print"></i>
+                  <span>Imprimir</span>
+                </button>
+
+                <button type="button" id="savePdfBtn" class="btn quote-secondary-btn quote-pdf-btn">
+                  <i class="fas fa-download"></i>
+                  <span>Descargar PDF</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="printQuotation" class="print-quotation" aria-label="Cotización formal">
+      <div class="print-sheet">
+        <header class="print-header print-header--two-columns">
+          <div class="print-company">
+            <img class="print-logo" src="./assets/img/reserva/logo-color.png" alt="My Cusco Trip" />
+            <p>Agencia de viajes y experiencias en Cusco</p>
+            <p>WhatsApp: +51 900 608 980</p>
+            <p>Email: reservas@mycuscotrip.com</p>
+          </div>
+
+          <div class="print-header__right">
+            <h1><span class="print-quote-badge">COTIZACIÓN</span></h1>
+            <p><strong>Código:</strong> <span id="printQuoteReference">COT-PE---</span></p>
+            <p><strong>Emisión:</strong> <span id="printIssueDate">--/--/----</span></p>
+            <p><strong>Válido hasta:</strong> <span id="printValidUntil">--/--/----</span></p>
+
+            <div id="printCouponBox" class="print-coupon-box">
+              <div class="print-coupon-box__content">
+                <span>Cupón especial</span>
+                <strong id="printCouponCode">MCT-XXXX</strong>
+                <small>Descuento máximo: <b id="printCouponDiscount">--%</b></small>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="print-client-grid">
+          <div class="print-info-box">
+            <h3>Datos del cliente</h3>
+            <p><strong>Nombre:</strong> <span id="printClientName">Por completar</span></p>
+            <p><strong>WhatsApp / teléfono:</strong> <span id="printClientPhone">Por completar</span></p>
+            <p><strong>Email:</strong> <span id="printClientEmail">Por completar</span></p>
+            <p><strong>Documento:</strong> <span id="printClientDocument">Por completar</span></p>
+            <p><strong>Comentarios:</strong> <span id="printClientNotes">Sin comentarios adicionales</span></p>
+          </div>
+
+          <div class="print-info-box">
+            <h3>Datos del viaje</h3>
+            <p><strong>Fechas:</strong> <span id="printTravelDates">Por completar</span></p>
+            <p><strong>Duración:</strong> <span id="printTravelDuration">Por completar</span></p>
+            <p><strong>Pasajeros:</strong> <span id="printPassengerSummary">Por completar</span></p>
+            <p><strong>Nacionalidad:</strong> <span id="printNationality">Por completar</span></p>
+            <p><strong>Llegada:</strong> <span id="printArrivalTime">Por completar</span></p>
+            <p><strong>Salida:</strong> <span id="printDepartureTime">Por completar</span></p>
+          </div>
+        </div>
+
+        <section class="print-section print-section--services">
+          <h3>Servicios incluidos</h3>
+          <div id="printSelectedServices"></div>
+        </section>
+
+        <section class="print-section print-section--hotels">
+          <h3>Alojamientos incluidos</h3>
+          <div id="printHotelImages" class="print-hotel-images"></div>
+        </section>
+
+        <section class="print-section print-section--payment">
+          <h3>Detalles de pago</h3>
+          <div id="printPaymentDetails"></div>
+        </section>
+
+        <section class="print-section print-section--itinerary">
+          <h3>Itinerario detallado</h3>
+          <div id="printItinerary" class="print-itinerary-list"></div>
+        </section>
+
+        <section class="print-section print-notes">
+          <h3>Condiciones importantes</h3>
+          <ul>
+            <li>La cotización está sujeta a disponibilidad de ingresos, trenes, hoteles y servicios al momento de confirmar la reserva.</li>
+            <li>El tren local solo aplica para turistas nacionales peruanos y debe ser comprado personalmente por el pasajero con DNI físico y vigente.</li>
+            <li>Los precios de trenes turísticos pueden variar según disponibilidad, temporada y horario elegido.</li>
+            <li>La reserva se confirma únicamente después de validar disponibilidad y recibir el pago correspondiente.</li>
+            <li>Los cupones promocionales están sujetos a validación, disponibilidad y condiciones vigentes al momento del pago.</li>
+          </ul>
+        </section>
+
+
+        <section id="printBookingOffer" class="print-booking-offer" hidden>
+          <div class="print-booking-offer__content">
+            <span class="print-booking-offer__eyebrow">Oferta especial de reserva</span>
+            <strong>Obtén este precio mejorado: <span id="printBookingOfferAmount">--</span></strong>
+            <p>Haciendo tu reserva hasta el <span id="printBookingOfferUntil">--</span>.</p>
+          </div>
+        </section>
+
+        <footer class="print-footer">
+          <p>Gracias por cotizar con My Cusco Trip.</p>
+        </footer>
+      </div>
+    </section>
+
+    <div id="hotelModal" class="quote-modal" hidden>
+      <div class="quote-modal__backdrop" data-close-modal></div>
+
+      <div class="quote-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="hotelModalTitle">
+        <button type="button" class="quote-modal__close" data-close-modal aria-label="Cerrar modal de hoteles">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="quote-modal__header">
+          <p class="quote-modal__eyebrow">Selección de alojamiento</p>
+          <h2 id="hotelModalTitle">Elige alojamiento</h2>
+          <p id="hotelModalIntro">Selecciona una opción de alojamiento para completar tu cotización.</p>
+        </div>
+
+        <div class="quote-modal__body">
+          <div id="hotelModalList" class="quote-modal__list"></div>
+        </div>
+
+        <div class="quote-modal__footer">
+          <button type="button" id="confirmHotelSelectionBtn" class="btn quote-main-btn">
+            Confirmar alojamiento
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="trainSelectionModal" class="quote-modal" hidden>
+      <div class="quote-modal__backdrop" data-close-modal></div>
+
+      <div class="quote-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="trainSelectionModalTitle">
+        <button type="button" class="quote-modal__close" data-close-modal aria-label="Cerrar modal de trenes">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="quote-modal__header">
+          <p class="quote-modal__eyebrow">Selección de tren</p>
+          <h2 id="trainSelectionModalTitle">Elige tu tren</h2>
+          <p id="trainSelectionModalIntro">Selecciona una opción disponible para completar la cotización.</p>
+        </div>
+
+        <div class="quote-modal__body">
+          <div id="trainSelectionModalList" class="quote-modal__list"></div>
+        </div>
+
+        <div class="quote-modal__footer">
+          <button type="button" id="confirmTrainSelectionBtn" class="btn quote-main-btn">
+            Confirmar tren seleccionado
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="trainDetailsModal" class="quote-modal" hidden>
+      <div class="quote-modal__backdrop" data-close-modal></div>
+
+      <div class="quote-modal__dialog quote-modal__dialog--small" role="dialog" aria-modal="true" aria-labelledby="trainDetailsModalTitle">
+        <button type="button" class="quote-modal__close" data-close-modal aria-label="Cerrar detalles del tren">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="quote-modal__header">
+          <p class="quote-modal__eyebrow">Detalle del tren</p>
+          <h2 id="trainDetailsModalTitle">Información del tren</h2>
+          <p id="trainDetailsModalIntro">Revisa los detalles importantes de esta opción.</p>
+        </div>
+
+        <div class="quote-modal__body">
+          <div id="trainDetailsModalContent"></div>
+        </div>
+
+        <div class="quote-modal__footer">
+          <button type="button" class="btn quote-secondary-btn" data-close-modal>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script src="./assets/js/config/tracking-config.js"></script>
+  <script src="./assets/js/components/tracking.js"></script>
+  <script src="./assets/js/i18n.js"></script>
+  <script src="./assets/js/components/header.js"></script>
+
+  <script>
+    (function () {
+      const IS_GITHUB_PAGES_QUOTE = window.location.hostname.includes('github.io');
+      const BASE_PATH_QUOTE = IS_GITHUB_PAGES_QUOTE ? '/mycuscotrip/' : './';
+
+      async function loadQuoteComponent(componentName, targetId) {
+        const target = document.getElementById(targetId);
+        if (!target || target.children.length) return;
+
+        try {
+          const response = await fetch(`${BASE_PATH_QUOTE}components/${componentName}.html`, { cache: 'no-store' });
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          target.innerHTML = await response.text();
+
+          target.querySelectorAll('img[src^="assets/"]').forEach((img) => {
+            img.setAttribute('src', `${BASE_PATH_QUOTE}${img.getAttribute('src')}`.replace(/([^:]\/)\/{2,}/g, '$1'));
+          });
+        } catch (error) {
+          console.warn(`No se pudo cargar ${componentName}:`, error);
+        }
+      }
+
+      function syncQuoteFooterAccordions() {
+        const accordions = document.querySelectorAll('.footer-accordion');
+        const isDesktop = window.innerWidth >= 769;
+        accordions.forEach((item) => { item.open = isDesktop; });
+      }
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        await Promise.all([
+          loadQuoteComponent('header', 'header-container'),
+          loadQuoteComponent('footer', 'footer-container')
+        ]);
+
+        syncQuoteFooterAccordions();
+        window.addEventListener('resize', syncQuoteFooterAccordions);
+
+        if (typeof MyCuscoTripHeader === 'function') {
+          try { new MyCuscoTripHeader(); } catch (error) { console.warn('Header JS no inicializado:', error); }
+        }
+      });
+    })();
+  </script>
+
+  <script src="./assets/js/core/package-generator.js"></script>
+  <script src="./assets/js/core/api-client.js"></script>
+  <script src="./assets/js/pages/quote-packages.js?v=32"></script>
+<script src="./assets/js/components/coupon-popup.js"></script>
+</body>
+</html>

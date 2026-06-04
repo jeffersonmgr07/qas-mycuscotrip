@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <base href="../">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurantes recomendados en Cusco | My Cusco Trip</title>
+  <meta name="description" content="Explora una selección curada de restaurantes recomendados en el centro de Cusco. Revisa cocina, ubicación, carta y solicita una reserva por WhatsApp." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://mycuscotrip.com/restaurantes/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_PE" />
+  <meta property="og:site_name" content="My Cusco Trip" />
+  <meta property="og:title" content="Restaurantes recomendados en Cusco | My Cusco Trip" />
+  <meta property="og:description" content="Selección curada de restaurantes en Cusco para complementar tu viaje a Machu Picchu y Perú." />
+  <meta property="og:url" content="https://mycuscotrip.com/restaurantes/" />
+  <meta property="og:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Restaurantes recomendados en Cusco | My Cusco Trip" />
+  <meta name="twitter:description" content="Explora restaurantes en Cusco y solicita una reserva por WhatsApp." />
+  <meta name="twitter:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+  <link rel="alternate" hreflang="es" href="https://mycuscotrip.com/restaurantes/" />
+  <link rel="alternate" hreflang="en" href="https://mycuscotrip.com/restaurantes/?lang=en" />
+  <link rel="alternate" hreflang="pt" href="https://mycuscotrip.com/restaurantes/?lang=pt" />
+  <link rel="alternate" hreflang="fr" href="https://mycuscotrip.com/restaurantes/?lang=fr" />
+  <link rel="alternate" hreflang="x-default" href="https://mycuscotrip.com/restaurantes/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/header.css" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/responsive.css" />
+  <link rel="stylesheet" href="./assets/css/coupon-popup.css?v=7" />
+  <link rel="stylesheet" href="./restaurantes/restaurantes.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TravelAgency",
+        "@id": "https://mycuscotrip.com/#organization",
+        "name": "My Cusco Trip",
+        "url": "https://mycuscotrip.com/",
+        "logo": "https://mycuscotrip.com/assets/img/logos/Logo1.png"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://mycuscotrip.com/restaurantes/#collection",
+        "url": "https://mycuscotrip.com/restaurantes/",
+        "name": "Restaurantes recomendados en Cusco",
+        "description": "Selección curada de restaurantes del centro de Cusco para viajeros de My Cusco Trip.",
+        "inLanguage": "es-PE",
+        "isPartOf": { "@id": "https://mycuscotrip.com/#website" },
+        "about": { "@id": "https://mycuscotrip.com/#organization" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="restaurants-page">
+  <div id="header-container"></div>
+
+  <a class="wa-float" href="https://wa.me/51900608980" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="./assets/img/logos/LogoWhatsapp.png" alt="WhatsApp" />
+  </a>
+
+  <main>
+    <section class="restaurants-hero">
+      <div class="restaurants-container restaurants-hero__grid">
+        <div class="restaurants-hero__copy">
+          <span class="restaurants-eyebrow"><i class="fas fa-utensils"></i> Gastronomía en Cusco</span>
+          <h1>Restaurantes recomendados para tu viaje a Cusco</h1>
+          <p>Una selección curada de restaurantes céntricos para almorzar, cenar o celebrar después de tus tours. Revisa detalles, carta, ubicación y solicita una reserva por WhatsApp.</p>
+          <div class="restaurants-hero-actions">
+            <a class="restaurant-btn restaurant-btn--primary" href="#restaurantsDirectory"><i class="fas fa-compass"></i> Explorar selección</a>
+            <a class="restaurant-btn restaurant-btn--ghost" href="https://wa.me/51900608980?text=Hola%20My%20Cusco%20Trip%2C%20quiero%20ayuda%20para%20reservar%20un%20restaurante%20en%20Cusco" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Pedir recomendación</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="restaurantsDirectory" class="restaurants-directory" aria-label="Directorio de restaurantes">
+      <div class="restaurants-container">
+
+        <div class="restaurants-toolbar">
+          <label>
+            <span>Buscar</span>
+            <input id="restaurantSearch" type="search" placeholder="Nombre, cocina o zona" />
+          </label>
+          <label>
+            <span>Cocina</span>
+            <select id="restaurantCuisine"></select>
+          </label>
+          <label>
+            <span>Zona</span>
+            <select id="restaurantArea"></select>
+          </label>
+          <label>
+            <span>Orden</span>
+            <select id="restaurantSort">
+              <option value="featured">Recomendados</option>
+              <option value="name">Nombre</option>
+              <option value="area">Zona</option>
+              <option value="cuisine">Cocina</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="restaurants-meta-row">
+          <span id="restaurantsCount">Cargando restaurantes...</span>
+          <button type="button" id="restaurantsReset" class="restaurant-link-btn">Limpiar filtros</button>
+        </div>
+
+        <div id="restaurantsGrid" class="restaurants-grid"></div>
+        <div id="restaurantsEmpty" class="restaurant-empty-state" hidden>
+          <i class="fas fa-search"></i>
+          <strong>No encontramos restaurantes con esos filtros.</strong>
+          <span>Prueba con otra cocina, zona o nombre.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="restaurants-seo" aria-label="Guía gastronómica en Cusco">
+      <div class="restaurants-container">
+        <div class="restaurants-seo__card">
+          <div class="restaurants-seo__content">
+            <span class="restaurants-seo__eyebrow"><i class="fas fa-leaf"></i> Guía gastronómica</span>
+            <h2>Restaurantes en Cusco cerca de la Plaza de Armas</h2>
+            <p>Explora restaurantes recomendados en el centro histórico de Cusco para completar tu experiencia de viaje con cocina peruana, fusión, opciones vegetarianas, parrillas, cafés de autor y propuestas ideales para almuerzos, cenas o celebraciones especiales.</p>
+            <p>En My Cusco Trip te ayudamos a elegir una opción según tu ubicación, horario, estilo de comida y plan del día. Puedes solicitar una reserva por WhatsApp y nuestro equipo verificará disponibilidad antes de confirmar.</p>
+            <div class="restaurants-seo__tags">
+              <span>Gastronomía en Cusco</span>
+              <span>Restaurantes céntricos</span>
+              <span>Cocina peruana</span>
+              <span>Reservas por WhatsApp</span>
+            </div>
+            <div class="restaurants-seo__actions">
+              <a class="restaurant-btn restaurant-btn--primary" href="#restaurantsDirectory">Ver restaurantes</a>
+              <a class="restaurant-btn restaurant-btn--outline" href="https://wa.me/51900608980?text=Hola%20My%20Cusco%20Trip%2C%20quiero%20una%20recomendaci%C3%B3n%20de%20restaurante%20en%20Cusco" target="_blank" rel="noopener">Pedir recomendación</a>
+            </div>
+          </div>
+          <div class="restaurants-seo__aside">
+            <strong>Tip local</strong>
+            <p>Reserva con anticipación si viajas en temporada alta o buscas una mesa para cena especial cerca de la Plaza de Armas, San Blas o Nazarenas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="restaurantDetailsModal" class="restaurant-modal" hidden>
+    <div class="restaurant-modal__backdrop" data-restaurant-modal-close aria-hidden="true"></div>
+    <div class="restaurant-modal__dialog restaurant-modal__dialog--details" role="dialog" aria-modal="true" aria-label="Detalle del restaurante">
+      <button type="button" class="restaurant-modal__close" data-restaurant-modal-close aria-label="Cerrar">
+        <i class="fas fa-times"></i>
+      </button>
+      <div id="restaurantDetailsContent"></div>
+    </div>
+  </div>
+
+  <div id="restaurantReservationModal" class="restaurant-modal" hidden>
+    <div class="restaurant-modal__backdrop" data-restaurant-modal-close aria-hidden="true"></div>
+    <div class="restaurant-modal__dialog restaurant-modal__dialog--reserve" role="dialog" aria-modal="true" aria-label="Solicitar reserva">
+      <button type="button" class="restaurant-modal__close" data-restaurant-modal-close aria-label="Cerrar">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="restaurant-reserve-modal">
+        <div class="restaurant-reserve-modal__header">
+          <span>Solicitud por WhatsApp</span>
+          <h3 id="restaurantReservationTitle">Reservar restaurante</h3>
+        </div>
+        <p class="restaurant-reserve-modal__intro">Ingresa tus datos para solicitar tu reserva y nuestro equipo realizará la confirmación por WhatsApp.</p>
+        <form id="restaurantReservationForm" class="restaurant-reservation-form">
+          <input type="hidden" name="restaurant" />
+          <div class="form-grid">
+            <label>
+              <span>Comensales</span>
+              <select name="diners" required>
+                <option value="">Selecciona</option>
+                <option value="1">1 persona</option>
+                <option value="2">2 personas</option>
+                <option value="3">3 personas</option>
+                <option value="4">4 personas</option>
+                <option value="5">5 personas</option>
+                <option value="6">6 personas</option>
+                <option value="7">7 personas</option>
+                <option value="8">8 personas</option>
+                <option value="9">9 personas</option>
+                <option value="10">10 personas</option>
+                <option value="11">11 personas</option>
+                <option value="12">12 personas</option>
+              </select>
+            </label>
+            <label>
+              <span>Fecha</span>
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              <span>Hora</span>
+              <select name="time" id="restaurantReservationTime" required>
+                <option value="">Selecciona horario</option>
+              </select>
+            </label>
+            <label>
+              <span>Nombre</span>
+              <input type="text" name="name" placeholder="Nombre y apellido" required />
+            </label>
+            <label>
+              <span>WhatsApp</span>
+              <input type="tel" name="whatsapp" placeholder="+51 900 000 000" required />
+            </label>
+            <label>
+              <span>Preferencia</span>
+              <select name="preference">
+                <option value="Sin preferencia">Sin preferencia</option>
+                <option value="Almuerzo">Almuerzo</option>
+                <option value="Cena">Cena</option>
+                <option value="Cumpleaños / celebración">Cumpleaños / celebración</option>
+                <option value="Mesa con vista si está disponible">Mesa con vista si está disponible</option>
+              </select>
+            </label>
+          </div>
+          <label class="form-full">
+            <span>Comentarios</span>
+            <textarea name="notes" placeholder="Alergias, ocasión especial, idioma del grupo, etc."></textarea>
+          </label>
+          <button type="submit" class="restaurant-btn restaurant-btn--primary restaurant-btn--wide">
+            <i class="fab fa-whatsapp"></i> Enviar solicitud por WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script>
+    async function loadComponent(componentName, containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return false;
+      try {
+        const response = await fetch(`components/${componentName}.html`);
+        if (!response.ok) throw new Error(`No se pudo cargar ${componentName}`);
+        container.innerHTML = await response.text();
+        return true;
+      } catch (error) {
+        console.error(`Error cargando ${componentName}:`, error);
+        return false;
+      }
+    }
+
+    function initializeComponents() {
+      if (typeof MyCuscoTripHeader === 'function') {
+        try { new MyCuscoTripHeader(); } catch (error) { console.error('Error en Header JS:', error); }
+      }
+    }
+
+    function syncFooterAccordions() {
+      const accordions = document.querySelectorAll('.footer-accordion');
+      const isDesktop = window.innerWidth >= 769;
+      accordions.forEach((item) => { item.open = isDesktop; });
+    }
+
+    async function initializeRestaurantPage() {
+      await Promise.all([
+        loadComponent('header', 'header-container'),
+        loadComponent('footer', 'footer-container')
+      ]);
+      syncFooterAccordions();
+      setTimeout(initializeComponents, 150);
+    }
+
+    window.addEventListener('resize', syncFooterAccordions);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeRestaurantPage);
+    } else {
+      initializeRestaurantPage();
+    }
+  </script>
+  <script src="./assets/js/config/tracking-config.js"></script>
+  <script src="./assets/js/components/tracking.js"></script>
+  <script src="./assets/js/i18n.js"></script>
+  <script src="./assets/js/components/header.js"></script>
+  <script src="./assets/js/core/api-client.js"></script>
+<script src="./assets/js/components/coupon-popup.js"></script>
+  <script src="./restaurantes/restaurantes.js"></script>
+</body>
+</html>
