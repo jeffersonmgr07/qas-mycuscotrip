@@ -6,12 +6,10 @@
     </div>
 
     <div class="mct-bar">
-      <div class="mct-field">
-        <span class="mct-label" data-i18n="search.destination">Destino</span>
-        <select id="mctDestino" name="destino" class="mct-select">
-          <option value="machu-picchu" selected>Machu Picchu</option>
-          <option value="cusco">Cusco</option>
-          <option value="peru" data-i18n="search.explorePeru">Explora Perú</option>
+      <div class="mct-field mct-intent-field">
+        <span class="mct-label" id="mctIntentLabel" data-i18n="search.experienceType">Tipo de viaje</span>
+        <select id="mctIntent" name="intent" class="mct-select" aria-label="Tipo de viaje">
+          <option value="machu-picchu-full-day-express" selected>Machu Picchu Full Day Express</option>
         </select>
       </div>
 
@@ -64,7 +62,7 @@
 
       <button type="submit" class="mct-submit">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <span data-i18n="search.submit">Buscar experiencias</span>
+        <span id="mctSubmitText" data-i18n="search.submit">Buscar experiencias</span>
       </button>
     </div>
   </form>

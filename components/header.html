@@ -37,29 +37,79 @@
 
     <nav class="nav" id="mainNavigation" aria-label="Menú principal">
       <ul class="nav-menu">
-        <li><a href="/machu-picchu-tours.html" data-i18n="nav.machuPicchuTours"> Tours a Machu Picchu</a></li>
-        <li><a href="/cusco-tours.html" data-i18n="nav.cuscoTours"> Tours en Cusco</a></li>
-        <li><a href="/paquetes-cusco.html" data-i18n="nav.packages"> Paquetes completos</a></li>
-        <li><a href="/explora-peru.html" data-i18n="nav.explorePeru"> Explora Perú</a></li>
-        <li class="nav-item nav-item--dropdown nav-item--trekkings" data-dropdown="trekkings">
-          <a
-            class="nav-dropdown-toggle"
-            href="/trekkings.html"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="trekkingsDropdown"
-          >
-            <span data-i18n="nav.trekkings">Trekkings</span>
+        <li class="nav-item nav-item--dropdown nav-item--machu-picchu" data-dropdown="machu-picchu">
+          <a class="nav-dropdown-toggle" href="/machu-picchu-tours.html" aria-haspopup="true" aria-expanded="false" aria-controls="machuPicchuDropdown">
+            <span data-i18n="nav.machuPicchu">Machu Picchu</span>
             <i class="fas fa-chevron-down" aria-hidden="true"></i>
           </a>
           <span class="nav-dropdown-bridge" aria-hidden="true"></span>
-          <ul id="trekkingsDropdown" class="nav-dropdown nav-dropdown--trekkings" aria-label="Submenú de trekkings">
-            <li><a href="/trekkings.html?categoria=camino-inca" data-i18n="nav.incaTrail"> Camino Inca</a></li>
-            <li><a href="/trekkings.html?categoria=rutas-machu-picchu" data-i18n="nav.routesMachuPicchu"> Rutas a Machu Picchu</a></li>
-            <li><a href="/trekkings.html?categoria=inca-jungle" data-i18n="nav.incaJungle"> Inca Jungle</a></li>
+          <ul id="machuPicchuDropdown" class="nav-dropdown nav-dropdown--machu-picchu" aria-label="Submenú Machu Picchu">
+            <li><a href="/machu-picchu-tours.html" data-i18n="nav.allMachuPicchu">Todo Machu Picchu</a></li>
+            <li><a href="/machu-picchu-full-days.html" data-i18n="nav.machuPicchuFullDays">Full Days</a></li>
+            <li><a href="/machu-picchu-overnight.html" data-i18n="nav.machuPicchuOvernight">Overnight</a></li>
+            <li><a href="/machu-picchu-premium-trains.html" data-i18n="nav.premiumTrainExperiences">Premium Train Experiences</a></li>
+            <li><a href="/machu-picchu-hiram-bingham.html" data-i18n="nav.luxuryHiramBinghamTrain">Luxury Hiram Bingham Train</a></li>
           </ul>
         </li>
-        <li><a href="/mi-reserva.html" class="nav-reserva" data-i18n="nav.myReservation"> Mi Reserva</a></li>
+
+        <li class="nav-item nav-item--dropdown nav-item--packages" data-dropdown="packages">
+          <a class="nav-dropdown-toggle" href="/todo-cusco.html" aria-haspopup="true" aria-expanded="false" aria-controls="packagesDropdown">
+            <span data-i18n="nav.cusco">Cusco</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <span class="nav-dropdown-bridge" aria-hidden="true"></span>
+          <ul id="packagesDropdown" class="nav-dropdown nav-dropdown--packages" aria-label="Submenú Cusco">
+            <li><a href="/cusco-tours.html" data-i18n="nav.cuscoToursMenu">Tours en Cusco</a></li>
+            <li><a href="/paquetes-cusco.html" data-i18n="nav.completeCuscoPackages">Paquetes completos Cusco</a></li>
+            <li><a href="/trekking-cusco.html" data-i18n="nav.cuscoTrekkings">Trekkings en Cusco</a></li>
+            <li><a href="/todo-cusco.html" data-i18n="nav.allCusco">Todo Cusco</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item nav-item--dropdown nav-item--ancestral" data-dropdown="ancestral">
+          <a class="nav-dropdown-toggle" href="/all-experiences.html?q=ancestral&destino=cusco" aria-haspopup="true" aria-expanded="false" aria-controls="ancestralDropdown">
+            <span data-i18n="nav.ancestralExperiences">Experiencias Ancestrales</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <span class="nav-dropdown-bridge" aria-hidden="true"></span>
+          <ul id="ancestralDropdown" class="nav-dropdown nav-dropdown--ancestral" aria-label="Submenú experiencias ancestrales">
+            <li><a href="/product.html?slug=bienvenida-ancestral-cusco" data-product-id="exp_001" data-i18n="nav.ancestralWelcome">Bienvenida Ancestral</a></li>
+            <li><a href="/quote-packages.html?source=nav&intent=union-eterna-andes" data-i18n="nav.unionEterna">Unión Eterna en los Andes</a></li>
+            <li><a href="/astronomia-andina-cusco.html" data-i18n="nav.andeanAstronomy">Astronomía Andina y Estrellas</a></li>
+            <li class="nav-dropdown__separated"><a href="/ayahuasca-cusco.html" data-i18n="nav.ayahuascaExperience">Experiencia de Ayahuasca</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item nav-item--dropdown nav-item--nature" data-dropdown="nature">
+          <a class="nav-dropdown-toggle" href="/trekkings.html" aria-haspopup="true" aria-expanded="false" aria-controls="natureDropdown">
+            <span data-i18n="nav.trekkingNature">Trekking y Naturaleza</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <span class="nav-dropdown-bridge" aria-hidden="true"></span>
+          <ul id="natureDropdown" class="nav-dropdown nav-dropdown--nature" aria-label="Submenú trekking y naturaleza">
+            <li><a href="/trekkings.html?categoria=camino-inca" data-i18n="nav.incaTrail">Camino Inca</a></li>
+            <li><a href="/trekkings.html?categoria=inca-jungle" data-i18n="nav.incaJungle">Inca Jungle</a></li>
+            <li><a href="/trekkings.html?categoria=salkantay" data-i18n="nav.salkantayTrek">Salkantay Trek</a></li>
+            <li><a href="/trekkings.html?categoria=ausangate" data-i18n="nav.ausangateTrek">Ausangate Trek</a></li>
+            <li><a href="/trekkings.html" data-i18n="nav.allTrekkings">Todos los trekkings</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item nav-item--dropdown nav-item--guide" data-dropdown="guide">
+          <a class="nav-dropdown-toggle" href="/pages/informacion-util/planifica-tu-viaje.html" data-no-localize="true" aria-haspopup="true" aria-expanded="false" aria-controls="guideDropdown">
+            <span data-i18n="nav.travelGuide">Guía de viaje</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <span class="nav-dropdown-bridge" aria-hidden="true"></span>
+          <ul id="guideDropdown" class="nav-dropdown nav-dropdown--guide" aria-label="Submenú guía de viaje">
+            <li><a href="/trenes/" data-i18n="nav.trainsToMachuPicchu">Trenes a Machu Picchu</a></li>
+            <li><a href="/hoteles/" data-no-localize="true" data-i18n="nav.recommendedHotels">Hoteles recomendados</a></li>
+            <li><a href="/restaurantes/" data-no-localize="true" data-i18n="nav.restaurantsInCusco">Restaurantes en Cusco</a></li>
+            <li><a href="/pages/informacion-util/boleto-machu-picchu.html" data-no-localize="true" data-i18n="nav.machuPicchuTickets">Boletos Machu Picchu</a></li>
+            <li><a href="/pages/informacion-util/como-llegar-machu-picchu.html" data-no-localize="true" data-i18n="nav.howToGetMachuPicchu">Cómo llegar a Machu Picchu</a></li>
+            <li><a href="/pages/ayuda/preguntas-frecuentes.html" data-no-localize="true" data-i18n="nav.faq">Preguntas frecuentes</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>

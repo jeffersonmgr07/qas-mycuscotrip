@@ -16,7 +16,6 @@
   <link href="../assets/css/footer.css" rel="stylesheet" />
   <link href="../assets/css/responsive.css" rel="stylesheet" />
   <link href="./assets/css/agencias.css" rel="stylesheet" />
-  <link rel="canonical" href="https://mycuscotrip.com/agencias/mis-datos.html" />
 </head>
 <body class="agency-page">
   <div id="header-container"></div>
@@ -25,33 +24,76 @@
       <div>
         <p class="eyebrow">Portal de agencias</p>
         <h1>Mis datos</h1>
-        <p>Actualiza tus datos de contacto o cambia tu contraseña.</p>
+        <p>En esta sección puedes editar tus datos comerciales y de contacto, o cambiar tu contraseña cuando lo necesites.</p>
       </div>
-      <div class="agency-controls">
-        <a class="agency-button agency-button--ghost" href="./index.html">Nueva reserva</a>
-        <a class="agency-button agency-button--ghost" href="./ordenes.html">Ver mis órdenes</a>
+      <div class="agency-controls agency-controls--compact agency-controls--profile">
+        <div class="agency-more-menu" id="agencyMoreMenu">
+          <button type="button" class="agency-button agency-button--ghost agency-more-menu__button" id="moreOptionsButton" aria-haspopup="true" aria-expanded="false">
+            Más opciones <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="agency-more-menu__list" id="agencyMoreMenuList" hidden>
+            <a href="./ordenes.html"><i class="fa-regular fa-clipboard" aria-hidden="true"></i> Ver mis órdenes</a>
+            <a href="./index.html"><i class="fa-solid fa-plus" aria-hidden="true"></i> Nueva reserva</a>
+            <button type="button" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Cerrar sesión</button>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="profile-card">
-      <h2>Datos de contacto</h2>
-      <p class="dialog-help">El correo de acceso no se puede modificar desde esta sección. Para cambiarlo, contáctanos.</p>
-      <form id="profileForm" class="form-grid">
-        <label class="field"><span>Agencia</span><input id="profileCompany" disabled /></label>
-        <label class="field"><span>Correo de acceso</span><input id="profileEmail" disabled /></label>
-        <div class="profile-phone-row full">
-          <label class="field"><span>Código de país</span><select id="profilePhoneCountry"><option value="51">Perú +51</option><option value="52">México +52</option><option value="56">Chile +56</option><option value="55">Brasil +55</option><option value="57">Colombia +57</option><option value="54">Argentina +54</option><option value="591">Bolivia +591</option><option value="593">Ecuador +593</option><option value="1">Estados Unidos / Canadá +1</option><option value="34">España +34</option><option value="44">Reino Unido +44</option><option value="33">Francia +33</option><option value="49">Alemania +49</option><option value="39">Italia +39</option><option value="81">Japón +81</option><option value="82">Corea del Sur +82</option><option value="86">China +86</option></select></label>
-          <label class="field"><span>Celular / WhatsApp</span><input id="profilePhone" inputmode="numeric" pattern="[0-9 ]*" /></label>
+    <section class="profile-card profile-card--readonly">
+      <div class="profile-card__head">
+        <div>
+          <h2>Información de la agencia</h2>
+          <p class="dialog-help">Por seguridad, primero verás tus datos en modo lectura. Presiona “Editar información” para actualizar los campos permitidos.</p>
         </div>
-        <label class="field full"><span>Página web</span><input id="profileWeb" /></label>
-        <div class="full dialog-actions"><button type="submit" class="agency-button agency-button--primary">Guardar cambios</button></div>
+        <button type="button" id="editProfileButton" class="agency-button agency-button--ghost"><i class="fa-solid fa-pen-to-square"></i> Editar información</button>
+      </div>
+
+      <form id="profileForm" class="form-grid profile-form-grid">
+        <label class="field"><span>Tipo de registro</span><input id="profileRegistrationType" disabled /></label>
+        <label class="field"><span>Estado</span><input id="profileStatus" disabled /></label>
+
+        <label class="field" data-company-only><span>País fiscal</span><select id="profileCountry" disabled></select></label>
+        <label class="field" data-company-only><span>Identificación fiscal</span><div class="inline-readonly-group"><input id="profileTaxIdType" disabled /><input id="profileTaxIdNumber" disabled /></div></label>
+        <label class="field full" data-company-only><span>Razón social / nombre fiscal</span><input id="profileLegalName" disabled /></label>
+        <label class="field full" data-company-only><span>Nombre comercial</span><input id="profileTradeName" data-editable="company" disabled /></label>
+
+        <label class="field"><span id="profileFirstNameLabel">Nombres</span><input id="profileRepresentativeFirstName" disabled /></label>
+        <label class="field"><span id="profileLastNameLabel">Apellidos</span><input id="profileRepresentativeLastName" disabled /></label>
+        <label class="field"><span>Nacionalidad</span><select id="profileRepresentativeNationality" disabled></select></label>
+        <label class="field"><span>Tipo de documento</span><select id="profileRepresentativeDocType" disabled><option value="DNI">DNI</option><option value="Pasaporte">Pasaporte</option><option value="Carnet de extranjería">Carnet de extranjería</option><option value="Documento nacional">Documento nacional</option><option value="Otro">Otro</option></select></label>
+        <label class="field full"><span>Número de documento</span><input id="profileRepresentativeDocNumber" disabled /></label>
+
+        <label class="field full"><span>Correo de acceso</span><input id="profileEmail" disabled /></label>
+        <div class="profile-phone-row full">
+          <label class="field"><span>Código de país</span><select id="profilePhoneCountry" data-editable="common" disabled></select></label>
+          <label class="field"><span>Celular / WhatsApp</span><input id="profilePhone" inputmode="numeric" pattern="[0-9 ]*" data-editable="common" disabled /></label>
+        </div>
+        <label class="field full"><span>Página web o red social</span><input id="profileWeb" data-editable="common" disabled /></label>
+
+        <div class="profile-locked-note full">
+          <strong>¿Necesitas cambiar datos no editables?</strong>
+          <span>Para modificar razón social, identificación fiscal, nombres legales, documento o correo de acceso, contáctanos por WhatsApp.</span>
+          <a class="agency-button agency-button--ghost agency-button--small" target="_blank" rel="noopener" href="https://wa.me/51900000000?text=Hola%20My%20Cusco%20Trip%2C%20necesito%20actualizar%20datos%20no%20editables%20de%20mi%20portal%20de%20agencias."><i class="fa-brands fa-whatsapp"></i> Contáctanos</a>
+        </div>
+
+        <div class="full dialog-actions profile-edit-actions" hidden>
+          <button type="button" id="cancelProfileEdit" class="agency-button agency-button--ghost">Cancelar</button>
+          <button type="submit" class="agency-button agency-button--primary">Guardar cambios</button>
+        </div>
       </form>
       <div id="profileMessage" class="form-message" hidden></div>
     </section>
 
     <section class="profile-card">
-      <h2>Cambiar contraseña</h2>
-      <form id="passwordForm" class="form-grid">
+      <div class="profile-card__head">
+        <div>
+          <h2>Contraseña</h2>
+          <p class="dialog-help">Mantén tu acceso protegido. La nueva contraseña debe cumplir todos los requisitos.</p>
+        </div>
+        <button type="button" id="togglePasswordPanel" class="agency-button agency-button--ghost"><i class="fa-solid fa-key"></i> Cambiar contraseña</button>
+      </div>
+      <form id="passwordForm" class="form-grid password-panel" hidden>
         <label class="field full"><span>Contraseña actual</span><div class="password-input-wrap"><input id="currentPassword" type="password" required /><button type="button" class="password-toggle" data-toggle-password="currentPassword">Ver</button></div></label>
         <label class="field full"><span>Nueva contraseña</span><div class="password-input-wrap"><input id="newPassword" type="password" required minlength="8" /><button type="button" class="password-toggle" data-toggle-password="newPassword">Ver</button></div></label>
         <label class="field full"><span>Confirmar nueva contraseña</span><div class="password-input-wrap"><input id="confirmPassword" type="password" required minlength="8" /><button type="button" class="password-toggle" data-toggle-password="confirmPassword">Ver</button></div></label>
@@ -60,6 +102,7 @@
           <div data-check="letter">Incluye una letra</div>
           <div data-check="number">Incluye un número</div>
           <div data-check="special">Incluye un carácter especial</div>
+          <div data-check="match">Las contraseñas coinciden</div>
         </div>
         <div class="full dialog-actions"><button type="submit" class="agency-button agency-button--primary">Actualizar contraseña</button></div>
       </form>
@@ -69,12 +112,37 @@
   <div id="footer-container"></div>
   <script src="../assets/js/components/header.js"></script>
   <script src="../assets/js/components/footer.js"></script>
-  <script src="../assets/js/i18n.js"></script>
   <script src="./assets/js/pages/agencias-i18n.js"></script>
   <script src="./assets/js/pages/mis-datos.js" defer></script>
   <script>
     async function loadAgencyComponent(name, targetId) { const target = document.getElementById(targetId); if (!target) return; try { const res = await fetch(`../components/${name}.html`); if (!res.ok) throw new Error(name); target.innerHTML = await res.text(); if (name === 'header' && window.MyCuscoTripHeader) new window.MyCuscoTripHeader(); if (name === 'footer' && window.MyCuscoTripFooter) window.MyCuscoTripFooter.initFooterAccordions(); } catch (error) { console.warn('No se pudo cargar componente', name, error); } }
     document.addEventListener('DOMContentLoaded', () => { loadAgencyComponent('header', 'header-container'); loadAgencyComponent('footer', 'footer-container'); });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const moreButton = document.getElementById('moreOptionsButton');
+      const moreList = document.getElementById('agencyMoreMenuList');
+      if (moreButton && moreList) {
+        moreButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const isOpen = !moreList.hidden;
+          moreList.hidden = isOpen;
+          moreButton.setAttribute('aria-expanded', String(!isOpen));
+        });
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('#agencyMoreMenu')) {
+            moreList.hidden = true;
+            moreButton.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+      document.getElementById('logoutButton')?.addEventListener('click', () => {
+        localStorage.removeItem('mct_agency_session');
+        localStorage.removeItem('mct_agency_cart');
+        window.location.href = './login.html';
+      });
+    });
   </script>
 </body>
 </html>

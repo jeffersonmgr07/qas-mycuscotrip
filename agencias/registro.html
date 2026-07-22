@@ -16,52 +16,74 @@
   <link href="../assets/css/footer.css" rel="stylesheet" />
   <link href="../assets/css/responsive.css" rel="stylesheet" />
   <link href="./assets/css/agencias.css" rel="stylesheet" />
-  <link rel="canonical" href="https://mycuscotrip.com/agencias/registro.html" />
 </head>
-<body class="agency-page">
+<body class="agency-page agency-register-page">
   <div id="header-container"></div>
   <main class="agency-main agency-main--narrow">
-    <section class="agency-hero">
-      <div class="agency-hero__grid">
+    <section class="agency-hero agency-hero--compact">
+      <div class="agency-hero__grid agency-hero__grid--single">
         <div>
-          <h1>Registro de agencias o agentes de viaje</h1>
-          <p>Completa los datos de la empresa o contacto autorizado para solicitar acceso al portal de reservas.</p>
+          <h1>Registro de agencias de viajes</h1>
+          <p>Completa los datos de tu agencia o de tu perfil como agente independiente para solicitar acceso al portal B2B de My Cusco Trip.</p>
         </div>
       </div>
     </section>
 
-    <section class="auth-card">
+    <section class="auth-card auth-card--hotel-style">
       <form id="agencyRegisterForm" class="register-form">
         <section class="form-block">
-          <h2>Datos de la empresa</h2>
+          <h2>Tipo de registro</h2>
+          <p class="dialog-help">Elige si te registrarás como agente independiente o como empresa/agencia constituida.</p>
+          <div class="registration-type-toggle" role="radiogroup" aria-label="Tipo de registro">
+            <label class="registration-type-card is-active" data-registration-card="natural">
+              <input type="radio" name="registrationType" value="natural" checked />
+              <strong>Persona natural</strong>
+              <small>Agente independiente o representante que opera con documento personal.</small>
+            </label>
+            <label class="registration-type-card" data-registration-card="company">
+              <input type="radio" name="registrationType" value="company" />
+              <strong>Empresa</strong>
+              <small>Agencia de viajes con razón social, identificación fiscal y nombre comercial.</small>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-block" id="companyBlock" hidden>
+          <h2>Datos fiscales de la empresa</h2>
           <div class="form-grid">
-            <label class="field"><span>País</span><select id="companyCountry" required><option value="PE">Perú</option><option value="MX">México</option><option value="CL">Chile</option><option value="BR">Brasil</option><option value="CO">Colombia</option><option value="AR">Argentina</option><option value="BO">Bolivia</option><option value="EC">Ecuador</option><option value="US">Estados Unidos</option><option value="OTHER">Otro país</option></select></label>
-            <label class="field"><span id="taxLabel">RUC</span><input id="companyTaxId" required pattern="[A-Za-z0-9.\-\s]{4,24}" title="Usa solo letras, números, punto o guion." autocomplete="off" /></label>
-            <label class="field"><span>Razón social / nombre legal</span><input id="companyName" required /></label>
-            <label class="field"><span>Nombre comercial</span><input id="tradeName" required /></label>
-            <label class="field"><span>Correo de contacto</span><input id="companyEmail" type="email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}" title="Ingresa un correo válido, por ejemplo nombre@dominio.com" /></label>
-            <label class="field phone-code-field"><span>Código de país</span><select id="companyPhoneCountry" required><option value="+51">Perú +51</option><option value="+52">México +52</option><option value="+56">Chile +56</option><option value="+55">Brasil +55</option><option value="+57">Colombia +57</option><option value="+54">Argentina +54</option><option value="+591">Bolivia +591</option><option value="+593">Ecuador +593</option><option value="+1">Estados Unidos / Canadá +1</option><option value="+34">España +34</option><option value="+44">Reino Unido +44</option><option value="+33">Francia +33</option><option value="+49">Alemania +49</option><option value="+39">Italia +39</option><option value="+81">Japón +81</option><option value="+82">Corea del Sur +82</option><option value="+86">China +86</option></select></label>
+            <label class="field"><span>País fiscal de la empresa</span><select id="companyCountry"></select></label>
+            <label class="field"><span>Nombre comercial</span><input id="tradeName" autocomplete="organization" /></label>
+            <label class="field"><span id="legalNameLabel">Razón social</span><input id="companyName" autocomplete="organization" /></label>
+            <label class="field"><span id="taxLabel">RUC</span><input id="companyTaxId" pattern="[A-Za-z0-9.\-\s]{4,24}" title="Usa solo letras, números, punto o guion." autocomplete="off" /></label>
+          </div>
+        </section>
+
+        <section class="form-block" id="personBlock">
+          <h2 id="representativeTitle">Datos de la persona natural</h2>
+          <div class="form-grid">
+            <label class="field"><span>Nombres</span><input id="legalFirstName" required autocomplete="given-name" /></label>
+            <label class="field"><span>Apellidos</span><input id="legalLastName" required autocomplete="family-name" /></label>
+            <label class="field"><span>Tipo de documento</span><select id="legalDocType" required><option value="DNI">DNI</option><option value="Pasaporte">Pasaporte</option><option value="Carnet de extranjería">Carnet de extranjería</option><option value="Documento nacional">Documento nacional</option><option value="Otro">Otro</option></select></label>
+            <label class="field"><span>Número de documento</span><input id="legalDocNumber" required autocomplete="off" /></label>
+            <label class="field full"><span>Nacionalidad</span><select id="legalNationality" required></select></label>
+          </div>
+        </section>
+
+        <section class="form-block">
+          <h2>Datos comerciales y contacto</h2>
+          <div class="form-grid">
+            <label class="field phone-code-field"><span>Código de país</span><select id="companyPhoneCountry" required></select></label>
             <label class="field phone-number-field"><span>Celular / WhatsApp</span><input id="companyPhone" inputmode="numeric" autocomplete="tel-national" required placeholder="900000000" pattern="[0-9]{6,15}" title="Ingresa solo números, entre 6 y 15 dígitos." /></label>
             <label class="field full"><span>Página web o red social</span><input id="companyWebsite" placeholder="https://..." /></label>
           </div>
         </section>
 
         <section class="form-block">
-          <h2>Representante o contacto autorizado</h2>
-          <div class="form-grid">
-            <label class="field"><span>Nombres</span><input id="legalFirstName" required /></label>
-            <label class="field"><span>Apellidos</span><input id="legalLastName" required /></label>
-            <label class="field"><span>Tipo de documento</span><select id="legalDocType"><option>DNI</option><option>Pasaporte</option><option>Carnet de extranjería</option><option>Documento nacional</option><option>Otro</option></select></label>
-            <label class="field"><span>Número de documento</span><input id="legalDocNumber" required /></label>
-          </div>
-        </section>
-
-        <section class="form-block">
           <h2>Información de acceso</h2>
           <div class="form-grid">
-            <label class="field"><span>Correo de inicio de sesión</span><input id="accessEmail" type="email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}" title="Ingresa un correo válido, por ejemplo nombre@dominio.com" /></label>
-            <label class="field full password-field"><span>Crear contraseña</span><div class="password-input-wrap"><input id="registerPassword" type="password" minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}" required title="Mínimo 8 caracteres, incluyendo letras, números y un carácter especial." /><button type="button" class="password-toggle" data-toggle-password="registerPassword">Ver</button></div></label>
-            <label class="field full password-field"><span>Confirmar contraseña</span><div class="password-input-wrap"><input id="registerPasswordConfirm" type="password" minlength="8" required /><button type="button" class="password-toggle" data-toggle-password="registerPasswordConfirm">Ver</button></div></label>
+            <label class="field full"><span>Correo de inicio de sesión</span><input id="accessEmail" type="email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}" title="Ingresa un correo válido, por ejemplo nombre@dominio.com" /></label>
+            <label class="field password-field"><span>Crear contraseña</span><div class="password-input-wrap"><input id="registerPassword" type="password" minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}" required title="Mínimo 8 caracteres, incluyendo letras, números y un carácter especial." /><button type="button" class="password-toggle" data-toggle-password="registerPassword">Ver</button></div></label>
+            <label class="field password-field"><span>Confirmar contraseña</span><div class="password-input-wrap"><input id="registerPasswordConfirm" type="password" minlength="8" required /><button type="button" class="password-toggle" data-toggle-password="registerPasswordConfirm">Ver</button></div></label>
             <div class="password-checklist full" id="passwordChecklist" aria-live="polite">
               <div data-rule="length">Mínimo 8 caracteres</div>
               <div data-rule="letter">Incluye una letra</div>
@@ -72,7 +94,18 @@
           </div>
         </section>
 
-        <p id="registerMessage" class="form-message" role="alert" hidden></p>
+        <div id="agencyFormLoader" class="mct-form-loader" hidden>
+          <span class="mct-form-loader__spinner" aria-hidden="true"></span>
+          <span>Enviando registro...</span>
+        </div>
+        <div id="registerMessage" class="form-message" role="alert" hidden></div>
+        <div id="registerSuccessPanel" class="agency-success-panel" hidden>
+          <div class="agency-success-panel__icon"><i class="fa-solid fa-envelope-circle-check"></i></div>
+          <h2>Revisa tu correo y verifica tu cuenta</h2>
+          <p>Te hemos enviado un enlace de verificación. Abre tu bandeja de entrada o spam y confirma tu correo para activar el acceso al portal de agencias.</p>
+          <small>Serás redirigido al acceso en unos segundos.</small>
+          <a class="agency-button agency-button--primary" href="./login.html">Ir al acceso</a>
+        </div>
         <div class="dialog-actions">
           <a class="agency-button agency-button--ghost" href="./login.html">Ya tengo acceso</a>
           <button type="submit" class="agency-button agency-button--primary">Registrar mi agencia</button>
@@ -83,7 +116,6 @@
   <div id="footer-container"></div>
   <script src="../assets/js/components/header.js"></script>
   <script src="../assets/js/components/footer.js"></script>
-  <script src="../assets/js/i18n.js"></script>
   <script src="./assets/js/pages/agencias-i18n.js"></script>
   <script src="./assets/js/pages/registro-agencias.js" defer></script>
   <script>

@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link href="../assets/css/main.css" rel="stylesheet" />
   <link href="../assets/css/components.css" rel="stylesheet" />
   <link href="../assets/css/header.css" rel="stylesheet" />
@@ -16,9 +17,8 @@
   <link href="../assets/css/responsive.css" rel="stylesheet" />
   <link href="./assets/css/agencias.css" rel="stylesheet" />
   <script src="https://www.mercadopago.com/v2/security.js" view="checkout"></script>
-  <link rel="canonical" href="https://mycuscotrip.com/agencias/ordenes.html" />
 </head>
-<body class="agency-page">
+<body class="agency-page orders-page">
   <div id="header-container"></div>
   <main class="agency-main" id="ordenes">
     <section class="agency-intro-bar" aria-label="Órdenes de agencia">
@@ -27,10 +27,18 @@
         <h1>Mis órdenes</h1>
         <p id="ordersAgencyName">Consulta tus órdenes pendientes, pagadas o vencidas.</p>
       </div>
-      <div class="agency-controls">
-        <a class="agency-button agency-button--ghost" href="./index.html">Nueva reserva</a>
-        <button type="button" class="agency-button agency-button--primary" id="refreshOrdersButton">Actualizar</button>
-        <button type="button" class="agency-button agency-button--ghost" id="logoutButton">Cerrar sesión</button>
+      <div class="agency-controls agency-controls--compact agency-controls--orders">
+        <button type="button" class="agency-button agency-button--primary orders-refresh-button" id="refreshOrdersButton" title="Actualizar órdenes" aria-label="Actualizar órdenes"><i class="fa-solid fa-rotate-right" aria-hidden="true"></i><span>Actualizar</span></button>
+        <div class="agency-more-menu" id="agencyMoreMenu">
+          <button type="button" class="agency-button agency-button--ghost agency-more-menu__button" id="moreOptionsButton" aria-haspopup="true" aria-expanded="false">
+            Más opciones <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="agency-more-menu__list" id="agencyMoreMenuList" hidden>
+            <a href="./index.html"><i class="fa-solid fa-plus" aria-hidden="true"></i> Nueva reserva</a>
+            <a href="./mis-datos.html"><i class="fa-regular fa-user" aria-hidden="true"></i> Mis datos</a>
+            <button type="button" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Cerrar sesión</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -63,7 +71,6 @@
   <div id="footer-container"></div>
   <script src="../assets/js/components/header.js"></script>
   <script src="../assets/js/components/footer.js"></script>
-  <script src="../assets/js/i18n.js"></script>
   <script src="./assets/js/pages/agencias-i18n.js"></script>
   <script src="./assets/js/pages/ordenes-agencias.js" defer></script>
   <script>
@@ -81,6 +88,32 @@
     document.addEventListener('DOMContentLoaded', () => {
       loadAgencyComponent('header', 'header-container');
       loadAgencyComponent('footer', 'footer-container');
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const moreButton = document.getElementById('moreOptionsButton');
+      const moreList = document.getElementById('agencyMoreMenuList');
+      if (moreButton && moreList) {
+        moreButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const isOpen = !moreList.hidden;
+          moreList.hidden = isOpen;
+          moreButton.setAttribute('aria-expanded', String(!isOpen));
+        });
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('#agencyMoreMenu')) {
+            moreList.hidden = true;
+            moreButton.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+      document.getElementById('logoutButton')?.addEventListener('click', () => {
+        localStorage.removeItem('mct_agency_session');
+        localStorage.removeItem('mct_agency_cart');
+        window.location.href = './login.html';
+      });
     });
   </script>
 </body>

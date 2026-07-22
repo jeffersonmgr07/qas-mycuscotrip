@@ -28,13 +28,24 @@ const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbycmduYce7cpGoMSqR3
 // Mercado Pago Checkout Pro:
 // MERCADOPAGO_ACCESS_TOKEN = access token de Mercado Pago
 const PORTAL_BASE_URL = 'https://mycuscotrip.com/agencias';
-const APP_VERSION = 'paypal-mp-actions-2026-06-17-v7-mp-checkout-pro';
+const APP_VERSION = 'agency-provider-schema-2026-06-18-v8-profile-fields';
 
 
 const AGENCY_HEADERS = [
-  'id','fechaRegistro','estado','emailVerificado','verificationToken','fechaVerificacion',
+  // Identidad y estado
+  'id','fechaRegistro','providerType','registrationType','estado','emailVerificado','verificationToken','fechaVerificacion',
+
+  // Campos nuevos recomendados para proveedores/agencias
+  'country','nationality','documentType','documentNumber',
+  'legalName','taxIdType','taxIdNumber','tradeName',
+  'representativeFirstName','representativeLastName',
+  'phoneCode','phoneNumber','fullPhone','website','accessEmail',
+
+  // Campos antiguos conservados para no romper login, perfil y órdenes existentes
   'pais','tipoFiscal','numeroFiscal','razonSocial','nombreComercial',
   'representanteNombres','representanteApellidos','tipoDocumento','numeroDocumento','celular','correo','web',
+
+  // Seguridad
   'passwordSalt','passwordHash'
 ];
 
@@ -53,9 +64,8 @@ const PAYMENT_HEADERS = [
 function doPost(e) {
   try {
     const body = parseBody_(e);
-    const action = String(body.action || (e && e.parameter && e.parameter.action) || '').trim();
+    const action = String(body.action || '').trim();
     if (!action && body.event_type) return paypalWebhook_(body);
-    if (!action && (body.type === 'payment' || body.topic === 'payment' || body.data || body.resource)) return mercadoPagoWebhook_(body);
     if (action === 'registerAgency') return registerAgency_(body.payload || body.agency || body);
     if (action === 'verifyEmailJson') return verifyEmailJson_(body.token || (body.payload && body.payload.token) || '');
     if (action === 'loginAgency') return loginAgency_(body.email, body.password);
@@ -104,10 +114,88 @@ function doGet(e) {
 
 function registerAgency_(agency) {
   validateConfig_();
+  setupAgencySheets_();
+
   const sheet = getSheet_(SHEET_AGENCIES, AGENCY_HEADERS);
-  const email = String(agency.accessEmail || agency.correo || agency.company?.email || '').trim().toLowerCase();
+
+  const registrationTypeRaw = String(agency.registrationType || agency.tipoRegistro || 'company').trim().toLowerCase();
+  const isCompany = registrationTypeRaw === 'company' || registrationTypeRaw === 'empresa';
+  const registrationType = isCompany ? 'company' : 'natural';
+  const providerType = String(agency.providerType || 'agency').trim().toLowerCase();
+
+  const company = agency.company || {};
+  const representative = agency.legalRepresentative || agency.representative || {};
+
+  const email = String(
+    agency.accessEmail || agency.correo || agency.email || company.email || ''
+  ).trim().toLowerCase();
   if (!email) return json_({ ok:false, message:'Correo requerido.' });
-  if (findRowByEmail_(sheet, email).row > 0) return json_({ ok:false, message:'Ya existe una agencia registrada con ese correo.' });
+
+  const firstName = String(
+    representative.firstName || agency.representanteNombres || agency.firstName || ''
+  ).trim();
+  const lastName = String(
+    representative.lastName || agency.representanteApellidos || agency.lastName || ''
+  ).trim();
+
+  const country = String(company.country || agency.country || agency.pais || '').trim();
+  const nationality = String(representative.nationality || agency.nationality || country || '').trim();
+
+  const documentType = String(
+    representative.docType || agency.documentType || agency.tipoDocumento || ''
+  ).trim();
+  const documentNumber = String(
+    representative.docNumber || agency.documentNumber || agency.numeroDocumento || ''
+  ).trim().toUpperCase();
+
+  const taxIdType = isCompany ? String(
+    company.taxLabel || agency.taxIdType || agency.tipoFiscal || ''
+  ).trim() : '';
+  const taxIdNumber = isCompany ? String(
+    company.taxId || agency.taxIdNumber || agency.numeroFiscal || ''
+  ).trim().toUpperCase() : '';
+
+  const legalName = isCompany
+    ? String(company.legalName || agency.legalName || agency.razonSocial || '').trim()
+    : [firstName, lastName].filter(Boolean).join(' ').trim();
+
+  const tradeName = isCompany ? String(
+    company.tradeName || agency.tradeName || agency.nombreComercial || ''
+  ).trim() : '';
+
+  const phoneCode = String(
+    company.phoneCountry || agency.phoneCode || agency.codigoPais || ''
+  ).trim();
+  const phoneNumber = String(
+    company.phoneNumber || agency.phoneNumber || agency.celular || company.phone || ''
+  ).replace(/[^0-9]/g, '').trim();
+  const fullPhone = normalizeFullPhone_(phoneCode, phoneNumber, company.phone || agency.fullPhone || agency.accessPhone || '');
+  const website = String(company.website || agency.website || agency.web || '').trim();
+
+  if (!firstName || !lastName) {
+    return json_({ ok:false, message:'Ingresa nombres y apellidos del representante.' });
+  }
+
+  if (!documentType || !documentNumber) {
+    return json_({ ok:false, message:'Ingresa tipo y número de documento de la persona registrada o representante.' });
+  }
+
+  if (registrationType === 'company') {
+    if (!legalName || !taxIdNumber || !tradeName) {
+      return json_({ ok:false, message:'Para empresa debes ingresar razón social, identificación fiscal y nombre comercial.' });
+    }
+  }
+
+  if (!phoneNumber || phoneNumber.length < 6) {
+    return json_({ ok:false, message:'Ingresa un número de WhatsApp válido.' });
+  }
+
+  const duplicate = findAgencyDuplicate_(sheet, {
+    email: email,
+    documentNumber: documentNumber,
+    taxIdNumber: taxIdNumber
+  });
+  if (duplicate.found) return json_({ ok:false, message: duplicate.message });
 
   const password = String(agency.password || '');
   const passwordError = validatePassword_(password);
@@ -121,27 +209,48 @@ function registerAgency_(agency) {
   appendObjectRow_(sheet, {
     id: id,
     fechaRegistro: new Date(),
-    estado: 'Aprobado',
+    providerType: providerType,
+    registrationType: registrationType,
+    estado: agency.status || 'Aprobado',
     emailVerificado: 'No',
     verificationToken: token,
     fechaVerificacion: '',
-    pais: agency.company?.country || agency.pais || '',
-    tipoFiscal: agency.company?.taxLabel || agency.tipoFiscal || '',
-    numeroFiscal: agency.company?.taxId || agency.numeroFiscal || '',
-    razonSocial: agency.company?.legalName || agency.razonSocial || '',
-    nombreComercial: agency.company?.tradeName || agency.nombreComercial || '',
-    representanteNombres: agency.legalRepresentative?.firstName || agency.representanteNombres || '',
-    representanteApellidos: agency.legalRepresentative?.lastName || agency.representanteApellidos || '',
-    tipoDocumento: agency.legalRepresentative?.docType || agency.tipoDocumento || '',
-    numeroDocumento: agency.legalRepresentative?.docNumber || agency.numeroDocumento || '',
-    celular: phoneForSheet_(agency.accessPhone || agency.celular || agency.company?.phone || ''),
+
+    country: country,
+    nationality: nationality,
+    documentType: documentType,
+    documentNumber: documentNumber,
+    legalName: legalName,
+    taxIdType: taxIdType,
+    taxIdNumber: taxIdNumber,
+    tradeName: tradeName,
+    representativeFirstName: firstName,
+    representativeLastName: lastName,
+    phoneCode: phoneCode,
+    phoneNumber: phoneNumber,
+    fullPhone: fullPhone,
+    website: website,
+    accessEmail: email,
+
+    // Compatibilidad con las columnas antiguas usadas por login/perfil/órdenes.
+    pais: country || nationality,
+    tipoFiscal: taxIdType,
+    numeroFiscal: taxIdNumber,
+    razonSocial: legalName,
+    nombreComercial: tradeName || legalName,
+    representanteNombres: firstName,
+    representanteApellidos: lastName,
+    tipoDocumento: documentType,
+    numeroDocumento: documentNumber,
+    celular: fullPhone,
     correo: email,
-    web: agency.company?.website || agency.web || '',
+    web: website,
+
     passwordSalt: salt,
     passwordHash: hash
   });
 
-  sendVerificationEmail_(email, agency.company?.tradeName || agency.company?.legalName || agency.nombreComercial || 'agencia', token);
+  sendVerificationEmail_(email, tradeName || legalName || 'agencia', token);
   return json_({ ok:true, message:'Registro recibido. Te enviamos un correo para verificar tu email. Después de verificarlo, podrás ingresar al portal con tu correo y contraseña.' });
 }
 
@@ -319,7 +428,26 @@ function getAgencyProfile_(email, agencyId) {
   const data = found.data;
   return json_({ ok:true, profile:{
     id:data.id,
+    providerType:data.providerType || 'agency',
+    registrationType:data.registrationType || '',
     estado:data.estado,
+    country:data.country || data.pais,
+    nationality:data.nationality || data.pais,
+    documentType:data.documentType || data.tipoDocumento,
+    documentNumber:data.documentNumber || data.numeroDocumento,
+    legalName:data.legalName || data.razonSocial,
+    taxIdType:data.taxIdType || data.tipoFiscal,
+    taxIdNumber:data.taxIdNumber || data.numeroFiscal,
+    tradeName:data.tradeName || data.nombreComercial,
+    representativeFirstName:data.representativeFirstName || data.representanteNombres,
+    representativeLastName:data.representativeLastName || data.representanteApellidos,
+    phoneCode:data.phoneCode || '',
+    phoneNumber:data.phoneNumber || '',
+    fullPhone:data.fullPhone || data.celular,
+    website:data.website || data.web,
+    accessEmail:data.accessEmail || data.correo,
+
+    // Compatibilidad antigua
     pais:data.pais,
     tipoFiscal:data.tipoFiscal,
     numeroFiscal:data.numeroFiscal,
@@ -337,13 +465,62 @@ function getAgencyProfile_(email, agencyId) {
 
 function updateAgencyProfile_(payload) {
   validateConfig_();
+  setupAgencySheets_();
   const sheet = getSheet_(SHEET_AGENCIES, AGENCY_HEADERS);
   const account = payload.account || {};
   const found = findAgencyRow_(sheet, account.email || payload.email || '', account.agencyId || payload.agencyId || '');
   if (found.row < 1) return json_({ ok:false, message:'No encontramos la agencia.' });
+
+  const data = found.data || {};
+  const registrationType = String(data.registrationType || payload.registrationType || '').trim().toLowerCase();
+  const isCompany = registrationType === 'company' || registrationType === 'empresa' || Boolean(data.taxIdNumber || data.numeroFiscal);
   const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(String);
-  setCellByHeader_(sheet, found.row, headers, 'celular', phoneForSheet_(payload.celular || ''));
-  setCellByHeader_(sheet, found.row, headers, 'web', payload.web || '');
+
+  const phoneCode = String(payload.phoneCode || '').replace(/[^0-9+]/g, '').trim();
+  const phoneNumber = String(payload.phoneNumber || '').replace(/[^0-9]/g, '').trim();
+  const fullPhone = normalizeFullPhone_(phoneCode, phoneNumber, payload.fullPhone || payload.celular || '');
+  const website = String(payload.website || payload.web || '').trim();
+
+  if (phoneNumber && phoneNumber.length < 6) {
+    return json_({ ok:false, message:'El número de WhatsApp debe tener al menos 6 dígitos.' });
+  }
+
+  // Campos comunes editables.
+  setCellByHeader_(sheet, found.row, headers, 'phoneCode', phoneCode);
+  setCellByHeader_(sheet, found.row, headers, 'phoneNumber', phoneNumber);
+  setCellByHeader_(sheet, found.row, headers, 'fullPhone', fullPhone);
+  setCellByHeader_(sheet, found.row, headers, 'website', website);
+  setCellByHeader_(sheet, found.row, headers, 'celular', phoneForSheet_(fullPhone));
+  setCellByHeader_(sheet, found.row, headers, 'web', website);
+
+  if (isCompany) {
+    // La empresa sí puede actualizar nombre comercial y datos del representante.
+    const tradeName = String(payload.tradeName || '').trim();
+    const representativeFirstName = String(payload.representativeFirstName || '').trim();
+    const representativeLastName = String(payload.representativeLastName || '').trim();
+    const representativeNationality = String(payload.representativeNationality || payload.nationality || '').trim();
+    const documentType = String(payload.documentType || '').trim();
+    const documentNumber = String(payload.documentNumber || '').trim().toUpperCase();
+
+    if (!tradeName) return json_({ ok:false, message:'El nombre comercial no puede quedar vacío.' });
+    if (!representativeFirstName || !representativeLastName) return json_({ ok:false, message:'Ingresa nombres y apellidos del representante.' });
+    if (!documentType || !documentNumber) return json_({ ok:false, message:'Ingresa tipo y número de documento del representante.' });
+
+    setCellByHeader_(sheet, found.row, headers, 'tradeName', tradeName);
+    setCellByHeader_(sheet, found.row, headers, 'nombreComercial', tradeName);
+    setCellByHeader_(sheet, found.row, headers, 'representativeFirstName', representativeFirstName);
+    setCellByHeader_(sheet, found.row, headers, 'representativeLastName', representativeLastName);
+    setCellByHeader_(sheet, found.row, headers, 'representanteNombres', representativeFirstName);
+    setCellByHeader_(sheet, found.row, headers, 'representanteApellidos', representativeLastName);
+    setCellByHeader_(sheet, found.row, headers, 'nationality', representativeNationality);
+    setCellByHeader_(sheet, found.row, headers, 'documentType', documentType);
+    setCellByHeader_(sheet, found.row, headers, 'documentNumber', documentNumber);
+    setCellByHeader_(sheet, found.row, headers, 'tipoDocumento', documentType);
+    setCellByHeader_(sheet, found.row, headers, 'numeroDocumento', documentNumber);
+  }
+
+  // No se actualizan aquí: correo de acceso, razón social/nombre fiscal, identificación fiscal,
+  // ni identidad de persona natural. Esos cambios requieren validación manual.
   return json_({ ok:true, message:'Datos actualizados correctamente.' });
 }
 
@@ -454,7 +631,7 @@ function createPayPalOrder_(payload) {
     }],
     application_context: {
       brand_name: BRAND_NAME,
-      landing_page: 'LOGIN',
+      landing_page: 'BILLING',
       user_action: 'PAY_NOW',
       return_url: returnUrl,
       cancel_url: cancelUrl
@@ -469,7 +646,10 @@ function createPayPalOrder_(payload) {
   });
   const data = JSON.parse(res.getContentText() || '{}');
   if (res.getResponseCode() >= 300 || !data.id) return json_({ ok:false, message:'PayPal no creó la orden: ' + res.getContentText() });
-  const approval = (data.links || []).find(function(l){ return l.rel === 'approve'; });
+  const approval = (data.links || []).find(function(l){ return l.rel === 'payer-action'; }) ||
+    (data.links || []).find(function(l){ return l.rel === 'approve'; }) ||
+    (data.links || []).find(function(l){ return l.rel === 'approval_url'; }) ||
+    (data.links || []).find(function(l){ return String(l.href || '').indexOf('/checkoutnow') >= 0; });
   const headers = order.headers;
   setCellByHeader_(order.sheet, order.row, headers, 'paypalOrderId', data.id);
   setCellByHeader_(order.sheet, order.row, headers, 'paypalStatus', data.status || 'CREATED');
@@ -580,22 +760,6 @@ function mercadoPagoConfig_() {
   return { accessToken: accessToken, apiBase: 'https://api.mercadopago.com' };
 }
 
-function mercadoPagoCheckoutUrl_(data, accessToken) {
-  const isTestToken = String(accessToken || '').indexOf('TEST-') === 0;
-  if (isTestToken && data.sandbox_init_point) return data.sandbox_init_point;
-  if (data.init_point) return data.init_point;
-  return data.sandbox_init_point || '';
-}
-
-function mercadoPagoPaymentIdFromEvent_(event) {
-  if (!event) return '';
-  if (event.data && event.data.id) return String(event.data.id);
-  if (event.resource && String(event.resource).match(/\/v1\/payments\//)) {
-    return String(event.resource).split('/').pop();
-  }
-  return String(event.id || event.payment_id || event.collection_id || '').trim();
-}
-
 function createMercadoPagoPreference_(payload) {
   validateConfig_();
   const code = String(payload.code || '').replace(/[^A-Za-z0-9]/g, '');
@@ -655,10 +819,6 @@ function createMercadoPagoPreference_(payload) {
       pending: returnBase + '&result=pending'
     },
     auto_return: 'approved',
-    notification_url: WEB_APP_URL + '&action=mercadoPagoWebhook',
-    expires: true,
-    expiration_date_from: new Date().toISOString(),
-    expiration_date_to: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString(),
     statement_descriptor: 'MYCUSCOTRIP',
     metadata: {
       codigo_orden: code,
@@ -692,24 +852,25 @@ function createMercadoPagoPreference_(payload) {
   setCellByHeader_(order.sheet, order.row, order.headers, 'mercadoPagoStatus', 'preference_created');
   if (deviceId) setCellByHeader_(order.sheet, order.row, order.headers, 'mercadoPagoDeviceId', deviceId);
 
-  const checkoutUrl = mercadoPagoCheckoutUrl_(data, cfg.accessToken);
   return json_({
     ok:true,
     mercadoPagoPreferenceId:data.id,
-    initPoint:checkoutUrl,
-    sandboxInitPoint:data.sandbox_init_point || '',
-    productionInitPoint:data.init_point || '',
+    initPoint:data.init_point || data.sandbox_init_point || '',
     status:'preference_created'
   });
 }
 
 function confirmMercadoPagoPayment_(payload) {
   validateConfig_();
-  let code = String(payload.code || '').replace(/[^A-Za-z0-9]/g, '');
+  const code = String(payload.code || '').replace(/[^A-Za-z0-9]/g, '');
   const paymentId = String(payload.paymentId || payload.payment_id || payload.collection_id || '').trim();
+  if (!code) return json_({ ok:false, message:'Código de orden requerido.' });
   if (!paymentId || paymentId === 'null' || paymentId === 'undefined') {
     return json_({ ok:false, message:'No encontramos el ID de pago de Mercado Pago para confirmar la orden.' });
   }
+
+  const order = findOrderByCode_(code);
+  if (!order) return json_({ ok:false, message:'No encontramos la orden en Google Sheets.' });
 
   const cfg = mercadoPagoConfig_();
   const res = UrlFetchApp.fetch(cfg.apiBase + '/v1/payments/' + encodeURIComponent(paymentId), {
@@ -724,12 +885,6 @@ function confirmMercadoPagoPayment_(payload) {
 
   const status = String(data.status || '').toLowerCase();
   const externalReference = String(data.external_reference || '').replace(/[^A-Za-z0-9]/g, '');
-  if (!code && externalReference) code = externalReference;
-  if (!code) return json_({ ok:false, message:'No encontramos el código interno de la orden en Mercado Pago.' });
-
-  const order = findOrderByCode_(code);
-  if (!order) return json_({ ok:false, message:'No encontramos la orden en Google Sheets.' });
-
   if (externalReference && externalReference !== code) {
     return json_({ ok:false, message:'El pago de Mercado Pago no coincide con el código interno de la orden.' });
   }
@@ -737,19 +892,16 @@ function confirmMercadoPagoPayment_(payload) {
   if (status === 'approved') {
     markOrderPaidMercadoPago_(code, paymentId, data.status || 'approved');
     sendMercadoPagoPaidEmail_(order.data, paymentId, data.status || 'approved');
-    return json_({ ok:true, message:'Pago confirmado correctamente. La orden fue marcada como Pagada.', status:data.status || 'approved', paymentId:paymentId, code:code });
+    return json_({ ok:true, message:'Pago confirmado correctamente. La orden fue marcada como Pagada.', status:data.status || 'approved', paymentId:paymentId });
   }
 
   updateOrderMercadoPagoStatus_(code, paymentId, data.status || status);
-  return json_({ ok:false, message:'El pago no quedó aprobado. Estado Mercado Pago: ' + (data.status || status), status:data.status || status, paymentId:paymentId, code:code });
+  return json_({ ok:false, message:'El pago no quedó aprobado. Estado Mercado Pago: ' + (data.status || status), status:data.status || status });
 }
 
 function mercadoPagoWebhook_(event) {
-  const paymentId = mercadoPagoPaymentIdFromEvent_(event);
-  if (!paymentId) {
-    return json_({ ok:true, message:'Webhook Mercado Pago recibido sin payment ID.', topic:event && event.type ? event.type : '' });
-  }
-  return confirmMercadoPagoPayment_({ paymentId: paymentId });
+  // Apps Script no es ideal para validar headers de webhooks. Se deja como registro informativo.
+  return json_({ ok:true, message:'Webhook Mercado Pago recibido. Usa confirmMercadoPagoPayment para confirmar pagos desde el retorno.', topic:event && event.type ? event.type : '' });
 }
 
 function markOrderPaidMercadoPago_(code, paymentId, status) {
@@ -788,6 +940,85 @@ function parseJsonSafe_(value, fallback) {
   }
 }
 
+function setupAgencySheets_() {
+  // Ejecuta esta función una vez desde el editor de Apps Script.
+  // También se ejecuta automáticamente al registrar una agencia.
+  getSheet_(SHEET_AGENCIES, AGENCY_HEADERS);
+  getSheet_(SHEET_ORDERS, ORDER_HEADERS);
+  getSheet_(SHEET_PAYMENTS, PAYMENT_HEADERS);
+  return 'Hojas y columnas verificadas correctamente.';
+}
+
+function setupAgencySheets() {
+  // Alias visible en el selector de funciones de Apps Script.
+  return setupAgencySheets_();
+}
+
+function normalizeFullPhone_(phoneCode, phoneNumber, fallback) {
+  const code = String(phoneCode || '').replace(/[^0-9]/g, '').trim();
+  const number = String(phoneNumber || '').replace(/[^0-9]/g, '').trim();
+  if (code && number) return "'" + '+' + code + ' ' + number;
+  if (number) return "'" + number;
+  const raw = String(fallback || '').replace(/^'+/, '').trim();
+  return raw ? phoneForSheet_(raw) : '';
+}
+
+function cleanComparable_(value) {
+  return String(value || '')
+    .replace(/^'/, '')
+    .replace(/[^A-Za-z0-9]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+function findAgencyDuplicate_(sheet, data) {
+  const values = sheet.getDataRange().getValues();
+  if (values.length < 2) return { found:false };
+  const headers = values[0].map(String);
+
+  const emailColumns = ['correo','accessEmail'];
+  const docColumns = ['numeroDocumento','documentNumber'];
+  const taxColumns = ['numeroFiscal','taxIdNumber'];
+
+  const targetEmail = String(data.email || '').trim().toLowerCase();
+  const targetDoc = cleanComparable_(data.documentNumber);
+  const targetTax = cleanComparable_(data.taxIdNumber);
+
+  for (let i = 1; i < values.length; i++) {
+    for (const col of emailColumns) {
+      const idx = headers.indexOf(col);
+      if (idx >= 0 && targetEmail) {
+        const rowEmail = String(values[i][idx] || '').replace(/^'/, '').trim().toLowerCase();
+        if (rowEmail && rowEmail === targetEmail) {
+          return { found:true, message:'Ya existe una agencia registrada con ese correo.' };
+        }
+      }
+    }
+
+    for (const col of docColumns) {
+      const idx = headers.indexOf(col);
+      if (idx >= 0 && targetDoc) {
+        const rowDoc = cleanComparable_(values[i][idx]);
+        if (rowDoc && rowDoc === targetDoc) {
+          return { found:true, message:'Ya existe una agencia registrada con ese número de documento.' };
+        }
+      }
+    }
+
+    for (const col of taxColumns) {
+      const idx = headers.indexOf(col);
+      if (idx >= 0 && targetTax) {
+        const rowTax = cleanComparable_(values[i][idx]);
+        if (rowTax && rowTax === targetTax) {
+          return { found:true, message:'Ya existe una agencia registrada con ese número fiscal.' };
+        }
+      }
+    }
+  }
+
+  return { found:false };
+}
+
 function findAgencyRow_(sheet, email, agencyId) {
   const values = sheet.getDataRange().getValues();
   if (values.length < 2) return { row:-1, data:null };
@@ -810,7 +1041,7 @@ function findAgencyRow_(sheet, email, agencyId) {
 
 function sheetSafeValue_(headerName, value) {
   if (value === null || value === undefined) return '';
-  const textHeaders = ['celular','numeroFiscal','numeroDocumento','correo','web'];
+  const textHeaders = ['celular','numeroFiscal','numeroDocumento','correo','web','phoneCode','phoneNumber','fullPhone','taxIdNumber','documentNumber','accessEmail','website'];
   if (textHeaders.indexOf(headerName) >= 0) {
     const raw = String(value).trim();
     // Evita que Google Sheets interprete teléfonos con + como fórmulas y muestre #ERROR!.
@@ -825,7 +1056,7 @@ function setCellByHeader_(sheet, row, headers, headerName, value) {
   const idx = headers.indexOf(headerName);
   if (idx >= 0) {
     const range = sheet.getRange(row, idx + 1);
-    if (['celular','numeroFiscal','numeroDocumento','correo','web'].indexOf(headerName) >= 0) range.setNumberFormat('@');
+    if (['celular','numeroFiscal','numeroDocumento','correo','web','phoneCode','phoneNumber','fullPhone','taxIdNumber','documentNumber','accessEmail','website'].indexOf(headerName) >= 0) range.setNumberFormat('@');
     range.setValue(sheetSafeValue_(headerName, value));
   }
 }

@@ -1,5 +1,5 @@
 (function () {
-  const SUPPORTED = ['es', 'en', 'pt', 'fr', 'de', 'it', 'ja', 'zh'];
+  const SUPPORTED = ['es', 'en'];
   const params = new URLSearchParams(window.location.search);
   const pathLang = (window.location.pathname.split('/').filter(Boolean)[0] || '').toLowerCase();
   const requested = (params.get('lang') || (SUPPORTED.includes(pathLang) ? pathLang : '') || localStorage.getItem('site_lang') || 'es').toLowerCase();
@@ -403,13 +403,13 @@
       fallback = vars;
       replacements = null;
     }
-    const value = (dictionaries[lang] && dictionaries[lang][key]) || (lang === 'en' && dictionaries.en && dictionaries.en[key]) || (dictionaries.es && dictionaries.es[key]) || fallback;
+    const value = (dictionaries[lang] && dictionaries[lang][key]) || fallback;
     if (!replacements || typeof replacements !== 'object') return value;
     return Object.entries(replacements).reduce((txt, [k, v]) => txt.replaceAll(`{${k}}`, v), value);
   };
 
   function field(obj, name) {
-    if (!obj || lang === 'es' || lang !== 'en') return obj ? obj[name] : '';
+    if (!obj || lang === 'es') return obj ? obj[name] : '';
     const translated = obj[`${name}_en`];
     return translated !== undefined && translated !== null && translated !== '' ? translated : obj[name];
   }

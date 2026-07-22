@@ -4,9 +4,13 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const readJSON = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; } };
   const writeJSON = (key, value) => localStorage.setItem(key, JSON.stringify(value));
-  const show = (id, message, type = 'is-error') => { const el = $(id); el.textContent = message; el.className = `form-message ${type}`; el.hidden = false; };
+  const show = (id, message, type = 'is-error') => { const el = $(id); if (!el) return; el.innerHTML = type === 'is-success' ? `<i class="fa-solid fa-circle-check"></i> ${message}` : message; el.className = `form-message ${type}`; el.hidden = false; };
   const I18N = window.MCTAgenciesI18n || null;
   const t = (key, fallback = key) => I18N?.t ? I18N.t(key) : fallback;
+
+  const COUNTRIES = [
+    ['PE','Perú','51'], ['MX','México','52'], ['CL','Chile','56'], ['CO','Colombia','57'], ['BR','Brasil','55'], ['AR','Argentina','54'], ['BO','Bolivia','591'], ['EC','Ecuador','593'], ['UY','Uruguay','598'], ['PY','Paraguay','595'], ['VE','Venezuela','58'], ['US','Estados Unidos','1'], ['CA','Canadá','1'], ['ES','España','34'], ['GB','Reino Unido','44'], ['FR','Francia','33'], ['DE','Alemania','49'], ['IT','Italia','39'], ['JP','Japón','81'], ['KR','Corea del Sur','82'], ['CN','China','86'], ['OTHER','Otro país','51']
+  ];
 
   function requireSession() {
     const session = readJSON(SESSION_KEY, null);
@@ -24,16 +28,33 @@
     try { return JSON.parse(text); } catch { return { ok:false, message:'No se pudo leer la respuesta del servidor.' }; }
   }
 
+  function fillCountrySelect(select, selected = 'PE') {
+    if (!select) return;
+    select.innerHTML = COUNTRIES.map(([code, label]) => `<option value="${code}">${label}</option>`).join('');
+    select.value = selected || 'PE';
+  }
+
+  function fillPhoneSelect(select, selected = '51') {
+    if (!select) return;
+    const seen = new Set();
+    select.innerHTML = COUNTRIES.filter(([, , phone]) => {
+      if (seen.has(phone)) return false;
+      seen.add(phone);
+      return true;
+    }).map(([, label, phone]) => `<option value="${phone}">${label} +${phone}</option>`).join('');
+    select.value = String(selected || '51').replace(/\D/g, '') || '51';
+  }
+
   function validPassword(password) {
     if (!password || password.length < 8) return false;
     return /[A-Za-zÁÉÍÓÚáéíóúÑñ]/.test(password) && /\d/.test(password) && /[^A-Za-zÁÉÍÓÚáéíóúÑñ0-9]/.test(password);
   }
 
-  function splitPhone(value = '') {
+  function splitPhone(value = '', codeFallback = '') {
     const clean = String(value || '').replace(/^'+/, '').replace(/^\+/, '').replace(/[^0-9 ]/g, '').trim();
     const compact = clean.replace(/\s+/g, '');
-    const codes = ['591','593','51','52','56','55','57','54','34','44','33','49','39','81','82','86','1'];
-    const code = codes.find((c) => compact.startsWith(c)) || '51';
+    const codes = COUNTRIES.map(([, , phone]) => phone).sort((a,b) => b.length - a.length);
+    const code = String(codeFallback || '').replace(/\D/g, '') || codes.find((c) => compact.startsWith(c)) || '51';
     const number = compact.startsWith(code) ? compact.slice(code.length) : compact;
     return { code, number };
   }
@@ -44,17 +65,21 @@
     return `${code}${number}`.trim();
   }
 
-  function updatePasswordChecklist() {
+  function passwordRules() {
     const value = $('#newPassword')?.value || '';
-    const checks = {
+    const confirm = $('#confirmPassword')?.value || '';
+    return {
       length: value.length >= 8,
       letter: /[A-Za-zÁÉÍÓÚáéíóúÑñ]/.test(value),
       number: /\d/.test(value),
-      special: /[^A-Za-zÁÉÍÓÚáéíóúÑñ0-9]/.test(value)
+      special: /[^A-Za-zÁÉÍÓÚáéíóúÑñ0-9]/.test(value),
+      match: Boolean(value) && value === confirm
     };
-    Object.entries(checks).forEach(([key, ok]) => {
-      const el = `[data-check="${key}"]`;
-      const item = $(el);
+  }
+
+  function updatePasswordChecklist() {
+    Object.entries(passwordRules()).forEach(([key, ok]) => {
+      const item = $(`[data-check="${key}"]`);
       if (item) item.classList.toggle('is-ok', ok);
     });
   }
@@ -64,50 +89,146 @@
       button.addEventListener('click', () => {
         const input = document.getElementById(button.dataset.togglePassword);
         if (!input) return;
-        const show = input.type === 'password';
-        input.type = show ? 'text' : 'password';
-        button.textContent = show ? t('login.hide', 'Ocultar') : t('login.show', 'Ver');
+        const shouldShow = input.type === 'password';
+        input.type = shouldShow ? 'text' : 'password';
+        button.textContent = shouldShow ? t('login.hide', 'Ocultar') : t('login.show', 'Ver');
       });
     });
     $('#newPassword')?.addEventListener('input', updatePasswordChecklist);
+    $('#confirmPassword')?.addEventListener('input', updatePasswordChecklist);
     updatePasswordChecklist();
+  }
+
+  let currentProfile = null;
+  let editing = false;
+
+  function setValue(selector, value) { const el = $(selector); if (el) el.value = value || ''; }
+
+  function isCompanyProfile() {
+    const type = String(currentProfile?.registrationType || '').toLowerCase();
+    return type === 'company' || type === 'empresa' || Boolean(currentProfile?.taxIdNumber || currentProfile?.numeroFiscal);
+  }
+
+  function applyVisibility() {
+    const isCompany = isCompanyProfile();
+    document.querySelectorAll('[data-company-only]').forEach((el) => { el.hidden = !isCompany; });
+    $('#profileFirstNameLabel').textContent = isCompany ? 'Nombres del representante' : 'Nombres';
+    $('#profileLastNameLabel').textContent = isCompany ? 'Apellidos del representante' : 'Apellidos';
+    $('#profileRegistrationType').value = isCompany ? 'Empresa' : 'Persona natural';
+  }
+
+  function canEditField(el) {
+    if (!el) return false;
+    const mode = el.dataset.editable;
+    if (mode === 'common') return true;
+    if (mode === 'company') return isCompanyProfile();
+    if (mode === 'representative') return isCompanyProfile();
+    return false;
+  }
+
+  function setEditMode(state) {
+    editing = state;
+    document.querySelectorAll('#profileForm input, #profileForm select').forEach((el) => {
+      el.disabled = !(state && canEditField(el));
+    });
+    $('.profile-edit-actions').hidden = !state;
+    $('#editProfileButton').hidden = state;
+  }
+
+  function populateProfile(profile, session) {
+    currentProfile = profile;
+    applyVisibility();
+    setValue('#profileStatus', profile.estado || session.estado || '');
+    setValue('#profileCountry', profile.country || profile.pais || 'PE');
+    setValue('#profileTaxIdType', profile.taxIdType || profile.tipoFiscal || '');
+    setValue('#profileTaxIdNumber', profile.taxIdNumber || profile.numeroFiscal || '');
+    setValue('#profileLegalName', profile.legalName || profile.razonSocial || '');
+    setValue('#profileTradeName', profile.tradeName || profile.nombreComercial || '');
+    setValue('#profileRepresentativeFirstName', profile.representativeFirstName || profile.representanteNombres || '');
+    setValue('#profileRepresentativeLastName', profile.representativeLastName || profile.representanteApellidos || '');
+    setValue('#profileRepresentativeNationality', profile.nationality || profile.pais || 'PE');
+    setValue('#profileRepresentativeDocType', profile.documentType || profile.tipoDocumento || '');
+    setValue('#profileRepresentativeDocNumber', profile.documentNumber || profile.numeroDocumento || '');
+    setValue('#profileEmail', profile.accessEmail || profile.correo || session.email || '');
+    const phone = splitPhone(profile.fullPhone || profile.celular || '', profile.phoneCode || '');
+    setValue('#profilePhoneCountry', phone.code);
+    setValue('#profilePhone', profile.phoneNumber || phone.number || '');
+    setValue('#profileWeb', profile.website || profile.web || '');
+    setEditMode(false);
+  }
+
+  function buildProfilePayload(session) {
+    const isCompany = isCompanyProfile();
+    return {
+      account: session,
+      registrationType: isCompany ? 'company' : 'natural',
+      tradeName: $('#profileTradeName')?.value.trim() || '',
+      representativeFirstName: $('#profileRepresentativeFirstName')?.value.trim() || '',
+      representativeLastName: $('#profileRepresentativeLastName')?.value.trim() || '',
+      representativeNationality: $('#profileRepresentativeNationality')?.value || '',
+      documentType: $('#profileRepresentativeDocType')?.value || '',
+      documentNumber: $('#profileRepresentativeDocNumber')?.value.trim() || '',
+      phoneCode: $('#profilePhoneCountry')?.value || '',
+      phoneNumber: $('#profilePhone')?.value.replace(/\D/g, '') || '',
+      fullPhone: fullPhone(),
+      website: $('#profileWeb')?.value.trim() || '',
+      celular: fullPhone(),
+      web: $('#profileWeb')?.value.trim() || ''
+    };
   }
 
   async function init() {
     const session = requireSession();
     if (!session) return;
-    $('#profileCompany').value = session.companyName || '';
-    $('#profileEmail').value = session.email || '';
+    fillCountrySelect($('#profileCountry'), 'PE');
+    fillCountrySelect($('#profileRepresentativeNationality'), 'PE');
+    fillPhoneSelect($('#profilePhoneCountry'), '51');
     bindPasswordToggles();
+
     try {
       const result = await callApps('getAgencyProfile', { account: session });
-      if (result.ok && result.profile) {
-        $('#profileCompany').value = result.profile.nombreComercial || result.profile.razonSocial || session.companyName || '';
-        const phone = splitPhone(result.profile.celular || '');
-        if ($('#profilePhoneCountry')) $('#profilePhoneCountry').value = phone.code;
-        $('#profilePhone').value = phone.number;
-        $('#profileWeb').value = result.profile.web || '';
-      }
-    } catch (error) { console.warn(error); }
+      if (result.ok && result.profile) populateProfile(result.profile, session);
+      else populateProfile({ accessEmail: session.email, tradeName: session.companyName }, session);
+    } catch (error) {
+      console.warn(error);
+      populateProfile({ accessEmail: session.email, tradeName: session.companyName }, session);
+    }
 
-    $('#profileForm').addEventListener('submit', async (event) => {
+    $('#editProfileButton')?.addEventListener('click', () => setEditMode(true));
+    $('#cancelProfileEdit')?.addEventListener('click', () => populateProfile(currentProfile || {}, session));
+    $('#profilePhone')?.addEventListener('input', (event) => { event.target.value = event.target.value.replace(/\D+/g, ''); });
+
+    $('#profileForm')?.addEventListener('submit', async (event) => {
       event.preventDefault();
+      if (!editing) return;
       const button = event.submitter;
+      const originalText = button?.textContent || t('profile.saveChanges', 'Guardar cambios');
       button.disabled = true;
       button.textContent = t('profile.saving', 'Guardando...');
       try {
-        const result = await callApps('updateAgencyProfile', { account: session, celular: fullPhone(), web: $('#profileWeb').value.trim() });
+        const payload = buildProfilePayload(session);
+        const result = await callApps('updateAgencyProfile', payload);
         if (!result.ok) { show('#profileMessage', result.message || 'No se pudo actualizar.'); return; }
-        const updatedSession = { ...session, phone: fullPhone() };
+        const updatedSession = { ...session, phone: payload.fullPhone, companyName: payload.tradeName || session.companyName };
         writeJSON(SESSION_KEY, updatedSession);
         show('#profileMessage', result.message || 'Datos actualizados correctamente.', 'is-success');
+        currentProfile = { ...(currentProfile || {}), ...payload, fullPhone: payload.fullPhone, website: payload.website };
+        setEditMode(false);
+        setTimeout(() => { const msg = $('#profileMessage'); if (msg) msg.hidden = true; }, 4500);
       } finally {
         button.disabled = false;
-        button.textContent = t('profile.saveChanges', 'Guardar cambios');
+        button.textContent = originalText;
       }
     });
 
-    $('#passwordForm').addEventListener('submit', async (event) => {
+    $('#togglePasswordPanel')?.addEventListener('click', () => {
+      const form = $('#passwordForm');
+      const isHidden = form.hidden;
+      form.hidden = !isHidden;
+      $('#togglePasswordPanel').innerHTML = isHidden ? '<i class="fa-solid fa-xmark"></i> Ocultar cambio' : '<i class="fa-solid fa-key"></i> Cambiar contraseña';
+    });
+
+    $('#passwordForm')?.addEventListener('submit', async (event) => {
       event.preventDefault();
       const currentPassword = $('#currentPassword').value;
       const newPassword = $('#newPassword').value;
@@ -115,6 +236,7 @@
       if (newPassword !== confirmPassword) { show('#passwordMessage', 'La confirmación no coincide.'); return; }
       if (!validPassword(newPassword)) { show('#passwordMessage', 'La nueva contraseña debe tener mínimo 8 caracteres, una letra, un número y un carácter especial.'); return; }
       const button = event.submitter;
+      const originalText = button.textContent;
       button.disabled = true;
       button.textContent = t('profile.updating', 'Actualizando...');
       try {
@@ -123,11 +245,13 @@
         show('#passwordMessage', result.message || 'Contraseña actualizada correctamente.', 'is-success');
         event.target.reset();
         updatePasswordChecklist();
+        setTimeout(() => { const msg = $('#passwordMessage'); if (msg) msg.hidden = true; }, 4500);
       } finally {
         button.disabled = false;
-        button.textContent = t('profile.updatePassword', 'Actualizar contraseña');
+        button.textContent = originalText;
       }
     });
   }
+
   document.addEventListener('DOMContentLoaded', init);
 })();

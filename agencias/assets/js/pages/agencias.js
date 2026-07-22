@@ -103,6 +103,35 @@
   }
 
 
+
+
+  function updateCurrencyMenu() {
+    const button = $('#currencyMenuButton');
+    const select = $('#currencySelect');
+    if (select) select.value = state.currency;
+    if (button) button.innerHTML = `${state.currency === 'USD' ? 'USD' : 'PEN'} <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>`;
+    $$('[data-currency-option]').forEach((option) => {
+      option.classList.toggle('is-active', option.dataset.currencyOption === state.currency);
+      option.setAttribute('aria-selected', String(option.dataset.currencyOption === state.currency));
+    });
+  }
+
+  function setCurrency(currency) {
+    state.currency = String(currency || 'PEN').toUpperCase() === 'USD' ? 'USD' : 'PEN';
+    localStorage.setItem('mct_visible_currency', state.currency);
+    updateCurrencyMenu();
+    renderExperiences();
+    renderCart();
+  }
+
+  function syncLanguageNotice() {
+    const select = $('#leadLanguage');
+    const notice = $('#languageNotice');
+    if (!select || !notice) return;
+    const value = String(select.value || '').trim().toLowerCase();
+    notice.hidden = !value || value === 'español' || value === 'ingles' || value === 'inglés';
+  }
+
   function greetingFor(name = '') {
     const hour = new Date().getHours();
     if (currentLocale() === 'en') {
@@ -136,7 +165,8 @@
       state.currency = country === 'PE' || country === 'PERU' || country === 'PERÚ' ? 'PEN' : 'USD';
       localStorage.setItem('mct_visible_currency', state.currency);
     }
-    $('#currencySelect').value = state.currency;
+    if ($('#currencySelect')) $('#currencySelect').value = state.currency;
+    updateCurrencyMenu();
     if ($('#exchangeRateInput')) $('#exchangeRateInput').value = state.exchangeRate.toFixed(2);
     $('#serviceDate').min = tomorrowISO();
     $('#serviceDate').value = tomorrowISO();
@@ -168,17 +198,55 @@
 
   function bindEvents() {
     $('#searchInput')?.addEventListener('input', renderExperiences);
-    $('#currencySelect').addEventListener('change', (event) => {
-      state.currency = event.target.value;
-      localStorage.setItem('mct_visible_currency', state.currency);
-      renderExperiences(); renderCart();
+    $('#currencySelect')?.addEventListener('change', (event) => setCurrency(event.target.value));
+    $('#currencyMenuButton')?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const list = $('#currencyMenuList');
+      const isOpen = list && !list.hidden;
+      if (list) list.hidden = isOpen;
+      $('#currencyMenuButton')?.setAttribute('aria-expanded', String(!isOpen));
+    });
+    $$('[data-currency-option]').forEach((button) => button.addEventListener('click', () => {
+      setCurrency(button.dataset.currencyOption);
+      const list = $('#currencyMenuList');
+      if (list) list.hidden = true;
+      $('#currencyMenuButton')?.setAttribute('aria-expanded', 'false');
+    }));
+    $('#moreOptionsButton')?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const list = $('#agencyMoreMenuList');
+      const isOpen = list && !list.hidden;
+      if (list) list.hidden = isOpen;
+      $('#moreOptionsButton')?.setAttribute('aria-expanded', String(!isOpen));
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('#currencyMenu')) {
+        const list = $('#currencyMenuList');
+        if (list) list.hidden = true;
+        $('#currencyMenuButton')?.setAttribute('aria-expanded', 'false');
+      }
+      if (!event.target.closest('#agencyMoreMenu')) {
+        const list = $('#agencyMoreMenuList');
+        if (list) list.hidden = true;
+        $('#moreOptionsButton')?.setAttribute('aria-expanded', 'false');
+      }
     });
     $('#exchangeRateInput')?.addEventListener('input', (event) => {
       state.exchangeRate = Number(event.target.value || CONFIG.defaultExchangeRate);
       localStorage.setItem('mct_exchange_rate', state.exchangeRate);
       renderExperiences(); renderCart();
     });
-    $('#paxCount').addEventListener('input', () => { renderAdditionalPassengers(); renderEntryTickets(findService($('#selectedServiceId').value)); });
+    $('#paxCount')?.addEventListener('input', () => { renderAdditionalPassengers(); renderEntryTickets(findService($('#selectedServiceId').value)); });
+    $$('[data-pax-step]').forEach((button) => button.addEventListener('click', () => {
+      const input = $('#paxCount');
+      if (!input) return;
+      const current = Math.max(1, Number(input.value || 1));
+      const next = Math.min(50, Math.max(1, current + Number(button.dataset.paxStep || 0)));
+      input.value = next;
+      renderAdditionalPassengers();
+      renderEntryTickets(findService($('#selectedServiceId').value));
+    }));
+    $('#leadLanguage')?.addEventListener('change', syncLanguageNotice);
     $('#includeTicketsToggle')?.addEventListener('change', () => renderEntryTickets(findService($('#selectedServiceId').value)));
     $('#logoutButton')?.addEventListener('click', logout);
     $('#reserveForm').addEventListener('submit', addToCart);
@@ -243,6 +311,7 @@
     $('#selectedServiceId').value = id;
     $('#reserveTitle').textContent = `${t('agency.book', 'Reservar')} · ${service.name}`;
     $('#reserveForm').reset();
+    syncLanguageNotice();
     $('#serviceDate').min = tomorrowISO();
     $('#serviceDate').value = tomorrowISO();
     $('#paxCount').value = 2;

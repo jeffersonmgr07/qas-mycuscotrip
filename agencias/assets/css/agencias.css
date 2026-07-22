@@ -327,3 +327,372 @@
 /* English labels for collapsible passenger section */
 html[lang="en"] .tourists-box summary::after{content:'Show more  ▾'!important;}
 html[lang="en"] .tourists-box[open] summary::after{content:'Show less  ▴'!important;}
+
+/* Patch: registro y mis datos agencias v8 */
+.agency-hero--compact{padding:22px 28px!important;border-radius:24px!important;min-height:auto!important;}
+.agency-hero__grid--single{grid-template-columns:1fr!important;}
+.agency-hero--compact h1{font-size:clamp(1.55rem,3vw,2.45rem)!important;margin-bottom:8px!important;color:#fff!important;}
+.agency-hero--compact p{font-size:1rem!important;max-width:820px!important;color:rgba(255,255,255,.9)!important;}
+.auth-card--hotel-style{margin-top:16px!important;}
+.registration-type-toggle{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.registration-type-card{border:1px solid var(--line);border-radius:18px;padding:14px 16px;background:#f8fbf9;cursor:pointer;display:grid;gap:5px;transition:.2s ease;}
+.registration-type-card input{position:absolute;opacity:0;pointer-events:none;}
+.registration-type-card strong{color:var(--primary);font-family:Montserrat,Arial,sans-serif;font-size:1rem;}
+.registration-type-card small{color:var(--muted);font-size:.86rem;line-height:1.35;}
+.registration-type-card.is-active{border-color:#0b7a4e;background:#eef7f1;box-shadow:0 10px 24px rgba(9,43,30,.09);}
+.inline-readonly-group{display:grid;grid-template-columns:minmax(90px,.35fr) 1fr;gap:8px;}
+.profile-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:12px;}
+.profile-card__head h2{margin-bottom:4px!important;}
+.profile-form-grid input:disabled,.profile-form-grid select:disabled{background:#f5f8f6;color:#40544a;opacity:1;cursor:not-allowed;}
+.profile-form-grid input:not(:disabled),.profile-form-grid select:not(:disabled){border-color:#0b7a4e;box-shadow:0 0 0 3px rgba(11,122,78,.08);}
+.profile-locked-note{display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:center;background:#fffaf2;border:1px solid #eadfc9;border-radius:18px;padding:14px 16px;color:#554625;}
+.profile-locked-note strong{color:var(--primary);}
+.profile-locked-note span{font-size:.9rem;}
+.profile-locked-note .agency-button{grid-row:1 / span 2;grid-column:2;white-space:nowrap;}
+.profile-edit-actions[hidden],.password-panel[hidden]{display:none!important;}
+.password-panel{margin-top:12px;}
+.form-message i{margin-right:6px;}
+.mct-form-loader{display:inline-flex;align-items:center;gap:10px;background:#eef7f1;border:1px solid rgba(6,40,3,.14);border-radius:999px;padding:10px 14px;color:var(--primary);font-weight:900;margin:4px 0 0;}
+.mct-form-loader[hidden]{display:none!important;}
+.mct-form-loader__spinner{width:18px;height:18px;border-radius:50%;border:3px solid rgba(6,40,3,.16);border-top-color:#062803;animation:mctSpin .8s linear infinite;}
+@keyframes mctSpin{to{transform:rotate(360deg)}}
+.agency-success-panel{background:#f8fbf9;border:1px solid var(--line);border-radius:24px;padding:26px;text-align:center;box-shadow:0 14px 34px rgba(9,43,30,.08);display:grid;gap:12px;justify-items:center;}
+.agency-success-panel[hidden]{display:none!important;}
+.agency-success-panel__icon{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#eef7f1;color:#0b7a4e;font-size:2rem;}
+.agency-success-panel h2{font-family:Montserrat,Arial,sans-serif;color:var(--primary);margin:0;font-size:1.5rem;}
+.agency-success-panel p{max-width:620px;margin:0;color:#40544a;}
+.agency-success-panel small{color:var(--muted);font-weight:800;}
+@media(max-width:760px){.registration-type-toggle{grid-template-columns:1fr}.profile-card__head{display:grid}.profile-card__head .agency-button{width:100%}.profile-locked-note{grid-template-columns:1fr}.profile-locked-note .agency-button{grid-row:auto;grid-column:auto;width:100%}.inline-readonly-group{grid-template-columns:1fr}.agency-hero--compact{padding:20px!important}}
+
+/* Ajuste v9 registro agencias: comportamiento persona natural / empresa */
+.field.is-disabled-by-type{display:none!important;}
+.agency-register-page #personBlock .form-grid .full{grid-column:1/-1;}
+@media(min-width:761px){
+  .agency-register-page #registerPassword,
+  .agency-register-page #registerPasswordConfirm{min-width:0;}
+}
+
+
+/* Ajuste v10 registro agencias: bloque empresa completo + fondo verde con imagen */
+.agency-register-page{
+  position:relative;
+  min-height:100vh;
+  background:
+    linear-gradient(135deg,rgba(237,247,241,.92),rgba(218,239,226,.88)),
+    url("../../../assets/img/reserva/machu-picchu-fondo.jpg") center/cover fixed no-repeat!important;
+}
+.agency-register-page::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 12%,rgba(255,255,255,.38),transparent 30%),
+    linear-gradient(135deg,rgba(6,40,3,.20),rgba(11,122,78,.12));
+  z-index:0;
+}
+.agency-register-page #header-container,
+.agency-register-page #footer-container,
+.agency-register-page .agency-main{
+  position:relative;
+  z-index:1;
+}
+.agency-register-page .agency-main--narrow{
+  padding-top:92px!important;
+}
+.agency-register-page .auth-card--hotel-style{
+  background:rgba(255,255,255,.94)!important;
+  border-color:rgba(255,255,255,.75)!important;
+  backdrop-filter:blur(8px);
+}
+.agency-register-page .agency-hero--compact{
+  background:
+    radial-gradient(circle at 92% 88%,rgba(198,161,91,.42),transparent 32%),
+    linear-gradient(135deg,rgba(6,40,3,.96),rgba(5,50,32,.92))!important;
+}
+.agency-register-page #companyBlock[hidden],
+.agency-register-page #companyBlock.is-hidden-by-registration-type,
+.agency-register-page .form-block[hidden]{
+  display:none!important;
+}
+@media(max-width:760px){
+  .agency-register-page{
+    background-attachment:scroll!important;
+  }
+  .agency-register-page .agency-main--narrow{
+    padding-top:84px!important;
+  }
+}
+
+/* Ajustes v11: registro móvil, validaciones visuales, panel compacto y modal estable */
+.agency-controls--compact{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:10px!important;
+  flex-wrap:wrap!important;
+}
+.agency-controls--compact > .agency-button,
+.currency-menu__button,
+.agency-more-menu__button{
+  min-height:43px!important;
+  white-space:nowrap!important;
+}
+.currency-menu,.agency-more-menu{position:relative;display:inline-flex;}
+.currency-menu__button{min-width:72px!important;justify-content:center!important;font-weight:950!important;}
+.currency-menu__list,.agency-more-menu__list{
+  position:absolute;
+  top:calc(100% + 8px);
+  right:0;
+  min-width:190px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:0 18px 42px rgba(6,40,3,.16);
+  padding:8px;
+  z-index:30;
+}
+.currency-menu__list[hidden],.agency-more-menu__list[hidden]{display:none!important;}
+.currency-menu__list button,.agency-more-menu__list button,.agency-more-menu__list a{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#17382a;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  text-align:left;
+  text-decoration:none;
+  border-radius:12px;
+  padding:10px 12px;
+  font:800 .9rem/1.2 Open Sans,Arial,sans-serif;
+  cursor:pointer;
+}
+.currency-menu__list button:hover,.currency-menu__list button.is-active,.agency-more-menu__list button:hover,.agency-more-menu__list a:hover{background:#eef7f1;color:var(--primary);}
+
+.modal-backdrop{overflow:hidden!important;overscroll-behavior:contain!important;}
+.modal{overflow-x:hidden!important;max-width:min(900px,calc(100vw - 28px))!important;}
+.modal-body{overflow-x:hidden!important;}
+#reserveForm,.form-grid,.reserve-main-row,.field,.field input,.field select,.field textarea{min-width:0!important;max-width:100%!important;box-sizing:border-box!important;}
+#serviceDate{width:100%!important;}
+.pax-stepper{display:grid;grid-template-columns:44px minmax(58px,1fr) 44px;align-items:center;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;min-height:45px;}
+.pax-stepper button{height:45px;border:0;background:#eef7f1;color:var(--primary);font-size:1.35rem;font-weight:950;cursor:pointer;}
+.pax-stepper input{border:0!important;text-align:center!important;min-height:45px!important;font-weight:900!important;color:var(--primary)!important;background:#fff!important;padding:0!important;}
+.language-notice{display:block;margin-top:8px;background:#fffaf2;border:1px solid #eadfc9;border-radius:12px;padding:9px 10px;color:#6d4b00;font-size:.78rem;line-height:1.35;font-weight:700;text-transform:none;letter-spacing:0;}
+.language-notice[hidden]{display:none!important;}
+.tourists-box summary{display:grid!important;grid-template-columns:1fr auto auto!important;align-items:center!important;gap:8px!important;}
+.tourists-box summary .tourists-summary-main{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;font-weight:950!important;}
+.tourists-box summary small{font-size:.78rem;color:var(--muted);font-weight:800;text-transform:none;letter-spacing:0;}
+.tourists-box summary::after{white-space:nowrap!important;content:'Ver más  ▾'!important;}
+.tourists-box[open] summary::after{content:'Ver menos  ▴'!important;}
+
+@media(max-width:760px){
+  .agency-register-page .agency-main--narrow{padding-top:106px!important;}
+  .agency-register-page .agency-hero--compact{margin-top:12px!important;}
+  .agency-controls--compact{justify-content:stretch!important;display:grid!important;grid-template-columns:1fr auto auto!important;gap:8px!important;}
+  .agency-controls--compact > .agency-button{width:100%!important;min-width:0!important;}
+  .currency-menu,.agency-more-menu{width:100%;}
+  .currency-menu__button,.agency-more-menu__button{width:100%!important;min-width:0!important;padding-left:12px!important;padding-right:12px!important;}
+  .agency-more-menu__button{font-size:0!important;}
+  .agency-more-menu__button::before{content:'Más';font-size:.86rem;}
+  .currency-menu__list,.agency-more-menu__list{right:0;min-width:210px;}
+  .modal-backdrop{padding:10px!important;align-items:center!important;}
+  .modal{max-width:calc(100vw - 20px)!important;width:100%!important;border-radius:22px!important;}
+  .modal-header{border-radius:22px 22px 0 0!important;padding:16px!important;}
+  .modal-body{padding:14px!important;}
+  .reserve-main-row{grid-template-columns:1fr!important;gap:10px!important;}
+  .tourists-box{padding:12px!important;}
+  .tourists-box summary{grid-template-columns:minmax(0,1fr) auto!important;gap:4px 8px!important;}
+  .tourists-box summary small{grid-column:1;grid-row:2;}
+  .tourists-box summary::after{grid-column:2;grid-row:1 / span 2;margin-left:0!important;}
+}
+
+/* Hotfix v12: controles de moneda/opciones y órdenes */
+.currency-menu__button i,
+.agency-more-menu__button i{
+  font-size:.78rem;
+  line-height:1;
+  opacity:.9;
+}
+.currency-menu__button{
+  gap:8px!important;
+}
+.agency-intro-bar .agency-controls--compact > .agency-button,
+.agency-intro-bar .currency-menu__button,
+.agency-intro-bar .agency-more-menu__button{
+  min-height:44px!important;
+  height:44px!important;
+  padding:0 16px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.orders-page .agency-intro-bar .agency-button,
+.orders-page .agency-controls .agency-button,
+.orders-refresh-button{
+  min-height:44px!important;
+  height:44px!important;
+  padding:0 16px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  white-space:nowrap!important;
+}
+.orders-refresh-button i{font-size:.95rem;}
+@media(max-width:760px){
+  .orders-refresh-button{
+    width:44px!important;
+    min-width:44px!important;
+    max-width:44px!important;
+    padding:0!important;
+    border-radius:999px!important;
+  }
+  .orders-refresh-button span{display:none!important;}
+  .orders-page .agency-controls{
+    display:flex!important;
+    gap:10px!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    flex-wrap:wrap!important;
+  }
+}
+
+/* Patch v14: barra de acciones uniforme en agencias */
+.agency-intro-bar .agency-controls--compact,
+.agency-intro-bar .agency-controls--orders,
+.agency-intro-bar .agency-controls--profile{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:10px!important;
+  flex-wrap:wrap!important;
+}
+.agency-intro-bar .agency-controls--compact > .agency-button,
+.agency-intro-bar .agency-controls--orders > .agency-button,
+.agency-intro-bar .agency-controls--profile > .agency-button,
+.agency-intro-bar .currency-menu__button,
+.agency-intro-bar .agency-more-menu__button,
+.orders-refresh-button{
+  min-height:44px!important;
+  height:44px!important;
+  padding:0 16px!important;
+  border-radius:999px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  line-height:1!important;
+  font-size:.9rem!important;
+  font-weight:900!important;
+  white-space:nowrap!important;
+}
+.agency-intro-bar .currency-menu__button i,
+.agency-intro-bar .agency-more-menu__button i{
+  display:inline-flex!important;
+  font-size:.78rem!important;
+  opacity:.95!important;
+}
+.orders-refresh-button.agency-button--primary,
+.orders-refresh-button.agency-button--primary i,
+.orders-refresh-button.agency-button--primary span{
+  color:#fff!important;
+}
+.agency-more-menu__list a i,
+.agency-more-menu__list button i{
+  width:18px;
+  text-align:center;
+}
+.orders-table .order-date-cell,
+.orders-table td:nth-child(2){
+  white-space:nowrap!important;
+}
+.orders-table .order-services-cell{
+  max-width:320px;
+}
+@media(max-width:760px){
+  .agency-intro-bar .agency-controls--compact,
+  .agency-intro-bar .agency-controls--orders,
+  .agency-intro-bar .agency-controls--profile{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:8px!important;
+    width:100%!important;
+  }
+  .agency-intro-bar .agency-controls--compact > .agency-button,
+  .agency-intro-bar .currency-menu,
+  .agency-intro-bar .agency-more-menu{
+    width:auto!important;
+    flex:0 0 auto!important;
+  }
+  .agency-intro-bar .currency-menu__button,
+  .agency-intro-bar .agency-more-menu__button{
+    width:auto!important;
+    min-width:44px!important;
+    max-width:none!important;
+    padding:0 13px!important;
+    font-size:.84rem!important;
+  }
+  .agency-more-menu__button::before{content:none!important;}
+  .orders-refresh-button{
+    width:44px!important;
+    min-width:44px!important;
+    max-width:44px!important;
+    padding:0!important;
+  }
+  .orders-refresh-button span{display:none!important;}
+
+  .orders-table-wrap{
+    overflow:visible!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .orders-table,
+  .orders-table tbody,
+  .orders-table tr,
+  .orders-table td{
+    display:block!important;
+    width:100%!important;
+  }
+  .orders-table thead{display:none!important;}
+  .orders-table tr{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:
+      "code status"
+      "date total"
+      "services action"!important;
+    gap:6px 10px!important;
+    background:#fff!important;
+    border:1px solid var(--line)!important;
+    border-radius:18px!important;
+    padding:12px!important;
+    margin-bottom:10px!important;
+    box-shadow:0 10px 24px rgba(9,43,30,.06)!important;
+  }
+  .orders-table td{
+    padding:0!important;
+    border:0!important;
+    white-space:normal!important;
+    min-width:0!important;
+  }
+  .orders-table td:nth-child(1){grid-area:code;font-weight:950;color:var(--primary);}
+  .orders-table td:nth-child(2){grid-area:date;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;color:var(--muted);font-size:.86rem;}
+  .orders-table td:nth-child(3){grid-area:status;text-align:right;align-self:start;}
+  .orders-table td:nth-child(4){grid-area:services;display:-webkit-box!important;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden!important;color:#40544a;font-size:.86rem;}
+  .orders-table td:nth-child(5){grid-area:total;text-align:right;font-weight:950;color:var(--primary);white-space:nowrap!important;}
+  .orders-table td:nth-child(6){grid-area:action;text-align:right;align-self:center;}
+  .orders-table td:nth-child(6) .agency-button,
+  .orders-table td:nth-child(6) button,
+  .orders-table td:nth-child(6) a{
+    min-height:36px!important;
+    height:36px!important;
+    padding:0 12px!important;
+    font-size:.82rem!important;
+    white-space:nowrap!important;
+  }
+}

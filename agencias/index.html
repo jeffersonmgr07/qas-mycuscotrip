@@ -18,7 +18,6 @@
   <link href="../assets/css/responsive.css" rel="stylesheet" />
   <link href="./assets/css/agencias.css" rel="stylesheet" />
   <script src="https://www.mercadopago.com/v2/security.js" view="checkout"></script>
-  <link rel="canonical" href="https://mycuscotrip.com/agencias/" />
 </head>
 <body class="agency-page">
   <div id="header-container"></div>
@@ -30,14 +29,27 @@
         <h1 id="agencyNameHeading">Agencia afiliada</h1>
         <p id="sessionWelcome">Buenos días, agencia!</p>
       </div>
-      <div class="agency-controls agency-controls--stacked">
-        <div class="agency-controls__row agency-controls__row--buttons">
-          <a class="agency-button agency-button--ghost" href="./ordenes.html">Mis órdenes</a>
-          <a class="agency-button agency-button--ghost" href="./mis-datos.html">Mis datos</a>
-          <button type="button" class="agency-button agency-button--ghost" id="logoutButton">Cerrar sesión</button>
+      <div class="agency-controls agency-controls--compact">
+        <a class="agency-button agency-button--ghost" href="./ordenes.html">Mis órdenes</a>
+        <div class="currency-menu" id="currencyMenu">
+          <button type="button" class="agency-button agency-button--ghost currency-menu__button" id="currencyMenuButton" aria-haspopup="listbox" aria-expanded="false">PEN <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="currency-menu__list" id="currencyMenuList" role="listbox" hidden>
+            <button type="button" role="option" data-currency-option="PEN">Soles (PEN)</button>
+            <button type="button" role="option" data-currency-option="USD">Dólares (USD)</button>
+          </div>
+          <select id="currencySelect" aria-label="Moneda visible" hidden>
+            <option value="PEN">PEN</option>
+            <option value="USD">USD</option>
+          </select>
         </div>
-        <div class="agency-controls__row agency-controls__row--currency">
-          <label class="currency-control currency-control--no-label"><select id="currencySelect" aria-label="Moneda visible"><option value="PEN">Soles (S/)</option><option value="USD">Dólares (USD)</option></select></label>
+        <div class="agency-more-menu" id="agencyMoreMenu">
+          <button type="button" class="agency-button agency-button--ghost agency-more-menu__button" id="moreOptionsButton" aria-haspopup="true" aria-expanded="false">
+            Más opciones <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="agency-more-menu__list" id="agencyMoreMenuList" hidden>
+            <a href="./mis-datos.html"><i class="fa-regular fa-user" aria-hidden="true"></i> Mis datos</a>
+            <button type="button" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Cerrar sesión</button>
+          </div>
         </div>
         <input id="exchangeRateInput" type="hidden" value="3.38" />
         <input id="searchInput" type="hidden" value="" />
@@ -92,7 +104,7 @@
           <div class="reserve-main-row full">
             <label class="field"><span>Fecha del tour</span><input id="serviceDate" type="date" required /></label>
             <label class="field"><span>Hora de inicio</span><select id="serviceTime" required></select></label>
-            <label class="field"><span>Cantidad de pasajeros</span><input id="paxCount" type="number" min="1" max="50" value="2" required /></label>
+            <label class="field"><span>Cantidad de pasajeros</span><div class="pax-stepper"><button type="button" data-pax-step="-1" aria-label="Restar pasajero">−</button><input id="paxCount" type="number" min="1" max="50" value="2" required readonly /><button type="button" data-pax-step="1" aria-label="Sumar pasajero">+</button></div></label>
           </div>
           <section class="entry-tickets-box full" id="entryTicketsBox" hidden>
             <div class="entry-tickets-box__head">
@@ -107,7 +119,7 @@
           <label class="field"><span>Tipo de documento</span><select id="leadDocType"><option>DNI</option><option>Pasaporte</option><option>Carnet de extranjería</option><option>Otro</option></select></label>
           <label class="field"><span>Número de documento</span><input id="leadDocNumber" required /></label>
           <label class="field"><span>Nacionalidad</span><select id="leadNationality" required data-country-select></select></label>
-          <label class="field"><span>Idioma</span><select id="leadLanguage" required><option value="Español">Español</option><option value="Inglés">Inglés</option><option value="Portugués">Portugués</option><option value="Francés">Francés</option><option value="Alemán">Alemán</option><option value="Italiano">Italiano</option><option value="Japonés">Japonés</option><option value="Otro">Otro</option></select></label>
+          <label class="field"><span>Idioma</span><select id="leadLanguage" required><option value="Español">Español</option><option value="Inglés">Inglés</option><option value="Portugués">Portugués</option><option value="Francés">Francés</option><option value="Alemán">Alemán</option><option value="Italiano">Italiano</option><option value="Japonés">Japonés</option><option value="Otro">Otro</option></select><small id="languageNotice" class="language-notice" hidden>Los tours se realizan regularmente en español e inglés. Otros idiomas pueden requerir coordinación previa y generar un cargo adicional, sujeto a disponibilidad del guía.</small></label>
           <label class="field"><span>Código de país</span><select id="leadPhoneCountry" required><option value="+51">Perú +51</option><option value="+52">México +52</option><option value="+56">Chile +56</option><option value="+55">Brasil +55</option><option value="+57">Colombia +57</option><option value="+54">Argentina +54</option><option value="+591">Bolivia +591</option><option value="+593">Ecuador +593</option><option value="+1">Estados Unidos / Canadá +1</option><option value="+34">España +34</option><option value="+44">Reino Unido +44</option><option value="+33">Francia +33</option><option value="+49">Alemania +49</option><option value="+39">Italia +39</option><option value="+81">Japón +81</option><option value="+82">Corea del Sur +82</option><option value="+86">China +86</option></select></label>
           <label class="field"><span>Celular / WhatsApp</span><input id="leadPhone" inputmode="tel" required placeholder="900 000 000" /></label>
           <input type="hidden" id="groupMode" value="new" />
@@ -115,7 +127,7 @@
           <label class="field full"><span>Observaciones</span><textarea id="bookingNotes" rows="2" placeholder="Horario preferido, referencia del hotel, restricciones alimentarias, etc."></textarea></label>
         </div>
         <details class="tourists-box" id="passengersDetails">
-          <summary>Datos de los demás pasajeros <span>(opcional)</span></summary>
+          <summary><span class="tourists-summary-main">Datos de los demás pasajeros</span><small>Opcional</small></summary>
           <p class="dialog-help">Ingresa los datos de los demás pasajeros (del segundo pasajero en adelante).</p>
           <div id="additionalPassengers"></div>
         </details>
@@ -151,7 +163,6 @@
 
   <script src="../assets/js/components/header.js"></script>
   <script src="../assets/js/components/footer.js"></script>
-  <script src="../assets/js/i18n.js"></script>
   <script src="./assets/js/pages/agencias-i18n.js"></script>
   <script src="./assets/js/pages/agencias.js" defer></script>
   <script>
