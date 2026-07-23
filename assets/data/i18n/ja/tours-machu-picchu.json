@@ -818,11 +818,9 @@
       },
       "capacity": 15,
       "images": {
-        "cover": "./assets/img/tours/machu-picchu-overnight-clasico/cover.jpg",
+        "cover": "./assets/img/tours/machu-picchu-overnight-clasico/1.jpg",
         "gallery": [
-          "./assets/img/placeholder/experience.jpg",
-          "./assets/img/placeholder/experience.jpg",
-          "./assets/img/placeholder/experience.jpg"
+          "./assets/img/tours/machu-picchu-overnight-clasico/2.jpg"
         ]
       },
       "includes": [
@@ -1013,7 +1011,7 @@
       "publicPriceIncludesTrain": true,
       "quotePackageBaseExcludesTrain": true,
       "quoteTrainSelectionRequired": true,
-      "fallbackImage": "./assets/img/tours/machu-picchu-overnight-clasico/cover.jpg",
+      "fallbackImage": "./assets/img/tours/machu-picchu-overnight-clasico/1.jpg",
       "displayMeta": {
         "commercialModeLabel": "Overnight",
         "speedLabel": "クラシック",
