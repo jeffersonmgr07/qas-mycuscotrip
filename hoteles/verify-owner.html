@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificación de cuenta | My Cusco Trip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{--mct-green:#062803;--mct-soft:#f4f8f4;--mct-border:#dfe8df;--mct-muted:#647064}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Inter,Arial,sans-serif;background:linear-gradient(rgba(6,40,3,.72),rgba(6,40,3,.72)),url('./assets/img/quote/fallbacks/machu-picchu.jpg') center/cover no-repeat;display:grid;place-items:center;color:#17301b;padding:24px}
+    .verify-card{width:min(560px,100%);background:#fff;border:1px solid var(--mct-border);border-radius:28px;padding:34px 28px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.24)}
+    .verify-icon{width:64px;height:64px;border-radius:999px;background:#eef7ef;display:grid;place-items:center;margin:0 auto 18px;color:var(--mct-green);font-size:30px;font-weight:900}
+    .verify-icon.error{background:#fff2f2;color:#9b1c1c}
+    .verify-icon.warn{background:#fff8e8;color:#9a6700}
+    .spinner{width:34px;height:34px;border:4px solid #dfe8df;border-top-color:var(--mct-green);border-radius:999px;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    h1{margin:0 0 10px;color:var(--mct-green);font-size:clamp(24px,4vw,32px)}
+    p{margin:0 auto 18px;line-height:1.6;color:#516051;max-width:460px}
+    .small{font-size:13px;color:var(--mct-muted)}
+    a,.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--mct-green);color:#fff;text-decoration:none;font-weight:800;border-radius:999px;padding:13px 22px;border:0;cursor:pointer;margin:4px}
+    .ghost{background:#eef7ef;color:var(--mct-green)}
+  </style>
+</head>
+<body>
+  <main class="verify-card" id="verifyCard">
+    <div class="verify-icon"><span class="spinner" aria-hidden="true"></span></div>
+    <h1>Verificando tu cuenta</h1>
+    <p>Un momento, por favor...</p>
+  </main>
+
+  <script>
+    // URL /exec estable del Web App. Se deja aquí directamente para que la verificación no dependa de config.js ni de caché.
+    const HOTEL_MARKETPLACE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+
+    function safeText(value){
+      const div = document.createElement('div');
+      div.textContent = value || '';
+      return div.innerHTML;
+    }
+    function render(ok, message, mode){
+      const card = document.getElementById('verifyCard');
+      if(ok){
+        card.innerHTML = `
+          <div class="verify-icon">✓</div>
+          <h1>Cuenta verificada</h1>
+          <p>${safeText(message || 'Tu correo fue verificado correctamente. Ya puedes ingresar al panel de administración de alojamientos.')}</p>
+          <a href="./login-admin-hotel.html">Ingresar al panel</a>
+        `;
+        return;
+      }
+      if(mode === 'processed'){
+        card.innerHTML = `
+          <div class="verify-icon warn">✓</div>
+          <h1>Verificación procesada</h1>
+          <p>${safeText(message || 'Procesamos tu enlace de verificación. Si el enlace era válido, tu cuenta ya está activa.')}</p>
+          <a href="./login-admin-hotel.html">Ir al acceso</a>
+          <button type="button" class="btn ghost" onclick="location.reload()">Intentar nuevamente</button>
+        `;
+        return;
+      }
+      card.innerHTML = `
+        <div class="verify-icon error">!</div>
+        <h1>No se pudo verificar</h1>
+        <p>${safeText(message || 'El enlace no es válido o ya fue utilizado.')}</p>
+        <a href="./login-admin-hotel.html">Volver al acceso</a>
+        <button type="button" class="btn ghost" onclick="location.reload()">Intentar nuevamente</button>
+      `;
+    }
+
+    function buildUrl(token, callbackName){
+      const sep = HOTEL_MARKETPLACE_APPS_SCRIPT_URL.includes('?') ? '&' : '?';
+      return `${HOTEL_MARKETPLACE_APPS_SCRIPT_URL}${sep}action=verify_owner&token=${encodeURIComponent(token)}&callback=${encodeURIComponent(callbackName)}&_=${Date.now()}`;
+    }
+
+    function verifyWithJsonp(token){
+      return new Promise((resolve) => {
+        const callbackName = 'mctHotelVerify_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+        const script = document.createElement('script');
+        let done = false;
+        const timer = setTimeout(() => finish({ ok:false, timeout:true, error:'La verificación tardó más de lo esperado.' }), 18000);
+        function cleanup(){
+          clearTimeout(timer);
+          try { delete window[callbackName]; } catch(_) { window[callbackName] = undefined; }
+          if(script && script.parentNode) script.parentNode.removeChild(script);
+        }
+        function finish(data){
+          if(done) return;
+          done = true;
+          cleanup();
+          resolve(data || { ok:false, error:'Respuesta vacía del servicio de verificación.' });
+        }
+        window[callbackName] = finish;
+        script.async = true;
+        script.src = buildUrl(token, callbackName);
+        script.onerror = function(){
+          finish({ ok:false, networkError:true, error:'No se pudo leer la respuesta del servicio de verificación.' });
+        };
+        document.head.appendChild(script);
+      });
+    }
+
+    function fireVerificationRequest(token){
+      // Respaldo: aunque el navegador no permita leer la respuesta, esta petición GET dispara la verificación en Apps Script.
+      const callbackName = 'mctHotelNoop_' + Date.now();
+      window[callbackName] = function(){};
+      const img = new Image();
+      img.src = buildUrl(token, callbackName);
+      setTimeout(function(){ try { delete window[callbackName]; } catch(_) {} }, 15000);
+    }
+
+    (async function(){
+      const params = new URLSearchParams(location.search);
+      const status = params.get('status');
+      if(status === 'success') return render(true, params.get('message') || 'Tu correo fue verificado correctamente.');
+      if(status === 'error') return render(false, params.get('message') || 'El enlace no es válido o ya fue utilizado.');
+
+      const token = params.get('token') || '';
+      if(!token) return render(false, 'El enlace no contiene un token de verificación.');
+
+      const result = await verifyWithJsonp(token);
+      if(result && result.ok) return render(true, result.message || 'Tu correo fue verificado correctamente. Ya puedes ingresar al panel.');
+
+      if(result && (result.timeout || result.networkError)){
+        fireVerificationRequest(token);
+        return render(false, 'Procesamos tu solicitud. Ingresa al panel en unos segundos; si aún no te permite acceder, vuelve a intentar la verificación.', 'processed');
+      }
+
+      render(false, result && (result.error || result.message) ? (result.error || result.message) : 'El enlace no es válido o ya fue utilizado.');
+    })();
+  </script>
+</body>
+</html>

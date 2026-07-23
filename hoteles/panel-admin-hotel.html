@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de administración de alojamientos | My Cusco Trip</title>
+  <link rel="icon" href="./assets/img/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/header.css?v=49" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/hoteles.css?v=61" />
+</head>
+<body class="hotel-panel-admin-body">
+  <div id="header-container"></div>
+  <main class="hotel-marketplace-page hotel-panel-page">
+    <div class="hotel-marketplace-shell hotel-marketplace-grid hotel-admin-dashboard">
+      <aside class="hotel-marketplace-sidebar hotel-admin-sidebar">
+        <h1>Panel de administración</h1>
+        <p>Alojamientos</p>
+        <nav class="hotel-marketplace-nav" aria-label="Secciones del panel hotelero">
+          <button type="button" data-hotel-panel-tab="account"><i class="fa-solid fa-user"></i> Mi cuenta</button>
+          <button type="button" class="is-active" data-hotel-panel-tab="properties"><i class="fa-solid fa-hotel"></i> Alojamientos</button>
+          <button type="button" data-hotel-panel-tab="availability"><i class="fa-solid fa-calendar-xmark"></i> Bloquear fechas</button>
+          <button type="button" data-hotel-panel-tab="confirmation"><i class="fa-solid fa-bolt"></i> Confirmación</button>
+          <button type="button" class="hotel-admin-logout" data-hotel-logout><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </nav>
+      </aside>
+      <section class="hotel-marketplace-panel hotel-admin-panel-content">
+        <section class="hotel-panel-section" data-hotel-panel-section="account">
+          <div class="hotel-panel-section-title"><h2>Mi cuenta</h2></div>
+          <div class="hotel-account-summary hotel-account-summary--complete">
+            <div><span>Tipo de cuenta</span><strong id="accountType">Persona natural</strong></div>
+            <div><span>Nombres del representante</span><strong id="accountFirstName">Demo</strong></div>
+            <div><span>Apellidos del representante</span><strong id="accountLastName">Hotelero</strong></div>
+            <div><span>Tipo y número de documento</span><strong id="accountDocument">DNI · 00000000</strong></div>
+            <div><span>Nacionalidad</span><strong id="accountNationality">Perú</strong></div>
+            <div><span>Celular / WhatsApp</span><strong id="accountPhone">+51 000000000</strong></div>
+            <div><span>Correo</span><strong id="accountEmail">hotel@demo.com</strong></div>
+            <div><span>Página web</span><strong id="accountWebsite">—</strong></div>
+            <div data-company-account><span>Razón social</span><strong id="accountBusiness">Pendiente de completar</strong></div>
+            <div data-company-account><span>RUC</span><strong id="accountTaxId">—</strong></div>
+          </div>
+          <div class="hotel-panel-toolbar">
+            <button type="button" class="hotel-admin-btn" data-open-market-modal="accountModal"><i class="fa-solid fa-pen"></i> Editar mi información</button>
+            <button type="button" class="hotel-admin-btn hotel-admin-btn--ghost" data-open-market-modal="passwordModal"><i class="fa-solid fa-key"></i> Cambiar contraseña</button>
+          </div>
+        </section>
+
+        <section class="hotel-panel-section is-active" data-hotel-panel-section="properties">
+          <div class="hotel-panel-section-title"><h2>Administrar alojamientos</h2></div>
+          <div class="hotel-panel-toolbar">
+            <button type="button" class="hotel-admin-btn" data-open-market-modal="propertyModal"><i class="fa-solid fa-plus"></i> Crear alojamiento</button>
+          </div>
+          <div id="hotelOwnerPropertiesList" class="hotel-owner-properties-list"></div>
+          <div id="hotelOwnerPropertiesEmpty" class="hotel-admin-empty-state">
+            <i class="fa-solid fa-hotel"></i>
+            <strong>Aún no hay alojamientos registrados.</strong>
+            <span>Crea tu primer alojamiento para que aparezca en este panel.</span>
+          </div>
+        </section>
+
+        <section class="hotel-panel-section" data-hotel-panel-section="availability">
+          <div class="hotel-panel-section-title"><h2>Bloquear fechas</h2></div>
+          <form class="hotel-admin-form-grid hotel-admin-form-grid--premium" data-marketplace-form="availability">
+            <label>Alojamiento
+              <select name="propertyId" data-property-select required>
+                <option value="demo-property">Hotel demo</option>
+              </select>
+            </label>
+            <label class="js-room-selector-wrap">Habitación
+              <select name="roomId" data-room-select>
+                <option value="">Todo el alojamiento / sin habitación específica</option>
+                <option value="room-1">Habitación 101</option>
+                <option value="room-2">Habitación 102</option>
+              </select>
+            </label>
+            <label>Desde <input name="from" type="date" required></label>
+            <label>Hasta <input name="to" type="date" required></label>
+            <label class="full">Motivo
+              <select name="status" required>
+                <option value="special_block">Bloqueado por solicitud especial</option>
+                <option value="confirmed_reservation">Reserva confirmada</option>
+                <option value="scheduled_maintenance">Mantenimiento programado</option>
+              </select>
+            </label>
+            <div class="full hotel-admin-actions"><button class="hotel-admin-btn" type="submit">Bloquear rango</button></div>
+          </form>
+        </section>
+
+        <section class="hotel-panel-section" data-hotel-panel-section="confirmation">
+          <div class="hotel-panel-section-title"><h2>Modo de confirmación</h2></div>
+          <div class="hotel-confirmation-summary-list">
+            <article class="hotel-confirmation-card">
+              <div>
+                <span>Alojamiento</span>
+                <strong>Hotel demo</strong>
+              </div>
+              <div>
+                <span>Modo actual</span>
+                <strong class="hotel-pill-mode">Instantánea</strong>
+              </div>
+              <button type="button" class="hotel-admin-btn hotel-admin-btn--small" data-open-market-modal="confirmationModal"><i class="fa-solid fa-pen"></i> Editar modo</button>
+            </article>
+          </div>
+          <div class="hotel-confirmation-note hotel-inline-alert">
+            <strong>Recomendación:</strong> usa confirmación instantánea siempre que tu disponibilidad esté actualizada. La confirmación manual permite revisar cada solicitud antes de aprobarla, pero durante ese tiempo el cliente podría elegir otro alojamiento.
+          </div>
+        </section>
+        <p id="hotelPanelMsg" class="hotel-inline-alert" hidden></p>
+      </section>
+    </div>
+  </main>
+
+  <div class="hotel-market-modal" id="propertyModal" hidden>
+    <div class="hotel-market-modal__backdrop" data-close-market-modal></div>
+    <article class="hotel-market-modal__dialog hotel-market-modal__dialog--wide">
+      <header><h2>Crear alojamiento</h2><button type="button" data-close-market-modal><i class="fa-solid fa-xmark"></i></button></header>
+      <form class="hotel-admin-form-grid hotel-admin-form-grid--premium" data-marketplace-form="property">
+        <div class="full hotel-modal-subtitle">Datos principales del alojamiento</div>
+        <label>Tipo
+          <select name="type" data-property-type required>
+            <option value="hotel">Hotel</option>
+            <option value="apartment">Apartamento</option>
+            <option value="room">Habitación</option>
+          </select>
+        </label>
+        <label>Nombre del alojamiento <input name="name" required placeholder="Ej. Hotel Cusco Boutique"></label>
+        <label>Destino
+          <select name="destination" required data-destination-select></select>
+        </label>
+        <label>Categoría
+          <select name="stars">
+            <option value="">Sin categoría</option>
+            <option value="2">2 estrellas</option>
+            <option value="3">3 estrellas</option>
+            <option value="4">4 estrellas</option>
+            <option value="5">5 estrellas</option>
+          </select>
+        </label>
+        <label class="full">Dirección <input name="address" placeholder="Dirección visible para el cliente"></label>
+        <div class="full hotel-map-field">
+          <label>Ubicación en Google Maps <input name="mapUrl" data-map-url-input placeholder="Pega el enlace de Google Maps o usa tu ubicación actual"></label>
+          <div class="hotel-map-actions">
+            <button type="button" class="hotel-admin-btn hotel-admin-btn--ghost hotel-admin-btn--small" data-use-current-location><i class="fa-solid fa-location-crosshairs"></i> Usar mi ubicación actual</button>
+          </div>
+          <div class="hotel-map-preview" data-map-preview hidden>
+            <iframe title="Vista previa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <p class="hotel-form-help">La ubicación se mostrará como vista previa. Para elegir un punto exacto dentro del mapa sin pegar enlace se requiere Google Maps Platform/Places API; por ahora puedes usar tu ubicación actual o pegar el enlace.</p>
+        </div>
+        <label class="full">Descripción <textarea name="description" placeholder="Describe tu alojamiento, ubicación, estilo y beneficios principales"></textarea></label>
+        <label class="full">Página web del alojamiento <input name="website" placeholder="https://... / Instagram / Facebook"></label>
+
+        <div class="full hotel-modal-subtitle">Fotos del alojamiento</div>
+        <label class="full">Fotos del alojamiento <input name="photoFiles" type="file" accept="image/*" multiple data-min-files="1" data-preview-target="propertyPhotoPreview"></label>
+        <div id="propertyPhotoPreview" class="hotel-photo-preview-grid full" aria-live="polite"></div>
+        <p class="full hotel-form-help">Te recomendamos agregar 5 fotos de tu alojamiento: exteriores, recepción, áreas comunes y espacios principales. Las fotos de habitación se agregarán al crear habitaciones, aunque también puedes incluirlas aquí.</p>
+
+        <div class="full hotel-modal-subtitle">Confirmación y comisión</div>
+        <div class="full hotel-choice-row">
+          <label class="hotel-choice-card">
+            <input type="radio" name="confirmationMode" value="instant" checked>
+            <span><strong>Confirmación instantánea</strong><small>Recomendada. El cliente reserva y el pago se confirma sin esperar aprobación manual.</small></span>
+          </label>
+          <label class="hotel-choice-card">
+            <input type="radio" name="confirmationMode" value="manual">
+            <span><strong>Confirmación manual</strong><small>El cliente solicita la reserva y espera tu confirmación. En ese tiempo podría elegir otro alojamiento.</small></span>
+          </label>
+        </div>
+        <label class="full">Comisión para My Cusco Trip
+          <select name="commissionRate" required>
+            <option value="10">10%</option>
+            <option value="15" selected>15%</option>
+            <option value="20">20%</option>
+            <option value="30">30%</option>
+          </select>
+        </label>
+        <p class="full hotel-form-help">Mientras más competitiva sea la comisión, My Cusco Trip puede crear mejores ofertas, paquetes, campañas y promociones para atraer más clientes hacia tu alojamiento.</p>
+        <div class="full hotel-admin-actions"><button class="hotel-admin-btn" type="submit">Guardar alojamiento</button></div>
+      </form>
+    </article>
+  </div>
+
+  <div class="hotel-market-modal" id="roomModal" hidden>
+    <div class="hotel-market-modal__backdrop" data-close-market-modal></div>
+    <article class="hotel-market-modal__dialog hotel-market-modal__dialog--wide">
+      <header><h2>Crear habitación</h2><button type="button" data-close-market-modal><i class="fa-solid fa-xmark"></i></button></header>
+      <form class="hotel-admin-form-grid hotel-admin-form-grid--premium" data-marketplace-form="room">
+        <input type="hidden" name="propertyId" data-room-property-id>
+        <div class="full hotel-modal-subtitle">Datos de la habitación</div>
+        <label>Nombre o número de habitación <input name="roomName" required placeholder="Ej. 101, Matrimonial Deluxe"></label>
+        <label>Tipo de habitación
+          <select name="roomType" required>
+            <option value="Habitación simple / single">Habitación simple / single</option>
+            <option value="Habitación matrimonial">Habitación matrimonial</option>
+            <option value="Habitación doble twin">Habitación doble twin</option>
+            <option value="Habitación triple">Habitación triple</option>
+            <option value="Habitación familiar">Habitación familiar</option>
+            <option value="Suite">Suite</option>
+          </select>
+        </label>
+        <label>Capacidad adultos <input name="capacityAdults" type="number" min="1" max="8" value="2"></label>
+        <label>Capacidad niños <input name="capacityChildren" type="number" min="0" max="6" value="0"></label>
+        <label>Precio por noche USD <input name="basePriceUsd" type="number" min="0" step="0.01" value="0"></label>
+        <label>Cantidad disponible <input name="stock" type="number" min="1" max="50" value="1"></label>
+        <label class="full">Descripción <textarea name="description" placeholder="Camas, vista, beneficios, baño privado, desayuno..."></textarea></label>
+        <div class="full hotel-modal-subtitle">Servicios incluidos</div>
+        <div class="full hotel-amenities-grid">
+          <label><input type="checkbox" name="amenities" value="Baño privado"> Baño privado</label>
+          <label><input type="checkbox" name="amenities" value="Agua caliente"> Agua caliente</label>
+          <label><input type="checkbox" name="amenities" value="Wi-Fi"> Wi-Fi</label>
+          <label><input type="checkbox" name="amenities" value="Televisor"> Televisor</label>
+          <label><input type="checkbox" name="amenities" value="TV cable"> TV cable</label>
+          <label><input type="checkbox" name="amenities" value="Calefacción"> Calefacción</label>
+          <label><input type="checkbox" name="amenities" value="Aire acondicionado"> Aire acondicionado</label>
+          <label><input type="checkbox" name="amenities" value="Desayuno"> Desayuno</label>
+          <label><input type="checkbox" name="amenities" value="Caja fuerte"> Caja fuerte</label>
+          <label><input type="checkbox" name="amenities" value="Secadora de cabello"> Secadora de cabello</label>
+        </div>
+        <div class="full hotel-modal-subtitle">Fotos de la habitación</div>
+        <label class="full">Fotos de la habitación <input name="roomPhotoFiles" type="file" accept="image/*" multiple data-preview-target="roomPhotoPreview"></label>
+        <div id="roomPhotoPreview" class="hotel-photo-preview-grid full" aria-live="polite"></div>
+        <div class="full hotel-admin-actions"><button class="hotel-admin-btn" type="submit">Guardar habitación</button></div>
+      </form>
+    </article>
+  </div>
+
+  <div class="hotel-market-modal" id="accountModal" hidden>
+    <div class="hotel-market-modal__backdrop" data-close-market-modal></div>
+    <article class="hotel-market-modal__dialog">
+      <header><h2>Editar mi información</h2><button type="button" data-close-market-modal><i class="fa-solid fa-xmark"></i></button></header>
+      <form class="hotel-admin-form-grid hotel-admin-form-grid--premium" data-marketplace-form="account">
+        <label>Nombres <input name="firstName" data-letters-only placeholder="Nombres"></label>
+        <label>Apellidos <input name="lastName" data-letters-only placeholder="Apellidos"></label>
+        <label>Tipo de documento
+          <select name="docType">
+            <option value="DNI">DNI</option>
+            <option value="PASSPORT">Pasaporte</option>
+            <option value="CE">Carnet de extranjería</option>
+            <option value="OTHER">Otro</option>
+          </select>
+        </label>
+        <label>Número de documento <input name="docNumber" data-document-input placeholder="Documento"></label>
+        <label class="full">Nacionalidad <select name="nationality" data-country-select></select></label>
+        <label>Razón social <input name="businessName" placeholder="Razón social, si aplica"></label>
+        <label>RUC <input name="taxId" data-ruc-only inputmode="numeric" maxlength="11" placeholder="11 dígitos, si aplica"></label>
+        <label>Correo <input name="email" type="email" placeholder="correo@hotel.com"></label>
+        <label>Página web <input name="website" placeholder="https://..."></label>
+        <label class="full">Celular / WhatsApp
+          <div class="hotel-phone-combo">
+            <select name="phoneCode" data-phone-code-select></select>
+            <input name="phone" data-phone-only inputmode="numeric" placeholder="Número">
+          </div>
+        </label>
+        <div class="full hotel-admin-actions"><button class="hotel-admin-btn" type="submit">Guardar información</button></div>
+      </form>
+    </article>
+  </div>
+
+
+  <div class="hotel-market-modal" id="passwordModal" hidden>
+    <div class="hotel-market-modal__backdrop" data-close-market-modal></div>
+    <article class="hotel-market-modal__dialog">
+      <header><h2>Cambiar contraseña</h2><button type="button" data-close-market-modal><i class="fa-solid fa-xmark"></i></button></header>
+      <form class="hotel-admin-form-grid hotel-admin-form-grid--premium" data-marketplace-form="password">
+        <label class="full">Contraseña actual
+          <div class="hotel-password-field">
+            <input name="currentPassword" id="hotelCurrentPassword" type="password" required placeholder="Contraseña actual" autocomplete="current-password">
+            <button type="button" data-toggle-password="hotelCurrentPassword" aria-label="Ver contraseña"><i class="fa-regular fa-eye"></i></button>
+          </div>
+        </label>
+        <label>Nueva contraseña
+          <div class="hotel-password-field">
+            <input name="newPassword" id="hotelPanelNewPassword" type="password" required minlength="8" placeholder="Nueva contraseña" autocomplete="new-password">
+            <button type="button" data-toggle-password="hotelPanelNewPassword" aria-label="Ver contraseña"><i class="fa-regular fa-eye"></i></button>
+          </div>
+        </label>
+        <label>Confirmar nueva contraseña
+          <div class="hotel-password-field">
+            <input name="confirmPassword" id="hotelPanelConfirmPassword" type="password" required minlength="8" placeholder="Repite la contraseña" autocomplete="new-password">
+            <button type="button" data-toggle-password="hotelPanelConfirmPassword" aria-label="Ver contraseña"><i class="fa-regular fa-eye"></i></button>
+          </div>
+        </label>
+        <p class="full hotel-form-help">Debe tener mínimo 8 caracteres, una mayúscula, un número y un carácter especial.</p>
+        <div class="full hotel-admin-actions"><button class="hotel-admin-btn" type="submit">Actualizar contraseña</button></div>
+      </form>
+    </article>
+  </div>
+
+  <div class="hotel-market-modal" id="confirmationModal" hidden>
+    <div class="hotel-market-modal__backdrop" data-close-market-modal></div>
+    <article class="hotel-market-modal__dialog">
+      <header><h2>Editar modo de confirmación</h2><button type="button" data-close-market-modal><i class="fa-solid fa-xmark"></i></button></header>
+      <form class="hotel-admin-form-grid hotel-admin-form-grid--premium" data-marketplace-form="confirmation">
+        <label class="full">Alojamiento
+          <select name="propertyId" required>
+            <option value="demo-property">Hotel demo</option>
+          </select>
+        </label>
+        <label class="full">Confirmación de reserva
+          <select name="confirmationMode">
+            <option value="instant">Confirmación instantánea</option>
+            <option value="manual">Confirmación manual por anfitrión</option>
+          </select>
+        </label>
+        <div class="full hotel-confirmation-note hotel-inline-alert">
+          <strong>Recomendación:</strong> la confirmación instantánea ayuda a cerrar más reservas porque el cliente recibe respuesta inmediata. La confirmación manual es útil si necesitas revisar disponibilidad caso por caso, pero el cliente podría cambiar de decisión mientras espera tu aprobación.
+        </div>
+        <div class="full hotel-admin-actions"><button class="hotel-admin-btn" type="submit">Guardar modo</button></div>
+      </form>
+    </article>
+  </div>
+
+  <div id="footer-container"></div>
+  <script>
+    async function loadComponent(componentName, targetId) {
+      try { const response = await fetch(`./components/${componentName}.html`); document.getElementById(targetId).innerHTML = await response.text(); } catch(error) { console.error(error); }
+    }
+    document.addEventListener('DOMContentLoaded', async () => { await Promise.all([loadComponent('header','header-container'),loadComponent('footer','footer-container')]); window.initMyCuscoTripHeader?.(); window.MCTHotelMarketplace?.init?.(); });
+  </script>
+  <script src="./assets/js/components/header.js?v=56"></script>
+  <script>
+    function hotelPasswordToggleFallback(event) {
+      const button = event.target.closest('[data-toggle-password]');
+      if (!button) return;
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      const input = document.getElementById(button.dataset.togglePassword);
+      if (!input) return;
+      input.type = input.type === 'password' ? 'text' : 'password';
+      const icon = button.querySelector('i');
+      if (icon) icon.className = input.type === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+    }
+    document.addEventListener('click', hotelPasswordToggleFallback, true);
+  </script>
+  <script>
+    window.MCT_HOTEL_MARKETPLACE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+    window.MCT_HOTEL_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+    window.MCT_HOTEL_PAYPAL_CLIENT_ID = 'AUdRf58xVpVo-Iv_L_Je8UgE6ukF79cLynwRXUk3wU9WA4bfremVO0yRpkS3kFTUOE7O5ZOfoWMw8TlJ';
+  </script>
+  <script src="./assets/js/config.js?v=61"></script>
+  <script src="./assets/js/pages/hotel-marketplace.js?v=61"></script>
+</body>
+</html>

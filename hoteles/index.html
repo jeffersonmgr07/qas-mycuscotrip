@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoteles en Cusco, Machu Picchu y Perú | My Cusco Trip</title>
+  <meta name="description" content="Selección de hoteles recomendados para viajes por Cusco, Machu Picchu, Lima, Arequipa, Puno, Paracas, Ica y Uyuni." />
+  <link rel="canonical" href="https://mycuscotrip.com/hoteles/" />
+  <link rel="icon" href="./assets/img/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/header.css?v=49" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/hoteles.css?v=59" />
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <main class="hotels-page">
+    <section class="hotels-hero">
+      <div class="container hotels-hero__grid">
+        <div>
+          <span class="hotels-kicker"><i class="fa-solid fa-hotel"></i> Hoteles recomendados</span>
+          <h1>Elige hoteles para tu viaje por Perú</h1>
+          <p>Tenemos la mejor selección de hoteles de todas las categorías para tu viaje por Cusco y Machu Picchu.</p>
+          <div class="hotels-search-box hotels-search-box--marketplace">
+            <label>
+              <span>Destino</span>
+              <select id="hotelDestinationFilter">
+                <option value="all">Todos los destinos</option>
+              </select>
+            </label>
+            <label class="hotels-search-box__name">
+              <span>Buscar hotel</span>
+              <input id="hotelSearchInput" type="search" placeholder="Nombre del hotel" />
+            </label>
+            <div class="hotel-hero-date-wrap">
+              <input id="hotelFilterCheckin" type="hidden" />
+              <input id="hotelFilterCheckout" type="hidden" />
+              <label class="hotel-hero-date-field">
+                <span>Entrada</span>
+                <button type="button" class="hotel-hero-date-pill" data-open-hero-calendar="checkin">
+                  <strong id="heroCheckinLabel">Seleccionar</strong>
+                </button>
+              </label>
+              <label class="hotel-hero-date-field">
+                <span>Salida</span>
+                <button type="button" class="hotel-hero-date-pill" data-open-hero-calendar="checkout">
+                  <strong id="heroCheckoutLabel">Seleccionar</strong>
+                </button>
+              </label>
+              <div id="heroRangeCalendar" class="hotel-range-calendar hotel-range-calendar--hero" hidden></div>
+            </div>
+            <label>
+              <span>Categoría</span>
+              <select id="hotelCategoryFilter">
+                <option value="all">Todas</option>
+                <option value="3">3 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="5">5 estrellas</option>
+              </select>
+            </label>
+            <button type="button" class="hotel-hero-search-btn" id="hotelHeroSearchBtn"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hotels-section">
+      <div class="container">
+        <div class="hotels-section__head">
+          <div>
+            <h2>Hoteles disponibles</h2>
+          </div>
+          <p id="hotelCountLabel">Cargando hoteles...</p>
+        </div>
+        <div id="hotelsGrid" class="hotels-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="hotelDetailModal" class="hotel-detail-modal" hidden>
+    <div class="hotel-detail-modal__backdrop" data-close-hotel-modal></div>
+    <article class="hotel-detail-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="hotelDetailModalHeading">
+      <header class="hotel-detail-modal__head">
+        <h2 id="hotelDetailModalHeading">DETALLES DE LA RESERVA DE HOTEL</h2>
+        <button type="button" class="hotel-detail-modal__close" data-close-hotel-modal aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div id="hotelDetailContent"></div>
+    </article>
+  </div>
+
+  <div id="footer-container"></div>
+
+
+  <script>
+    async function loadComponent(componentName, targetId) {
+      try {
+        const response = await fetch(`./components/${componentName}.html`);
+        if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
+        const html = await response.text();
+        const target = document.getElementById(targetId);
+        if (target) target.innerHTML = html;
+      } catch (error) {
+        console.error(`Error cargando ${componentName}:`, error);
+      }
+    }
+    async function initializeLayout() {
+      await Promise.all([loadComponent('header', 'header-container'), loadComponent('footer', 'footer-container')]);
+      if (window.MyCuscoTripHeader) window.initMyCuscoTripHeader?.();
+      window.MyCuscoTripI18n?.applyTranslations?.();
+    }
+    document.addEventListener('DOMContentLoaded', initializeLayout);
+  </script>
+  <script src="./assets/js/i18n.js"></script>
+  <script src="./assets/js/components/header.js?v=56"></script>
+  <script>
+    window.MCT_HOTEL_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+    window.MCT_HOTEL_PAYPAL_CLIENT_ID = 'AUdRf58xVpVo-Iv_L_Je8UgE6ukF79cLynwRXUk3wU9WA4bfremVO0yRpkS3kFTUOE7O5ZOfoWMw8TlJ';
+  </script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AUdRf58xVpVo-Iv_L_Je8UgE6ukF79cLynwRXUk3wU9WA4bfremVO0yRpkS3kFTUOE7O5ZOfoWMw8TlJ&currency=USD"></script>
+  <script src="./assets/js/pages/hoteles.js?v=56"></script>
+</body>
+</html>

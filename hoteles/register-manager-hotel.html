@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regístrate como administrador de alojamientos | My Cusco Trip</title>
+  <link rel="icon" href="./assets/img/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/header.css?v=49" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/hoteles.css?v=59" />
+</head>
+<body class="hotel-admin-auth-body hotel-auth-machu">
+  <div id="header-container"></div>
+  <main class="hotel-marketplace-page hotel-auth-page">
+    <div class="hotel-marketplace-shell hotel-auth-shell">
+      <section class="hotel-marketplace-card hotel-auth-card hotel-register-card">
+        <header class="hotel-admin-titlebar">
+          <i class="fa-solid fa-user-tie"></i>
+          <h1>Regístrate como administrador de alojamientos</h1>
+        </header>
+        <form id="hotelOwnerRegisterForm" class="hotel-admin-form-grid hotel-admin-form-grid--premium" autocomplete="on" novalidate>
+          <label class="full">Tipo de registro
+            <select name="registrationType" id="hotelRegistrationType" required>
+              <option value="natural">Persona natural</option>
+              <option value="company">Empresa</option>
+            </select>
+          </label>
+
+          <label>Nombres del representante <input name="firstName" data-letters-only required placeholder="Nombres"></label>
+          <label>Apellidos del representante <input name="lastName" data-letters-only required placeholder="Apellidos"></label>
+
+          <label data-natural-field>Tipo de documento
+            <select name="docType" id="hotelOwnerDocType">
+              <option value="DNI">DNI</option>
+              <option value="PASSPORT">Pasaporte</option>
+              <option value="CE">Carnet de extranjería</option>
+              <option value="OTHER">Otro</option>
+            </select>
+          </label>
+          <label data-natural-field>Número de documento <input name="docNumber" id="hotelOwnerDocNumber" data-document-input placeholder="Número de documento"></label>
+          <label data-natural-field class="full">Nacionalidad
+            <select name="nationality" data-country-select></select>
+          </label>
+
+          <label data-company-field hidden>Razón social <input name="businessName" data-business-name placeholder="Razón social de la empresa"></label>
+          <label data-company-field hidden>RUC <input name="taxId" data-ruc-only inputmode="numeric" maxlength="11" placeholder="11 dígitos"></label>
+
+          <label class="full">Celular / WhatsApp
+            <div class="hotel-phone-combo">
+              <select name="phoneCode" data-phone-code-select></select>
+              <input name="phone" data-phone-only required inputmode="numeric" placeholder="Número de celular">
+            </div>
+          </label>
+          <label class="full">Página web o red social <input name="website" placeholder="https://... / Instagram / Facebook"></label>
+
+          <div class="full hotel-form-section-divider">
+            <span></span>
+            <strong>Datos de inicio de sesión</strong>
+            <span></span>
+          </div>
+
+          <label class="full">Correo <input name="email" type="email" required placeholder="correo@hotel.com"></label>
+          <label>Contraseña
+            <div class="hotel-password-field">
+              <input name="password" id="hotelOwnerPassword" type="password" required minlength="8" placeholder="Crea una contraseña segura" autocomplete="new-password">
+              <button type="button" data-toggle-password="hotelOwnerPassword" aria-label="Ver contraseña"><i class="fa-regular fa-eye"></i></button>
+            </div>
+          </label>
+          <label>Confirmar contraseña
+            <div class="hotel-password-field">
+              <input name="confirmPassword" id="hotelOwnerConfirmPassword" type="password" required minlength="8" placeholder="Repite tu contraseña" autocomplete="new-password">
+              <button type="button" data-toggle-password="hotelOwnerConfirmPassword" aria-label="Ver contraseña"><i class="fa-regular fa-eye"></i></button>
+            </div>
+          </label>
+          <div class="full hotel-password-rules" data-password-rules>
+            <p>La contraseña debe incluir:</p>
+            <span data-rule="length"><i class="fa-regular fa-circle"></i> Mínimo 8 caracteres</span>
+            <span data-rule="upper"><i class="fa-regular fa-circle"></i> Una mayúscula</span>
+            <span data-rule="number"><i class="fa-regular fa-circle"></i> Un número</span>
+            <span data-rule="special"><i class="fa-regular fa-circle"></i> Un carácter especial</span>
+            <span data-rule="match"><i class="fa-regular fa-circle"></i> Las contraseñas coinciden</span>
+          </div>
+
+          <div class="full hotel-admin-actions">
+            <button type="submit" class="hotel-admin-btn"><i class="fa-solid fa-paper-plane"></i> Enviar registro</button>
+            <a href="./login-admin-hotel.html" class="hotel-admin-btn hotel-admin-btn--ghost hotel-admin-btn--center">Ya tengo cuenta</a>
+          </div>
+          <p id="hotelOwnerRegisterMsg" class="full hotel-inline-alert" hidden></p>
+        </form>
+      </section>
+    </div>
+  </main>
+  <div id="footer-container"></div>
+  <script>
+    async function loadComponent(componentName, targetId) {
+      try { const response = await fetch(`./components/${componentName}.html`); document.getElementById(targetId).innerHTML = await response.text(); } catch(error) { console.error(error); }
+    }
+    document.addEventListener('DOMContentLoaded', async () => { await Promise.all([loadComponent('header','header-container'),loadComponent('footer','footer-container')]); window.initMyCuscoTripHeader?.(); window.MCTHotelMarketplace?.init?.(); });
+  </script>
+  <script src="./assets/js/components/header.js?v=56"></script>
+  <script>
+    function hotelPasswordToggleFallback(event) {
+      const button = event.target.closest('[data-toggle-password]');
+      if (!button) return;
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      const input = document.getElementById(button.dataset.togglePassword);
+      if (!input) return;
+      input.type = input.type === 'password' ? 'text' : 'password';
+      const icon = button.querySelector('i');
+      if (icon) icon.className = input.type === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+    }
+    document.addEventListener('click', hotelPasswordToggleFallback, true);
+  </script>
+  <script>
+    window.MCT_HOTEL_MARKETPLACE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+    window.MCT_HOTEL_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+    window.MCT_HOTEL_PAYPAL_CLIENT_ID = 'AUdRf58xVpVo-Iv_L_Je8UgE6ukF79cLynwRXUk3wU9WA4bfremVO0yRpkS3kFTUOE7O5ZOfoWMw8TlJ';
+  </script>
+  <script src="./assets/js/config.js?v=59"></script>
+  <script src="./assets/js/pages/hotel-marketplace.js?v=59"></script>
+</body>
+</html>

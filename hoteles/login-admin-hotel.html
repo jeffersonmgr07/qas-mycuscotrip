@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso para hoteles | My Cusco Trip</title>
+  <link rel="icon" href="./assets/img/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/header.css?v=49" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/hoteles.css?v=59" />
+</head>
+<body class="hotel-admin-auth-body hotel-auth-machu">
+  <div id="header-container"></div>
+  <main class="hotel-marketplace-page hotel-auth-page">
+    <div class="hotel-marketplace-shell hotel-auth-shell">
+      <section class="hotel-marketplace-card hotel-auth-card" style="max-width:620px;margin:auto;">
+        <header class="hotel-admin-titlebar hotel-admin-titlebar--single">
+          <i class="fa-solid fa-lock"></i>
+          <h1>Acceso para hoteles</h1>
+        </header>
+        <form id="hotelOwnerLoginForm" class="hotel-admin-form-grid hotel-admin-form-grid--premium" novalidate>
+          <label class="full">Correo <input name="email" type="email" required placeholder="correo@hotel.com"></label>
+          <label class="full">Contraseña
+            <div class="hotel-password-field">
+              <input name="password" id="hotelOwnerLoginPassword" type="password" required placeholder="Contraseña" autocomplete="current-password">
+              <button type="button" data-toggle-password="hotelOwnerLoginPassword" aria-label="Ver contraseña"><i class="fa-regular fa-eye"></i></button>
+            </div>
+          </label>
+          <div class="full hotel-admin-actions">
+            <button type="submit" class="hotel-admin-btn"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</button>
+            <a href="./register-manager-hotel.html" class="hotel-admin-btn hotel-admin-btn--ghost hotel-admin-btn--center">Crear cuenta</a>
+          </div>
+          <p id="hotelOwnerLoginMsg" class="full hotel-inline-alert" hidden></p>
+        </form>
+      </section>
+    </div>
+  </main>
+  <div id="footer-container"></div>
+  <script>
+    async function loadComponent(componentName, targetId) {
+      try { const response = await fetch(`./components/${componentName}.html`); document.getElementById(targetId).innerHTML = await response.text(); } catch(error) { console.error(error); }
+    }
+    document.addEventListener('DOMContentLoaded', async () => { await Promise.all([loadComponent('header','header-container'),loadComponent('footer','footer-container')]); window.initMyCuscoTripHeader?.(); window.MCTHotelMarketplace?.init?.(); });
+  </script>
+  <script src="./assets/js/components/header.js?v=56"></script>
+  <script>
+    function hotelPasswordToggleFallback(event) {
+      const button = event.target.closest('[data-toggle-password]');
+      if (!button) return;
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      const input = document.getElementById(button.dataset.togglePassword);
+      if (!input) return;
+      input.type = input.type === 'password' ? 'text' : 'password';
+      const icon = button.querySelector('i');
+      if (icon) icon.className = input.type === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+    }
+    document.addEventListener('click', hotelPasswordToggleFallback, true);
+  </script>
+  <script>
+    window.MCT_HOTEL_MARKETPLACE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+    window.MCT_HOTEL_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7zclo0SnYqT0NMP6Uph3oB9XbTGeIIoWj6hWZ7lx2s3ftWMmIpshJ-XtgjEuijsLN/exec';
+    window.MCT_HOTEL_PAYPAL_CLIENT_ID = 'AUdRf58xVpVo-Iv_L_Je8UgE6ukF79cLynwRXUk3wU9WA4bfremVO0yRpkS3kFTUOE7O5ZOfoWMw8TlJ';
+  </script>
+  <script src="./assets/js/config.js?v=59"></script>
+  <script src="./assets/js/pages/hotel-marketplace.js?v=59"></script>
+</body>
+</html>
