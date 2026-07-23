@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>マイ予約 | MyCuscoTrip</title>
+<title>クスコとマチュピチュツアー | ペルー旅行パッケージ | My Cusco Trip</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="../assets/css/main.css" rel="stylesheet"/>
@@ -22,7 +22,7 @@
       overflow: hidden;
       background:
         linear-gradient(rgba(6, 40, 3, 0.72), rgba(5, 50, 32, 0.82)),
-        url("../assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat;
+        url("/assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat;
     }
 
     .reserva-hero .container {
@@ -88,7 +88,7 @@
 
     .reserva-image {
       position: relative;
-      background: url("../assets/img/reserva/machu-picchu-card.jpg") center/cover no-repeat;
+      background: url("/assets/img/reserva/machu-picchu-card.jpg") center/cover no-repeat;
       min-height: 320px;
     }
 
@@ -236,7 +236,21 @@
       }
     }
   </style>
-<script>window.MCT_LOCALE="ja"; window.MCT_IS_LOCALIZED_PAGE=true;</script><meta content="ja_JP" property="og:locale"/><link href="https://mycuscotrip.com/ja/mi-reserva.html" rel="canonical"/><meta content="https://mycuscotrip.com/ja/mi-reserva.html" property="og:url"/></head>
+<meta content="クスコ、マチュピチュ、聖なる谷、ペルー周遊パッケージを現地専門チームのサポートで予約できます。" name="description"/><meta content="ja_JP" property="og:locale"/><meta content="クスコとマチュピチュツアー | ペルー旅行パッケージ | My Cusco Trip" property="og:title"/><meta content="クスコ、マチュピチュ、聖なる谷、ペルー周遊パッケージを現地専門チームのサポートで予約できます。" property="og:description"/><meta content="クスコとマチュピチュツアー | ペルー旅行パッケージ | My Cusco Trip" name="twitter:title"/><meta content="クスコ、マチュピチュ、聖なる谷、ペルー周遊パッケージを現地専門チームのサポートで予約できます。" name="twitter:description"/><link href="https://mycuscotrip.com/ja/mi-reserva.html" rel="canonical"/><meta content="noindex, follow" name="robots"/><script>window.MCT_LOCALE="ja"; window.MCT_IS_LOCALIZED_PAGE=true;</script>
+<!-- Social sharing fallback -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="My Cusco Trip" />
+<meta property="og:url" content="https://mycuscotrip.com/ja/mi-reserva.html" />
+<meta property="og:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:secure_url" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="My Cusco Trip - クスコとマチュピチュのツアーと旅行パッケージ" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta name="twitter:image:alt" content="My Cusco Trip - クスコとマチュピチュのツアーと旅行パッケージ" />
+</head>
 <body>
 <div id="header-container"></div>
 <a aria-label="WhatsApp" class="wa-float" href="https://wa.me/51900608980" rel="noopener" target="_blank">
@@ -249,33 +263,34 @@
 <span class="eyebrow">予約確認</span>
 <h1>Consulta tu <span>viaje</span> en segundos</h1>
 <p>
-            予約コードと姓を入力して、行程詳細、料金、旅行者、支払いリンクを確認してください。
+            Ingresa tu código de reserva y tu apellido para revisar el detalle
+            de tu itinerario, tarifas, viajeros y enlace de pago.
           </p>
 </div>
 <div class="reserva-panel">
-<div aria-label="マチュピチュ" class="reserva-image"></div>
+<div aria-label="Machu Picchu" class="reserva-image"></div>
 <div class="reserva-form-wrap">
 <div class="reserva-form-box">
-<div class="label-top">予約アクセス</div>
-<h2>予約を検索</h2>
+<div class="label-top">Acceso a reserva</div>
+<h2>Buscar reserva</h2>
 <p class="intro">
-                購入時に登録した情報を入力すると、予約情報をすべて確認できます。
+                Completa los datos registrados en tu compra para ver toda la información de tu reserva.
               </p>
 <form id="reservaForm">
 <div class="reserva-field">
-<label for="codigo">Reservation code</label>
-<input id="codigo" name="codigo" placeholder="Ej. CUZ12345" required="" type="text"/>
+<label for="codigo">Código de reserva</label>
+<input id="codigo" name="codigo" placeholder="Ej. CUS12345" required="" type="text"/>
 </div>
 <div class="reserva-field">
-<label for="apellido">Last name</label>
+<label for="apellido">Apellido</label>
 <input id="apellido" name="apellido" placeholder="Ej. Garcia" required="" type="text"/>
 </div>
 <div class="reserva-error" id="errorMessage"></div>
 <button class="reserva-btn" id="buscarBtn" type="submit">
-                  予約を検索
+                  Buscar reserva
                 </button>
 <p class="reserva-help">
-                  サイトにアップロードされた予約ファイルと照合して情報を検証します。
+                  Validamos los datos comparándolos con el archivo de reservas cargado en tu sitio.
                 </p>
 </form>
 </div>
@@ -402,10 +417,8 @@
   </script>
 <script src="../assets/js/config/tracking-config.js"></script>
 <script src="../assets/js/components/tracking.js"></script>
-<script src="../assets/js/i18n.js"></script>
 <script src="../assets/js/components/header.js"></script>
 <script src="../assets/js/lib/utils.js"></script>
-<script src="../assets/js/core/api-client.js"></script>
 <script>
     const form = document.getElementById("reservaForm");
     const errorMessage = document.getElementById("errorMessage");
@@ -485,18 +498,6 @@
       return reservas;
     }
 
-    async function consultarReservaBackend(codigo, apellido) {
-      if (!window.MyCuscoTripApiClient?.lookupReservation) return null;
-      try {
-        const result = await window.MyCuscoTripApiClient.lookupReservation({ code: codigo, lastName: apellido });
-        if (result?.found && result.voucher) return result.voucher;
-        return null;
-      } catch (error) {
-        console.warn("No se pudo consultar el backend de reservas. Se usará respaldo estático.", error);
-        return null;
-      }
-    }
-
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -517,14 +518,6 @@
       }
 
       try {
-        const reservaBackend = await consultarReservaBackend(codigo, apellido);
-        if (reservaBackend) {
-          localStorage.setItem("reservaSeleccionada", JSON.stringify(reservaBackend));
-          const codigoUrl = encodeURIComponent(reservaBackend.codigo || String(codigo).trim());
-          window.location.assign(`./detalle-reserva.html?codigo=${codigoUrl}`);
-          return;
-        }
-
         const reservas = await cargarReservas();
         const reservaPorCodigo = reservas.find((reserva) => codigoCoincideExacto(reserva, codigo));
 
@@ -547,7 +540,7 @@
         window.location.assign(`./detalle-reserva.html?codigo=${codigoUrl}`);
       } catch (error) {
         console.error("Error consultando reserva:", error);
-        errorMessage.textContent = "No se pudo consultar la reserva. Verifica el código y apellido, o contacta a tu asesor.";
+        errorMessage.textContent = "No se pudo consultar el archivo de reservas. Verifica que data/reservas.json exista en el servidor.";
         errorMessage.style.display = "block";
       } finally {
         buscarBtn.disabled = false;
