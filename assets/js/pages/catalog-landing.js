@@ -17,6 +17,13 @@
       defaultFamily: "machu-picchu-tour"
     },
     {
+      key: "trekkings-cusco",
+      url: "./assets/data/trekkings-cusco.json",
+      collectionKeys: ["products", "trekkings"],
+      defaultKind: "tour",
+      defaultFamily: "cusco-trekking"
+    },
+    {
       key: "tours-peru",
       url: "./assets/data/tours-peru.json",
       collectionKeys: ["products", "tours"],
@@ -135,9 +142,9 @@
   }
 
 
-  function isPublicProduct(item) {
+  function isPublicProduct(item, includeDrafts = false) {
     const status = String(item?.status || "draft").trim().toLowerCase();
-    return Boolean(item?.slug) && status === "published";
+    return Boolean(item?.slug) && (status === "published" || (includeDrafts && status === "draft"));
   }
 
   function normalizeText(value) {
@@ -167,6 +174,16 @@
         label: "Inca Jungle",
         keywords: ["inca jungle", "jungle", "aventura"],
         note: "Rutas de aventura tipo Inca Jungle y experiencias activas en la ruta hacia Machu Picchu."
+      },
+      "salkantay": {
+        label: "Salkantay Trek",
+        keywords: ["salkantay"],
+        note: "Opciones de Salkantay Trek con paisajes altoandinos y conexión hacia Machu Picchu."
+      },
+      "ausangate": {
+        label: "Ausangate Trek",
+        keywords: ["ausangate"],
+        note: "Rutas alrededor del Ausangate, lagunas altoandinas y comunidades de la cordillera Vilcanota."
       }
     };
 
@@ -289,30 +306,36 @@
       return extractItems(data, source).map((item) => normalizeProduct(item, source));
     }));
 
+    const config = getPageConfig();
     state.catalog = loaded
       .flat()
-      .filter(isPublicProduct);
+      .filter((item) => isPublicProduct(item, config.includeDrafts));
   }
 
   function getPageConfig() {
     const body = document.body;
 
+    const toList = (value) => String(value || "").split(",").map((item) => normalizeText(item)).filter(Boolean);
+    const toNumberOrNull = (value) => value === undefined || value === "" ? null : Number(value);
+
     return {
       kind: body.dataset.catalogKind || "",
       family: body.dataset.catalogFamily || "",
+      families: toList(body.dataset.catalogFamilies),
       mode: body.dataset.catalogMode || "",
-      destinations: (body.dataset.catalogDestinations || "")
-        .split(",")
-        .map((item) => normalizeText(item))
-        .filter(Boolean),
-      themes: (body.dataset.catalogThemes || "")
-        .split(",")
-        .map((item) => normalizeText(item))
-        .filter(Boolean),
-      keywords: (body.dataset.catalogKeywords || "")
-        .split(",")
-        .map((item) => normalizeText(item))
-        .filter(Boolean),
+      destinations: toList(body.dataset.catalogDestinations),
+      themes: toList(body.dataset.catalogThemes),
+      keywords: toList(body.dataset.catalogKeywords),
+      excludeKeywords: toList(body.dataset.catalogExcludeKeywords),
+      ids: toList(body.dataset.catalogIds),
+      excludeIds: toList(body.dataset.catalogExcludeIds),
+      days: toNumberOrNull(body.dataset.catalogDays),
+      nights: toNumberOrNull(body.dataset.catalogNights),
+      minDays: toNumberOrNull(body.dataset.catalogMinDays),
+      maxDays: toNumberOrNull(body.dataset.catalogMaxDays),
+      minNights: toNumberOrNull(body.dataset.catalogMinNights),
+      maxNights: toNumberOrNull(body.dataset.catalogMaxNights),
+      includeDrafts: body.dataset.catalogIncludeDrafts === "true",
       trekkingCategory: getTrekkingCategoryConfig(),
       limit: Number(body.dataset.catalogLimit || 0)
     };
@@ -360,6 +383,23 @@
     return keywords.some((keyword) => haystack.some((entry) => entry.includes(keyword)));
   }
 
+  function productMatchesExcludedKeywords(item, keywords) {
+    if (!keywords.length) return false;
+    const haystack = [
+      item.id,
+      item.slug,
+      item.title,
+      item.location,
+      item.typeLabel,
+      ...(item.search.keywords || []),
+      ...(item.search.themes || []),
+      ...(item.search.includedTags || []),
+      ...(item.search.durationKeys || []),
+      ...(item.search.destinations || [])
+    ].map(normalizeText);
+    return keywords.some((keyword) => haystack.some((entry) => entry.includes(keyword)));
+  }
+
   function isTrekkingCandidate(item) {
     const terms = [
       item.title,
@@ -393,11 +433,22 @@
     const config = getPageConfig();
 
     let filtered = state.catalog.filter((item) => {
+      const normalizedId = normalizeText(item.id);
       if (config.kind && item.productKind !== config.kind) return false;
       if (config.family && item.productFamily !== config.family) return false;
+      if (config.families.length && !config.families.includes(normalizeText(item.productFamily))) return false;
+      if (config.ids.length && !config.ids.includes(normalizedId)) return false;
+      if (config.excludeIds.length && config.excludeIds.includes(normalizedId)) return false;
+      if (config.days !== null && item.days !== config.days) return false;
+      if (config.nights !== null && item.nights !== config.nights) return false;
+      if (config.minDays !== null && item.days < config.minDays) return false;
+      if (config.maxDays !== null && item.days > config.maxDays) return false;
+      if (config.minNights !== null && item.nights < config.minNights) return false;
+      if (config.maxNights !== null && item.nights > config.maxNights) return false;
       if (!productMatchesDestination(item, config.destinations)) return false;
       if (!productMatchesThemes(item, config.themes)) return false;
       if (!productMatchesKeywords(item, config.keywords)) return false;
+      if (productMatchesExcludedKeywords(item, config.excludeKeywords)) return false;
       if (config.mode === "trekkings" && !isTrekkingCandidate(item)) return false;
       if (config.mode === "trekkings" && config.trekkingCategory) {
         const categoryTerms = config.trekkingCategory.keywords || [];
@@ -443,17 +494,24 @@
     if (empty) empty.hidden = true;
 
     grid.innerHTML = state.filtered.map((item) => {
-      const priceLabel = item.price
-        ? `${t("cards.from", "Desde")} ${formatMoney(item.price, item.currency)}`
-        : item.productKind === "package"
-          ? t("cards.flexibleQuote", "Cotización flexible")
-          : t("cards.checkPrice", "Consultar precio");
+      const isDraft = String(item.status || "").toLowerCase() === "draft";
+      const priceLabel = isDraft
+        ? t("cards.comingSoon", "Próximamente")
+        : item.price
+          ? `${t("cards.from", "Desde")} ${formatMoney(item.price, item.currency)}`
+          : item.productKind === "package"
+            ? t("cards.flexibleQuote", "Cotización flexible")
+            : t("cards.checkPrice", "Consultar precio");
 
+      const cardUrl = isDraft
+        ? `https://wa.me/51900608980?text=${encodeURIComponent(`Hola My Cusco Trip, quiero información sobre ${item.title}.`)}`
+        : item.url;
+      const buttonLabel = isDraft ? t("cards.askAvailability", "Consultar disponibilidad") : t("cards.viewExperience", "Ver experiencia");
       const chips = buildChips(item);
 
       return `
         <article class="catalog-card">
-          <a class="catalog-card__image" href="${escapeHtml(item.url)}" aria-label="${escapeHtml(t("cards.viewExperience", "Ver experiencia"))} ${escapeHtml(item.title)}">
+          <a class="catalog-card__image" href="${escapeHtml(cardUrl)}" aria-label="${escapeHtml(buttonLabel)} ${escapeHtml(item.title)}">
             <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" />
             <span class="catalog-card__badge">${escapeHtml(item.badge)}</span>
           </a>
@@ -469,7 +527,7 @@
 
             <div class="catalog-card__footer">
               <strong>${escapeHtml(priceLabel)}</strong>
-              <a class="btn catalog-card__button" href="${escapeHtml(item.url)}">${escapeHtml(t("cards.viewExperience", "Ver experiencia"))}</a>
+              <a class="btn catalog-card__button" href="${escapeHtml(cardUrl)}"${isDraft ? ' target="_blank" rel="noopener"' : ""}>${escapeHtml(buttonLabel)}</a>
             </div>
           </div>
         </article>

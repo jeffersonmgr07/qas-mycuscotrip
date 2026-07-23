@@ -90,6 +90,13 @@
   function initMetaPixel() {
     if (!hasValue(config.facebookPixelId) || loaded.meta) return;
 
+    // Si una página ya cargó manualmente el Meta Pixel, reutilizamos esa instancia
+    // para evitar inicializaciones duplicadas.
+    if (typeof window.fbq === "function") {
+      loaded.meta = true;
+      return;
+    }
+
     /* eslint-disable */
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -211,15 +218,21 @@
       providers.push("ga4");
     }
 
-    if (typeof window.fbq === "function" && hasValue(config.facebookPixelId)) {
+    if (!options.skipMeta && typeof window.fbq === "function" && hasValue(config.facebookPixelId)) {
       const metaName = options.metaEventName || mapping.meta || eventName;
       const metaParams = toMetaParams(normalized);
+      const eventID = options.eventID || normalized.event_id || normalized.eventID || "";
       const standardEvents = new Set([
         "PageView", "ViewContent", "Search", "Lead", "InitiateCheckout",
         "AddPaymentInfo", "Purchase", "Contact", "CompleteRegistration",
         "CustomizeProduct", "AddToCart"
       ]);
-      window.fbq(standardEvents.has(metaName) ? "track" : "trackCustom", metaName, metaParams);
+      const trackMethod = standardEvents.has(metaName) ? "track" : "trackCustom";
+      if (eventID) {
+        window.fbq(trackMethod, metaName, metaParams, { eventID });
+      } else {
+        window.fbq(trackMethod, metaName, metaParams);
+      }
       providers.push("meta");
     }
 
@@ -250,7 +263,11 @@
       page_title: document.title,
       page_location: window.location.href,
       page_path: window.location.pathname
-    }, { metaEventName: "PageView" });
+    }, {
+      metaEventName: "PageView",
+      // Las landings con el snippet oficial de Meta ya envían PageView manualmente.
+      skipMeta: window.MCT_MANUAL_META_PAGEVIEW_SENT === true
+    });
   }
 
   function getLinkContext(link) {
