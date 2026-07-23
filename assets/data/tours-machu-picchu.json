@@ -60,61 +60,65 @@
       "currency": "USD",
       "days": 1,
       "nights": 0,
-      "shortDescription": "Experiencia full day a Machu Picchu con tren, bus, ingreso oficial y guía profesional.",
-      "description": "Versión clásico de Machu Picchu con reglas de tren, tarifas por nacionalidad y estructura preparada para upgrades de tren, hotel y extras.",
+      "shortDescription": "Tour full day clásico a Machu Picchu con tren turístico, bus Consettur, ingreso oficial y guía certificado.",
+      "description": "Este tour es la versión clásica de Machu Picchu para visitarlo de la manera más tradicional en un solo día. Tiene opciones de trenes que por lo general parten por la mañana y retornan por la noche. Conocerás la ciudadela inca de Machu Picchu con visita guiada y recorrido por el circuito 1, 2 o 3 según la disponibilidad oficial de tickets de ingreso para tu fecha de viaje.",
       "duration": {
         "label": "Full Day",
-        "maxGroupSize": 15,
+        "maxGroupSize": 12,
         "guideLanguages": [
           "es",
-          "en"
+          "en",
+          "otros idiomas, consultar"
         ]
       },
       "basePricing": {
-        "adult": 287.9,
-        "child": 269.9
+        "adult": 448.38,
+        "child": 448.38
       },
       "basePricingByNationality": {
         "national": {
-          "adult": 252.9,
-          "child": 243.9,
+          "adult": 448.38,
+          "child": 448.38,
           "currency": "USD"
         },
         "andean_community": {
-          "adult": 262.9,
-          "child": 253.9,
+          "adult": 448.38,
+          "child": 448.38,
           "currency": "USD"
         },
         "foreign": {
-          "adult": 287.9,
-          "child": 269.9,
+          "adult": 448.38,
+          "child": 448.38,
           "currency": "USD"
         }
       },
       "internalPricing": {
         "pricingModel": "operational_cost_plus_net_margin",
         "baseCurrency": "USD",
-        "targetNetProfitUSD": 50,
-        "guideCostUSD": 10,
-        "defaultTrainCostUSD": 142,
-        "defaultOutboundTrainCostUSD": 74,
-        "defaultReturnTrainCostUSD": 68,
+        "targetNetProfitUSD": 100,
+        "guideCostUSD": 50,
+        "defaultTrainCostUSD": 128,
+        "defaultOutboundTrainCostUSD": 66,
+        "defaultReturnTrainCostUSD": 62,
         "trainPricingSource": "assets/data/trains.json",
-        "defaultOutboundTrainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
-        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "defaultOutboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_0640_OLLANTAYTAMB",
+        "defaultReturnTrainCode": "INCA_MAPI_OLLA_VOYAGER_2020_MACHU_PICCHU",
         "trainCostIsSnapshot": true,
-        "trainCostSnapshotDate": "2026-05-01"
+        "trainCostSnapshotDate": "2026-05-01",
+        "guideCostModel": "fixed_per_group_prorated_1_to_10_passengers"
       },
       "financialRules": {
         "exchangeRateUsed": 3.75,
         "paypalFeePercent": 5.4,
         "paypalFixedUSD": 0.3,
-        "bankWithdrawPercent": 1.5,
+        "bankWithdrawPercent": 3,
         "igvPercent": 18,
         "netFactor": 0.9283,
         "rounding": {
           "USD": "ceil_to_next_x.90"
-        }
+        },
+        "maxPublicDiscountBufferPercent": 10,
+        "publicBasePriceStrategy": "inflate_to_preserve_net_after_discount_and_payment_fees"
       },
       "ticketPricingByNationality": {
         "machuPicchuEntrance": {
@@ -158,7 +162,7 @@
           "label": "Tour privado o semiprivado"
         }
       },
-      "capacity": 15,
+      "capacity": 12,
       "images": {
         "cover": "./assets/img/tours/machu-picchu-full-day-clasico/cover.jpg",
         "gallery": [
@@ -168,54 +172,66 @@
         ]
       },
       "includes": [
-        "Asistencia de viaje antes y durante la experiencia",
-        "Ticket de tren turístico según selección o tren predeterminado",
-        "Bus Consettur de subida y bajada a Machu Picchu",
-        "Ingreso oficial a Machu Picchu según disponibilidad",
-        "Guía profesional en español e inglés",
-        "Traslados terrestres necesarios según estación y modalidad seleccionada"
+        "Recojo desde el hotel y traslado a la estación de trenes.",
+        "Ticket de tren en categoría The Voyager con opción a upgrade.",
+        "Tren de ida y retorno según selección disponible.",
+        "Ticket de ingreso oficial a Machu Picchu. El circuito 1, 2 o 3 depende de la disponibilidad oficial de boletos.",
+        "Bus Consettur Machu Picchu de subida y bajada.",
+        "Guía profesional certificado en español o inglés.",
+        "Opción de almuerzo en Belmond Sanctuary Lodge o restaurante en Aguas Calientes desde la sección de extras.",
+        "Asistencia 24/7 antes y durante la experiencia."
       ],
       "excludes": [
-        "Alimentos y bebidas no especificados",
-        "Hotel en Aguas Calientes cuando la modalidad sea overnight y no se haya seleccionado hotel",
-        "Gastos personales",
-        "Servicios no mencionados"
+        "Alimentos y bebidas no especificados.",
+        "Hotel en Aguas Calientes.",
+        "Guardaequipajes.",
+        "Gastos personales y servicios no mencionados."
       ],
       "itinerary": [
         {
-          "title": "Recojo en hotel y traslado a estación",
-          "description": "Iniciaremos con el recojo desde tu hotel o punto previamente coordinado en Cusco. Según el horario del tren seleccionado, realizaremos el traslado hacia la estación correspondiente para iniciar la ruta hacia Machu Picchu.",
-          "images": [
-            "./assets/img/placeholder/experience.jpg"
-          ]
+          "time": "04:00 a.m. aprox.",
+          "title": "Recojo en el hotel y traslado a la estación",
+          "description": "Recojo desde tu hotel en Cusco o punto coordinado y traslado turístico hacia la estación correspondiente para abordar el tren hacia Machu Picchu Pueblo."
         },
         {
+          "time": "06:40 a.m. aprox.",
           "title": "Viaje en tren a Machu Picchu Pueblo",
-          "description": "Abordarás el tren turístico incluido o el tren que elijas durante la reserva. Durante el trayecto disfrutarás paisajes del Valle Sagrado, montañas andinas y el ingreso progresivo hacia la ceja de selva de Machu Picchu Pueblo.",
-          "images": [
-            "./assets/img/placeholder/experience.jpg"
-          ]
+          "description": "Salida en tren turístico hacia Aguas Calientes/Machu Picchu Pueblo. El horario puede variar según disponibilidad y tren seleccionado."
         },
         {
+          "time": "09:00 a.m. aprox.",
           "title": "Bus Consettur e ingreso oficial a Machu Picchu",
-          "description": "Al llegar a Machu Picchu Pueblo, coordinaremos la subida en bus Consettur hacia la puerta de ingreso. El acceso se realizará con ticket oficial y circuito confirmado según disponibilidad del Ministerio de Cultura.",
-          "images": [
-            "./assets/img/placeholder/experience.jpg"
-          ]
+          "description": "Coordinación para subir en bus Consettur hasta la puerta de ingreso. El circuito se confirma según disponibilidad oficial de boletos."
         },
         {
+          "time": "10:00 a.m. aprox.",
           "title": "Tour guiado en Machu Picchu",
-          "description": "Realizarás una visita guiada por los sectores principales de la ciudadela. El guía explicará la historia, arquitectura, organización urbana y significado ceremonial de Machu Picchu durante el recorrido autorizado.",
-          "images": [
-            "./assets/img/placeholder/experience.jpg"
-          ]
+          "description": "Recorrido guiado por la ciudadela inca junto a un guía profesional certificado. La ruta puede corresponder al circuito 1, 2 o 3 según disponibilidad."
         },
         {
-          "title": "Retorno a Cusco",
-          "description": "Después de la visita, descenderás a Machu Picchu Pueblo para tomar el tren de retorno seleccionado. Al llegar a la estación final, realizaremos el traslado terrestre correspondiente hacia Cusco o punto coordinado.",
-          "images": [
-            "./assets/img/placeholder/experience.jpg"
-          ]
+          "time": "01:00 p.m. aprox.",
+          "title": "Fin del tour guiado y tiempo libre para almorzar",
+          "description": "Finaliza la visita guiada. Tendrás tiempo libre para almorzar en Aguas Calientes; puedes agregar almuerzo en la sección de extras."
+        },
+        {
+          "time": "03:00 p.m. aprox.",
+          "title": "Bus de bajada hacia Aguas Calientes",
+          "description": "Descenso en bus Consettur desde Machu Picchu hacia Aguas Calientes para descansar, caminar por el pueblo o prepararte para el retorno."
+        },
+        {
+          "time": "07:00 p.m. aprox.",
+          "title": "Tren de retorno hacia Ollantaytambo",
+          "description": "Viaje de retorno en tren turístico desde Machu Picchu Pueblo hacia Ollantaytambo o la estación final indicada según tren seleccionado."
+        },
+        {
+          "time": "08:45 p.m. aprox.",
+          "title": "Llegada a estación y traslado hacia Cusco",
+          "description": "Llegada estimada a la estación de Ollantaytambo y traslado terrestre hacia la ciudad de Cusco."
+        },
+        {
+          "time": "10:00 p.m. a 10:30 p.m. aprox.",
+          "title": "Llegada a Cusco y fin de los servicios",
+          "description": "Desembarque cerca de la Plaza de Armas de Cusco o punto coordinado dentro de la zona operativa. Fin de los servicios."
         }
       ],
       "trainSelection": {
@@ -225,8 +241,8 @@
         "sameCompanyRoundTrip": true,
         "allowMixedCompanies": false,
         "defaultTrainCodes": {
-          "outbound": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
-          "return": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68"
+          "outbound": "INCA_OLLA_MAPI_VOYAGER_0640_OLLANTAYTAMB",
+          "return": "INCA_MAPI_OLLA_VOYAGER_2020_MACHU_PICCHU"
         },
         "allowedCompanies": [
           "incarail",
@@ -242,61 +258,75 @@
             "MAPI_OLLA"
           ]
         },
-        "allowedCategories": "all_available",
+        "allowedCategories": {
+          "outbound": [
+            "voyager",
+            "prime",
+            "360",
+            "expedition",
+            "vistadome",
+            "vistadome_observatory"
+          ],
+          "return": [
+            "voyager",
+            "prime",
+            "360",
+            "expedition",
+            "vistadome",
+            "vistadome_observatory"
+          ]
+        },
         "fixedSelection": false,
         "customerCanChangeTrain": true,
         "returnOptionsRule": "same_company_as_outbound",
-        "priceAdjustmentRule": "selected_train_total_cost_minus_default_train_total_cost",
+        "priceAdjustmentRule": "sum_positive_difference_per_direction_against_default_train_total_cost",
         "fallbackBehavior": "Si un código de tren no existe o no tiene tarifa vigente en trains.json, ocultar opción y mostrar pendiente de confirmación.",
         "timeWindows": {
           "outbound": {
             "min": "05:00",
-            "max": "07:30"
+            "max": "08:00"
           },
           "return": {
-            "min": "16:00",
+            "min": "18:00",
             "max": "22:00"
           }
-        },
-        "maxOptions": {
-          "return": 3
         }
       },
       "defaultTrainSelection": {
         "source": "assets/data/trains.json",
-        "outboundTrainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
-        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "outboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_0640_OLLANTAYTAMB",
+        "returnTrainCode": "INCA_MAPI_OLLA_VOYAGER_2020_MACHU_PICCHU",
         "pricingSnapshot": {
           "currency": "USD",
-          "outboundAdultCost": 74,
-          "returnAdultCost": 68,
-          "totalAdultTrainCost": 142,
-          "snapshotDate": "2026-05-01",
-          "note": "Snapshot utilizado para calcular el precio base visible del tour. La fuente operativa de verdad para trenes es assets/data/trains.json."
+          "outboundAdultCost": 66,
+          "returnAdultCost": 62,
+          "totalAdultTrainCost": 128,
+          "snapshotDate": "2026-06-23",
+          "note": "Tren base usado para calcular excedentes: The Voyager 06:40 ida y The Voyager 20:20 retorno desde trains.json."
         },
         "resolvedOutbound": {
-          "trainCode": "INCA_CUSCO_MAPI_VOYAGER_BIMODAL_41",
+          "trainCode": "INCA_OLLA_MAPI_VOYAGER_0640_OLLANTAYTAMB",
           "company": "incarail",
-          "serviceName": "The Voyager Bimodal",
-          "route": "CUSCO_MAPI",
-          "departureStation": "Cusco",
+          "serviceName": "The Voyager",
+          "route": "OLLA_MAPI",
+          "departureStation": "Ollantaytambo",
           "arrivalStation": "Machu Picchu",
-          "departureTime": "04:10",
+          "departureTime": "06:40",
           "arrivalTime": "08:01",
           "currency": "USD",
-          "adultCostUSD": 74
+          "adultCostUSD": 66
         },
         "resolvedReturn": {
-          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+          "trainCode": "INCA_MAPI_OLLA_VOYAGER_2020_MACHU_PICCHU",
           "company": "incarail",
-          "serviceName": "The Voyager Bimodal",
-          "route": "MAPI_CUSCO",
+          "serviceName": "The Voyager",
+          "route": "MAPI_OLLA",
           "departureStation": "Machu Picchu",
-          "arrivalStation": "Cusco",
-          "departureTime": "21:30",
-          "arrivalTime": "01:15",
+          "arrivalStation": "Ollantaytambo",
+          "departureTime": "20:20",
+          "arrivalTime": "21:59",
           "currency": "USD",
-          "adultCostUSD": 68
+          "adultCostUSD": 62
         }
       },
       "accommodationSelection": {
@@ -308,25 +338,27 @@
       "extras": [
         {
           "code": "lunch-tinkuy-belmond",
-          "label": "Tinkuy buffet lunch by Belmond Sanctuary Lodge",
+          "label": "Restaurante Tinkuy buffet lunch by Belmond Sanctuary Lodge",
           "currency": "USD",
           "costUSD": 45,
           "priceModel": "cost_plus_payment_fees",
           "perPerson": true,
-          "publishedPriceUSD": 48.9
+          "publishedPriceUSD": 48.9,
+          "exclusiveGroup": "lunch"
         },
         {
-          "code": "lunch-alpaquito",
-          "label": "Tourist lunch at Alpaquito restaurant",
+          "code": "lunch-full-house",
+          "label": "Almuerzo turístico en restaurante Full House Machu Picchu",
           "currency": "USD",
-          "costUSD": 25,
+          "costUSD": 22,
           "priceModel": "cost_plus_payment_fees",
           "perPerson": true,
-          "publishedPriceUSD": 27.9
+          "publishedPriceUSD": 25.9,
+          "exclusiveGroup": "lunch"
         }
       ],
       "paymentOptions": {
-        "fullPaymentDiscountPercent": 0,
+        "fullPaymentDiscountPercent": 10,
         "partialPaymentPerPerson": 149,
         "partialPaymentLabel": "Reserva con anticipo y completa el saldo antes del viaje"
       },
@@ -404,7 +436,21 @@
           "q": "¿Las entradas a Machu Picchu están garantizadas?",
           "a": "Las entradas se gestionan según disponibilidad oficial para tu fecha y circuito seleccionado. Revisamos la mejor opción disponible antes de confirmar la reserva."
         }
-      ]
+      ],
+      "commercialBenefits": {
+        "flexibleBookingText": "Separa tu cupo con un anticipo y paga la diferencia al llegar al destino. También puedes elegir pago completo y obtener un descuento cuando esté disponible.",
+        "quickConfirmationText": "La confirmación se realiza al momento del pago. Luego nos ponemos en contacto contigo para confirmar horarios de tren, circuito disponible y detalles finales de tu tour a Machu Picchu.",
+        "personalSupportText": "Nos encargamos de toda la logística: recojo desde tu hotel, traslado a la estación, trenes, bus, ingreso oficial, guía certificado y coordinación del mejor horario posible. Tú solo llegas listo para disfrutar con un grupo reducido y ameno."
+      },
+      "hideHighlights": true,
+      "pickupInfo": "El recojo será desde el hotel seleccionado o indicado por el viajero en Cusco, previa coordinación, siempre que el hotel se encuentre dentro del Centro Histórico de Cusco o zona operativa cercana. El horario exacto se coordinará con tu agente de viajes después de la reserva o días antes del viaje.",
+      "importantInfo": [
+        "Se recomienda reservar con anticipación, especialmente en temporada alta o fechas de alta demanda.",
+        "Revisa el pronóstico del clima para elegir la vestimenta adecuada antes del viaje.",
+        "El tour incluye caminata sobre terreno duro e irregular dentro de Machu Picchu; se recomienda usar zapatos de trekking o zapatillas cómodas con buena suela.",
+        "Lleva ropa ligera, abrigo para la mañana/noche, bloqueador solar, agua y documento de identidad o pasaporte original."
+      ],
+      "extrasSelectionMode": "single"
     },
     {
       "id": "mapi_002",
@@ -758,65 +804,71 @@
       "typeLabel": "2 días / 1 noche",
       "badge": "Overnight",
       "featured": true,
-      "location": "Cusco / Valle Sagrado / Machu Picchu",
+      "location": "Centro arqueológico de Machu Picchu",
       "currency": "USD",
       "days": 2,
       "nights": 1,
       "shortDescription": "Experiencia 2 días / 1 noche a Machu Picchu con tren, bus, ingreso oficial y guía profesional.",
-      "description": "Versión overnight de Machu Picchu con reglas de tren, tarifas por nacionalidad y estructura preparada para upgrades de tren, hotel y extras.",
+      "description": "Versión clásica overnight de Machu Picchu para viajar el primer día a Aguas Calientes, descansar una noche y visitar el Centro Arqueológico de Machu Picchu al día siguiente con tren, bus, ingreso oficial, guía profesional y alojamiento incluido.",
       "duration": {
         "label": "2 días / 1 noche",
-        "maxGroupSize": 15,
+        "maxGroupSize": 12,
         "guideLanguages": [
           "es",
           "en"
         ]
       },
       "basePricing": {
-        "adult": 287.9,
-        "child": 269.9
+        "adult": 489.9,
+        "child": 489.9
       },
       "basePricingByNationality": {
         "national": {
-          "adult": 252.9,
-          "child": 243.9,
+          "adult": 489.9,
+          "child": 489.9,
           "currency": "USD"
         },
         "andean_community": {
-          "adult": 262.9,
-          "child": 253.9,
+          "adult": 489.9,
+          "child": 489.9,
           "currency": "USD"
         },
         "foreign": {
-          "adult": 287.9,
-          "child": 269.9,
+          "adult": 489.9,
+          "child": 489.9,
           "currency": "USD"
         }
       },
       "internalPricing": {
         "pricingModel": "operational_cost_plus_net_margin",
         "baseCurrency": "USD",
-        "targetNetProfitUSD": 50,
-        "guideCostUSD": 10,
+        "targetNetProfitUSD": 100,
+        "guideCostUSD": 50,
         "defaultTrainCostUSD": 142,
         "defaultOutboundTrainCostUSD": 74,
         "defaultReturnTrainCostUSD": 68,
         "trainPricingSource": "assets/data/trains.json",
-        "defaultOutboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_45",
-        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "defaultOutboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_1636_OLLANTAYTAMB",
+        "defaultReturnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_2020_MACHU_PICCHU",
         "trainCostIsSnapshot": true,
-        "trainCostSnapshotDate": "2026-05-01"
+        "trainCostSnapshotDate": "2026-05-01",
+        "fixedNetBasePerPersonUSD": 320,
+        "defaultHotelCostUSD": 45,
+        "defaultHotelCostPerPersonIfSharedUSD": 22.5,
+        "hotelCostRule": "USD 45 para 1 pasajero; USD 22.50 por pasajero desde 2 pasajeros, según indicación comercial.",
+        "defaultHotelCode": "luz-garden-3s"
       },
       "financialRules": {
         "exchangeRateUsed": 3.75,
         "paypalFeePercent": 5.4,
         "paypalFixedUSD": 0.3,
-        "bankWithdrawPercent": 1.5,
+        "bankWithdrawPercent": 3,
         "igvPercent": 18,
         "netFactor": 0.9283,
         "rounding": {
           "USD": "ceil_to_next_x.90"
-        }
+        },
+        "maxPublicDiscountBufferPercent": 10
       },
       "ticketPricingByNationality": {
         "machuPicchuEntrance": {
@@ -864,41 +916,99 @@
       "images": {
         "cover": "./assets/img/tours/machu-picchu-overnight-clasico/cover.jpg",
         "gallery": [
-          "./assets/img/placeholder/experience.jpg",
-          "./assets/img/placeholder/experience.jpg",
-          "./assets/img/placeholder/experience.jpg"
+          "./assets/img/tours/machu-picchu-overnight-clasico/1.jpg",
+          "./assets/img/tours/machu-picchu-overnight-clasico/2.jpg",
+          "./assets/img/tours/machu-picchu-overnight-clasico/3.jpg",
+          "./assets/img/tours/machu-picchu-overnight-clasico/4.jpg"
         ]
       },
       "includes": [
-        "Asistencia de viaje antes y durante la experiencia",
-        "Ticket de tren turístico según selección o tren predeterminado",
-        "Bus Consettur de subida y bajada a Machu Picchu",
-        "Ingreso oficial a Machu Picchu según disponibilidad",
-        "Guía profesional en español e inglés",
-        "Traslados terrestres necesarios según estación y modalidad seleccionada"
+        "Recojo desde el hotel en Cusco y traslado a la estación de tren de Ollantaytambo.",
+        "Ticket de tren turístico de ida y retorno según selección disponible.",
+        "Noche de alojamiento en Aguas Calientes en el hotel seleccionado.",
+        "Ticket de ingreso oficial a Machu Picchu. El circuito 1, 2 o 3 depende de la disponibilidad oficial de boletos.",
+        "Bus Consettur Machu Picchu de subida y bajada.",
+        "Guía profesional certificado en español o inglés.",
+        "Opción de almuerzo en Belmond Sanctuary Lodge o restaurante en Aguas Calientes desde la sección de extras.",
+        "Traslado final hacia Cusco según estación y modalidad seleccionada.",
+        "Asistencia 24/7 antes y durante la experiencia."
       ],
       "excludes": [
-        "Alimentos y bebidas no especificados",
-        "Hotel en Aguas Calientes cuando la modalidad sea overnight y no se haya seleccionado hotel",
-        "Gastos personales",
-        "Servicios no mencionados"
+        "Alimentos y bebidas no especificados.",
+        "Early check-in, late check-out o gastos adicionales del hotel.",
+        "Guardaequipaje, propinas y gastos personales.",
+        "Servicios no mencionados en el itinerario."
       ],
       "itinerary": [
         {
-          "title": "Día 1: Viaje a Aguas Calientes",
-          "description": "Iniciaremos con el traslado desde Cusco o el punto coordinado hacia la estación correspondiente. Abordarás el tren turístico hacia Machu Picchu Pueblo, disfrutando el paisaje del Valle Sagrado y la ruta ferroviaria hacia la ceja de selva. A tu llegada, tendrás asistencia para ubicarte en Aguas Calientes y coordinar los detalles de la visita del día siguiente. La noche será en Aguas Calientes según el hotel seleccionado.",
-          "images": [
-            "./assets/img/placeholder/experience.jpg",
-            "./assets/img/placeholder/experience.jpg"
-          ]
+          "time": "Día 1 · 01:30 p.m. aprox.",
+          "title": "Recojo en Cusco y traslado a Ollantaytambo",
+          "description": "Iniciaremos con el recojo desde tu hotel o punto coordinado en Cusco para trasladarnos hacia la estación de tren de Ollantaytambo."
         },
         {
-          "title": "Día 2: Machu Picchu y retorno",
-          "description": "Después del desayuno o a la hora coordinada, subirás en bus Consettur hacia la ciudadela de Machu Picchu. Realizarás la visita guiada por el circuito confirmado, con explicación de los sectores principales, historia y arquitectura inca. Al finalizar, retornarás a Machu Picchu Pueblo para tomar el tren de regreso seleccionado y continuar con el traslado final hacia Cusco o punto coordinado.",
-          "images": [
-            "./assets/img/placeholder/experience.jpg",
-            "./assets/img/placeholder/experience.jpg"
-          ]
+          "time": "Día 1 · 03:30 p.m. aprox.",
+          "title": "Llegada a Ollantaytambo",
+          "description": "Llegada referencial a la estación para realizar el registro y prepararse para abordar el tren turístico hacia Machu Picchu Pueblo."
+        },
+        {
+          "time": "Día 1 · 04:36 p.m. aprox.",
+          "title": "Viaje en tren a Aguas Calientes",
+          "description": "Salida en tren turístico hacia Machu Picchu Pueblo/Aguas Calientes. El horario puede ajustarse según el tren seleccionado."
+        },
+        {
+          "time": "Día 1 · 06:01 p.m. aprox.",
+          "title": "Llegada a Aguas Calientes y traslado al hotel",
+          "description": "Llegada a Machu Picchu Pueblo y traslado o asistencia hacia el hotel seleccionado para realizar el check-in."
+        },
+        {
+          "time": "Día 1 · Noche",
+          "title": "Noche en Aguas Calientes",
+          "description": "Noche libre en Aguas Calientes para descansar antes de la visita a Machu Picchu del día siguiente."
+        },
+        {
+          "time": "Día 2 · 09:00 a.m. aprox.",
+          "title": "Encuentro en la Plaza de Armas de Aguas Calientes",
+          "description": "Reunión con el guía para iniciar la coordinación del tour guiado a Machu Picchu."
+        },
+        {
+          "time": "Día 2 · 09:30 a.m. aprox.",
+          "title": "Fila y bus Consettur hacia Machu Picchu",
+          "description": "Coordinación para abordar el bus turístico de subida hasta la puerta de ingreso al Centro Arqueológico de Machu Picchu."
+        },
+        {
+          "time": "Día 2 · 10:00 a.m. aprox.",
+          "title": "Tour guiado en Machu Picchu",
+          "description": "Inicio del recorrido guiado por Machu Picchu. El circuito se confirma según disponibilidad oficial de boletos."
+        },
+        {
+          "time": "Día 2 · 01:00 p.m. aprox.",
+          "title": "Fin del tour guiado y tiempo para almorzar",
+          "description": "Finaliza la visita guiada. Puedes agregar almuerzo opcional en Tinkuy/Belmond Sanctuary Lodge o almorzar por tu cuenta."
+        },
+        {
+          "time": "Día 2 · 03:00 p.m. aprox.",
+          "title": "Bus de bajada hacia Aguas Calientes",
+          "description": "Retorno en bus Consettur hacia Machu Picchu Pueblo. Si no tomas almuerzo opcional, tendrás tiempo libre para actividades por tu cuenta."
+        },
+        {
+          "time": "Día 2 · 07:50 p.m. aprox.",
+          "title": "Embarque para el tren de retorno",
+          "description": "Presentación en la estación de tren de Aguas Calientes para abordar el tren de retorno seleccionado."
+        },
+        {
+          "time": "Día 2 · 08:20 p.m. aprox.",
+          "title": "Tren de retorno hacia Ollantaytambo",
+          "description": "Salida en tren turístico de retorno. El horario final depende del tren seleccionado."
+        },
+        {
+          "time": "Día 2 · 10:00 p.m. aprox.",
+          "title": "Transbordo hacia bus turístico",
+          "description": "Transbordo operativo desde tren hacia bus turístico para continuar el viaje hacia la ciudad de Cusco."
+        },
+        {
+          "time": "Día 2 · 11:45 p.m. aprox.",
+          "title": "Llegada a Cusco y fin de servicios",
+          "description": "Llegada referencial a la ciudad de Cusco. El desembarque se realiza cerca de la Plaza de Armas o punto coordinado."
         }
       ],
       "trainSelection": {
@@ -908,8 +1018,8 @@
         "sameCompanyRoundTrip": false,
         "allowMixedCompanies": true,
         "defaultTrainCodes": {
-          "outbound": "INCA_OLLA_MAPI_VOYAGER_45",
-          "return": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68"
+          "outbound": "INCA_OLLA_MAPI_VOYAGER_1636_OLLANTAYTAMB",
+          "return": "INCA_MAPI_CUSCO_VOYAGER_2020_MACHU_PICCHU"
         },
         "allowedCompanies": [
           "incarail",
@@ -917,11 +1027,14 @@
         ],
         "allowedRoutes": {
           "outbound": [
-            "OLLA_MAPI"
+            "OLLA_MAPI",
+            "CUSCO_MAPI",
+            "URU_MAPI"
           ],
           "return": [
             "MAPI_CUSCO",
-            "MAPI_OLLA"
+            "MAPI_OLLA",
+            "MAPI_URU"
           ]
         },
         "allowedCategories": "all_available",
@@ -932,29 +1045,29 @@
         "fallbackBehavior": "Si un código de tren no existe o no tiene tarifa vigente en trains.json, ocultar opción y mostrar pendiente de confirmación.",
         "timeWindows": {
           "outbound": {
-            "min": "15:00",
+            "min": "05:00",
             "max": "22:00"
           },
           "return": {
-            "min": "12:00",
+            "min": "15:00",
             "max": "22:00"
           }
         }
       },
       "defaultTrainSelection": {
         "source": "assets/data/trains.json",
-        "outboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_45",
-        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+        "outboundTrainCode": "INCA_OLLA_MAPI_VOYAGER_1636_OLLANTAYTAMB",
+        "returnTrainCode": "INCA_MAPI_CUSCO_VOYAGER_2020_MACHU_PICCHU",
         "pricingSnapshot": {
           "currency": "USD",
-          "outboundAdultCost": 74,
-          "returnAdultCost": 68,
-          "totalAdultTrainCost": 142,
-          "snapshotDate": "2026-05-01",
-          "note": "Snapshot utilizado para calcular el precio base visible del tour. La fuente operativa de verdad para trenes es assets/data/trains.json."
+          "outboundAdultCost": 85,
+          "returnAdultCost": 75,
+          "totalAdultTrainCost": 160,
+          "snapshotDate": "2026-06-23",
+          "note": "Snapshot utilizado para calcular el precio base visible del tour."
         },
         "resolvedOutbound": {
-          "trainCode": "INCA_OLLA_MAPI_VOYAGER_45",
+          "trainCode": "INCA_OLLA_MAPI_VOYAGER_1636_OLLANTAYTAMB",
           "company": "incarail",
           "serviceName": "The Voyager",
           "route": "OLLA_MAPI",
@@ -963,30 +1076,35 @@
           "departureTime": "16:36",
           "arrivalTime": "18:09",
           "currency": "USD",
-          "adultCostUSD": 74
+          "adultCostUSD": 85
         },
         "resolvedReturn": {
-          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_BIMODAL_68",
+          "trainCode": "INCA_MAPI_CUSCO_VOYAGER_2020_MACHU_PICCHU",
           "company": "incarail",
-          "serviceName": "The Voyager Bimodal",
+          "serviceName": "The Voyager",
           "route": "MAPI_CUSCO",
           "departureStation": "Machu Picchu",
-          "arrivalStation": "Cusco",
-          "departureTime": "21:30",
-          "arrivalTime": "01:15",
+          "arrivalStation": "Cusco Av. El Sol 843",
+          "departureTime": "20:20",
+          "arrivalTime": "00:10",
           "currency": "USD",
-          "adultCostUSD": 68
+          "adultCostUSD": 75
         }
       },
       "accommodationSelection": {
         "required": true,
-        "includedInBasePrice": false,
+        "includedInBasePrice": true,
         "allowedDestinations": [
           "aguas-calientes"
         ],
         "recommendedHotelTags": [
           "standard"
-        ]
+        ],
+        "defaultHotelCode": "luz-garden-3s",
+        "defaultHotelName": "Hotel Luz Garden Machu Picchu",
+        "defaultHotelCostUSD": 45,
+        "upgradeEnabled": true,
+        "allowNoHotel": false
       },
       "extras": [
         {
@@ -1009,7 +1127,7 @@
         }
       ],
       "paymentOptions": {
-        "fullPaymentDiscountPercent": 0,
+        "fullPaymentDiscountPercent": 10,
         "partialPaymentPerPerson": 149,
         "partialPaymentLabel": "Reserva con anticipo y completa el saldo antes del viaje"
       },
@@ -1057,7 +1175,7 @@
       "publicPriceIncludesTrain": true,
       "quotePackageBaseExcludesTrain": true,
       "quoteTrainSelectionRequired": true,
-      "fallbackImage": "./assets/img/tours/machu-picchu-overnight-clasico/cover.jpg",
+      "fallbackImage": "./assets/img/tours/machu-picchu-overnight-clasico/1.jpg",
       "displayMeta": {
         "commercialModeLabel": "Overnight",
         "speedLabel": "Clásico",
@@ -1088,6 +1206,19 @@
           "q": "¿Las entradas a Machu Picchu están garantizadas?",
           "a": "Las entradas se gestionan según disponibilidad oficial para tu fecha y circuito seleccionado. Revisamos la mejor opción disponible antes de confirmar la reserva."
         }
+      ],
+      "accommodationSummary": [
+        {
+          "destination": "aguas-calientes",
+          "nights": 1,
+          "label": "Aguas Calientes - 1 noche"
+        }
+      ],
+      "importantInfo": [
+        "La disponibilidad del circuito de ingreso a Machu Picchu se confirma según boletos oficiales disponibles.",
+        "Los horarios de tren pueden variar según disponibilidad operativa y selección realizada.",
+        "El hotel incluido corresponde a una noche en Aguas Calientes. Cualquier upgrade de hotel se calcula como cargo adicional.",
+        "Se recomienda llevar documento de identidad o pasaporte, calzado cómodo, ropa ligera, abrigo para la noche y protección solar."
       ]
     },
     {
