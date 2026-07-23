@@ -488,5 +488,280 @@
       },
       "extras": []
     }
+  },
+  {
+    "codigo": "COT-20260504-WF20J",
+    "apellido": "LOZANO",
+    "fechaVoucher": "sábado, 1 de agosto de 2026",
+    "fechaEmision": "2026-05-04",
+    "fechaViaje": "2026-08-01",
+    "duracion": "06 días / 05 noches",
+    "idioma": "Español",
+    "titularReserva": "Brenda Lozano",
+    "telefonoContacto": "946804886",
+    "codigoCupon": "COT-20260504-WF20J",
+    "cantidadPaxs": 3,
+    "destino": "Cusco, Valle Sagrado, Machu Picchu, Vinicunca y Laguna Humantay",
+    "packTour": "Itinerario A - Paquete Cusco 6D/5N con alojamiento triple",
+    "agenteAsignado": "Jefferson García",
+    "agenteTelefono": "+51 900 608 980",
+    "agenteFoto": "./assets/img/agentes/jefferson-garcia.jpg",
+    "hotelInfo": [
+      {
+        "nombre": "Hotel Cusco Boutique",
+        "ubicacion": "Cusco",
+        "checkIn": "01-ago-2026 - 11:00 AM",
+        "checkOut": "02-ago-2026 - 10:00 AM",
+        "noches": "01",
+        "categoria": "3 estrellas",
+        "habitacion": "Triple",
+        "direccion": "Calle Teqsecocha 566 Cusco, Perú",
+        "telefono": "+51 913 493 167",
+        "observaciones": "Habitación triple / Desayuno incluido / WiFi / Agua caliente / Toallas"
+      },
+      {
+        "nombre": "Hotel Luz Garden",
+        "ubicacion": "Aguas Calientes",
+        "checkIn": "02-ago-2026 - 11:00 AM",
+        "checkOut": "03-ago-2026 - 10:00 AM",
+        "noches": "01",
+        "categoria": "3 estrellas",
+        "habitacion": "Triple",
+        "direccion": "Aymuraypa Tikan 109, Aguas Calientes",
+        "telefono": "+51 966 384 656",
+        "observaciones": "Habitación triple / Desayuno incluido / WiFi / Agua caliente / Toallas"
+      },
+      {
+        "nombre": "Hotel Cusco Boutique",
+        "ubicacion": "Cusco",
+        "checkIn": "03-ago-2026 - 11:00 AM",
+        "checkOut": "06-ago-2026 - 10:00 AM",
+        "noches": "03",
+        "categoria": "3 estrellas",
+        "habitacion": "Triple",
+        "direccion": "Calle Teqsecocha 566 Cusco, Perú",
+        "telefono": "+51 913 493 167",
+        "observaciones": "Habitación triple / Desayuno incluido / WiFi / Agua caliente / Toallas"
+      }
+    ],
+    "turistas": [
+      {
+        "nombreCompleto": "Emiliana Teofila Valenzuela Figueroa de Villanueva",
+        "tipoDocumento": "DNI",
+        "numeroDocumento": "08554935",
+        "nacionalidad": "Peruana",
+        "fechaNacimiento": "27/12/1955",
+        "telefono": "946804886"
+      },
+      {
+        "nombreCompleto": "Gregorio Herminio Valenzuela Villanueva",
+        "tipoDocumento": "DNI",
+        "numeroDocumento": "43273945",
+        "nacionalidad": "Peruana",
+        "fechaNacimiento": "09/05/1954",
+        "telefono": "-"
+      },
+      {
+        "nombreCompleto": "Flavia Brisa Lozano Valenzuela",
+        "tipoDocumento": "DNI",
+        "numeroDocumento": "78397569",
+        "nacionalidad": "Peruana",
+        "fechaNacimiento": "01/01/2014",
+        "telefono": "-"
+      }
+    ],
+    "servicios": [
+      {
+        "codigo": "TRA001",
+        "nombre": "Traslado de llegada / coordinación en Cusco",
+        "fecha": "Sáb - 01-Ago-2026",
+        "horaInicio": "09:00 a. m.",
+        "horaFin": "09:30 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS100",
+        "nombre": "Bienvenida Ancestral Cusco",
+        "fecha": "Sáb - 01-Ago-2026",
+        "horaInicio": "10:00 a. m.",
+        "horaFin": "11:00 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS001",
+        "nombre": "City Tour Cusco + Centros Arqueológicos",
+        "fecha": "Sáb - 01-Ago-2026",
+        "horaInicio": "01:30 p. m.",
+        "horaFin": "06:30 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "BTG004",
+        "nombre": "Boleto Turístico General Adulto Peruano",
+        "fecha": "Sáb - 01-Ago-2026",
+        "horaInicio": "Incluido",
+        "horaFin": "Incluido",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS003",
+        "nombre": "Valle Sagrado de los Incas + conexión a Aguas Calientes",
+        "fecha": "Dom - 02-Ago-2026",
+        "horaInicio": "07:00 a. m.",
+        "horaFin": "04:30 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "TRA008",
+        "nombre": "Traslado a estación de tren Ollantaytambo",
+        "fecha": "Dom - 02-Ago-2026",
+        "horaInicio": "04:30 p. m.",
+        "horaFin": "05:30 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CONS10",
+        "nombre": "Bus Consettur - Subida a Machu Picchu",
+        "fecha": "Lun - 03-Ago-2026",
+        "horaInicio": "08:00 a. m.",
+        "horaFin": "08:45 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "MAPI04",
+        "nombre": "Ingreso Machu Picchu - Adulto/menor peruano - C1",
+        "fecha": "Lun - 03-Ago-2026",
+        "horaInicio": "09:00 a. m.",
+        "horaFin": "10:00 a. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS028",
+        "nombre": "Tour guiado Machu Picchu",
+        "fecha": "Lun - 03-Ago-2026",
+        "horaInicio": "09:00 a. m.",
+        "horaFin": "01:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CONS20",
+        "nombre": "Bus Consettur - Bajada a Machu Picchu Pueblo",
+        "fecha": "Lun - 03-Ago-2026",
+        "horaInicio": "01:30 p. m.",
+        "horaFin": "02:15 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "TRA009",
+        "nombre": "Traslado Est. Ollantaytambo / Cusco",
+        "fecha": "Lun - 03-Ago-2026",
+        "horaInicio": "06:00 p. m.",
+        "horaFin": "08:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS010",
+        "nombre": "Tour Montaña de Colores Vinicunca",
+        "fecha": "Mar - 04-Ago-2026",
+        "horaInicio": "04:30 a. m.",
+        "horaFin": "05:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "TCK-CUS010",
+        "nombre": "Ticket de ingreso a Montaña Vinicunca",
+        "fecha": "Mar - 04-Ago-2026",
+        "horaInicio": "Incluido",
+        "horaFin": "Incluido",
+        "incluido": true
+      },
+      {
+        "codigo": "CUS009",
+        "nombre": "Tour Laguna Humantay",
+        "fecha": "Mié - 05-Ago-2026",
+        "horaInicio": "04:30 a. m.",
+        "horaFin": "05:00 p. m.",
+        "incluido": true
+      },
+      {
+        "codigo": "TCK-CUS009",
+        "nombre": "Ticket de ingreso a Laguna Humantay",
+        "fecha": "Mié - 05-Ago-2026",
+        "horaInicio": "Incluido",
+        "horaFin": "Incluido",
+        "incluido": true
+      },
+      {
+        "codigo": "TRA002",
+        "nombre": "Traslado Hotel / Aeropuerto o terminal",
+        "fecha": "Jue - 06-Ago-2026",
+        "horaInicio": "04:00 p. m.",
+        "horaFin": "04:30 p. m.",
+        "incluido": true
+      }
+    ],
+    "vuelos": [
+      {
+        "operador": "JetSmart",
+        "numero": "JA7035",
+        "origen": "Lima",
+        "destino": "Cusco",
+        "salida": "30-Jul-2026 06:35 PM",
+        "llegada": "30-Jul-2026 08:00 PM"
+      },
+      {
+        "operador": "JetSmart",
+        "numero": "JA7026",
+        "origen": "Cusco",
+        "destino": "Lima",
+        "salida": "07-Ago-2026 09:30 PM",
+        "llegada": "07-Ago-2026 11:10 PM"
+      }
+    ],
+    "incluye": [
+      "04 noches de alojamiento en Hotel Cusco Boutique Cat. 3 estrellas, en habitación triple",
+      "01 noche de alojamiento en Hotel Luz Garden Cat. 3 estrellas, en habitación triple",
+      "Desayunos incluidos según política de cada hotel",
+      "Traslados indicados en el itinerario dentro de la operación turística",
+      "Bienvenida ancestral en Cusco",
+      "City Tour Cusco y centros arqueológicos",
+      "Tour Valle Sagrado de los Incas con conexión a Aguas Calientes",
+      "Visita guiada a Machu Picchu con ingreso y buses Consettur incluidos",
+      "Tour Montaña de Colores Vinicunca con alimentación local básica",
+      "Tour Laguna Humantay con alimentación local básica",
+      "Asistencia y orientación al turista durante el viaje"
+    ],
+    "noIncluye": [
+      "Pasajes aéreos Lima - Cusco - Lima; se registran solo como referencia de llegada y salida",
+      "Boletos de tren no registrados en la cotización; confirmar si serán tren local o tren turístico antes de emitir voucher final",
+      "Almuerzos y cenas no detallados como incluidos",
+      "Gastos personales, propinas, seguro de viaje y servicios fuera del itinerario"
+    ],
+    "informacionAdicional": [
+      "Cotización base: COT-20260504-WF20J, emitida el 04/05/2026 y válida hasta el 06/05/2026.",
+      "El paquete cotizado inicia el 01/08/2026 y finaliza el 06/08/2026. Los vuelos informados por el cliente son 30/07/2026 y 07/08/2026.",
+      "Presentarse con anticipación a cada servicio y portar DNI físico vigente.",
+      "Horarios de tours y traslados sujetos a reconfirmación operativa según disponibilidad de ingresos, trenes, buses y clima.",
+      "Verificar y completar datos de trenes antes de enviar el voucher final al cliente."
+    ],
+    "pagos": {
+      "totalPendiente": {
+        "label": "Reserva confirmada / pago registrado",
+        "descripcion": "La cotización fue convertida a reserva. Validar comprobante de pago antes de operación final.",
+        "montoPen": 0,
+        "montoUsd": 0,
+        "url": "",
+        "detalle": [
+          "Cotización: S/ 3,108.80",
+          "Tarifa con descuento aplicado: S/ 2,949.90",
+          "Adultos x2: S/ 1,419.80",
+          "Niños x1: S/ 619.90",
+          "Alojamiento: S/ 1,070.00",
+          "TOTAL PENDIENTE: S/ 0.00"
+        ],
+        "badge": "PAGADO / VALIDAR"
+      },
+      "extras": []
+    }
   }
 ]

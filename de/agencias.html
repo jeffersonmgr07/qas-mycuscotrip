@@ -1,16 +1,281 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="robots" content="noindex, follow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portal de agencias | My Cusco Trip</title>
-  <link rel="canonical" href="https://mycuscotrip.com/agencias/?lang=de" />
-  <meta http-equiv="refresh" content="0; url=/agencias/?lang=de" />
-  <script>window.location.replace('/agencias/?lang=de' + window.location.hash);</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Cusco- und Machu-Picchu-Touren | Peru Reisepakete | My Cusco Trip</title>
+<meta content="noindex, follow" name="robots"/>
+<meta content="Buchen Sie Cusco, Machu Picchu, Heiliges Tal und Peru-Reisepakete mit lokalen Experten, flexiblen Zahlungen und persönlicher Betreuung." name="description"/>
+<link href="../public/favicon.ico" rel="icon"/>
+<link href="../assets/css/agencias.css" rel="stylesheet"/>
+<meta content="de_DE" property="og:locale"/><meta content="Cusco- und Machu-Picchu-Touren | Peru Reisepakete | My Cusco Trip" property="og:title"/><meta content="Buchen Sie Cusco, Machu Picchu, Heiliges Tal und Peru-Reisepakete mit lokalen Experten, flexiblen Zahlungen und persönlicher Betreuung." property="og:description"/><meta content="Cusco- und Machu-Picchu-Touren | Peru Reisepakete | My Cusco Trip" name="twitter:title"/><meta content="Buchen Sie Cusco, Machu Picchu, Heiliges Tal und Peru-Reisepakete mit lokalen Experten, flexiblen Zahlungen und persönlicher Betreuung." name="twitter:description"/><link href="https://mycuscotrip.com/de/agencias.html" rel="canonical"/><script>window.MCT_LOCALE="de"; window.MCT_IS_LOCALIZED_PAGE=true;</script>
+<!-- Social sharing fallback -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="My Cusco Trip" />
+<meta property="og:url" content="https://mycuscotrip.com/de/agencias.html" />
+<meta property="og:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:secure_url" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="My Cusco Trip - Touren und Reisepakete nach Cusco und Machu Picchu" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta name="twitter:image:alt" content="My Cusco Trip - Touren und Reisepakete nach Cusco und Machu Picchu" />
 </head>
 <body>
-  <p>Redirigiendo al portal de agencias...</p>
-  <p><a href="/agencias/?lang=de">Ir al portal de agencias</a></p>
+<div class="agency-shell" data-app="agencias">
+<header class="agency-topbar">
+<a aria-label="Volver al inicio de My Cusco Trip" class="agency-brand" href="index.html">
+<img alt="My Cusco Trip" class="agency-brand__logo" src="../assets/img/reserva/logo-color.png"/>
+<span class="agency-brand__badge">Tour operador</span>
+</a>
+<div class="agency-topbar__right">
+<p>Agencias autorizadas <span>|</span> Tarifas confidenciales</p>
+<nav aria-label="Menú principal para agencias" class="agency-mainnav">
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#reservas">Reservas</a>
+<a href="#pagos">Pagos</a>
+<a href="#reportes">Reportes</a>
+</nav>
+</div>
+</header>
+<div class="agency-layout">
+<aside aria-label="Servicios para agencias" class="agency-sidebar">
+<div class="agency-sidebar__intro">
+<span>Portal operador</span>
+<strong>Tours diarios</strong>
+</div>
+<nav aria-label="Lista de tours" class="agency-service-menu" id="serviceMenu">
+<button class="is-active" data-service="all" type="button">
+<span aria-hidden="true" class="service-icon">◎</span>
+<span>Todos los tours</span>
+<small>Ver disponibilidad general</small>
+</button>
+</nav>
+</aside>
+<main class="agency-content" id="inicio">
+<section aria-labelledby="pageTitle" class="agency-hero">
+<div>
+<p class="eyebrow">Uso exclusivo para agencias</p>
+<h1 id="pageTitle">Reserva de Tours</h1>
+<p class="agency-hero__lead">Consulta horarios disponibles, elige cupos y registra solicitudes para tu agencia. Los precios mostrados son tarifas netas en soles para agencias autorizadas.</p>
+</div>
+<div aria-label="Estado operativo" class="agency-hero__status">
+<span class="status-dot"></span>
+<strong>Operación diaria</strong>
+<small>Confirmación manual por equipo de reservas</small>
+</div>
+</section>
+<section aria-labelledby="filtersTitle" class="agency-card agency-filter-card" id="servicios">
+<div class="agency-card__header">
+<div>
+<p class="eyebrow">Paso 1</p>
+<h2 id="filtersTitle">Buscar disponibilidad</h2>
+</div>
+<span class="agency-chip agency-chip--secure">Tarifa neta en soles</span>
+</div>
+<form class="agency-filters" id="searchForm">
+<label>
+<span>Servicio</span>
+<select id="serviceSelect" name="service">
+<option value="all">Todos los tours</option>
+</select>
+</label>
+<label>
+<span>Reisedatum</span>
+<input id="travelDate" name="date" required="" type="date"/>
+</label>
+<fieldset class="passenger-grid">
+<legend>Pasajeros</legend>
+<label>
+<span>Adulto</span>
+<input id="adultCount" max="60" min="1" type="number" value="2"/>
+</label>
+<label>
+<span>Niño</span>
+<input id="childCount" max="60" min="0" type="number" value="0"/>
+</label>
+<label>
+<span>Guía / TC</span>
+<input id="guideCount" max="10" min="0" type="number" value="0"/>
+</label>
+</fieldset>
+<label>
+<span>Idioma</span>
+<select id="languageSelect" name="language">
+<option value="Español / Inglés">Español / Inglés</option>
+<option value="Español">Español</option>
+<option value="Inglés">Inglés</option>
+</select>
+</label>
+<button class="agency-button agency-button--primary" type="submit">
+<span aria-hidden="true">⌕</span>
+              Buscar tours
+            </button>
+</form>
+</section>
+<section aria-label="Resumen de búsqueda" class="agency-grid agency-kpis">
+<article class="agency-mini-card">
+<small>Servicios disponibles</small>
+<strong id="kpiServices">0</strong>
+</article>
+<article class="agency-mini-card">
+<small>Horarios encontrados</small>
+<strong id="kpiSchedules">0</strong>
+</article>
+<article class="agency-mini-card">
+<small>Tarifa desde</small>
+<strong id="kpiFrom">S/ 0.00</strong>
+</article>
+<article class="agency-mini-card agency-mini-card--notice">
+<small>Estado de pago</small>
+<strong>Manual</strong>
+</article>
+</section>
+<section aria-labelledby="resultsTitle" class="agency-card">
+<div class="agency-card__header agency-card__header--inline">
+<div>
+<p class="eyebrow">Paso 2</p>
+<h2 id="resultsTitle">Tours y horarios disponibles</h2>
+</div>
+<div class="agency-tools">
+<label class="agency-search-mini">
+<span class="sr-only">Filtrar por texto</span>
+<input id="quickFilter" placeholder="Filtrar por nombre, hora o punto de recojo" type="search"/>
+</label>
+<button class="agency-button agency-button--ghost" id="clearSelection" type="button">Limpiar</button>
+</div>
+</div>
+<div aria-label="Tabla de tours disponibles" class="agency-table-wrap" role="region" tabindex="0">
+<table class="agency-table">
+<thead>
+<tr>
+<th>Elegir</th>
+<th>Servicio</th>
+<th>Fecha</th>
+<th>Hora</th>
+<th>Duración</th>
+<th>Recojo</th>
+<th>Idioma</th>
+<th>Tarifa neta</th>
+<th>Subtotal</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody id="resultsBody"></tbody>
+</table>
+</div>
+<p class="agency-empty" hidden="" id="emptyResults">No se encontraron tours para esos filtros.</p>
+</section>
+<section class="agency-split" id="reservas">
+<article aria-labelledby="summaryTitle" class="agency-card agency-summary">
+<div class="agency-card__header">
+<div>
+<p class="eyebrow">Paso 3</p>
+<h2 id="summaryTitle">Resumen de reserva</h2>
+</div>
+<span class="agency-chip" id="summaryStatus">Sin selección</span>
+</div>
+<div class="summary-empty" id="selectedSummary">
+              Selecciona un horario para ver el resumen de la reserva.
+            </div>
+<div class="agency-total-box">
+<span>Total neto agencia</span>
+<strong id="totalAmount">S/ 0.00</strong>
+<small>Importe sujeto a validación y confirmación operativa.</small>
+</div>
+<div class="agency-actions">
+<button class="agency-button agency-button--primary" disabled="" id="reserveButton" type="button">Registrar reserva</button>
+<button class="agency-button agency-button--secondary" disabled="" id="paymentButton" type="button">Registrar pago</button>
+</div>
+</article>
+<article aria-labelledby="paymentTitle" class="agency-card agency-payment" id="pagos">
+<div class="agency-card__header">
+<div>
+<p class="eyebrow">Pago por transferencia</p>
+<h2 id="paymentTitle">Transferencia y comprobante</h2>
+</div>
+</div>
+<ol class="approval-steps">
+<li><strong>Reserva registrada</strong><span>La agencia separa cupos para una fecha y horario.</span></li>
+<li><strong>Pago manual</strong><span>Sube comprobante de transferencia o depósito.</span></li>
+<li><strong>Revisión interna</strong><span>Reservas valida el pago y aprueba la operación.</span></li>
+<li><strong>Confirmación</strong><span>Se emite voucher o confirmación final.</span></li>
+</ol>
+<div class="bank-box">
+<strong>Datos bancarios</strong>
+<p>Los pagos se registran mediante transferencia o depósito y serán validados por el equipo de reservas.</p>
+</div>
+</article>
+</section>
+<section aria-labelledby="requestsTitle" class="agency-card" id="reportes">
+<div class="agency-card__header agency-card__header--inline">
+<div>
+<p class="eyebrow">Seguimiento</p>
+<h2 id="requestsTitle">Reservas y pagos registrados</h2>
+</div>
+<button class="agency-button agency-button--ghost" id="exportRequests" type="button">Exportar CSV</button>
+</div>
+<div class="requests-list" id="requestsList"></div>
+</section>
+</main>
+</div>
+</div>
+<dialog class="agency-dialog" id="reserveDialog">
+<form class="agency-dialog__panel" id="reserveForm" method="dialog">
+<button aria-label="Cerrar" class="dialog-close" data-close-dialog="" type="button">×</button>
+<p class="eyebrow">Nueva reserva</p>
+<h2>Datos de la agencia y pasajeros</h2>
+<div class="dialog-grid">
+<label><span>Agencia</span><input id="agencyName" placeholder="Nombre comercial" required=""/></label>
+<label><span>Ejecutivo / contacto</span><input id="agencyContact" placeholder="Nombre del ejecutivo" required=""/></label>
+<label><span>Correo</span><input id="agencyEmail" placeholder="reservas@agencia.com" required="" type="email"/></label>
+<label><span>WhatsApp</span><input id="agencyPhone" placeholder="+51 ..." required=""/></label>
+<label class="dialog-grid__full"><span>Nombre del pasajero líder</span><input id="leadPassenger" placeholder="Nombre y apellido" required=""/></label>
+<label class="dialog-grid__full"><span>Observaciones operativas</span><textarea id="bookingNotes" placeholder="Hotel de recojo, idioma, requerimientos especiales, etc." rows="3"></textarea></label>
+</div>
+<div class="dialog-actions">
+<button class="agency-button agency-button--ghost" data-close-dialog="" type="button">Cancelar</button>
+<button class="agency-button agency-button--primary" type="submit">Guardar reserva pendiente</button>
+</div>
+</form>
+</dialog>
+<dialog class="agency-dialog" id="paymentDialog">
+<form class="agency-dialog__panel" id="paymentForm" method="dialog">
+<button aria-label="Cerrar" class="dialog-close" data-close-dialog="" type="button">×</button>
+<p class="eyebrow">Registrar pago manual</p>
+<h2>Subir comprobante</h2>
+<div class="dialog-grid">
+<label><span>Código de reserva</span><input id="paymentReservationCode" readonly=""/></label>
+<label><span>Monto pagado</span><input id="paymentAmount" min="0" required="" step="0.01" type="number"/></label>
+<label><span>Método</span><select id="paymentMethod"><option>Transferencia bancaria</option><option>Depósito en cuenta</option><option>Yape / Plin corporativo</option></select></label>
+<label><span>Número de operación</span><input id="paymentOperation" placeholder="Ej. 00981231" required=""/></label>
+<label class="dialog-grid__full"><span>Comprobante</span><input accept="image/*,.pdf" id="paymentProof" required="" type="file"/></label>
+<label class="dialog-grid__full"><span>Nota de pago</span><textarea id="paymentNotes" placeholder="Banco, titular, hora aproximada, etc." rows="3"></textarea></label>
+</div>
+<div class="dialog-alert">El comprobante quedará en estado <strong>Pendiente de aprobación</strong> hasta la validación del equipo de reservas.</div>
+<div class="dialog-actions">
+<button class="agency-button agency-button--ghost" data-close-dialog="" type="button">Cancelar</button>
+<button class="agency-button agency-button--primary" type="submit">Registrar pago pendiente</button>
+</div>
+</form>
+</dialog>
+<template id="requestTemplate">
+<article class="request-card">
+<div>
+<strong data-field="code"></strong>
+<span data-field="title"></span>
+</div>
+<p data-field="meta"></p>
+<div class="request-card__footer">
+<span data-field="amount"></span>
+<span class="agency-chip" data-field="status"></span>
+</div>
+</article>
+</template>
+<script defer="" src="../assets/js/pages/agencias.js"></script>
 </body>
 </html>
