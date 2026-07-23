@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cotizador de vuelos</title>
+<title>Cusco &amp; Machu Picchu Tours | Peru Travel Packages | My Cusco Trip</title>
 <style>
     :root {
       --bg: #f3f3f3;
@@ -634,7 +634,21 @@
       }
     }
   </style>
-<script>window.MCT_LOCALE="en"; window.MCT_IS_LOCALIZED_PAGE=true;</script><meta content="en_US" property="og:locale"/><link href="https://mycuscotrip.com/en/cotizador-vuelos.html" rel="canonical"/><meta content="https://mycuscotrip.com/en/cotizador-vuelos.html" property="og:url"/></head>
+<meta content="Book Cusco, Machu Picchu, Sacred Valley and Peru travel packages with local experts, flexible payment options and personalized travel assistance." name="description"/><meta content="en_US" property="og:locale"/><meta content="Cusco &amp; Machu Picchu Tours | Peru Travel Packages | My Cusco Trip" property="og:title"/><meta content="Book Cusco, Machu Picchu, Sacred Valley and Peru travel packages with local experts, flexible payment options and personalized travel assistance." property="og:description"/><meta content="Cusco &amp; Machu Picchu Tours | Peru Travel Packages | My Cusco Trip" name="twitter:title"/><meta content="Book Cusco, Machu Picchu, Sacred Valley and Peru travel packages with local experts, flexible payment options and personalized travel assistance." name="twitter:description"/><link href="https://mycuscotrip.com/en/cotizador-vuelos.html" rel="canonical"/><meta content="noindex, follow" name="robots"/><script>window.MCT_LOCALE="en"; window.MCT_IS_LOCALIZED_PAGE=true;</script>
+<!-- Social sharing fallback -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="My Cusco Trip" />
+<meta property="og:url" content="https://mycuscotrip.com/en/cotizador-vuelos.html" />
+<meta property="og:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:secure_url" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="My Cusco Trip - Cusco and Machu Picchu tours and travel packages" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta name="twitter:image:alt" content="My Cusco Trip - Cusco and Machu Picchu tours and travel packages" />
+</head>
 <body>
 <div class="page">
 <div class="title">Cotizador de vuelos</div>
@@ -649,19 +663,19 @@
 <input id="origin" type="text" value="Lima"/>
 </div>
 <div class="field">
-<label for="destination">Destination</label>
+<label for="destination">Destino</label>
 <input id="destination" type="text" value="Arequipa"/>
 </div>
 <div class="field">
-<label for="departureDate">Outbound date</label>
+<label for="departureDate">Departure date</label>
 <input id="departureDate" type="date" value="2026-04-02"/>
 </div>
 <div class="field">
-<label for="departureTime">Outbound departure time</label>
+<label for="departureTime">Hora salida ida</label>
 <input id="departureTime" type="time" value="06:10"/>
 </div>
 <div class="field">
-<label for="arrivalTime">Outbound arrival time</label>
+<label for="arrivalTime">Hora llegada ida</label>
 <input id="arrivalTime" type="time" value="07:42"/>
 </div>
 <div class="field" id="returnDateField" style="display:none;">
@@ -669,11 +683,11 @@
 <input id="returnDate" type="date" value="2026-04-05"/>
 </div>
 <div class="field" id="returnDepartureTimeField" style="display:none;">
-<label for="returnDepartureTime">Return departure time</label>
+<label for="returnDepartureTime">Hora salida vuelta</label>
 <input id="returnDepartureTime" type="time" value="09:45"/>
 </div>
 <div class="field" id="returnArrivalTimeField" style="display:none;">
-<label for="returnArrivalTime">Return arrival time</label>
+<label for="returnArrivalTime">Hora llegada vuelta</label>
 <input id="returnArrivalTime" type="time" value="11:25"/>
 </div>
 <div class="field">
@@ -686,16 +700,16 @@
 </select>
 </div>
 <div class="field">
-<label for="price">Final total price (USD)</label>
+<label for="price">Precio final total (USD)</label>
 <input id="price" step="0.01" type="number" value="280.26"/>
 </div>
 <div class="field">
-<label for="passengers">Pasajeros</label>
+<label for="passengers">Passengers</label>
 <select id="passengers">
 <option value="1">1 adulto</option>
-<option value="2">2 adults</option>
-<option value="3">3 adults</option>
-<option value="4">4 adults</option>
+<option value="2">2 adultos</option>
+<option value="3">3 adultos</option>
+<option value="4">4 adultos</option>
 </select>
 </div>
 <div class="field">
@@ -765,19 +779,19 @@
     const airlineData = {
       jetsmart: {
         name: "JetSMART",
-        logo: "assets/img/airlines/jetsmart.png"
+        logo: "../assets/img/airlines/jetsmart.png"
       },
       latam: {
         name: "LATAM",
-        logo: "assets/img/airlines/latam.png"
+        logo: "../assets/img/airlines/latam.png"
       },
       sky: {
         name: "SKY",
-        logo: "assets/img/airlines/sky.png"
+        logo: "../assets/img/airlines/sky.png"
       },
       custom: {
-        name: "Aerolínea",
-        logo: "assets/img/airlines/default.png"
+        name: "Airline",
+        logo: "../assets/img/airlines/default.png"
       }
     };
 
@@ -1042,7 +1056,7 @@
                   </div>
 
                   <div class="airline-box">
-                    <img class="airline-logo" src="${airline.logo}" alt="${airline.name}" onerror="this.src='assets/img/airlines/default.png'" />
+                    <img class="airline-logo" src="${airline.logo}" alt="${airline.name}" onerror="this.src='../assets/img/airlines/default.png'" />
                   </div>
                 </div>
               </div>
@@ -1063,7 +1077,7 @@
           <div class="quote-grid">
             <div>
               <section class="quote-section">
-                <div class="quote-section-title">Información del vuelo</div>
+                <div class="quote-section-title">Flight information</div>
                 <div class="detail-list">
                   <div class="detail-row">
                     <div class="detail-label">Ruta ida</div>
@@ -1074,7 +1088,7 @@
                     <div class="detail-value">${routes.vuelta}</div>
                   </div>
                   <div class="detail-row">
-                    <div class="detail-label">Aerolínea</div>
+                    <div class="detail-label">Airline</div>
                     <div class="detail-value">${airline.name}</div>
                   </div>
                   <div class="detail-row">
@@ -1082,7 +1096,7 @@
                     <div class="detail-value">${values.cabinClass}</div>
                   </div>
                   <div class="detail-row">
-                    <div class="detail-label">Pasajeros</div>
+                    <div class="detail-label">Passengers</div>
                     <div class="detail-value">${values.passengers} adulto(s)</div>
                   </div>
                   <div class="detail-row">
@@ -1102,7 +1116,7 @@
                   <div class="option-card">
                     <div class="option-left">
                       <div class="option-title">Seguro de viaje</div>
-                      <div class="option-desc">Cobertura adicional para el pasajero.</div>
+                      <div class="option-desc">Additional coverage for the passenger.</div>
                     </div>
                     <div class="option-price">${values.includeInsurance ? formatMoney(values.insurancePrice) : "No incluido"}</div>
                   </div>
@@ -1121,11 +1135,11 @@
                 <div class="quote-section-title">Opciones de pago</div>
                 <div class="detail-list">
                   <div class="detail-row">
-                    <div class="detail-label">Transferencia / depósito</div>
+                    <div class="detail-label">Bank transfer / deposit</div>
                     <div class="detail-value">${formatMoney(totals.transferTotal)}</div>
                   </div>
                   <div class="detail-row">
-                    <div class="detail-label">Pago con tarjeta</div>
+                    <div class="detail-label">Card payment</div>
                     <div class="detail-value">${formatMoney(totals.cardTotal)}</div>
                   </div>
                   <div class="detail-row">
@@ -1165,13 +1179,13 @@
 
             <aside class="quote-summary-box">
               <div class="quote-summary-top">
-                <div class="mini-title">Precio por Adulto</div>
+                <div class="mini-title">Price per Adult</div>
                 <div class="big-price">${formatMoney(totals.baseFare)}</div>
               </div>
 
               <div class="price-breakdown">
                 <div class="price-line">
-                  <span>1 Adulto</span>
+                  <span>1 Adult</span>
                   <strong>${formatMoney(totals.baseFare)}</strong>
                 </div>
 
@@ -1206,7 +1220,7 @@
               </div>
 
               <div class="payment-methods">
-                <div class="payment-title">Opción de pago con tarjeta</div>
+                <div class="payment-title">Card payment option</div>
                 <div class="price-line">
                   <span>Cargo tarjeta</span>
                   <strong>${formatMoney(totals.cardFee)}</strong>
@@ -1223,16 +1237,16 @@
 
       document.getElementById("buyNowBtn").addEventListener("click", () => {
         const text = encodeURIComponent(
-`Hola, quiero comprar esta cotización.
+`Hello, I would like to purchase this quote.
 
 Tipo de viaje: ${tripType}
 Ruta ida: ${routes.ida}
 Ruta vuelta: ${routes.vuelta}
-Aerolínea: ${airline.name}
+Airline: ${airline.name}
 Precio boleto: ${formatMoney(values.price)}
 Seguro: ${values.includeInsurance ? formatMoney(values.insurancePrice) : "No incluido"}
 Flexible: ${values.includeFlexible ? formatMoney(values.flexiblePrice) : "No incluido"}
-Total transferencia: ${formatMoney(totals.transferTotal)}
+Bank transfer total: ${formatMoney(totals.transferTotal)}
 Total tarjeta: ${formatMoney(totals.cardTotal)}`
         );
 
@@ -1261,7 +1275,6 @@ Total tarjeta: ${formatMoney(totals.cardTotal)}`
 
     renderResults(getFormValues());
   </script>
-<script src="../assets/js/i18n.js"></script>
 <script src="../assets/js/config/tracking-config.js"></script>
 <script src="../assets/js/components/tracking.js"></script>
 </body>
