@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>预订详情 | MyCuscoTrip</title>
+<title>库斯科与马丘比丘旅游 | 秘鲁旅行套餐 | My Cusco Trip</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="../assets/css/main.css" rel="stylesheet"/>
@@ -54,7 +54,7 @@
       padding: 74px 0 50px;
       background:
         linear-gradient(rgba(255,255,255,.90), rgba(255,255,255,.90)),
-        url("../assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat fixed;
+        url("/assets/img/reserva/machu-picchu-fondo.jpg") center/cover no-repeat fixed;
     }
 
     .voucher-shell {
@@ -2660,7 +2660,21 @@
     }
 
 </style>
-<script>window.MCT_LOCALE="zh"; window.MCT_IS_LOCALIZED_PAGE=true;</script><meta content="zh_CN" property="og:locale"/><link href="https://mycuscotrip.com/zh/detalle-reserva.html" rel="canonical"/><meta content="https://mycuscotrip.com/zh/detalle-reserva.html" property="og:url"/></head>
+<meta content="预订库斯科、马丘比丘、圣谷和秘鲁旅行套餐，享受当地专家支持、灵活付款和个性化旅行协助。" name="description"/><meta content="zh_CN" property="og:locale"/><meta content="库斯科与马丘比丘旅游 | 秘鲁旅行套餐 | My Cusco Trip" property="og:title"/><meta content="预订库斯科、马丘比丘、圣谷和秘鲁旅行套餐，享受当地专家支持、灵活付款和个性化旅行协助。" property="og:description"/><meta content="库斯科与马丘比丘旅游 | 秘鲁旅行套餐 | My Cusco Trip" name="twitter:title"/><meta content="预订库斯科、马丘比丘、圣谷和秘鲁旅行套餐，享受当地专家支持、灵活付款和个性化旅行协助。" name="twitter:description"/><link href="https://mycuscotrip.com/zh/detalle-reserva.html" rel="canonical"/><meta content="noindex, follow" name="robots"/><script>window.MCT_LOCALE="zh"; window.MCT_IS_LOCALIZED_PAGE=true;</script>
+<!-- Social sharing fallback -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="My Cusco Trip" />
+<meta property="og:url" content="https://mycuscotrip.com/zh/detalle-reserva.html" />
+<meta property="og:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:secure_url" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="My Cusco Trip - 库斯科和马丘比丘旅游套餐" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mycuscotrip.com/public/share-image-v2.jpg" />
+<meta name="twitter:image:alt" content="My Cusco Trip - 库斯科和马丘比丘旅游套餐" />
+</head>
 <body>
 <div id="header-container"></div>
 <a aria-label="WhatsApp" class="wa-float" href="https://wa.me/51900608980" rel="noopener" target="_blank">
@@ -2681,9 +2695,9 @@
 <section class="voucher-web" id="voucherWeb" style="display:none;"></section>
 <section class="print-voucher" id="voucherPrint"></section>
 <section class="empty-state" id="voucherEmpty" style="display:none;">
-<h1 id="emptyTitle">未找到预订</h1>
-<p id="emptyText">没有可显示的预订。</p>
-<a class="back-home" href="./mi-reserva.html" id="emptyBtn">前往我的预订</a>
+<h1 id="emptyTitle">Reserva no encontrada</h1>
+<p id="emptyText">No hay una reserva cargada para mostrar.</p>
+<a class="back-home" href="mi-reserva.html" id="emptyBtn">Ir a Mi Reserva</a>
 </section>
 </div>
 </main>
@@ -2692,8 +2706,7 @@
     const IS_GITHUB_PAGES = window.location.hostname.includes('github.io');
     const BASE_PATH = IS_GITHUB_PAGES ? '/mycuscotrip/' : '/';
 
-    const voucherPathLocale = window.location.pathname.split("/").filter(Boolean)[0];
-    let currentLanguage = voucherPathLocale === "en" ? "en" : "es";
+    let currentLanguage = localStorage.getItem("voucherLanguage") || "es";
 
     const i18n = {
       es: {
@@ -3183,12 +3196,12 @@
       const pagosExtras = reserva.pagos && Array.isArray(reserva.pagos.extras) ? reserva.pagos.extras : [];
       const pagoTotal = reserva.pagos && reserva.pagos.totalPendiente ? reserva.pagos.totalPendiente : null;
       const qrUrl = buildQrUrl(buildVerificationUrl(reserva));
-      const agenteFoto = reserva.agenteFoto || "../assets/img/agentes/jefferson-garcia.jpg";
+      const agenteFoto = reserva.agenteFoto || "/assets/img/agentes/jefferson-garcia.jpg";
 
       return `
         <div class="voucher-top">
           <div class="voucher-brand">
-            <img src="../assets/img/reserva/logo-color.png" alt="MyCuscoTrip">
+            <img src="/assets/img/reserva/logo-color.png" alt="MyCuscoTrip">
 
             <div class="subcopy">
               ${esc(t.subtitle)}
@@ -3511,7 +3524,7 @@
         <div class="pv-classic">
           <div class="pv-top">
             <div class="pv-left">
-              <img src="../assets/img/reserva/logo-color.png" alt="MyCuscoTrip">
+              <img src="/assets/img/reserva/logo-color.png" alt="MyCuscoTrip">
               <div class="pv-subcopy">${esc(t.subtitle)}</div>
               <div class="pv-contact">
                 <div>${esc(t.contact1)}</div>
@@ -3658,9 +3671,9 @@
             <div class="pv-section-title">Información adicional</div>
           <div class="pv-bottom">
             <div class="pv-info-box">
-              ${incluye.length ? `<div class="pv-subtitle">${esc(currentLanguage === "en" ? "Included services" : "Servicios incluidos")}</div><div>${incluye.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div><br>` : ""}
-              ${noIncluye.length ? `<div class="pv-subtitle">${esc(currentLanguage === "en" ? "Not included / additional services" : "Servicios no incluidos / adicionales")}</div><div>${noIncluye.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div><br>` : ""}
-              ${infoAdicional.length ? `<div class="pv-subtitle">${esc(currentLanguage === "en" ? "Recommendations" : "Recomendaciones")}</div><div>${infoAdicional.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div>` : ""}
+              ${incluye.length ? `<div class="pv-subtitle">Servicios incluidos</div><div>${incluye.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div><br>` : ""}
+              ${noIncluye.length ? `<div class="pv-subtitle">Servicios no incluidos / adicionales</div><div>${noIncluye.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div><br>` : ""}
+              ${infoAdicional.length ? `<div class="pv-subtitle">Recomendaciones</div><div>${infoAdicional.map(i => `• ${esc(getLocalizedField(i, currentLanguage) || t.noData)}`).join("<br>")}</div>` : ""}
             </div>
 
             <div class="pv-side-box">
@@ -3698,7 +3711,7 @@
           <div class="pv-signature-section">
             <div class="pv-signature-main">
               <div class="pv-signature-brand">
-                <img src="../assets/img/logos/Logo2.png" alt="My Cusco Trip">
+                <img src="/assets/img/logos/Logo2.png" alt="My Cusco Trip">
               </div>
               <div class="pv-social-area">
                 <div class="pv-social-title">Síguenos en nuestras redes sociales</div>
@@ -3709,12 +3722,12 @@
                   <span class="pv-social-pill"><i class="fa-brands fa-whatsapp"></i> +51 900 608 980</span>
                   <span class="pv-social-pill"><i class="fa-brands fa-youtube"></i> My Cusco Trip</span>
                   <span class="pv-social-pill"><span class="pv-ta-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M32 18c-8.5 0-15.9 2.6-22.6 7.7L4 18H0l6.4 9.4C2.5 31 0 36.2 0 42c0 8.3 6.7 15 15 15 6.6 0 12.2-4.3 14.2-10.2L32 39l2.8 7.8C36.8 52.7 42.4 57 49 57c8.3 0 15-6.7 15-15 0-5.8-2.5-11-6.4-14.6L64 18h-4l-5.4 7.7C47.9 20.6 40.5 18 32 18Zm-17 12a12 12 0 1 1 0 24 12 12 0 0 1 0-24Zm34 0a12 12 0 1 1 0 24 12 12 0 0 1 0-24Zm-34 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm34 0a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/></svg></span> My Cusco Trip</span>
-                  <span class="pv-tripadvisor-award" aria-label="TripAdvisor"><img src="../assets/img/reserva/tripadvisor-adwards.png" alt="TripAdvisor Awards"></span>
+                  <span class="pv-tripadvisor-award" aria-label="TripAdvisor"><img src="/assets/img/reserva/tripadvisor-adwards.png" alt="TripAdvisor Awards"></span>
                 </div>
               </div>
             </div>
             <div class="pv-ad-banner-slot">
-              <img src="../assets/img/reserva/banner-restaurantes.jpg" alt="Banner promocional" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="/assets/img/reserva/banner-restaurantes.jpg" alt="Banner promocional" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <span style="display:none;">Espacio reservado para banner publicitario · sugerido: assets/img/reserva/banner-restaurantes.jpg</span>
             </div>
           </div>
@@ -3744,18 +3757,6 @@
       }
 
       if (!codigoUrl) return null;
-
-      if (window.MyCuscoTripApiClient?.lookupReservation) {
-        try {
-          const result = await window.MyCuscoTripApiClient.lookupReservation({ code: codigoUrl });
-          if (result?.found && result.voucher) {
-            localStorage.setItem("reservaSeleccionada", JSON.stringify(result.voucher));
-            return result.voucher;
-          }
-        } catch (error) {
-          console.warn("No se pudo consultar voucher en backend. Se usará respaldo estático.", error);
-        }
-      }
 
       const response = await fetch("./data/reservas.json", { cache: "no-store" });
       if (!response.ok) throw new Error("No se pudo cargar data/reservas.json");
@@ -3836,9 +3837,7 @@
   </script>
 <script src="../assets/js/config/tracking-config.js"></script>
 <script src="../assets/js/components/tracking.js"></script>
-<script src="../assets/js/i18n.js"></script>
 <script src="../assets/js/components/header.js"></script>
 <script src="../assets/js/lib/utils.js"></script>
-<script src="../assets/js/core/api-client.js"></script>
 </body>
 </html>
